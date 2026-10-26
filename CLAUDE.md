@@ -149,6 +149,7 @@ Generate **3 distinct title + thumbnail concepts** per masterclass.
 | Donetsk | [Da-NYETSK] |
 | Luhansk | [Loo-HAANSK] |
 | Crimea | [Kry-MEE-ya] |
+| Zaporizhzhia | [Za-po-RIZH-zhya] |
 
 ## 9. Compliance and ethics guardrails
 
