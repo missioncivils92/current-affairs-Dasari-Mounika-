@@ -4,6 +4,7 @@
 **Release:** Tuesday 27 Oct 2026, 6:00 PM IST (one-time). Regular Sunday 6 PM schedule resumes Sun 1 Nov.
 **Coverage:** Mon 19 – Sun 25 Oct 2026, plus key carry-over from 12–18 Oct
 **Target runtime:** dense week; v1 runs about 25.5 min of narration (3,449 words at 135 wpm), close to the 26-min ceiling. **Trim option:** cut "Last Week in 75 Seconds" and move it to a Short, which brings the video to about 24 min.
+**Format:** voice-only (no on-camera segments). Thumbnails carry the "DECODE UPSC" badge bottom-left.
 **Version:** v1 (Mon 26 Oct; clear the verification log in `01-research-brief.md` §5 before recording)
 
 > Rules: every word spoken is written in full · one primary visual tag per block · phonetic markers on first use · — = beat, ... = pause, **bold** = stress.
@@ -21,9 +22,9 @@
 
 > And here is the strange part... nationally, the monsoon was only about **thirteen** per cent short. On paper — a moderate deficit. On the ground — a drought that has already reached your kitchen... and, this month, the Reserve Bank of India's policy room.
 
-[ON-CAMERA - MOUNIKA] *Direction: medium close-up, direct eye contact, calm but urgent. Slight lean forward on the last line.*
+[VOICE ANCHOR] Decode Desk fades up from the red soil: slow push-in on the open notebook; the words "Pacific → Rayalaseema → Onion → Repo → Internet → Trade" write themselves in yellow ink as each is spoken. Waveform pulses with the voice. *Voice: calm but urgent; lift the energy on "Let's decode."*
 
-> Last week, we follow one chain — from a warm patch of the Pacific Ocean, to a dry field in Rayalaseema [Raa-yaa-la-SEE-ma], to onion prices, to a repo rate hike. Then we turn to a Supreme Court order that says your right to the internet — and your child's — is a fundamental right. And we close with a trade deal that India signed... while keeping one door firmly shut. Let's decode.
+> In this video, we follow one chain — from a warm patch of the Pacific Ocean, to a dry field in Rayalaseema [Raa-yaa-la-SEE-ma], to onion prices, to a repo rate hike. Then we turn to a Supreme Court order that says your right to the internet — and your child's — is a fundamental right. And we close with a trade deal that India signed... while keeping one door firmly shut. Let's decode.
 
 [MUSIC] Signature sting. Title card: "DECODE UPSC · WEEK 43".
 
@@ -153,7 +154,7 @@
 
 ## TRANSITION (target 0:20)
 
-[ON-CAMERA - MOUNIKA] *Direction: shift in energy, a half-smile. Moves from the economy desk to standing.*
+[VOICE ANCHOR] Decode Desk: the camera glides from the notebook to a glowing smartphone lying on the desk; the screen lights up. *Voice: lighter, a smile in the voice, slight pause before "word for word."*
 
 > So far — the weather, the fields, and the price of food. Now let's move from what we eat... to what we scroll. Because this month, the Supreme Court said something about your phone that every aspirant needs to know, word for word.
 
@@ -199,7 +200,7 @@
 
 ### GS-4 lens and way forward
 
-[ON-CAMERA - MOUNIKA] *Direction: slower, reflective. Hold eye contact through the quote.*
+[VOICE ANCHOR] Decode Desk at night: lamp only, the notebook page shows "Paternalism vs Autonomy" as a balance-scale sketch that tips to the centre. *Voice: slower, reflective; let the quote land with a full pause after "confinement."*
 
 > For your ethics paper, this is a beautiful case of paternalism versus autonomy. Blanket bans feel protective. But protection that removes the right to explore... is not protection. It is confinement. The Court's answer is proportionality — safety by design, not prohibition.
 
@@ -282,7 +283,7 @@
 
 [KINETIC MOTION GRAPHIC] Countdown cards, red border, one trap per card, a 3-second timer on each. Card text = the bold phrase.
 
-[ON-CAMERA - MOUNIKA] *Direction: brisk, playful energy, counting on fingers.*
+[VOICE ANCHOR] Decode Desk top-down view: ten index cards fan out, each flipping as its trap is read; a neon counter ticks 1→10. *Voice: brisk and playful, crisp stops between traps.*
 
 > Ten traps. Ten seconds each. Ready?
 
@@ -314,7 +315,7 @@
 
 ## VERDICT & CTA (target 1:15)
 
-[ON-CAMERA - MOUNIKA] *Direction: slow, reflective, direct eye contact. Soft key light. No music for the first two lines, then a low piano bed.*
+[VOICE ANCHOR] Decode Desk, golden-hour light through a window (no person): slow pull-back from the notebook, where the week's chain — Ocean → Field → Onion → Bank → Court → Trade — is joined by one word written last: "RESILIENCE". Waveform glows softly. *Voice: slow, warm, reflective. No music for the first two lines, then a low piano bed.*
 
 > Look at last week as one story. A warm patch of ocean... dries a field in Rayalaseema. That field raises the price of an onion. The onion moves a central bank. And far away from the farms, a court reminds us that even our children have a right to the world that comes through a screen — while a trade deal shows us that openness is strongest when it knows its limits.
 
@@ -353,11 +354,11 @@ Add about 0:30–0:45 for music stings, title cards and on-screen pauses.
 
 ## PACKAGING
 
-| # | Title (45–70 chars) | Thumbnail words (≤3) | Visual conflict | Mounika expression |
+| # | Title (45–70 chars) | Thumbnail words (≤3) | Visual conflict | Hero object, right third (no face) |
 |---|---|---|---|---|
-| A | El Niño Hits Your Wallet: Drought, Onions & the RBI Rate Hike | **EL NIÑO SQUEEZE** | Cracked red earth on the left melting into a rising red price graph and an onion | Concerned, eyebrows raised, looking at the graph |
-| B | Is Internet Now a Fundamental Right? What the Supreme Court Said | **INTERNET = RIGHT?** | A child's hand reaching for a glowing phone, a gavel hovering above | Questioning, slight head tilt |
-| C | Why India Kept Dairy Out of the New Zealand Trade Deal | **DAIRY: OFF LIMITS** | A milk can behind a red barrier, a container ship passing beside it | Firm, arms folded |
+| A | El Niño Hits Your Wallet: Drought, Onions & the RBI Rate Hike | **EL NIÑO SQUEEZE** | Cracked red earth on the left melting into a rising red price graph and an onion | A single cracked onion on parched earth |
+| B | Is Internet Now a Fundamental Right? What the Supreme Court Said | **INTERNET = RIGHT?** | A child's hand reaching for a glowing phone, a gavel hovering above | A glowing smartphone under a gavel |
+| C | Why India Kept Dairy Out of the New Zealand Trade Deal | **DAIRY: OFF LIMITS** | A milk can behind a red barrier, a container ship passing beside it | A steel milk can with a red "X" |
 
 **Recommendation:** A for the main upload (widest hook; links two GS-3 pillars). Test B as the second thumbnail if YouTube's A/B test is available.
 

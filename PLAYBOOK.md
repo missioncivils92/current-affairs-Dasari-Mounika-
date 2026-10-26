@@ -2,7 +2,7 @@
 
 Each week runs from Monday triage to the Sunday 6:00 PM IST upload. Rules, tone and formats are defined in `CLAUDE.md`. This file covers **what to do, when, and who does it**.
 
-**Owners:** **C** = Claude (research, scripts, packaging) · **M** = Mounika (review, recording, on-camera) · **E** = editor (visuals, cut, upload)
+**Owners:** **C** = Claude (research, scripts, packaging) · **M** = Mounika (review, voiceover recording; voice-only, never on camera) · **E** = editor (visuals, cut, upload)
 
 **Week folder:** `weeks/YYYY-Www/`. Create it on Monday by copying the five weekly templates from `templates/`.
 
@@ -17,7 +17,7 @@ Each week runs from Monday triage to the Sunday 6:00 PM IST upload. Rules, tone 
 | Wed | **Pillars locked**; research brief (5-step) started | Short #3 |
 | Thu | Research brief complete + verification log | Short #4 (optional) |
 | Fri | **Master script v1** + visual handoff | Short #5 (optional) |
-| Sat | M review, QC, record VO and on-camera; PDF notes + MCQs | — |
+| Sat | M review, QC, record voiceover; PDF notes + MCQs | — |
 | Sun | Edit lock by 2 PM, packaging, **upload 6:00 PM IST** | — |
 
 ---
@@ -75,11 +75,12 @@ Each week runs from Monday triage to the Sunday 6:00 PM IST upload. Rules, tone 
   - [ ] Every pillar has all 5 steps, at least 3 traps, 4 Mains dimensions, a cited committee or report, a model question and an answer skeleton.
   - [ ] At least 3 GS papers covered across the pillars.
   - [ ] Every block has a visual tag. Every map tag notes "official Survey of India boundaries".
+  - [ ] No on-camera blocks. Direct-address lines use `[VOICE ANCHOR]` with a voice direction. No faces, hands or AI avatars standing in for Mounika.
   - [ ] Phonetic markers on first use. New terms added to the `CLAUDE.md` §8 bank.
   - [ ] Verification log complete. Zero `[VERIFY]` tags remain.
   - [ ] Political claims are attributed. No partisan adjectives.
   - [ ] Exactly one CTA.
-- [ ] **M** Record the voiceover (VO) and on-camera segments. File names: `YYYY-Www_VO_P1.wav`, `YYYY-Www_CAM_open.mp4`, and so on.
+- [ ] **M** Record the voiceover (VO), one WAV file per segment: `YYYY-Www_VO_open.wav`, `YYYY-Www_VO_P1.wav`, and so on. Use the same mic, room and distance every week so the voice sounds identical.
 - [ ] **C** Produce the **PDF notes + MCQs** in `05-weekly-notes-mcq.md`:
   - One page per pillar (anchor, traps, 4 dimensions, Way Forward, Telugu lens).
   - 10 MCQs in UPSC format: multi-statement "How many of the above", assertion–reason, pairs. The answer key and explanations go at the end.
@@ -90,7 +91,7 @@ Each week runs from Monday triage to the Sunday 6:00 PM IST upload. Rules, tone 
 ## Sunday: lock and publish
 
 - [ ] **E** Final cut and edit lock by **2:00 PM IST**. **M** watches it through once.
-- [ ] **M** Pick the final title and thumbnail from the 3 concepts. **E** designs the thumbnail (at most 3 words, top-left, white and yellow).
+- [ ] **M** Pick the final title and thumbnail from the 3 concepts. **E** designs the thumbnail (at most 3 words, top-left, white and yellow; hero object on the right third; "DECODE UPSC" badge; no face).
 - [ ] **E** Upload as scheduled for **6:00 PM IST**. Include the description, chapters, sources, PDF link, end screen (last week's video + playlist) and cards.
 - [ ] **E** Pinned comment: "This week's MCQ challenge" (1 question; answer revealed in Monday's Short #1) + PDF link.
 - [ ] **M** Spend 30–60 minutes replying to comments after publishing.

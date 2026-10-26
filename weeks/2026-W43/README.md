@@ -2,6 +2,7 @@
 
 **Release:** Tue 27 Oct 2026, 6:00 PM IST (one-time). The regular Sunday 6 PM schedule resumes **Sun 1 Nov** (W44).
 **Coverage:** Mon 19 – Sun 25 Oct 2026, plus key carry-over from 12–18 Oct.
+**Format:** voice-only. No on-camera recording.
 
 | File | Status |
 |---|---|
@@ -14,8 +15,8 @@
 |---|---|---|
 | Mon night | M | Read the script aloud once and flag awkward lines |
 | Mon night | C/M | Clear the must-check list below |
-| Tue morning | M | Record the voiceover and on-camera segments |
-| Tue morning | E | Generate hyperframes from the `[HYPERFRAME PROMPT]` tags in the script |
+| Tue morning | M | Record the voiceover only, one WAV per segment (`2026-W43_VO_*.wav`) |
+| Tue morning | E | Generate hyperframes from the `[HYPERFRAME PROMPT]` tags and build the reusable **Decode Desk** loop for the `[VOICE ANCHOR]` blocks |
 | Tue afternoon | E | Edit lock by 3 PM, thumbnail (concept A recommended), upload at 6 PM |
 
 No separate visual-handoff sheet or Shorts pack this week. The tags in the script are the handoff.
