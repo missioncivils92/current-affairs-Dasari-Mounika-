@@ -1,0 +1,117 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500&display=block">
+<style>
+:root{--slate:#1E2228;--deep:#161A1F;--panel:#252B33;--line:#39414C;--ink:#F4F6F8;--mute:#AEB6C2;--y:#F5D300;--red:#E5484D;--teal:#2BB3A3;
+--disp:"Barlow Condensed",Arial,sans-serif;--body:"Source Sans 3",Arial,sans-serif;--mono:"JetBrains Mono",monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--slate)}
+body{font-family:var(--body);color:var(--ink);position:relative}
+#bg{position:absolute;inset:0;background:
+ radial-gradient(1200px 900px at 50% 38%, #262c35 0%, var(--slate) 55%, var(--deep) 100%);}
+#grain{position:absolute;inset:0;opacity:.06;background-image:repeating-linear-gradient(115deg,#fff 0 1px,transparent 1px 6px)}
+#brand{position:absolute;top:150px;left:70px;font-family:var(--disp);font-weight:800;font-size:46px;letter-spacing:.16em;color:var(--y)}
+#brand small{font-family:var(--body);font-weight:600;font-size:26px;letter-spacing:.02em;color:var(--mute);margin-left:14px}
+#topic{position:absolute;top:160px;right:70px;font-family:var(--mono);font-size:24px;color:var(--mute);border:2px solid var(--line);padding:6px 14px;border-radius:8px}
+#section{position:absolute;top:300px;left:70px;font-family:var(--disp);font-weight:700;font-size:44px;letter-spacing:.12em;padding:8px 22px;border-radius:8px;border:3px solid var(--y);color:var(--y);transition:none}
+#section.trap{background:var(--red);border-color:var(--red);color:#fff}
+#section.mains{border-color:var(--teal);color:var(--teal)}
+#stage{position:absolute;left:70px;right:70px;top:420px;height:760px}
+.card{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:26px}
+.value{font-family:var(--disp);font-weight:800;font-size:290px;line-height:.9;color:var(--y);letter-spacing:-.01em}
+.value.small{font-size:150px;line-height:1}
+.label{font-family:var(--body);font-weight:700;font-size:62px;line-height:1.12;max-width:920px}
+.line2{font-family:var(--body);font-weight:600;font-size:52px;color:var(--ink);border-left:8px solid var(--y);padding-left:22px}
+.sub{font-family:var(--body);font-weight:600;font-size:40px;color:var(--mute);line-height:1.25;max-width:900px}
+.chips{display:flex;flex-wrap:wrap;gap:16px}
+.chip{font-family:var(--body);font-weight:700;font-size:40px;padding:10px 22px;border-radius:999px;background:var(--panel);border:2px solid var(--y);color:var(--ink)}
+.title{font-family:var(--disp);font-weight:800;font-size:150px;line-height:.98;letter-spacing:-.005em}
+.title .y{color:var(--y)}
+.tl{display:flex;flex-direction:column;gap:46px}
+.step{border-left:10px solid var(--y);padding-left:30px}
+.step b{display:block;font-family:var(--disp);font-weight:800;font-size:120px;color:var(--y);line-height:1}
+.step span{font-family:var(--body);font-weight:700;font-size:54px;line-height:1.15}
+.duo{display:grid;grid-template-columns:1fr;gap:34px}
+.side{background:var(--panel);border:2px solid var(--line);border-radius:18px;padding:34px 36px}
+.side small{display:block;font-family:var(--disp);font-weight:700;font-size:40px;letter-spacing:.12em;color:var(--y);margin-bottom:10px}
+.side.r small{color:var(--teal)}
+.side div{font-family:var(--body);font-weight:700;font-size:62px;line-height:1.1}
+.trapbox{background:rgba(229,72,77,.12);border:4px solid var(--red);border-radius:22px;padding:50px 44px;display:flex;flex-direction:column;gap:30px}
+.trapbox .big{font-family:var(--disp);font-weight:800;font-size:128px;line-height:1}
+.trapbox .not{font-family:var(--disp);font-weight:800;font-size:110px;color:var(--red);line-height:1}
+.quote{font-family:var(--disp);font-weight:700;font-size:132px;line-height:1.02}
+.by{font-family:var(--body);font-weight:600;font-size:44px;color:var(--mute)}
+.end{align-items:flex-start}
+.end .k{font-family:var(--disp);font-weight:800;font-size:160px;color:var(--y);line-height:.95}
+.end .t{font-family:var(--body);font-weight:700;font-size:60px}
+.end .s{font-family:var(--body);font-weight:600;font-size:44px;color:var(--mute)}
+#cap{position:absolute;left:70px;right:160px;top:1230px;min-height:170px;font-family:var(--body);font-weight:700;font-size:58px;line-height:1.2;color:var(--ink);text-shadow:0 3px 14px rgba(0,0,0,.55)}
+#cap .on{color:var(--y)}
+#cap .past{color:#fff}
+#cap .fut{color:#c9cfd8}
+#wave{position:absolute;left:70px;right:160px;top:1450px;height:110px;display:flex;align-items:center;gap:7px}
+#wave i{flex:1;background:var(--y);border-radius:6px;min-height:6px;opacity:.9}
+#src{position:absolute;left:70px;right:160px;top:1590px;font-family:var(--mono);font-size:22px;color:#7f8996}
+#prog{position:absolute;left:0;top:0;height:8px;background:var(--y)}
+.hide{display:none}
+</style></head>
+<body>
+<div id="bg"></div><div id="grain"></div><div id="prog"></div>
+<div id="brand">DECODE UPSC<small>with Mounika</small></div>
+<div id="topic">IR · GS-2</div>
+<div id="section" class="hide"></div>
+<div id="stage"></div>
+<div id="cap"></div>
+<div id="wave"></div>
+<div id="src">Sources: UN HRMMU · UNHCR · IAEA · DeepState · Kpler · as of Oct 2026</div>
+<script>
+let TL=null; const NB=40;
+const wave=document.getElementById('wave'); for(let i=0;i<NB;i++){wave.appendChild(document.createElement('i'))}
+const bars=[...wave.children];
+function ease(x){x=Math.max(0,Math.min(1,x));return 1-Math.pow(1-x,3)}
+function fmt(n){return n.toLocaleString('en-IN')}
+function vis(t,at,el){ if(at==null) return 1; const k=ease((t-at)/0.35); return k }
+function esc(s){return String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
+function cardHTML(c,t){
+  const lt=t-c.start;
+  const fade=(at)=>{const k=vis(t,at);return `style="opacity:${k};transform:translateY(${(1-k)*34}px)"`};
+  if(c.kind==='title'){
+    const ls=c.lines.map((l,i)=>`<div class="title ${i? 'y':''}" ${fade(c.reveal[i]??c.start)}>${esc(l)}</div>`).join('');
+    return ls+(c.sub?`<div class="sub" ${fade(c.subAt??c.start)}>${esc(c.sub)}</div>`:'');
+  }
+  if(c.kind==='stat'){
+    let v=c.value;
+    if(c.count){const k=ease((t-(c.valueAt??c.start))/0.9); v=(c.prefix||'')+fmt(Math.round(c.count*Math.max(0,k)))+(c.suffix||'')}
+    let h=`<div class="value ${c.small?'small':''}" ${fade(c.valueAt??c.start)}>${esc(v)}</div><div class="label" ${fade((c.valueAt??c.start)+0.15)}>${esc(c.label)}</div>`;
+    if(c.line2) h+=`<div class="line2" ${fade(c.line2At)}>${esc(c.line2)}</div>`;
+    if(c.chips) h+=`<div class="chips">${c.chips.map((x,i)=>`<span class="chip" ${fade(c.chipAt+i*0.35)}>${esc(x)}</span>`).join('')}</div>`;
+    if(c.sub) h+=`<div class="sub" ${fade(c.subAt??(c.start+0.3))}>${esc(c.sub)}</div>`;
+    return h;
+  }
+  if(c.kind==='timeline') return `<div class="tl">${c.steps.map(s=>`<div class="step" ${fade(s[2])}><b>${esc(s[0])}</b><span>${esc(s[1])}</span></div>`).join('')}</div>`;
+  if(c.kind==='duo') return `<div class="duo"><div class="side" ${fade(c.start)}><small>${esc(c.left[0])}</small><div>${esc(c.left[1])}</div></div><div class="side r" ${fade(c.rightAt)}><small>${esc(c.right[0])}</small><div>${esc(c.right[1])}</div></div></div>`;
+  if(c.kind==='trap') return `<div class="trapbox" ${fade(c.start)}><div class="big">${esc(c.big)}</div><div class="not" ${fade(c.notAt)}>${esc(c.notText)}</div></div>`;
+  if(c.kind==='quote') return `<div class="quote" ${fade(c.start)}>${esc(c.quote)}</div><div class="by" ${fade(c.start+0.4)}>— ${esc(c.by)}</div>`;
+  if(c.kind==='end') return `<div class="k" ${fade(c.start)}>Every Sunday<br>6 PM IST</div><div class="t" ${fade(c.start+0.3)}>Full weekly current affairs masterclass</div><div class="s" ${fade(c.start+0.6)}>Decode UPSC with Mounika · UPSC 2027 · APPSC/TGPSC Group-1</div>`;
+  return '';
+}
+const stage=document.getElementById('stage'), sec=document.getElementById('section'), cap=document.getElementById('cap'), prog=document.getElementById('prog');
+window.renderAt=function(t){
+  const c=TL.cards.find(c=>t>=c.start && t<c.end) || TL.cards[TL.cards.length-1];
+  const kIn=ease((t-c.start)/0.35), kOut=Math.min(1,(c.end-t)/0.22);
+  stage.innerHTML=`<div class="card ${c.kind==='end'?'end':''}" style="opacity:${Math.min(kIn*1.2,kOut,1)}">${cardHTML(c,t)}</div>`;
+  if(c.section){sec.classList.remove('hide');sec.textContent=c.section;sec.className=(c.section==='PRELIMS TRAP'?'trap':c.section==='MAINS LINE'?'mains':'')}
+  else sec.className='hide';
+  // captions
+  const p=TL.caps.find(p=>t>=p.s && t<p.e);
+  if(p && c.kind!=='end'){
+    cap.innerHTML=p.w.map(w=>`<span class="${t>=w[1]&&t<w[2]+0.05?'on':(t>=w[2]?'past':'fut')}">${esc(w[0])}</span>`).join(' ');
+  } else cap.innerHTML='';
+  // waveform
+  const f=Math.floor(t*TL.fps);
+  for(let i=0;i<NB;i++){const e=TL.env[Math.max(0,f-(NB-1-i))]||0; const mid=1-Math.abs(i-(NB-1)/2)/((NB-1)/2)*0.35; bars[i].style.height=(6+e*100*mid)+'px'}
+  prog.style.width=(Math.min(1,t/TL.total)*1080)+'px';
+};
+window.loadTL=function(j){TL=j; return document.fonts.ready.then(()=>true)};
+</script>
+</body></html>
