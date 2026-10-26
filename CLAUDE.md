@@ -143,6 +143,12 @@ Generate **3 distinct title + thumbnail concepts** per masterclass.
 | Srikrishna | [Shree-KRISH-na] |
 | BharatNet | [BHAA-rat-net] |
 | Dipole | [DY-pole] |
+| Oleshky | [Oh-LESH-kee] |
+| Dnipro | [DNEE-pro] |
+| Kherson | [Kher-SON] |
+| Donetsk | [Da-NYETSK] |
+| Luhansk | [Loo-HAANSK] |
+| Crimea | [Kry-MEE-ya] |
 
 ## 9. Compliance and ethics guardrails
 
