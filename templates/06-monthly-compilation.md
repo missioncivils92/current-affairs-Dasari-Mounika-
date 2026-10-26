@@ -1,0 +1,36 @@
+# Monthly Compilation — YYYY-MM
+
+**Weeks included:** W__, W__, W__, W__ (W__)
+**Target runtime:** 60–90 min · **Release:** last Sunday / first weekend of next month
+
+## 1. Organise by GS paper (not by week)
+
+| GS paper | Themes this month | Source weeks | Status update since the weekly video (bill passed / judgment / ratified / no change) |
+|---|---|---|---|
+| GS-1 | | | |
+| GS-2 | | | |
+| GS-3 | | | |
+| GS-4 | | | |
+| Telugu States Lens | | | |
+
+## 2. Segment plan
+| Chapter | Content | New narration or reused VO | Est. time |
+|---|---|---|---|
+| Cold open | | New | 1:00 |
+| GS-2 | | | |
+| GS-3 | | | |
+| GS-1 | | | |
+| GS-4 / Ethics cases | | | |
+| Telugu States Lens roundup | | New | |
+| 30-trap rapid-fire | | New | |
+| Verdict & CTA | | New | |
+
+## 3. New linking narration (verbatim)
+> …
+
+## 4. Monthly PDF: 30 MCQs + 5 Mains questions
+- Draw from the weekly banks. Replace any question whose facts have changed.
+
+## 5. Facts re-verified this month
+| Claim | Change? | Source |
+|---|---|---|
