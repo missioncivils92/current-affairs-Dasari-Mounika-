@@ -11,6 +11,8 @@
 | `02b-voiceover-text.md` | **v3 ✅ final: record from this.** Two review rounds applied, about 25.2 min narration |
 | `03b-independent-review-v2.md` | Round-2 review (no factual errors; 17 polish fixes applied in v3) |
 | `03-independent-review.md` | Independent fact-check + aspirant/voice review (fixes approved and applied) |
+| `05-weekly-notes-mcq.md` | Notes + 10 MCQs + 4 Mains questions + MCQ challenge (source) |
+| `2026-W43-Decode-UPSC-Notes.pdf` | **9-page branded PDF**: link it in the description and the pinned comment |
 | `04-shorts-pack.md` | 1 Short (RP Act s.125A), built from the cut section |
 
 ## Fast-track for a Tuesday upload
