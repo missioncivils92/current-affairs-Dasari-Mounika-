@@ -1,9 +1,8 @@
-# Research Brief — Week 2026-W44
+# Research Brief — Week 2026-W43 (special Tuesday edition)
 
-**Release:** Sunday 1 Nov 2026, 6:00 PM IST
-**Nominal coverage:** Mon 26 Oct – Sat 31 Oct 2026
-**Actual news window used:** about 7–26 Oct 2026. This brief was written on Monday 26 Oct, before most of the week had happened, so it uses the latest developments that could be verified. At the Wednesday 28 Oct lock, check whether a new story beats the weakest pillar (see §2 "Swap watch").
-**Pillars locked on:** ___ (Wed) — approved by Mounika: [ ]
+**Release:** Tuesday 27 Oct 2026, 6:00 PM IST (one-time). The regular Sunday schedule resumes Sun 1 Nov.
+**Coverage:** Mon 19 – Sun 25 Oct 2026, plus key carry-over from 12–18 Oct (CPI release, SC internet order, monsoon withdrawal) that drives last week's stories
+**Pillars approved by Mounika:** [ ]
 
 ---
 
@@ -20,7 +19,12 @@
 | 7 | 7 Oct | 2nd India–EFTA Prosperity Summit, New Delhi | India's World | 2 | TEPA | ☑ ☐ ☑ ☐ | Folded into P4 |
 | 8 | 19–20 Oct | SCO Council of Heads of Government, Dushanbe | India's World | 2 | SCO | ☑ ☐ ☐ ☐ | Drop (low depth) |
 | 9 | 8 Oct | India at COP31 (Antalya) pre-talks; adaptation finance | PINA | 3 | UNFCCC, NCQG | ☑ ☑ ☐ ☐ | Hold for COP31 week |
-| 10 | Late Oct (forecast) | Possible Bay of Bengal cyclone (ISRO/IMD outlooks) | Kathmandu Post; IMD ERF | 1, 3 | Cyclone formation, IMD naming | ☑ ☑ ☐ ☑ | **Swap watch** |
+| 10 | Late Oct (forecast) | Possible Bay of Bengal cyclone (ISRO/IMD outlooks) | Kathmandu Post; IMD ERF | 1, 3 | Cyclone formation, IMD naming | ☑ ☑ ☐ ☑ | Carry to W44 |
+| 11 | Order 16 Oct; reported to 19 Oct | SC: private citizens can file complaints for false or concealed info in election affidavits (RP Act s.125A); *Rajkumar Madki v. Dr. Shailendra Beldale*; Justices Dipankar Datta & Sheel Nagu | LiveLaw; Telangana Today; Drishti Judiciary | 2 | RP Act 1951 s.125A (up to 6 months / fine / both); *ADR* (2002), *PUCL* (2003) disclosure line | ☑ ☑ ☑ ☐ | **Rapid round** |
+| 12 | 21–23 Oct | Army Commanders' Conference; Rajnath Singh releases the Land Warfare Doctrine (drones, AI, future warfare) | Newsonair; DD India; Legacy IAS (24 Oct) | 3 | Defence modernisation, jointness | ☑ ☐ ☑ ☐ | **Rapid round** |
+| 13 | 24 Oct | ITBP chief on face-offs at several locations in Arunachal; MEA on LAC patrol patterns | Legacy IAS; Insights (24 Oct) | 2, 3 | LAC, border management | ☑ ☑ ☑ ☐ | Carry to W44 (needs depth) |
+| 14 | 24 Oct | Kerala reissues RTI exemption for VACB confidential sections | Insights (24 Oct) | 2 | RTI Act s.24 | ☑ ☑ ☐ ☐ | Short candidate |
+| 15 | 27 Oct | 20th East Asia Summit, Kuala Lumpur; Jaishankar represents PM | Morung Express listing | 2 | EAS (18 members; India a founder, 2005) | ☑ ☑ ☑ ☐ | **Rapid round** (on upload day) |
 
 ## 2. Pillar shortlist
 
@@ -30,11 +34,11 @@
 | P2 | **The Rate Hike.** Can a repo hike fix onion prices? | GS-3 | RBI Act ss.45ZA/ZB/ZN; FIT; LAF | Medium (rural CPI; Kurnool onion belt) | 4:45 |
 | P3 | **Internet as a Fundamental Right — for children too** | GS-2, GS-4 | Arts 21, 19(1)(a), 21A; *Anuradha Bhasin*; POCSO; DPDP | — | 4:45 |
 | P4 | **India–NZ FTA: trade without dairy** | GS-2, GS-3 | GATT Art XXIV; RCEP exit; FTA map | — | 4:00 |
-| Watchlist | Constitution Bench questions (ECI Act; Art 194) | GS-2 | Art 324, 145(3) | — | 1:00 |
+| Rapid round | Last week in 75 seconds: RP Act s.125A ruling; Land Warfare Doctrine; East Asia Summit (ECI Act kept in the brief, cut from the script for time) | GS-2, GS-3 | RP Act 1951; EAS | — | 1:15 |
 
 GS coverage check: GS-1 ☑ GS-2 ☑ GS-3 ☑ GS-4 ☑ (P3 ethics + verdict)
 
-**Swap watch for Wed lock:** if a Bay of Bengal cyclone makes landfall in AP or Odisha this week, it replaces P4 (P4 moves to W45), and the cyclone gets the Telugu lens. Also watch for a Constitution Bench being formed in the ECI Act case, which would upgrade the watchlist item to a pillar.
+**Carry to W44 (Sun 1 Nov):** a possible Bay of Bengal cyclone (AP/Odisha), the outcome of the East Asia Summit, any Constitution Bench formed in the ECI Act case, Telangana's drought declaration, the COP31 run-up, and LAC face-offs in Arunachal (ITBP).
 
 ---
 
@@ -218,7 +222,15 @@ GS coverage check: GS-1 ☑ GS-2 ☑ GS-3 ☑ GS-4 ☑ (P3 ethics + verdict)
 
 ---
 
-### Watchlist — Constitution Bench questions (60–75 s)
+### Rapid round — Last week in 75 seconds
+
+**RP Act s.125A ruling (16 Oct):** *Rajkumar Madki v. Dr. Shailendra Beldale*, Justices Dipankar Datta & Sheel Nagu. Private individuals can file criminal complaints for false or concealed information in nomination affidavits. The procedural bar requiring a complaint from a public servant (s.195 CrPC; now BNSS) does not apply. Magistrates can dismiss frivolous complaints. The Court upheld the quashing of the specific complaint against the Karnataka MLA on other grounds. **Penalty under s.125A:** imprisonment up to 6 months, or fine, or both. (LiveLaw; Telangana Today; Drishti Judiciary)
+
+**Land Warfare Doctrine:** released by the Defence Minister at the Army Commanders' Conference (21–23 Oct, New Delhi). Focus: the evolving character of warfare, drones, AI and counter-drone capability. (Newsonair; DD India; Legacy IAS 24 Oct roundup) [VERIFY release date: reported due Fri 23 Oct]
+
+**East Asia Summit:** 20th EAS, Kuala Lumpur, 27 Oct. EAM Jaishankar represents the PM. The EAS has 18 members (ASEAN 10 + Australia, China, India, Japan, NZ, ROK, Russia, US); India has been a member since the first summit in 2005. [VERIFY whether Timor-Leste's ASEAN accession changes the count]
+
+#### ECI Act (retained from the earlier watchlist)
 - **CEC & Other ECs (Appointment, Conditions of Service and Term of Office) Act 2023:** on **23 Sep 2026** a two-judge bench split. Justice **Dipankar Datta** held that *Anoop Baranwal* (2023) already lays down the principles; Justice **Satish Chandra Sharma** held that a substantial constitutional question needs at least five judges. The matter is before the CJI for a possible **5-judge bench** and a suggested **permanent Constitution Bench**. Core issue: **Section 7**, the selection committee of the PM, a Cabinet Minister nominated by the PM, and the LoP in the Lok Sabha, with the CJI excluded. (SCC Online; ThePrint) [VERIFY whether a bench has been formed since]
 - **Article 194 privileges vs. Article 19 free speech:** a 7-judge bench was listed from 6 Oct. [VERIFY status]
 - **Anchors:** Art **324(2)** (the President appoints the CEC and ECs, subject to any law made by Parliament); Art **145(3)** (at least 5 judges for a substantial question of constitutional interpretation); *Anoop Baranwal* (Mar 2023) set an interim panel of PM, LoP and CJI until Parliament legislated.
@@ -263,6 +275,9 @@ GS coverage check: GS-1 ☑ GS-2 ☑ GS-3 ☑ GS-4 ☑ (P3 ethics + verdict)
 | India–NZ FTA in force 20 Oct; signed 27 Apr; NZ law 16 Sep | Newkerala; CivilsDaily | ☐ PIB |
 | 70.03% lines; dairy exclusions; TRQs; USD 20 bn | Taxmann; Law.asia; Annapurna Express | ☐ PIB |
 | ECI Act split 23 Sep; Datta vs Sharma | SCC Online; ThePrint | ☑ two sources |
+| s.125A ruling 16 Oct; Datta & Sheel Nagu; penalty 6 months/fine/both | LiveLaw; Telangana Today | ☐ read judgment |
+| Land Warfare Doctrine released ~23 Oct | Newsonair (preview); Legacy IAS (24 Oct) | ☐ confirm release |
+| EAS 27 Oct Kuala Lumpur; Jaishankar; 18 members | Morung Express listing | ☐ MEA release; member count |
 | 8 crore dairy households | — | ☐ verify or drop |
 
 ## 6. Pronunciation additions
@@ -303,4 +318,8 @@ GS coverage check: GS-1 ☑ GS-2 ☑ GS-3 ☑ GS-4 ☑ (P3 ethics + verdict)
 - India's World (Oct outlook): https://indiasworld.in/what-lies-ahead-october-2026/
 - SCC Online (ECI Act split): https://www.scconline.com/blog/post/2026/09/25/sc-constitution-bench-ec-act-challenge/
 - ThePrint (ECI Act split): https://theprint.in/judiciary/sc-bench-split-on-who-should-hear-challenge-to-ec-appointments-law-asks-cji-to-form-5-judge-bench/3050961/
+- LiveLaw (s.125A ruling): https://www.livelaw.in/top-stories/voters-can-file-private-complaints-against-candidates-for-false-affidavits-under-s-125a-of-rp-act-supreme-court-555274
+- Telangana Today (s.125A ruling): https://telanganatoday.com/supreme-court-clarifies-legal-route-for-complaints-against-elected-candidates
+- Newsonair (Land Warfare Doctrine): https://newsonair.gov.in/army-commanders-conference-begins-in-new-delhi-land-warfare-doctrine-to-be-unveiled-friday/
+- Legacy IAS (24 Oct roundup): https://www.legacyias.com/the-hindu-upsc-news-analysis-for-24-october-2026/
 - SC Observer (Art 194 bench): https://www.scobserver.in/reports/seven-judge-bench-to-hear-challenge-on-law-markers-immunity-from-6-october-2026/

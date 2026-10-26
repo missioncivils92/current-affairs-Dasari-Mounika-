@@ -1,9 +1,10 @@
-# Master Script — Week 2026-W44
+# Master Script — Week 2026-W43 (special Tuesday edition)
 
 **Working title:** The El Niño Squeeze — Drought, Onions, the RBI Hike & Your Right to the Internet
-**Release:** Sunday 1 Nov 2026, 6:00 PM IST
-**Target runtime:** dense week; v1 runs about 25.5 min of narration (3,445 words at 135 wpm), close to the 26-min ceiling. **Trim option:** cut the Constitution Watchlist (~1.4 min) and move it to a Short, which brings the video to about 24 min.
-**Version:** v1 (draft written Mon 26 Oct; re-check against the Wed lock and the verification log in `01-research-brief.md` §5)
+**Release:** Tuesday 27 Oct 2026, 6:00 PM IST (one-time). Regular Sunday 6 PM schedule resumes Sun 1 Nov.
+**Coverage:** Mon 19 – Sun 25 Oct 2026, plus key carry-over from 12–18 Oct
+**Target runtime:** dense week; v1 runs about 25.5 min of narration (3,449 words at 135 wpm), close to the 26-min ceiling. **Trim option:** cut "Last Week in 75 Seconds" and move it to a Short, which brings the video to about 24 min.
+**Version:** v1 (Mon 26 Oct; clear the verification log in `01-research-brief.md` §5 before recording)
 
 > Rules: every word spoken is written in full · one primary visual tag per block · phonetic markers on first use · — = beat, ... = pause, **bold** = stress.
 > Lines starting with `>` are spoken. Everything else is direction.
@@ -22,9 +23,9 @@
 
 [ON-CAMERA - MOUNIKA] *Direction: medium close-up, direct eye contact, calm but urgent. Slight lean forward on the last line.*
 
-> This week, we follow one chain — from a warm patch of the Pacific Ocean, to a dry field in Rayalaseema [Raa-yaa-la-SEE-ma], to onion prices, to a repo rate hike. Then we turn to a Supreme Court order that says your right to the internet — and your child's — is a fundamental right. And we close with a trade deal that India signed... while keeping one door firmly shut. Let's decode.
+> Last week, we follow one chain — from a warm patch of the Pacific Ocean, to a dry field in Rayalaseema [Raa-yaa-la-SEE-ma], to onion prices, to a repo rate hike. Then we turn to a Supreme Court order that says your right to the internet — and your child's — is a fundamental right. And we close with a trade deal that India signed... while keeping one door firmly shut. Let's decode.
 
-[MUSIC] Signature sting. Title card: "DECODE UPSC · WEEK 44".
+[MUSIC] Signature sting. Title card: "DECODE UPSC · WEEK 43".
 
 *Segment words: 144 · Running total: 144 · Est. 1.1 min (cum. 1.1 min)*
 
@@ -64,8 +65,6 @@
 
 > Number two — for most disasters, the Ministry of Home Affairs coordinates. But for drought, the nodal ministry is the Ministry of **Agriculture and Farmers Welfare**. UPSC loves this swap.
 
-> Number three — the India Drought Monitor that everyone is quoting is run by IIT Gandhinagar, not by IMD.
-
 ### How drought is declared
 
 [KINETIC MOTION GRAPHIC] Flowchart, left to right: "Rainfall indicators (deviation, SPI, dry spells)" → "Impact indicators (sown area, NDVI/VCI, soil moisture, reservoirs, groundwater)" → "Ground-truth survey" → "State declares: Severe / Moderate" → "Relief: SDRF → NDRF".
@@ -98,7 +97,7 @@
 
 > **Telugu States Lens.** Andhra Pradesh's declaration covers three hundred and eighty-eight mandals — two hundred and eighty-three severe and one hundred and five moderate. Notice how the state assessed it — not on rainfall alone, but on dry spells, reservoir levels, groundwater, soil moisture, sown area and vegetation. That is the 2020 manual in action. Rayalaseema — especially the old Anantapur [A-nun-ta-poor] region — remains the state's most drought-prone belt. Telangana ended the season about seventeen per cent short and is still assessing mandals in the field. For APPSC and TGPSC Group-1 aspirants — this goes straight into your economy and state-geography papers. And if you are writing about Telangana, connect it to Mission Kakatiya [Kaa-ka-TEE-ya] — the state's tank-restoration programme.
 
-*Segment words: 835 · Running total: 979 · Est. 6.2 min (cum. 7.3 min)*
+*Segment words: 816 · Running total: 960 · Est. 6.0 min (cum. 7.1 min)*
 
 ---
 
@@ -148,7 +147,7 @@
 
 > And one line for my Telugu States viewers — Kurnool [Kur-NOOL] is Andhra Pradesh's onion heartland. When onion prices swing, that district feels it first, from both sides.
 
-*Segment words: 634 · Running total: 1613 · Est. 4.7 min (cum. 11.9 min)*
+*Segment words: 634 · Running total: 1594 · Est. 4.7 min (cum. 11.8 min)*
 
 ---
 
@@ -158,7 +157,7 @@
 
 > So far — the weather, the fields, and the price of food. Now let's move from what we eat... to what we scroll. Because this month, the Supreme Court said something about your phone that every aspirant needs to know, word for word.
 
-*Segment words: 43 · Running total: 1656 · Est. 0.3 min (cum. 12.3 min)*
+*Segment words: 43 · Running total: 1637 · Est. 0.3 min (cum. 12.1 min)*
 
 ---
 
@@ -210,7 +209,7 @@
 
 [ON-SCREEN TEXT] "GS-2 · 15 marks — Critically examine how the State can balance child safety with digital freedom in light of the Supreme Court's October 2026 order."
 
-*Segment words: 688 · Running total: 2344 · Est. 5.1 min (cum. 17.4 min)*
+*Segment words: 688 · Running total: 2325 · Est. 5.1 min (cum. 17.2 min)*
 
 ---
 
@@ -254,22 +253,29 @@
 
 [ON-SCREEN TEXT] "GS-2 · 10 marks — India's FTA with New Zealand reflects a shift from defensive to calibrated trade engagement. Discuss with reference to India's withdrawal from RCEP."
 
-*Segment words: 559 · Running total: 2903 · Est. 4.1 min (cum. 21.5 min)*
+*Segment words: 559 · Running total: 2884 · Est. 4.1 min (cum. 21.4 min)*
 
 ---
 
-## CONSTITUTION WATCHLIST (target 1:10)
+## LAST WEEK IN 75 SECONDS (target 1:15)
 
-[KINETIC MOTION GRAPHIC] Slate background, title "CONSTITUTION WATCHLIST". "ARTICLE 324(2)" in neon yellow. Below, a three-seat panel graphic: "PM · Union Minister (nominated by PM) · LoP (Lok Sabha)" with an empty, greyed chair labelled "CJI — excluded".
+[KINETIC MOTION GRAPHIC] Slate background, title "LAST WEEK IN 75 SECONDS". Three tiles flip in one by one: "RP ACT §125A", "LAND WARFARE DOCTRINE", "EAST ASIA SUMMIT".
 
-> Two cases to keep on your radar. First — who should choose India's Election Commissioners? Under the 2023 law, the selection committee is the Prime Minister, a Union Cabinet Minister nominated by the Prime Minister, and the Leader of the Opposition in the Lok Sabha. The Chief Justice is not on it. In September, a two-judge bench split on whether a five-judge Constitution Bench must hear the challenge. Justice Dipankar Datta [Dee-pun-kar DUT-ta] said the Anoop Baranwal judgment of 2023 had already laid down the principles. Justice Satish Chandra Sharma said the question is substantial enough for at least five judges — and the matter has gone to the Chief Justice, along with a suggestion for a **permanent** Constitution Bench.
+> Three quick hits from last week that you cannot skip.
 
-> **Prelims Trap.** Article one-forty-five clause three requires at least five judges for a substantial question of constitutional interpretation. And only the Chief Election Commissioner has removal protection like a Supreme Court judge. The other Election Commissioners can be removed on the Chief Election Commissioner's recommendation.
+[ON-SCREEN TEXT] "Rajkumar Madki v. Shailendra Beldale · SC, 16 Oct 2026 · RP Act 1951, s.125A"
 
-> Second — a seven-judge bench has begun examining whether legislators' privileges under Article one-ninety-four can override free speech under Article nineteen. We will decode both the moment they are decided.
+> One — on the sixteenth of October, a bench of Justices Dipankar Datta [Dee-pun-kar DUT-ta] and Sheel Nagu held that any private citizen can file a criminal complaint against a candidate who hides or falsifies information in the election affidavit, under Section one-twenty-five A of the Representation of the People Act, 1951. Voters do not have to wait for an official or the Election Commission to file it. **Prelims Trap** — the offence carries imprisonment of up to six months, or a fine, or both. And magistrates can still throw out frivolous complaints.
 
-*Segment words: 193 · Running total: 3096 · Est. 1.4 min (cum. 22.9 min)*
+[HYPERFRAME PROMPT] Silhouettes of soldiers and a small quadcopter drone against a high-altitude Himalayan ridge at blue hour, mist in the valleys, cinematic rim light, photorealistic, 8k, 16:9. No identifiable faces, no unit insignia.
 
+> Two — at the Army Commanders' Conference in New Delhi, Defence Minister Rajnath Singh released the Indian Army's new Land Warfare Doctrine, built around the changing character of war — drones, artificial intelligence and future conflict. A ready-made example for your GS-3 answers on security and technology.
+
+[GEOSPATIAL MAP] Southeast Asia and the Indo-Pacific, official Indian boundaries; Kuala Lumpur pinned with "20th EAS · 27 Oct".
+
+> And three — today, the twenty-seventh of October, External Affairs Minister S. Jaishankar represents the Prime Minister at the twentieth East Asia Summit in Kuala Lumpur. Remember — the East Asia Summit has eighteen members, and India has been one since the very first summit in 2005.
+
+*Segment words: 195 · Running total: 3079 · Est. 1.4 min (cum. 22.8 min)*
 ---
 
 ## TRAP VAULT RAPID-FIRE (target 1:30)
@@ -302,7 +308,7 @@
 
 > Screenshot this. It is also in your PDF.
 
-*Segment words: 146 · Running total: 3242 · Est. 1.1 min (cum. 24.0 min)*
+*Segment words: 146 · Running total: 3225 · Est. 1.1 min (cum. 23.9 min)*
 
 ---
 
@@ -310,19 +316,19 @@
 
 [ON-CAMERA - MOUNIKA] *Direction: slow, reflective, direct eye contact. Soft key light. No music for the first two lines, then a low piano bed.*
 
-> Look at this week as one story. A warm patch of ocean... dries a field in Rayalaseema. That field raises the price of an onion. The onion moves a central bank. And far away from the farms, a court reminds us that even our children have a right to the world that comes through a screen — while a trade deal shows us that openness is strongest when it knows its limits.
+> Look at last week as one story. A warm patch of ocean... dries a field in Rayalaseema. That field raises the price of an onion. The onion moves a central bank. And far away from the farms, a court reminds us that even our children have a right to the world that comes through a screen — while a trade deal shows us that openness is strongest when it knows its limits.
 
 > The thread that ties it together is a single word — **resilience**. A State that only reacts to drought will keep paying for it. A central bank that only fights prices will keep chasing them. And a society that only bans what it fears... will never teach its children to navigate it. Governance, at its best, is not about removing risk. It is about building the capacity to absorb it.
 
 > That is the question I want you to carry into your essay paper — and into the service, one day.
 
-> This week's notes — with ten Prelims questions and two Mains questions — are linked in the pinned comment, along with this week's MCQ challenge. Answer it there. I will reveal the answer on Monday.
+> This week's notes — with ten Prelims questions and two Mains questions — are linked in the pinned comment, along with this week's MCQ challenge. Answer it there. I will reveal the answer in this Sunday's video.
 
-> I'm Mounika. See you next Sunday.
+> And from this week, we are back to our regular slot — every Sunday at six in the evening. I'm Mounika. See you on Sunday.
 
 [MUSIC] Signature sting. End screen: last week's masterclass + "Weekly Current Affairs" playlist.
 
-*Segment words: 203 · Running total: 3445 · Est. 1.5 min (cum. 25.5 min)*
+*Segment words: 224 · Running total: 3449 · Est. 1.7 min (cum. 25.5 min)*
 
 ---
 
@@ -331,15 +337,15 @@
 | Segment | Words | Est. min |
 |---|---|---|
 | COLD OPEN (target 0:50) | 144 | 1.1 |
-| PILLAR 1 — THE EL NIÑO DROUGHT (target 5:30) | 835 | 6.2 |
+| PILLAR 1 — THE EL NIÑO DROUGHT (target 5:30) | 816 | 6.0 |
 | PILLAR 2 — THE RATE HIKE (target 4:45) | 634 | 4.7 |
 | TRANSITION (target 0:20) | 43 | 0.3 |
 | PILLAR 3 — INTERNET AS A FUNDAMENTAL RIGHT, FOR CHILDREN TOO (target 4:45) | 688 | 5.1 |
 | PILLAR 4 — INDIA–NEW ZEALAND FTA: TRADE WITHOUT DAIRY (target 4:00) | 559 | 4.1 |
-| CONSTITUTION WATCHLIST (target 1:10) | 193 | 1.4 |
+| LAST WEEK IN 75 SECONDS (target 1:15) | 195 | 1.4 |
 | TRAP VAULT RAPID-FIRE (target 1:30) | 146 | 1.1 |
-| VERDICT & CTA (target 1:15) | 203 | 1.5 |
-| **Total** | **3445** | **25.5** (at 135 wpm; 24.6–26.5 at 140–130 wpm) |
+| VERDICT & CTA (target 1:15) | 224 | 1.7 |
+| **Total** | **3449** | **25.5** (at 135 wpm; 24.6–26.5 at 140–130 wpm) |
 
 Add about 0:30–0:45 for music stings, title cards and on-screen pauses.
 
@@ -357,7 +363,7 @@ Add about 0:30–0:45 for music stings, title cards and on-screen pauses.
 
 **Description draft**
 - **Hook:** A "moderate" 13% monsoon deficit — yet 388 mandals in Andhra Pradesh are in drought, onion prices have doubled, and the RBI has raised rates for the first time since 2023. Plus: the Supreme Court says internet access is a fundamental right, for children too.
-- **Chapters** (fill after edit): 00:00 Cold open · Pillar 1 El Niño drought · Prelims Trap: who declares drought · Telugu States Lens · Pillar 2 RBI rate hike · Pillar 3 Internet as a fundamental right · Pillar 4 India–NZ FTA · Constitution Watchlist · Trap Vault rapid-fire · Verdict
+- **Chapters** (fill after edit): 00:00 Cold open · Pillar 1 El Niño drought · Prelims Trap: who declares drought · Telugu States Lens · Pillar 2 RBI rate hike · Pillar 3 Internet as a fundamental right · Pillar 4 India–NZ FTA · Last week in 75 seconds · Trap Vault rapid-fire · Verdict
 - **Sources:** MoSPI CPI release (Sept 2026); RBI MPC statement & minutes (Oct 2026); IMD; Down To Earth; AP Revenue (DM) Dept; Supreme Court order in Just Rights for Children Alliance v. S. Harish (15 Oct 2026); Ministry of Commerce & Industry.
 - **PDF link:** ___
 - **Hashtags:** #UPSC #UPSC2027 #CurrentAffairs #APPSC #TGPSC #Group1 #ElNino #RBI #FundamentalRights
