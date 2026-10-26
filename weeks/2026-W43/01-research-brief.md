@@ -222,7 +222,9 @@ GS coverage check: GS-1 ☑ GS-2 ☑ GS-3 ☑ GS-4 ☑ (P3 ethics + verdict)
 
 ---
 
-### Rapid round — Last week in 75 seconds
+### Rapid round — Last week in 75 seconds (CUT from the video in v2; the s.125A item became a Short and a bonus trap)
+
+> **Review corrections:** the EAS line was wrong. The 20th EAS in Kuala Lumpur was on **27 Oct 2025**; the **21st EAS** is **16–18 Nov 2026** in the Philippines. The drought manual was first issued in **2009** (revised 2016, updated 2020). The inflation target was renewed on 25 Mar 2026 for 2026–31. The casting vote is s.45ZI. DPDP children's-data duties take effect around May 2027. Add *Pragya Prasun v. UoI* (2025) to the P3 static anchor.
 
 **RP Act s.125A ruling (16 Oct):** *Rajkumar Madki v. Dr. Shailendra Beldale*, Justices Dipankar Datta & Sheel Nagu. Private individuals can file criminal complaints for false or concealed information in nomination affidavits. The procedural bar requiring a complaint from a public servant (s.195 CrPC; now BNSS) does not apply. Magistrates can dismiss frivolous complaints. The Court upheld the quashing of the specific complaint against the Karnataka MLA on other grounds. **Penalty under s.125A:** imprisonment up to 6 months, or fine, or both. (LiveLaw; Telangana Today; Drishti Judiciary)
 

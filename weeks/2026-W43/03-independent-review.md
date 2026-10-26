@@ -5,7 +5,7 @@
 1. **Fact-checker:** re-verified every claim against sources on the web.
 2. **Aspirant / voice-coach / rules reviewer:** judged exam value, how it sounds spoken aloud, and channel-rules compliance.
 
-**Status:** the script has **not** been changed. These fixes are waiting for Mounika's approval.
+**Status:** ✅ Mounika approved "All fixes + cut section". Applied in script/voiceover **v2** (Mon 26 Oct). The cut section became `04-shorts-pack.md`. New runtime: about 24.8 min of narration (3,345 words), about 25.4 min with stings. (The 23.5-min estimate was not reached, because the model questions are now spoken aloud as the rules require.)
 
 ## Verdicts
 | Reviewer | Score / verdict |

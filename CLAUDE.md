@@ -115,6 +115,29 @@ Generate **3 distinct title + thumbnail concepts** per masterclass.
 | Kesavananda Bharati | [Kay-sha-vaa-nun-da Bhaa-ra-tee] |
 | Lithium | [LITH-ee-um] |
 | Vizhinjam | [Vi-zhin-jam] |
+| El Niño | [El NEEN-yo] |
+| kharif | [kha-REEF] |
+| Rayalaseema | [Raa-yaa-la-SEE-ma] |
+| Marathwada | [Ma-raath-WAA-da] |
+| Anantapur | [A-nun-ta-poor] |
+| Kakatiya | [Kaa-ka-TEE-ya] |
+| Kurnool | [Kur-NOOL] |
+| Swaraj Abhiyan | [Swa-RAAJ Ub-hee-YAAN] |
+| Mihir Shah | [Mi-HEER Shaah] |
+| Urjit | [UR-jit] |
+| Pardiwala | [Par-dee-VAA-la] |
+| Puttaswamy | [Put-taa-SWAA-mee] |
+| Anuradha Bhasin | [A-noo-RAA-dha BHAA-sin] |
+| Faheema Shirin | [Fa-HEE-ma Shi-REEN] |
+| POCSO | [POK-so] |
+| PM-WANI | [P-M WAA-nee] |
+| EFTA | [EF-ta] |
+| RCEP | [AR-sep] |
+| GATT / GATS | [GAT] / [GATS] |
+| Liechtenstein | [LIK-ten-shtyne] |
+| Manuka | [MAA-noo-ka] |
+| Dipankar Datta | [Dee-pun-kar DUT-ta] |
+| Sheel Nagu | [Sheel NAA-goo] |
 
 ## 9. Compliance and ethics guardrails
 
