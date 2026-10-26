@@ -7,6 +7,7 @@
 |---|---|
 | `01-research-brief.md` | Done. Verification log §5 has open items |
 | `02-master-script.md` | Done. About 25.5 min of narration (3,449 words) plus about 0:30–0:45 of stings. Packaging included |
+| `02b-voiceover-text.md` | Done. Spoken words only, for recording |
 
 ## Fast-track for a Tuesday upload
 | When | Who | What |
