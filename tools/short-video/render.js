@@ -12,8 +12,8 @@ const V=process.argv[2], mode=process.argv[3];
   } else {
     const N=Math.floor(TL.total*TL.fps);
     const ff=spawn('ffmpeg',['-hide_banner','-loglevel','error','-y','-f','image2pipe','-framerate',String(TL.fps),'-c:v','mjpeg','-i','-',
-      '-i',V+'/vo_clean.wav','-c:v','libx264','-preset','medium','-crf','19','-pix_fmt','yuv420p','-r',String(TL.fps),
-      '-c:a','aac','-b:a','192k','-shortest','-movflags','+faststart',V+'/out.mp4'],{stdio:['pipe','inherit','inherit']});
+      '-i',V+'/vo_clean.wav','-af','apad','-t',String(TL.total),'-c:v','libx264','-preset','medium','-crf','19','-pix_fmt','yuv420p','-r',String(TL.fps),
+      '-c:a','aac','-b:a','192k','-movflags','+faststart',V+'/out.mp4'],{stdio:['pipe','inherit','inherit']});
     for(let f=0;f<N;f++){
       await p.evaluate(t=>window.renderAt(t),f/TL.fps);
       const buf=await p.screenshot({type:'jpeg',quality:92});
