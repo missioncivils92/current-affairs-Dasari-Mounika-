@@ -138,6 +138,11 @@ Generate **3 distinct title + thumbnail concepts** per masterclass.
 | Manuka | [MAA-noo-ka] |
 | Dipankar Datta | [Dee-pun-kar DUT-ta] |
 | Sheel Nagu | [Sheel NAA-goo] |
+| mandal | [MUN-dul] |
+| Pragya Prasun | [PRUG-yaa Pra-SOON] |
+| Srikrishna | [Shree-KRISH-na] |
+| BharatNet | [BHAA-rat-net] |
+| Dipole | [DY-pole] |
 
 ## 9. Compliance and ethics guardrails
 

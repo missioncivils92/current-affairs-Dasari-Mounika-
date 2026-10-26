@@ -2,7 +2,7 @@
 
 **Reviewed:** `02b-voiceover-text.md` v2 (plus on-screen text in `02-master-script.md` and `04-shorts-pack.md`), Mon 26 Oct 2026
 **Method:** two fresh reviewers who did not see the first review.
-**Status:** script **not changed**. Waiting for Mounika's decision.
+**Status:** ✅ Mounika approved "Apply all 17 fixes". Applied in **v3** (Mon 26 Oct). To stay under 26 min, also cut: the Kerala extra trap (the reviewer said it blurs with the 2019 case), "Telangana is still assessing" (unverified) and one commentary line. New runtime: about 25.2 min of narration (3,402 words), about 25.8 min with stings. Optional extra-data points skipped (they need fresh research).
 
 ## Verdicts
 | Reviewer | Round 1 | Round 2 |

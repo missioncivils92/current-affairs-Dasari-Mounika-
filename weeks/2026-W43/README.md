@@ -7,8 +7,9 @@
 | File | Status |
 |---|---|
 | `01-research-brief.md` | Done. Verification log §5 has open items |
-| `02-master-script.md` | v2. About 24.8 min of narration (3,345 words) plus stings, about 25.4 min. Packaging included |
-| `02b-voiceover-text.md` | **v2: record from this.** Spoken words only, all review fixes applied, about 24.8 min |
+| `02-master-script.md` | v3. About 25.2 min narration (3,402 words), about 25.8 min with stings. Packaging included |
+| `02b-voiceover-text.md` | **v3 ✅ final: record from this.** Two review rounds applied, about 25.2 min narration |
+| `03b-independent-review-v2.md` | Round-2 review (no factual errors; 17 polish fixes applied in v3) |
 | `03-independent-review.md` | Independent fact-check + aspirant/voice review (fixes approved and applied) |
 | `04-shorts-pack.md` | 1 Short (RP Act s.125A), built from the cut section |
 
@@ -29,6 +30,9 @@ No separate visual-handoff sheet or Shorts pack this week. The tags in the scrip
 - [ ] s.125A ruling: bench (Datta & Sheel Nagu), date 16 Oct, penalty (up to 6 months / fine / both)
 - [ ] India–NZ FTA figures, from the PIB release
 - [ ] The 70.6% drought-area figure is attributed to Down To Earth in the script; keep the attribution
+
+## PDF note
+The CTA now promises **10 Prelims MCQs + all 4 Mains questions** (P1–P4 practice questions). Build the PDF to match.
 
 ## Carry forward to W44 (Sun 1 Nov, covering Mon 26 – Sat 31 Oct)
 - A possible Bay of Bengal cyclone (AP/Odisha). If it lands, it gets the Telugu States Lens

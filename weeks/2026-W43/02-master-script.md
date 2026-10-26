@@ -3,9 +3,9 @@
 **Working title:** The El Niño Squeeze — Drought, Onions, the RBI Hike & Your Right to the Internet
 **Release:** Tuesday 27 Oct 2026, 6:00 PM IST (one-time). Regular Sunday 6 PM schedule resumes Sun 1 Nov.
 **Coverage:** Mon 19 – Sun 25 Oct 2026, plus key carry-over from 12–18 Oct
-**Target runtime:** about 24.8 min of narration (3,345 words at 135 wpm), about 25.4 min with stings. Under the 26-min ceiling.
+**Target runtime:** about 25.2 min of narration (3,402 words at 135 wpm), about 25.8 min with stings. Under the 26-min ceiling.
 **Format:** voice-only (no on-camera segments). Thumbnails carry the "DECODE UPSC" badge bottom-left.
-**Version:** v2 (Mon 26 Oct). All fixes from `03-independent-review.md` applied; "Last week in 75 seconds" moved to a Short (`04-shorts-pack.md`).
+**Version:** v3 (Mon 26 Oct). Round-2 review fixes (`03b-independent-review-v2.md`) applied on top of v2. All fixes from `03-independent-review.md` applied; "Last week in 75 seconds" moved to a Short (`04-shorts-pack.md`).
 
 > Rules: every word spoken is written in full · one primary visual tag per block · phonetic markers on first use · — = beat, ... = pause, **bold** = stress.
 > Lines starting with `>` are spoken. Everything else is direction.
@@ -16,7 +16,7 @@
 
 [HYPERFRAME PROMPT] Extreme close-up of cracked, sun-baked red soil in a dry paddy field in Anantapur, Andhra Pradesh. A single withered groundnut plant in focus, a dry irrigation tank blurred in the background. Harsh late-afternoon side light, dust in the air, desaturated ochre palette, 35mm lens, photorealistic, 8k, 16:9.
 
-> Three hundred and eighty-eight mandals. These sub-districts of Andhra Pradesh are now officially drought-hit this kharif [kha-REEF] season. That is twenty-one of its twenty-eight districts.
+> Three hundred and eighty-eight mandals [MUN-dulz]. These sub-districts of Andhra Pradesh are now officially drought-hit this kharif [kha-REEF] season. That is twenty-one of its twenty-eight districts.
 
 [KINETIC MOTION GRAPHIC] Slate background. The number "388" slams in, in neon yellow, then shrinks to the top-left as an AP district map fills in red, district by district, until 21 are red. Counter text: "283 SEVERE · 105 MODERATE".
 
@@ -28,7 +28,7 @@
 
 [MUSIC] Signature sting. Title card: "DECODE UPSC · WEEK 43".
 
-*Segment words: 118 · Running total: 118 · Est. 0.9 min (cum. 0.9 min)*
+*Segment words: 119 · Running total: 119 · Est. 0.9 min (cum. 0.9 min)*
 
 ---
 
@@ -38,11 +38,11 @@
 
 [GEOSPATIAL MAP] India, official Survey of India boundaries. Animated monsoon-withdrawal line sweeping south and off the peninsula, timestamp "15 OCT 2026". Then a rainfall-departure choropleth: AP, Telangana, Marathwada, interior Karnataka and Rajasthan in deep brown.
 
-> On the fifteenth of October, the southwest monsoon withdrew from the entire country — about thirteen per cent below its long period average. In 1987 and 2002, two of India's worst drought years, the deficit was about nineteen.
+> On the fifteenth of October, the southwest monsoon withdrew from the entire country — about thirteen per cent below its long period average. In 1987 and 2002, two of India's worst drought years, the deficit was about nineteen per cent.
 
-> But averages hide geography. Marathwada [Ma-raath-WAA-da] was about forty per cent below normal. Andhra Pradesh received barely half its usual rain between June and August — about fifty-three per cent short. IIT Gandhinagar runs the India Drought Monitor. As reported by Down To Earth, at one point this season it showed more than seventy per cent of India's land area as dry or in drought.
+> But averages hide geography. Marathwada [Ma-raath-WAA-da] was more than a third below normal. Andhra Pradesh received less than half its usual rain between June and August — about fifty-three per cent short. IIT Gandhinagar runs the India Drought Monitor. At one point this season, it showed over seventy per cent of India's land as dry or in drought. That is as reported by Down To Earth.
 
-[ON-SCREEN TEXT] "National deficit ≈ 13% · AP (Jun–Aug) ≈ −53% · Marathwada ≈ −40%"
+[ON-SCREEN TEXT] "National deficit ≈ 13% · AP (Jun–Aug) ≈ −53% · Marathwada ≈ −35%"
 
 ### Static anchor
 
@@ -52,7 +52,7 @@
 
 [KINETIC MOTION GRAPHIC] Second panel: Indian Ocean with a warm west pole and a cool east pole. Label "POSITIVE IOD — the counterweight".
 
-> But El Niño is not destiny. The Indian Ocean has its own see-saw — the Indian Ocean Dipole. When the western Indian Ocean is warmer than the eastern side, we call it a positive dipole — and it can cancel out El Niño. That is exactly why 1997, a very strong El Niño year, still gave India near-normal rain.
+> But El Niño is not destiny. The Indian Ocean has its own see-saw — the Indian Ocean Dipole [DY-pole]. When the western Indian Ocean is warmer than the eastern side, we call it a positive dipole — and it can cancel out El Niño. That is exactly why 1997, a very strong El Niño year, still gave India near-normal rain.
 
 [KINETIC MOTION GRAPHIC] Horizontal scale bar labelled "% of LPA": <90 Deficient (red) · 90–95 Below normal · 96–104 Normal · 105–110 Above normal · >110 Excess. A marker slides to 87.
 
@@ -92,15 +92,15 @@
 
 [ON-SCREEN TEXT] "GS-3 · 15 marks — 'A modest national rainfall deficit can conceal a severe regional drought.' Examine with reference to the 2026 monsoon and suggest how drought governance can shift from relief to resilience."
 
-> Here is your practice question. GS-3, fifteen marks. "A modest national rainfall deficit can hide a severe regional drought." Examine this for the 2026 monsoon. Answer in three parts — why averages mislead, where institutions fall short, and what resilience looks like. Pause the video, and write your introduction now.
+> Here is your practice question. GS-3, fifteen marks. "A modest national rainfall deficit can hide a severe regional drought." Examine this for the 2026 monsoon. Open with the contrast — thirteen per cent nationally, fifty-three in Andhra Pradesh. Build the body on three points — why averages mislead, where institutions fall short, and what resilience looks like. Close with the Mihir Shah shift — from dams to demand. Pause the video, and write your introduction now.
 
 ### Telugu States Lens
 
 [GEOSPATIAL MAP] Andhra Pradesh and Telangana, official boundaries. Rayalaseema region outlined in teal; Anantapur and Sri Sathya Sai districts pulse. Telangana shaded lighter with label "−17% · assessment under way". Teal "TELUGU STATES LENS" lower-third.
 
-> **Telugu States Lens.** Of Andhra Pradesh's three hundred and eighty-eight mandals, two hundred and eighty-three are severe. And the state judged them not on rainfall alone, but on dry spells, reservoirs, groundwater, soil moisture and vegetation. That is the 2020 manual in action. Rayalaseema — especially undivided Anantapur [A-nun-ta-poor] district — remains the state's most drought-prone belt. Telangana ended the season about seventeen per cent short. Here is a bonus trap — for a single IMD sub-division, minus seventeen still counts as "normal", because that band runs from minus nineteen to plus nineteen. Telangana is still assessing its mandals. For APPSC and TGPSC Group-1 aspirants — this goes straight into your Mains paper on economy and development. And if you are writing about Telangana, connect it to Mission Kakatiya [Kaa-ka-TEE-ya] — the state's tank-restoration programme.
+> **Telugu States Lens.** Of Andhra Pradesh's three hundred and eighty-eight mandals, two hundred and eighty-three are severe. And the state judged them not on rainfall alone, but on dry spells, reservoirs, groundwater, soil moisture and vegetation. That is the drought manual in action. Rayalaseema — especially undivided Anantapur [A-nun-ta-poor] district — remains the state's most drought-prone belt. Telangana ended the season about seventeen per cent short. Here is a bonus trap. The national scale and the sub-division scale are different. For a sub-division, normal runs from minus nineteen to plus nineteen. So Telangana's minus seventeen... still counts as normal. For APPSC and TGPSC Group-1 aspirants — this goes straight into your Mains paper on economy and development. And if you are writing about Telangana, connect it to Mission Kakatiya [Kaa-ka-TEE-ya] — the state's tank-restoration programme.
 
-*Segment words: 804 · Running total: 922 · Est. 6.0 min (cum. 6.8 min)*
+*Segment words: 834 · Running total: 953 · Est. 6.2 min (cum. 7.1 min)*
 
 ---
 
@@ -110,23 +110,23 @@
 
 [HYPERFRAME PROMPT] Wide cinematic shot of a wholesale onion market at dawn, sacks of red onions stacked high, traders under bare bulbs, a chalkboard price list in the foreground slightly blurred, warm tungsten light against blue dawn sky, shallow depth of field, photorealistic, 8k, 16:9. No identifiable faces.
 
-> From the field to the market. On the twelfth of October, the statistics ministry released September's retail inflation — about five and a half per cent, up from under five in August. Food inflation jumped past seven and a half per cent. And onions — onion prices more than doubled over a year ago.
+> From the field to the market. On the twelfth of October, the statistics ministry released September's retail inflation. It was about five and a half per cent — up from under five in August. Food inflation jumped past seven and a half per cent. And onions? Prices have more than doubled from a year ago.
 
 [KINETIC MOTION GRAPHIC] Line chart: CPI headline Aug 4.83% → Sep 5.54%, food CPI 5.97% → 7.74%. Thin dashed band at 2–6% labelled "Tolerance band". Note in the corner: "New CPI series · Base year 2024".
 
-> Even before that print, the Reserve Bank's Monetary Policy Committee had acted. On the seventh of October, it raised the repo rate by twenty-five basis points — from five point two five to five point five per cent. All six members voted for the hike. It is the first rate increase since February 2023. And it changed its stance to what reports describe as "calibrated tightening" — on a split vote of four to two.
+> Before that print, the Reserve Bank's Monetary Policy Committee had acted. On the seventh of October, it raised the repo rate by twenty-five basis points. The rate went from five point two five to five point five per cent. It is the first rate increase since February 2023. On the rate, the vote was six to nil. On the stance — now "calibrated tightening", as reports describe it — the committee split, four to two.
 
 ### Static anchor
 
 [KINETIC MOTION GRAPHIC] Stylised book cover "RBI Act, 1934 (amended 2016)". Four tabs pop out: "45ZA — Target (4% ± 2, renewed Mar 2026 for 2026–31)", "45ZB — MPC", "45ZI — Casting vote", "45ZN — Failure".
 
-> Let's anchor this — GS-3, monetary policy and inflation. In 2016, Parliament amended the Reserve Bank of India Act of 1934. It created India's flexible inflation targeting framework, following the Urjit [UR-jit] Patel Committee's recommendation of 2014. Three sections matter. Section forty-five Z-A — the inflation target is set by the **Central Government**, in consultation with the RBI, once every five years. The target is four per cent consumer price inflation, with a band of plus or minus two. It was renewed this March for 2026 to 2031. Section forty-five Z-B — the Monetary Policy Committee, with six members. Three come from the RBI, including the Governor as chair. Three are external members appointed by the Centre. If the vote is tied, the Governor has a casting vote. And Section forty-five Z-N — if average inflation stays outside the band for three consecutive quarters, the RBI must write to the government. It must explain why, and what it will do.
+> Let's anchor this — GS-3, monetary policy and inflation. In 2016, Parliament amended the Reserve Bank of India Act of 1934. It created India's flexible inflation targeting framework, following the Urjit [UR-jit] Patel Committee's recommendation of 2014. Three sections matter. Section forty-five Z-A — the inflation target is set by the **Central Government**, in consultation with the RBI, once every five years. The target is four per cent consumer price inflation, with a band of plus or minus two. It was renewed this March for 2026 to 2031. Section forty-five Z-B — the Monetary Policy Committee, with six members. Three come from the RBI, including the Governor as chair. Three are external members appointed by the Centre. And under Section forty-five Z-I — if the vote is tied, the Governor has a casting vote. And Section forty-five Z-N — if average inflation stays outside the band for three consecutive quarters, the RBI must write to the government. It must explain why, and what it will do.
 
 ### Prelims Trap
 
 [KINETIC MOTION GRAPHIC] Red "PRELIMS TRAP" card. Corridor graphic: MSF 5.75% (top) · Repo 5.50% (middle) · SDF 5.25% (floor).
 
-> **Prelims Trap.** One — the RBI does not set the inflation target. The government does. Two — the MPC decides only the policy repo rate. Not CRR, not SLR. Three — the floor of the corridor is no longer the reverse repo. Since 2022 it is the Standing Deposit Facility — now at five point two five per cent. The ceiling is the Marginal Standing Facility, at five point seven five. And four — consumer price inflation is compiled by the National Statistics Office under the statistics ministry. Not by the RBI.
+> **Prelims Trap.** One — the RBI does not set the inflation target. The government does. Two — the MPC decides only the policy repo rate. Not CRR, not SLR. Three — the floor of the corridor is no longer the reverse repo. Since 2022, it has been the Standing Deposit Facility — now at five point two five per cent. The ceiling is the Marginal Standing Facility, at five point seven five. And four — consumer price inflation is compiled by the National Statistics Office under the statistics ministry. Not by the RBI.
 
 ### Mains Lens
 
@@ -136,7 +136,7 @@
 
 > But the costs are real — higher EMIs, costlier credit for small businesses, slower growth. And inflation is a regressive tax. Rural inflation, at about six per cent, is above urban, at under five. The drought is taxing the poorest households twice.
 
-> On security — crude oil and a weaker rupee can import inflation from abroad. And on governance — note the four-to-two split on stance. That is not weakness. That is a committee doing its job in public.
+> On security — crude oil and a weaker rupee can import inflation from abroad. And on governance — note the four-to-two split on stance.
 
 ### Way forward
 
@@ -146,11 +146,11 @@
 
 [ON-SCREEN TEXT] "GS-3 · 10 marks — Can monetary tightening control inflation driven by supply shocks? Discuss with reference to the RBI's October 2026 policy."
 
-> Your practice question — GS-3, ten marks. Can monetary tightening control inflation driven by supply shocks? Three parts — the limits of the rate tool, why the RBI still acted, and the supply-side fixes.
+> Your practice question — GS-3, ten marks. Can monetary tightening control inflation driven by supply shocks? Open with the October hike and the September inflation print. Build the body on the limits of the rate tool, and why the RBI still acted. Close with the supply-side fixes.
 
 > And one line for my Telugu States viewers — Kurnool [Kur-NOOL] is Andhra Pradesh's onion heartland. When onion prices swing, its farmers feel the crash, and its shoppers feel the spike.
 
-*Segment words: 656 · Running total: 1578 · Est. 4.9 min (cum. 11.7 min)*
+*Segment words: 664 · Running total: 1617 · Est. 4.9 min (cum. 12.0 min)*
 
 ---
 
@@ -160,7 +160,7 @@
 
 > So far — the weather, the fields, and the price of food. Now let's move from what we eat... to what we scroll. Because this month, the Supreme Court said something about your phone that every aspirant needs to know — precisely.
 
-*Segment words: 42 · Running total: 1620 · Est. 0.3 min (cum. 12.0 min)*
+*Segment words: 42 · Running total: 1659 · Est. 0.3 min (cum. 12.3 min)*
 
 ---
 
@@ -176,7 +176,7 @@
 
 > And it rejected blanket age-based bans on children using the internet. Instead — proportionate safeguards. Parental consent, a dedicated child mode, private accounts by default. The details are left to the Union government. And the State can still block inherently harmful content, like adult sites.
 
-[KINETIC MOTION GRAPHIC] Checklist animates: "National Hash & URL List Database" · "≥ 3 trained human analysts per entry" · "Immediate takedown" · "Report unknown-origin removals within 2 hours" · "Exemplary fines".
+[KINETIC MOTION GRAPHIC] Checklist animates: "National Hash & URL List Database" · "≥ 3 trained human analysts per entry" · "Immediate takedown" · "Exemplary fines".
 
 > On the abuse material itself, the Court ordered a National Hash and URL List Database. Trained human analysts must check every entry. Matching content must come down immediately. And the Union must consider exemplary fines.
 
@@ -184,15 +184,13 @@
 
 [KINETIC MOTION GRAPHIC] Timeline: "2017 Puttaswamy — Privacy" → "2019 Faheema Shirin (Kerala HC) — Internet & education" → "2020 Anuradha Bhasin — Speech & trade through the internet" → "2024 Just Rights for Children — CSAM under POCSO" → "2025 Pragya Prasun — Digital access under Art 21" → "Oct 2026 — Right to access & use the internet".
 
-> Where does this come from? Follow the timeline. In 2017, Puttaswamy [Put-taa-SWAA-mee] made privacy a fundamental right and gave us the proportionality test. In 2019, the Kerala High Court, in Faheema Shirin [Fa-HEE-ma Shi-REEN], linked internet access to the right to education. In 2020 came Anuradha Bhasin [A-noo-RAA-dha BHAA-sin] — the Jammu and Kashmir shutdown case. It held that speech and trade **through** the internet are protected under Article nineteen. It also said shutdowns must be necessary and proportionate. In September 2024, in this very same case, the Court ruled on abuse material. Viewing or storing it can attract the POCSO [POK-so] Act and the IT Act. The Court also urged Parliament to call it what it is — child sexual exploitation and abuse material. And in 2025, in Pragya Prasun, the Court held that digital access is part of the right to life under Article twenty-one.
+> Where does this come from? Follow the timeline. In 2017, Puttaswamy [Put-taa-SWAA-mee] made privacy a fundamental right and gave us the proportionality test. In 2019, the Kerala High Court, in Faheema Shirin [Fa-HEE-ma Shi-REEN], linked internet access to the right to education. In 2020 came Anuradha Bhasin [A-noo-RAA-dha BHAA-sin] — the Jammu and Kashmir shutdown case. It held that speech and trade **through** the internet are protected under Article nineteen. It also said shutdowns must be necessary and proportionate. In September 2024, in this very same case, the Court ruled on abuse material. Viewing or storing it can attract the POCSO [POK-so] Act and the IT Act. The Court also urged Parliament to call it what it is — child sexual exploitation and abuse material. And in 2025, in Pragya Prasun [PRUG-yaa Pra-SOON], the Court held that digital access is part of the right to life under Article twenty-one.
 
 ### Prelims Trap
 
 [KINETIC MOTION GRAPHIC] Red "PRELIMS TRAP" card.
 
-> **Prelims Trap.** Number one — Anuradha Bhasin did **not** declare internet access itself a fundamental right. It protected expression and trade **through the medium** of the internet under Article nineteen. Number two — a fundamental right to access does not, by itself, mean the State must give everyone free internet. It means the State cannot deny it arbitrarily or in a blanket way. Number three — under the Digital Personal Data Protection Act of 2023, a child means a person below **eighteen** — not sixteen. And number four — the nodal ministry for POCSO is Women and Child Development. The IT Act sits with Electronics and IT.
-
-> One more — Kerala was the first state to announce internet access as a basic right, back in 2017.
+> **Prelims Trap.** Number one — Anuradha Bhasin did **not** declare internet access itself a fundamental right. It protected expression and trade **through the medium** of the internet under Article nineteen. Number two — the order is about access and proportionate safeguards. It does not, by itself, promise free internet to everyone. Number three — under the Digital Personal Data Protection Act of 2023, a child means a person below **eighteen** — not sixteen. And number four — the nodal ministry for POCSO is Women and Child Development. The IT Act sits with Electronics and IT.
 
 ### Mains Lens
 
@@ -208,15 +206,15 @@
 
 [ON-SCREEN TEXT] "Srikrishna Committee (2018) · Safety-by-design · CSEAM · BharatNet & PM-WANI"
 
-> **Write this down.** The Justice B. N. Srikrishna Committee of 2018 — which shaped India's data protection law — proposed special duties for platforms that handle children's data.
+> **Write this down.** The Justice B. N. Srikrishna [Shree-KRISH-na] Committee of 2018 — which shaped India's data protection law — proposed special duties for platforms that handle children's data.
 
-> From there, the way forward has four parts. A safety-by-design code for platforms, instead of blanket bans. Amending POCSO's terminology, as the Court recommended in 2024. Age assurance that protects privacy. And closing the access gap through BharatNet and public Wi-Fi under PM-WANI [P-M WAA-nee]. Because a right without access is only a sentence on paper.
+> From there, the way forward has four parts. A safety-by-design code for platforms, instead of blanket bans. Amending POCSO's terminology, as the Court recommended in 2024. Age assurance that protects privacy. And closing the access gap through BharatNet [BHAA-rat-net] and public Wi-Fi under PM-WANI [P-M WAA-nee]. Because a right without access is only a sentence on paper.
 
 > Your practice question — GS-2, fifteen marks. How can the State balance child safety with digital freedom? Open with the October order. Build the body on proportionality. Close with safety by design.
 
 [ON-SCREEN TEXT] "GS-2 · 15 marks — Critically examine how the State can balance child safety with digital freedom in light of the Supreme Court's October 2026 order."
 
-*Segment words: 734 · Running total: 2354 · Est. 5.4 min (cum. 17.4 min)*
+*Segment words: 704 · Running total: 2363 · Est. 5.2 min (cum. 17.5 min)*
 
 ---
 
@@ -244,25 +242,25 @@
 
 [KINETIC MOTION GRAPHIC] Red "PRELIMS TRAP" card.
 
-> **Prelims Trap.** One — India's trade agreements are negotiated by the Department of Commerce, under the Ministry of Commerce and Industry. Not the External Affairs Ministry. Two — EFTA is **not** part of the European Union. Three — India is not a member of RCEP; New Zealand is. Four — a tariff-rate quota is not a ban. It means a lower duty inside the quota and a higher duty above it. And five — free trade agreements do not violate WTO rules. They are permitted under Article twenty-four of the GATT [GAT] for goods, and Article five of the GATS [GATS] for services.
+> **Prelims Trap.** One — India's trade agreements are negotiated by the Department of Commerce, under the Ministry of Commerce and Industry. Not the External Affairs Ministry. Two — EFTA is **not** part of the European Union. Three — India is not a member of RCEP; New Zealand is. Four — a tariff-rate quota is not a ban. It means a lower duty inside the quota and a higher duty above it. And five — free trade agreements do not violate WTO rules. They are permitted under Article twenty-four of the GATT [GAT] — the goods agreement. And Article five of the GATS — G-A-T-S, the General Agreement on Trade in Services.
 
 ### Mains Lens
 
 [KINETIC MOTION GRAPHIC] Four-quadrant matrix.
 
-> **Mains Lens.** Economically — market access for labour-intensive exports like textiles, engineering goods and pharmaceuticals, plus investment, with low revenue risk because the trade base is small. On governance — agriculture is a State subject, but trade treaties are signed by the Union using executive power, without parliamentary ratification. Is there a case for more parliamentary scrutiny? That is a strong critical point for your answer. On geopolitics — New Zealand is a Pacific partner. Every new agreement signals that India can be relied on after RCEP, and it helps diversify supply chains. And socially — the dairy exclusion protects rural livelihoods and women's incomes.
+> **Mains Lens.** Economically — market access for labour-intensive exports like textiles, engineering goods and pharmaceuticals, plus investment, with low revenue risk because the trade base is small. On governance — agriculture is a State subject, but trade treaties are signed by the Union using executive power, without parliamentary ratification. Is there a case for more parliamentary scrutiny? That is a strong critical point for your answer. On geopolitics — New Zealand is a Pacific partner. The government presents each new agreement as a signal that India can be relied on after RCEP. It also helps diversify supply chains. And socially — the dairy exclusion protects rural livelihoods and women's incomes.
 
 ### Way forward
 
 [ON-SCREEN TEXT] "Guarded openness: red lines + TRQs + minimum import prices · Rules-of-origin help for MSMEs · Pacific outreach"
 
-> **Write this down.** Call this model "guarded openness". Red lines for dairy and sensitive farm goods. Quotas and minimum prices instead of all-or-nothing choices. It answers the very concerns India itself raised when it left RCEP in 2019 — protecting farmers and small industry. The next challenge is using the deal. Small businesses need help with rules of origin to claim the lower duties. Get that right, and this deal becomes a template for the bigger negotiations ahead.
+> **Write this down.** In your answer, you can describe this model as "guarded openness". Red lines for dairy and sensitive farm goods. Quotas and minimum prices instead of all-or-nothing choices. It answers the very concerns India itself raised when it left RCEP in 2019 — protecting farmers and small industry. The next challenge is using the deal. Small businesses need help with rules of origin to claim the lower duties. Get that right, and this deal becomes a template for the bigger negotiations ahead.
 
-> Your practice question — GS-2, ten marks. India's deal with New Zealand shows a shift from defensive to guarded trade engagement — discuss, with reference to RCEP. Three parts — why India left RCEP, how this deal answers those fears, and the risks that remain.
+> Your practice question — GS-2, ten marks. India's deal with New Zealand shows a shift from defensive to guarded trade engagement — discuss, with reference to RCEP. Open with the twentieth of October and the dairy red line. Build the body on why India left RCEP, and how this deal answers those fears. Close with the risks that remain.
 
 [ON-SCREEN TEXT] "GS-2 · 10 marks — India's FTA with New Zealand reflects a shift from defensive to guarded trade engagement. Discuss with reference to India's withdrawal from RCEP."
 
-*Segment words: 576 · Running total: 2930 · Est. 4.3 min (cum. 21.7 min)*
+*Segment words: 610 · Running total: 2973 · Est. 4.5 min (cum. 22.0 min)*
 
 ---
 
@@ -298,7 +296,7 @@
 
 > All of these are in your PDF.
 
-*Segment words: 193 · Running total: 3123 · Est. 1.4 min (cum. 23.1 min)*
+*Segment words: 193 · Running total: 3166 · Est. 1.4 min (cum. 23.5 min)*
 
 ---
 
@@ -310,15 +308,15 @@
 
 > The thread that ties it together is a single word — **resilience**. A State that only reacts to drought will keep paying for it. A central bank that only fights prices will keep chasing them. And a society that only bans what it fears... will never teach its children to navigate it. Governance, at its best, is not about removing risk. It is about building the capacity to absorb it.
 
-> That is the question I want you to carry into your essay paper — and into the service, one day.
+> So here is the question to carry into your essay paper — and into the service, one day... Can we build a State that absorbs shocks — instead of only reacting to them?
 
-> This week's notes — with ten Prelims questions and two Mains questions — are linked in the pinned comment, along with this week's MCQ challenge. Answer it there. I will reveal the answer in this Sunday's video.
+> This week's notes — with ten Prelims questions and all four Mains questions — are linked in the pinned comment, along with this week's MCQ challenge. Answer it there. I will reveal the answer in this Sunday's video.
 
 > And from this week, we are back to our regular slot — every Sunday at six in the evening. I'm Mounika. See you on Sunday.
 
 [MUSIC] Signature sting. End screen: last week's masterclass + "Weekly Current Affairs" playlist.
 
-*Segment words: 222 · Running total: 3345 · Est. 1.6 min (cum. 24.8 min)*
+*Segment words: 236 · Running total: 3402 · Est. 1.7 min (cum. 25.2 min)*
 
 ---
 
@@ -326,15 +324,15 @@
 
 | Segment | Words | Est. min |
 |---|---|---|
-| COLD OPEN (target 0:50) | 118 | 0.9 |
-| PILLAR 1 — THE EL NIÑO DROUGHT (target 5:30) | 804 | 6.0 |
-| PILLAR 2 — THE RATE HIKE (target 4:45) | 656 | 4.9 |
+| COLD OPEN (target 0:50) | 119 | 0.9 |
+| PILLAR 1 — THE EL NIÑO DROUGHT (target 5:30) | 834 | 6.2 |
+| PILLAR 2 — THE RATE HIKE (target 4:45) | 664 | 4.9 |
 | TRANSITION (target 0:20) | 42 | 0.3 |
-| PILLAR 3 — INTERNET AS A FUNDAMENTAL RIGHT, FOR CHILDREN TOO (target 4:45) | 734 | 5.4 |
-| PILLAR 4 — INDIA–NEW ZEALAND FTA: TRADE WITHOUT DAIRY (target 4:00) | 576 | 4.3 |
+| PILLAR 3 — INTERNET AS A FUNDAMENTAL RIGHT, FOR CHILDREN TOO (target 4:45) | 704 | 5.2 |
+| PILLAR 4 — INDIA–NEW ZEALAND FTA: TRADE WITHOUT DAIRY (target 4:00) | 610 | 4.5 |
 | TRAP VAULT RAPID-FIRE (target 1:30) | 193 | 1.4 |
-| VERDICT & CTA (target 1:15) | 222 | 1.6 |
-| **Total** | **3345** | **24.8** (at 135 wpm; 23.9–25.7 at 140–130 wpm) |
+| VERDICT & CTA (target 1:15) | 236 | 1.7 |
+| **Total** | **3402** | **25.2** (at 135 wpm; 24.3–26.2 at 140–130 wpm) |
 
 Add about 0:30–0:45 for music stings, title cards and on-screen pauses.
 
