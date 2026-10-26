@@ -1,21 +1,17 @@
-# Voiceover Text — Week 2026-W43 (special Tuesday edition) · v3 ✅ FINAL FOR RECORDING
+# Voiceover Text — Week 2026-W43 (special Tuesday edition) · v4 ✅ FINAL FOR RECORDING
 
-**Release:** Tue 27 Oct 2026, 6:00 PM IST · **Coverage:** Mon 19 – Sun 25 Oct 2026, with key carry-over from earlier in October
+**Release:** Tuesday 27 Oct 2026, 6:00 PM IST (one-time). Regular Sunday 6 PM schedule resumes Sun 1 Nov.
+**Coverage:** Mon 19 – Sun 25 Oct 2026, with key carry-over from earlier in October (AP drought order 1 Oct, RBI hike 7 Oct, CPI 12 Oct, SC judgment 15 Oct)
 **Format:** voice-only. Everything below is recorded on the microphone; there is no on-camera recording.
-**Version:** v3. Two rounds of independent review applied (`03-independent-review.md`, `03b-independent-review-v2.md`).
-**Total:** 3402 words · about 25.2 min at 135 wpm (24.3–26.2 min at 140–130 wpm)
+**Total:** 3415 words · about 25.3 min at 135 wpm (24.4–26.3 min at 140–130 wpm)
 
 Visual directions for the editor are in `02-master-script.md`.
 
 **Two kinds of blocks (both microphone-only)**
 - **🎙️ NARRATION** — explaining over maps, images and graphics. Steady, clear teaching voice.
-- **💬 TALK TO THE VIEWER** — speaking directly to one aspirant (the hook, transition, rapid-fire, closing). Viewers can't see you, so put the expression into the voice: smile on hooks, slow down on reflective lines, and follow the voice direction next to each one.
+- **💬 TALK TO THE VIEWER** — speaking directly to one aspirant. Viewers can't see you, so put the expression into the voice and follow the voice direction next to each block.
 
-**Reading marks**
-- **— (em-dash)** = a short beat
-- **... (ellipsis)** = a deliberate pause
-- **Bold** = stress this word
-- **[Brackets]** = pronunciation guide. Don't read them aloud.
+**Reading marks:** — short beat · ... deliberate pause · **bold** = stress · [brackets] = pronunciation guide, not read aloud.
 
 **Recording tips**
 - Quiet, soft room, with fans and AC off.
@@ -23,19 +19,18 @@ Visual directions for the editor are in `02-master-script.md`.
 - Record 10 seconds of silence first.
 - One file per segment, using the name under each heading.
 - On a mistake: pause, say "retake", then re-read the whole sentence.
-- Use the same mic, room and distance every week, so your voice always sounds the same.
-- Read the Pillar 3 case timeline a little slower; it is dense by ear.
+- Use the same mic, room and distance every week.
 
 | Segment | Words | Min |
 |---|---|---|
-| COLD OPEN | 119 | 0.9 |
-| PILLAR 1 — THE EL NIÑO DROUGHT | 834 | 6.2 |
-| PILLAR 2 — THE RATE HIKE | 664 | 4.9 |
-| TRANSITION | 42 | 0.3 |
-| PILLAR 3 — INTERNET AS A FUNDAMENTAL RIGHT, FOR CHILDREN TOO | 704 | 5.2 |
-| PILLAR 4 — INDIA–NEW ZEALAND FTA: TRADE WITHOUT DAIRY | 610 | 4.5 |
-| TRAP VAULT RAPID-FIRE | 193 | 1.4 |
-| VERDICT & CTA | 236 | 1.7 |
+| COLD OPEN | 134 | 1.0 |
+| PILLAR 1 — THE EL NIÑO DROUGHT | 841 | 6.2 |
+| PILLAR 2 — THE RATE HIKE | 685 | 5.1 |
+| TRANSITION | 43 | 0.3 |
+| PILLAR 3 — INTERNET AS A FUNDAMENTAL RIGHT, FOR CHILDREN TOO | 701 | 5.2 |
+| PILLAR 4 — INDIA–NEW ZEALAND FTA: TRADE WITHOUT DAIRY | 622 | 4.6 |
+| TRAP VAULT RAPID-FIRE | 154 | 1.1 |
+| VERDICT & CTA | 235 | 1.7 |
 
 ---
 
@@ -51,9 +46,9 @@ And here is the strange part... nationally, the monsoon was only about **thirtee
 
 **💬 TALK TO THE VIEWER — *calm but urgent; lift the energy on "Let's decode."***
 
-In this video, we follow one chain. From a warm patch of the Pacific, to a dry field in Rayalaseema [Raa-yaa-la-SEE-ma], to onion prices, to a repo rate hike. Then — a Supreme Court order on your right to the internet. And a trade deal that keeps one door firmly shut. Let's decode.
+In this video, we follow one chain. From a warm patch of the Pacific, to a dry field in Rayalaseema [Raa-yaa-la-SEE-ma], to onion prices, to a repo rate hike. Then two stories that test the same idea. A Supreme Court judgment on your right to the internet. And a trade deal that keeps one door firmly shut. Stay till the end — ten Prelims traps, rapid-fire. Let's decode.
 
-*Words: 119 · about 0.9 min*
+*Words: 134 · about 1.0 min*
 
 ---
 
@@ -67,7 +62,7 @@ Save as: `2026-W43_VO_P1.wav`
 
 On the fifteenth of October, the southwest monsoon withdrew from the entire country — about thirteen per cent below its long period average. In 1987 and 2002, two of India's worst drought years, the deficit was about nineteen per cent.
 
-But averages hide geography. Marathwada [Ma-raath-WAA-da] was more than a third below normal. Andhra Pradesh received less than half its usual rain between June and August — about fifty-three per cent short. IIT Gandhinagar runs the India Drought Monitor. At one point this season, it showed over seventy per cent of India's land as dry or in drought. That is as reported by Down To Earth.
+But averages hide geography. Marathwada [Ma-raath-WAA-da] was more than a third below normal. Andhra Pradesh received less than half its usual rain between June and August — about fifty-three per cent short. IIT Gandhinagar runs the India Drought Monitor. At one point this season, it showed over seventy per cent of India's land as dry or in drought. That is according to Down To Earth.
 
 **— Static anchor —**
 
@@ -75,7 +70,7 @@ For your syllabus — this is GS-1, the Indian monsoon, and GS-3, disaster manag
 
 But El Niño is not destiny. The Indian Ocean has its own see-saw — the Indian Ocean Dipole [DY-pole]. When the western Indian Ocean is warmer than the eastern side, we call it a positive dipole — and it can cancel out El Niño. That is exactly why 1997, a very strong El Niño year, still gave India near-normal rain.
 
-Now — the classification. The India Meteorological Department calls all-India seasonal rainfall "normal" when it falls between ninety-six and one hundred and four per cent of the long period average. Below ninety per cent is "deficient". So a thirteen per cent shortfall — roughly eighty-seven per cent of the average — is technically a **deficient** monsoon.
+Quick — pause and guess. Is eighty-seven per cent of the average "below normal", or "deficient"? Now — the classification. The India Meteorological Department calls all-India seasonal rainfall "normal" when it falls between ninety-six and one hundred and four per cent of the long period average. Below ninety per cent is "deficient". So a thirteen per cent shortfall — roughly eighty-seven per cent of the average — is technically a **deficient** monsoon.
 
 **— Prelims Trap —**
 
@@ -105,9 +100,9 @@ Here is your practice question. GS-3, fifteen marks. "A modest national rainfall
 
 **— Telugu States Lens —**
 
-**Telugu States Lens.** Of Andhra Pradesh's three hundred and eighty-eight mandals, two hundred and eighty-three are severe. And the state judged them not on rainfall alone, but on dry spells, reservoirs, groundwater, soil moisture and vegetation. That is the drought manual in action. Rayalaseema — especially undivided Anantapur [A-nun-ta-poor] district — remains the state's most drought-prone belt. Telangana ended the season about seventeen per cent short. Here is a bonus trap. The national scale and the sub-division scale are different. For a sub-division, normal runs from minus nineteen to plus nineteen. So Telangana's minus seventeen... still counts as normal. For APPSC and TGPSC Group-1 aspirants — this goes straight into your Mains paper on economy and development. And if you are writing about Telangana, connect it to Mission Kakatiya [Kaa-ka-TEE-ya] — the state's tank-restoration programme.
+**Telugu States Lens.** Of Andhra Pradesh's three hundred and eighty-eight mandals, two hundred and eighty-three are severe. And the state used exactly those indicators — not rainfall alone. That is the drought manual in action. Rayalaseema — especially undivided Anantapur [A-nun-ta-poor] district — remains the state's most drought-prone belt. Telangana ended the season about seventeen per cent short. Here is one more trap. The national scale and the sub-division scale are different. For a sub-division, normal runs from minus nineteen to plus nineteen. So Telangana's minus seventeen... still counts as normal. For APPSC and TGPSC Group-1 aspirants — this goes straight into your Mains paper on economy and development. And if you are writing about Telangana, connect it to Mission Kakatiya [Kaa-ka-TEE-ya] — the state's tank-restoration programme.
 
-*Words: 834 · about 6.2 min*
+*Words: 841 · about 6.2 min*
 
 ---
 
@@ -125,7 +120,7 @@ Before that print, the Reserve Bank's Monetary Policy Committee had acted. On th
 
 **— Static anchor —**
 
-Let's anchor this — GS-3, monetary policy and inflation. In 2016, Parliament amended the Reserve Bank of India Act of 1934. It created India's flexible inflation targeting framework, following the Urjit [UR-jit] Patel Committee's recommendation of 2014. Three sections matter. Section forty-five Z-A — the inflation target is set by the **Central Government**, in consultation with the RBI, once every five years. The target is four per cent consumer price inflation, with a band of plus or minus two. It was renewed this March for 2026 to 2031. Section forty-five Z-B — the Monetary Policy Committee, with six members. Three come from the RBI, including the Governor as chair. Three are external members appointed by the Centre. And under Section forty-five Z-I — if the vote is tied, the Governor has a casting vote. And Section forty-five Z-N — if average inflation stays outside the band for three consecutive quarters, the RBI must write to the government. It must explain why, and what it will do.
+Let's anchor this — GS-3, monetary policy and inflation. In 2016, Parliament amended the Reserve Bank of India Act of 1934. It created India's flexible inflation targeting framework, following the Urjit [UR-jit] Patel Committee's recommendation of 2014. Four sections matter. Section forty-five Z-A — the inflation target is set by the **Central Government**, in consultation with the RBI, once every five years. The target is four per cent consumer price inflation, with a band of plus or minus two. It was renewed this March for 2026 to 2031. Section forty-five Z-B — the Monetary Policy Committee, with six members. Three come from the RBI, including the Governor as chair. Three are external members appointed by the Centre. And under Section forty-five Z-I — if the vote is tied, the Governor has a casting vote. And Section forty-five Z-N — if the RBI fails the target, it must write to the government. It must explain why, and what it will do. The government's notification defines failure — three quarters in a row outside the band.
 
 **— Prelims Trap —**
 
@@ -137,7 +132,7 @@ Let's anchor this — GS-3, monetary policy and inflation. In 2016, Parliament a
 
 But the costs are real — higher EMIs, costlier credit for small businesses, slower growth. And inflation is a regressive tax. Rural inflation, at about six per cent, is above urban, at under five. The drought is taxing the poorest households twice.
 
-On security — crude oil and a weaker rupee can import inflation from abroad. And on governance — note the four-to-two split on stance.
+On security — crude oil and a weaker rupee can import inflation from abroad. And on governance — the four-to-two split on stance shows a committee that debates in the open. That is MPC independence at work.
 
 **— Way forward —**
 
@@ -147,7 +142,7 @@ Your practice question — GS-3, ten marks. Can monetary tightening control infl
 
 And one line for my Telugu States viewers — Kurnool [Kur-NOOL] is Andhra Pradesh's onion heartland. When onion prices swing, its farmers feel the crash, and its shoppers feel the spike.
 
-*Words: 664 · about 4.9 min*
+*Words: 685 · about 5.1 min*
 
 ---
 
@@ -155,11 +150,11 @@ And one line for my Telugu States viewers — Kurnool [Kur-NOOL] is Andhra Prade
 
 Save as: `2026-W43_VO_transition.wav`
 
-**💬 TALK TO THE VIEWER — *lighter, a smile in the voice, slight pause before "precisely."***
+**💬 TALK TO THE VIEWER — *lighter, a smile in the voice, slight pause before "every word of it matters."***
 
-So far — the weather, the fields, and the price of food. Now let's move from what we eat... to what we scroll. Because this month, the Supreme Court said something about your phone that every aspirant needs to know — precisely.
+So far — the weather, the fields, and the price of food. Now let's move from what we eat... to what we scroll. Because this month, the Supreme Court said something about your phone — and for Prelims, every word of it matters.
 
-*Words: 42 · about 0.3 min*
+*Words: 43 · about 0.3 min*
 
 ---
 
@@ -171,11 +166,11 @@ Save as: `2026-W43_VO_P3.wav`
 
 **🎙️ NARRATION**
 
-On the fifteenth of October, a bench of Justices J. B. Pardiwala [Par-dee-VAA-la] and K. Vinod Chandran passed an order in Just Rights for Children Alliance versus S. Harish. The case was about something grim — child sexual abuse material online. But in deciding it, the Court made a big declaration. The right to access and use the internet is a fundamental right of every individual — **including children**. Its basis — Article twenty-one, read with Article nineteen one A. For your syllabus, this is GS-2, Fundamental Rights, with a GS-4 angle.
+On the fifteenth of October, a bench of Justices J. B. Pardiwala [Par-dee-VAA-la] and K. Vinod Chandran delivered a judgment in Just Rights for Children Alliance versus S. Harish. The case was about something grim — child sexual abuse material online. But in deciding it, the Court made a big declaration. The right to access and use the internet is a fundamental right of every individual — **including children**. Its basis — Article twenty-one, read with Article nineteen one A. For your syllabus, this is GS-2, Fundamental Rights, with a GS-4 angle.
 
 And it rejected blanket age-based bans on children using the internet. Instead — proportionate safeguards. Parental consent, a dedicated child mode, private accounts by default. The details are left to the Union government. And the State can still block inherently harmful content, like adult sites.
 
-On the abuse material itself, the Court ordered a National Hash and URL List Database. Trained human analysts must check every entry. Matching content must come down immediately. And the Union must consider exemplary fines.
+On the abuse material itself, the Court ordered a National Hash and URL List Database. Trained human analysts must check every entry. Matching content must be taken down quickly. And the Union must consider exemplary fines.
 
 **— Static anchor —**
 
@@ -183,11 +178,11 @@ Where does this come from? Follow the timeline. In 2017, Puttaswamy [Put-taa-SWA
 
 **— Prelims Trap —**
 
-**Prelims Trap.** Number one — Anuradha Bhasin did **not** declare internet access itself a fundamental right. It protected expression and trade **through the medium** of the internet under Article nineteen. Number two — the order is about access and proportionate safeguards. It does not, by itself, promise free internet to everyone. Number three — under the Digital Personal Data Protection Act of 2023, a child means a person below **eighteen** — not sixteen. And number four — the nodal ministry for POCSO is Women and Child Development. The IT Act sits with Electronics and IT.
+**Prelims Trap.** Number one — Anuradha Bhasin did **not** declare internet access itself a fundamental right. It protected expression and trade **through the medium** of the internet under Article nineteen. Number two — the judgment is about access and proportionate safeguards. It does not, by itself, promise free internet to everyone. Number three — under the Digital Personal Data Protection Act of 2023, a child means a person below **eighteen** — not sixteen. And number four — the nodal ministry for POCSO is Women and Child Development. The IT Act sits with Electronics and IT.
 
 **— Mains Lens —**
 
-**Mains Lens.** Economically — education, welfare payments and UPI all run on internet access, and platforms now face real compliance costs. On governance — notice the tension. The Court sets the principle, but leaves the design to the executive. That is a careful respect for the separation of powers. Now connect it yourself — Section nine of the data protection law requires verifiable parental consent before a child's data is processed. That duty fully takes effect in 2027. The order fits into that architecture. On security — abuse material crosses borders, and hash databases let platforms catch known material automatically. On society — a right means little if a girl in a drought-hit village has no device and no signal. And the Court flagged a privacy risk — age checks that collect sensitive data can create new harms.
+**Mains Lens.** Economically — education, welfare payments and UPI all run on internet access, and platforms now face real compliance costs. On governance — notice the tension. The Court sets the principle, but leaves the design to the executive. That is a careful respect for the separation of powers. Now connect it yourself — Section nine of the data protection law requires verifiable parental consent before a child's data is processed. That duty fully takes effect in 2027. The judgment fits into that architecture. On security — abuse material crosses borders, and hash databases let platforms catch known material automatically. On society — a right means little if a girl in a drought-hit village has no device and no signal. And remember — age checks that collect sensitive data can create new privacy risks.
 
 **— GS-4 lens and way forward —**
 
@@ -199,9 +194,9 @@ For your ethics paper, this is a classic case of paternalism versus autonomy. Bl
 
 From there, the way forward has four parts. A safety-by-design code for platforms, instead of blanket bans. Amending POCSO's terminology, as the Court recommended in 2024. Age assurance that protects privacy. And closing the access gap through BharatNet [BHAA-rat-net] and public Wi-Fi under PM-WANI [P-M WAA-nee]. Because a right without access is only a sentence on paper.
 
-Your practice question — GS-2, fifteen marks. How can the State balance child safety with digital freedom? Open with the October order. Build the body on proportionality. Close with safety by design.
+Your practice question — GS-2, fifteen marks. How can the State balance child safety with digital freedom? Open with the October judgment. Build the body on proportionality. Close with safety by design.
 
-*Words: 704 · about 5.2 min*
+*Words: 701 · about 5.2 min*
 
 ---
 
@@ -215,7 +210,7 @@ Save as: `2026-W43_VO_P4.wav`
 
 On the twentieth of October, India's free trade agreement with New Zealand came into force. It was signed in April, in New Delhi. New Zealand passed its implementing law in September. For your syllabus — GS-2, bilateral relations, and GS-3, trade. Indian exporters now get duty-free access across New Zealand's tariff lines. India, in turn, has offered concessions on about seventy per cent of its own tariff lines. New Zealand has also committed to facilitating around twenty billion US dollars of investment into India.
 
-But the headline is what India kept **out**. Milk, cream, whey, yogurt and cheese — excluded. Onions, chickpeas, peas, almonds and sugar — excluded. Apples, kiwifruit and manuka [MAA-noo-ka] honey come in only within seasonal quotas, with minimum import prices. That protects apple growers in Himachal and Kashmir.
+But the headline is what India kept **out**. Milk, cream, whey, yogurt and cheese — excluded. Onions — yes, the same onion from our second story — chickpeas, peas, almonds and sugar: excluded. Apples, kiwifruit and manuka [MAA-noo-ka] honey get lower duties only within fixed quotas. They also face minimum import prices. That protects apple growers in Himachal and Kashmir.
 
 **— Static anchor —**
 
@@ -237,7 +232,7 @@ It is part of a wider arc — Australia in 2022, and the United Kingdom deal sig
 
 Your practice question — GS-2, ten marks. India's deal with New Zealand shows a shift from defensive to guarded trade engagement — discuss, with reference to RCEP. Open with the twentieth of October and the dairy red line. Build the body on why India left RCEP, and how this deal answers those fears. Close with the risks that remain.
 
-*Words: 610 · about 4.5 min*
+*Words: 622 · about 4.6 min*
 
 ---
 
@@ -247,7 +242,7 @@ Save as: `2026-W43_VO_traps.wav`
 
 **💬 TALK TO THE VIEWER — *brisk and playful, crisp stops between traps.***
 
-Ten traps, plus a bonus. Rapid-fire. Ready?
+Ten traps. Rapid-fire. Ready?
 
 One — who declares drought? Not IMD. The **state government**.
 
@@ -263,17 +258,15 @@ Six — the MPC has **six** members — three of them external.
 
 Seven — the floor of the corridor is the **Standing Deposit Facility**.
 
-Eight — Anuradha Bhasin protected rights **through** the internet. The October 2026 order speaks of the right to access and use it.
+Eight — Anuradha Bhasin protected rights **through** the internet. The October 2026 judgment speaks of the right to access and use it.
 
 Nine — under the data protection law, a child is anyone below **eighteen**.
 
 Ten — EFTA is not in the European Union, and India is **not** in RCEP.
 
-And the bonus — new from the Supreme Court this month. Any citizen can now file a complaint over a false election affidavit, under Section one-twenty-five A of the Representation of the People Act. The penalty — up to **six** months in jail, a fine, or both.
+Every one of these is in your notes — but first, the thread that ties these stories together.
 
-All of these are in your PDF.
-
-*Words: 193 · about 1.4 min*
+*Words: 154 · about 1.1 min*
 
 ---
 
@@ -283,7 +276,7 @@ Save as: `2026-W43_VO_verdict.wav`
 
 **💬 TALK TO THE VIEWER — *slow, warm, reflective. No music for the first two lines, then a low piano bed.***
 
-Look at this month as one story. A warm patch of ocean... dries a field in Rayalaseema. That field raises the price of an onion. The onion moves a central bank. Far away from the farms, a court reminds us that even our children have a right to the world that comes through a screen. And a trade deal shows us that openness is strongest when it knows its limits.
+Look at these four stories as one. A warm patch of ocean... dries a field in Rayalaseema. That field raises the price of an onion. The onion moves a central bank. Far away from the farms, a court reminds us that even our children have a right to the world that comes through a screen. And a trade deal shows us that openness is strongest when it knows its limits.
 
 The thread that ties it together is a single word — **resilience**. A State that only reacts to drought will keep paying for it. A central bank that only fights prices will keep chasing them. And a society that only bans what it fears... will never teach its children to navigate it. Governance, at its best, is not about removing risk. It is about building the capacity to absorb it.
 
@@ -291,6 +284,6 @@ So here is the question to carry into your essay paper — and into the service,
 
 This week's notes — with ten Prelims questions and all four Mains questions — are linked in the pinned comment, along with this week's MCQ challenge. Answer it there. I will reveal the answer in this Sunday's video.
 
-And from this week, we are back to our regular slot — every Sunday at six in the evening. I'm Mounika. See you on Sunday.
+From this Sunday, we are back to our regular slot — every Sunday at six in the evening. I'm Mounika. See you on Sunday.
 
-*Words: 236 · about 1.7 min*
+*Words: 235 · about 1.7 min*

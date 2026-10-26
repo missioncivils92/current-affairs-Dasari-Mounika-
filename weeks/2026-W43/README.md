@@ -7,13 +7,14 @@
 | File | Status |
 |---|---|
 | `01-research-brief.md` | Done. Verification log §5 has open items |
-| `02-master-script.md` | v3. About 25.2 min narration (3,402 words), about 25.8 min with stings. Packaging included |
-| `02b-voiceover-text.md` | **v3 ✅ final: record from this.** Two review rounds applied, about 25.2 min narration |
+| `02-master-script.md` | v4. About 25.3 min narration (3,415 words), about 25.9 min with stings. New packaging (title, description, tags, pinned comment) |
+| `02b-voiceover-text.md` | **v4 ✅ final: record from this.** Three review rounds applied, about 25.3 min narration |
+| `03c-independent-review-v3.md` | Round 3: audio + PDF/MCQ + outreach (all fixes applied) |
 | `03b-independent-review-v2.md` | Round-2 review (no factual errors; 17 polish fixes applied in v3) |
 | `03-independent-review.md` | Independent fact-check + aspirant/voice review (fixes approved and applied) |
 | `05-weekly-notes-mcq.md` | Notes + 10 MCQs + 4 Mains questions + MCQ challenge (source) |
-| `2026-W43-Decode-UPSC-Notes.pdf` | **9-page branded PDF**: link it in the description and the pinned comment |
-| `04-shorts-pack.md` | 1 Short (RP Act s.125A), built from the cut section |
+| `2026-W43-Decode-UPSC-Notes.pdf` | **9-page PDF (rebuilt after round 3)**: link it in description line 2 and the pinned comment |
+| `04-shorts-pack.md` | §125A Short (**publish Mon 2 Nov**, after the MCQ reveal) + 3 more Short ideas |
 
 ## Fast-track for a Tuesday upload
 | When | Who | What |

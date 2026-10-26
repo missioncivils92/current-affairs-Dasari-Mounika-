@@ -8,7 +8,7 @@
 
 ## How to use these notes
 
-- **Read the video first, then these notes.** Each pillar has five parts: Why in news → Static anchor → Prelims traps → Mains dimensions → Way forward.
+- **Watch the video first, then read these notes.** Each pillar has five parts: Why in news → Static anchor → Prelims traps → Mains dimensions → Way forward.
 - **Prelims:** attempt the 10 MCQs *before* checking the answer key at the end.
 - **Mains:** write at least one of the four answers this week, using the skeleton given.
 - Facts are current as of **26 Oct 2026**. Always confirm figures against official sources (IMD, MoSPI, RBI, Supreme Court, PIB) before quoting them in an exam.
@@ -83,7 +83,7 @@
   - Released 12 Oct 2026; new CPI series with **base year 2024**.
 - **RBI MPC (5–7 Oct 2026):** repo rate raised **25 bps, from 5.25% to 5.50%**.
   - The **rate vote was 6–0**.
-  - The stance changed to **"calibrated tightening"** on a **4–2** vote.
+  - The stance moved from neutral to **"calibrated tightening"** (as reported) on a **4–2** vote.
   - **SDF 5.25%, MSF 5.75%.**
   - This is the **first hike since February 2023**.
 
@@ -94,7 +94,7 @@
 | **45ZA** | The **Central Government**, in consultation with the RBI, sets the inflation target every 5 years. The target is **4% CPI ± 2%**, **renewed on 25 Mar 2026 for 2026–31** |
 | **45ZB** | Constitutes the **Monetary Policy Committee**: 6 members, 3 from the RBI (Governor chairs) and 3 external members appointed by the Centre |
 | **45ZI** | MPC meetings and voting. On a **tie, the Governor has a second or casting vote** |
-| **45ZN** | **Failure** = average inflation outside the band for **3 consecutive quarters**. The RBI must report the reasons and remedial action to the government |
+| **45ZN** | If the RBI **fails the target**, it must report the reasons and remedial action to the government. *Failure* is defined by the Centre's 2016 notification as average inflation outside 2–6% for **3 consecutive quarters** |
 
 - **Urjit Patel Committee (2014)** recommended flexible inflation targeting.
 - **Liquidity Adjustment Facility (LAF) corridor:** the floor is the **SDF**, used since 2022 and needing no collateral. The ceiling is the **MSF**.
@@ -127,15 +127,15 @@
 
 **Why in news**
 
-- ***Just Rights for Children Alliance v. S. Harish***, order dated **15 Oct 2026**, by Justices **J.B. Pardiwala and K. Vinod Chandran**.
+- ***Just Rights for Children Alliance v. S. Harish***, judgment dated **15 Oct 2026**, by Justices **J.B. Pardiwala and K. Vinod Chandran**.
 - **Holding:** the right to access and use the internet is a fundamental right of **every individual, including children**, under **Article 21 read with Article 19(1)(a)**.
 - **No blanket age bans.** The Court suggested proportionate safeguards instead: parental consent, a child mode, and private accounts by default. Modalities are left to the Union.
 - The State may still block **inherently harmful content**, such as adult sites.
-- **CSAM directions:**
+- **CSEAM directions:**
   - a **National Hash and URL List Database**, with entries checked by trained human analysts
-  - prompt takedown of matching content
+  - quick takedown of matching content
   - the Union to consider exemplary fines
-- The Court also flagged **privacy risks in age-verification** systems.
+- *Our analysis:* age-verification systems that collect sensitive data can create new **privacy risks**.
 
 **Static anchor: the case timeline**
 
@@ -144,19 +144,19 @@
 | 2017 | *K.S. Puttaswamy* | Privacy is a fundamental right; proportionality test |
 | 2019 | *Faheema Shirin* (Kerala HC) | Internet access linked to the right to education (Art 21) |
 | 2020 | *Anuradha Bhasin* | Speech and trade **through the internet** protected under Art 19(1)(a) and 19(1)(g); shutdowns must be necessary and proportionate |
-| 2024 | *Just Rights for Children Alliance* | Viewing or storing CSAM can attract **POCSO** and the **IT Act**; Court urged the term **CSEAM** |
+| 2024 (Sep) | *Just Rights for Children Alliance* | Viewing or storing CSEAM can attract **POCSO** and the **IT Act**; Court urged the term **CSEAM** |
 | 2025 | *Pragya Prasun v. UoI* | **Digital access** is part of the right to life under **Art 21** |
-| Oct 2026 | *Just Rights for Children Alliance* (order) | Right to **access and use** the internet, including for children |
+| Oct 2026 | *Just Rights for Children Alliance* (judgment) | Right to **access and use** the internet, including for children |
 
 - **DPDP Act, 2023:**
   - A **child is below 18**.
-  - **Section 9** requires verifiable parental consent to process a child's data. This takes full effect around **2027** under the DPDP Rules.
+  - **Section 9** requires verifiable parental consent to process a child's data. This applies from about **May 2027**, 18 months after the DPDP Rules, 2025 were notified.
 - **Nodal ministries:** POCSO is with the **Ministry of Women & Child Development**; the IT Act and DPDP Act are with **MeitY**.
 
 **Prelims traps**
 
 1. ❌ "*Anuradha Bhasin* declared internet access a fundamental right." ✅ It protected rights exercised **through the medium** of the internet.
-2. ❌ "The Oct 2026 order guarantees free internet for all." ✅ It is about **access and proportionate safeguards**. It does not, by itself, promise free internet.
+2. ❌ "The Oct 2026 judgment guarantees free internet for all." ✅ It is about **access and proportionate safeguards**. It does not, by itself, promise free internet.
 3. ❌ "Under the DPDP Act, a child is below 16." ✅ Below **18**.
 4. ❌ "POCSO is administered by MeitY." ✅ By the **Ministry of Women & Child Development**.
 
@@ -164,7 +164,7 @@
 
 | Economic & Fiscal | Governance & Federal | Security & Geopolitics | Socio-Environmental |
 |---|---|---|---|
-| Education, DBT and UPI depend on access; platforms bear compliance costs | The Court sets the principle and leaves design to the executive, respecting the separation of powers. Fits with DPDP s.9 | CSAM crosses borders; hash databases detect known material automatically | Digital divide by gender and geography; age-verification privacy risks |
+| Education, DBT and UPI depend on access; platforms bear compliance costs | The Court sets the principle and leaves design to the executive, respecting the separation of powers. Fits with DPDP s.9 | CSEAM crosses borders; hash databases detect known material automatically | Digital divide by gender and geography; age-verification privacy risks |
 
 **GS-4 lens:** paternalism vs. autonomy. *"Protection that removes the right to explore is not protection — it is confinement."* Prefer proportionality and safety-by-design over prohibition.
 
@@ -186,7 +186,7 @@
 - **Market access:** Indian exports get **duty-free access on all of New Zealand's tariff lines**. India offers concessions on about **70%** of its own lines.
 - New Zealand commits to facilitating about **USD 20 billion** of investment.
 - **Excluded:** milk, cream, whey, yogurt, cheese, onions, chickpeas, peas, almonds, sugar.
-- **Apples, kiwifruit and manuka honey** come in only within **seasonal tariff-rate quotas with minimum import prices**, protecting growers in Himachal and Kashmir.
+- **Apples, kiwifruit and manuka honey** get **lower duties only within fixed tariff-rate quotas**, and face **minimum import prices**. This protects growers in Himachal and Kashmir.
 
 **Static anchor**
 
@@ -233,13 +233,19 @@
 How many of the statements given above are correct?
 
 ::: opts
-(a) Only one &emsp;(b) Only two &emsp;(c) All three &emsp;(d) None
+(a) Only one\
+(b) Only two\
+(c) All three\
+(d) None
 :::
 
 **Q2.** If all-India southwest monsoon rainfall for a season is 87% of the Long Period Average, IMD classifies it as:
 
 ::: opts
-(a) Below normal &emsp;(b) Deficient &emsp;(c) Normal &emsp;(d) Scanty
+(a) Below normal\
+(b) Deficient\
+(c) Normal\
+(d) Scanty
 :::
 
 **Q3.** Consider the following statements:
@@ -265,14 +271,22 @@ Which one of the following is correct in respect of the above statements?
 How many of the statements given above are correct?
 
 ::: opts
-(a) Only one &emsp;(b) Only two &emsp;(c) All three &emsp;(d) None
+(a) Only one\
+(b) Only two\
+(c) All three\
+(d) None
 :::
 
 **Q5.** At present, the floor of the RBI's Liquidity Adjustment Facility corridor is the:
 
 ::: opts
-(a) Reverse repo rate &emsp;(b) Bank rate &emsp;(c) Standing Deposit Facility rate &emsp;(d) Marginal Standing Facility rate
+(a) Reverse repo rate\
+(b) Bank rate\
+(c) Standing Deposit Facility rate\
+(d) Marginal Standing Facility rate
 :::
+
+<div class="pb"></div>
 
 **Q6.** Consider the following pairs:
 
@@ -285,7 +299,10 @@ How many of the statements given above are correct?
 How many of the pairs given above are correctly matched?
 
 ::: opts
-(a) Only one &emsp;(b) Only two &emsp;(c) All three &emsp;(d) None
+(a) Only one\
+(b) Only two\
+(c) All three\
+(d) None
 :::
 
 **Q7.** Consider the following statements:
@@ -311,7 +328,10 @@ Which one of the following is correct in respect of the above statements?
 How many of the statements given above are correct?
 
 ::: opts
-(a) Only one &emsp;(b) Only two &emsp;(c) All three &emsp;(d) None
+(a) Only one\
+(b) Only two\
+(c) All three\
+(d) None
 :::
 
 **Q9.** Consider the following countries:
@@ -325,7 +345,10 @@ How many of the statements given above are correct?
 How many of the above are members of the European Free Trade Association (EFTA)?
 
 ::: opts
-(a) Only two &emsp;(b) Only three &emsp;(c) Only four &emsp;(d) All five
+(a) Only two\
+(b) Only three\
+(c) Only four\
+(d) All five
 :::
 
 **Q10.** Consider the following statements:
@@ -337,7 +360,10 @@ How many of the above are members of the European Free Trade Association (EFTA)?
 How many of the statements given above are correct?
 
 ::: opts
-(a) Only one &emsp;(b) Only two &emsp;(c) All three &emsp;(d) None
+(a) Only one\
+(b) Only two\
+(c) All three\
+(d) None
 :::
 
 ---
@@ -361,8 +387,8 @@ Can monetary tightening control inflation driven by supply shocks? Discuss with 
 **M3. GS-2 · 15 marks · 250 words**
 The Supreme Court has recognised the right to access and use the internet as a fundamental right, including for children, while rejecting blanket age-based bans. Critically examine how the State can balance child safety with digital freedom.
 
-- *Intro:* the 15 Oct 2026 order and the line of cases from *Bhasin* to *Pragya Prasun*.
-- *Body:* rights basis (Arts 21, 19(1)(a)); risks (CSAM, data, online harm); proportionate tools (consent, child mode, hash database, DPDP s.9); separation-of-powers concerns.
+- *Intro:* the 15 Oct 2026 judgment and the line of cases from *Bhasin* to *Pragya Prasun*.
+- *Body:* rights basis (Arts 21, 19(1)(a)); risks (CSEAM, data, online harm); proportionate tools (consent, child mode, hash database, DPDP s.9); separation-of-powers concerns.
 - *Conclusion:* safety-by-design over prohibition; the Srikrishna Committee's approach.
 
 **M4. GS-2 · 10 marks · 150 words**
@@ -414,7 +440,7 @@ The answer is revealed in Sunday's video (1 Nov 2026).
 - MoSPI CPI press release for September 2026 (12 Oct 2026)
 - RBI MPC statement and minutes (Oct 2026), as reported by SCC Online and PSU Connect
 - Department of Economic Affairs inflation target notification (25 Mar 2026)
-- Supreme Court order in *Just Rights for Children Alliance v. S. Harish* (15 Oct 2026), as reported by LiveLaw and Bar & Bench
+- Supreme Court judgment in *Just Rights for Children Alliance v. S. Harish* (15 Oct 2026), as reported by LiveLaw and Bar & Bench
 - Supreme Court judgment in *Rajkumar Madki v. Dr. Shailendra Beldale* (16 Oct 2026), as reported by LiveLaw
 - India–New Zealand FTA coverage from the Ministry of Commerce & Industry, Taxmann and Law.asia
 - RBI Act, 1934
