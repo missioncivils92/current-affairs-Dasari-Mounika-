@@ -2,7 +2,7 @@
 
 **Record:** tonight (Mon 26 Oct) · **Publish:** Tue 27 Oct 2026
 **Save as:** `2026-W43_SHORT_russia_ukraine.wav`
-**Length:** about 60 seconds (151 words at 135 wpm)
+**Length:** about 60 seconds (139 words at 135 wpm)
 **Title:** Russia–Ukraine: why no peace yet? #UPSC #Shorts
 **Version:** v2. Re-researched and fact-checked by a separate review session (26 Oct): dated data points, a stronger hook and a better Prelims trap.
 
@@ -16,15 +16,15 @@ One town gets a **truce**. The war does not.
 
 **🎙️ Narration — clear and steady**
 
-From the twenty-seventh of October, Russia and Ukraine say they will hold fire around Oleshky [Oh-LESH-kee] — across the Dnipro [DNEE-pro] river from Kherson [Kher-SON]. The aim — clear mines, bring in aid, and let civilians leave. The White House credits American mediation.
+From the twenty-seventh of October, Russia and Ukraine say they will hold fire around Oleshky [Oh-LESH-kee] — across the Dnipro [DNEE-pro] river from Kherson [Kher-SON]. The aim — clear mines, bring in aid, let civilians leave.
 
 But a full ceasefire... is still missing.
 
-The full-scale war has passed seventeen hundred days. Russia controls about **nineteen** per cent of Ukraine, Crimea [Kry-MEE-ya] included, according to the DeepState map.
+The full-scale war has passed seventeen hundred days. Russia controls about **nineteen** per cent of Ukraine, Crimea [Kry-MEE-ya] included, says the DeepState map.
 
-Moscow reportedly wants Ukraine out of the rest of the Donbas. Kyiv says territory is a red line — and rejects any cap on its army.
+Moscow reportedly wants the rest of the Donbas. Kyiv says territory is a red line — and rejects any cap on its army.
 
-Expert-level talks are expected in mid-November, possibly in Abu Dhabi. No date is fixed.
+Talks are expected in mid-November, possibly in Abu Dhabi. No date is fixed.
 
 **Prelims Trap.** Donbas means Donetsk [Da-NYETSK] and Luhansk [Loo-HAANSK] — not Crimea.
 
@@ -56,6 +56,7 @@ And India? Russia is still its **largest** crude supplier — though its share f
 
 ## ⚠️ Check before publishing on Tuesday
 - **If the truce has clearly started:** "say they will hold fire" → "are holding fire".
+- **Line removed for time:** "The White House credits American mediation." (the White House credits Melania Trump; add it back only if time allows)
 - **If it is postponed:** "have agreed a local truce for Oleshky".
 - **Keep these hedges:** "reportedly" (Russia's demand rests on one anonymous source); "possibly in Abu Dhabi" and "no date is fixed"; "according to the DeepState map".
 - **Oil share:** if you're unsure about "largest", say "still a top crude supplier".
