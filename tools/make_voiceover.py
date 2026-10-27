@@ -1,6 +1,8 @@
 """Build the voice-only recording file (02b-voiceover-text.md) from a week's 02-master-script.md.
 
-Usage: python3 tools/make_voiceover.py weeks/2026-W43 "v4"
+Reads the two-column script table (| # | Visual cue | Narration |) and the older tag + "> " block format.
+
+Usage: python3 tools/make_voiceover.py weeks/2026-W44 "v1"
 """
 import re, sys, pathlib
 
@@ -9,9 +11,11 @@ week = week_dir.name
 src = (week_dir / "02-master-script.md").read_text()
 title = src.splitlines()[0].replace("# Master Script — ", "")
 meta = {k: re.search(rf"\*\*{k}:\*\* (.*)", src).group(1) for k in ("Release", "Coverage")}
-body = "## COLD OPEN" + src.split("## COLD OPEN", 1)[1].split("## RUNTIME SUMMARY")[0]
+body = "## COLD OPEN" + re.split(r"^## (?:RUNTIME SUMMARY|PACKAGING)", src.split("## COLD OPEN", 1)[1], flags=re.M)[0]
 codes = {"COLD OPEN": "open", "PILLAR 1": "P1", "PILLAR 2": "P2", "PILLAR 3": "P3", "PILLAR 4": "P4",
-         "PILLAR 5": "P5", "TRANSITION": "transition", "TRAP VAULT": "traps", "VERDICT": "verdict"}
+         "PILLAR 5": "P5", "TRANSITION": "transition", "TRAP VAULT": "traps", "DESK NOTE": "desknote",
+         "VERDICT": "verdict"}
+tags = r"VOICE ANCHOR|HYPERFRAME PROMPT|KINETIC MOTION GRAPHIC|KINETIC TEXT|GEOSPATIAL MAP|GIS MAP|MIND MAP|REAL FOOTAGE|DATA CHART"
 
 out, segs = [], []
 shown = pending = seg = None
@@ -23,6 +27,18 @@ def flush():
         out.append(f"*Words: {segw} · about {segw/135:.1f} min*\n"); segs.append((seg, segw))
     segw = 0
 
+def cue(visual):
+    d = re.search(r"\*Voice: (.*?)\*", visual)
+    kind = "💬 TALK TO THE VIEWER" if "VOICE ANCHOR" in visual else "🎙️ NARRATION"
+    return kind + (f" — *{d.group(1)}*" if d else "")
+
+def say(t):
+    global shown, segw, total
+    if pending and pending != shown:
+        out.append(f"**{pending}**\n"); shown = pending
+    w = len(re.sub(r"\[[^\]]*\]|\*\*", "", t).split()); segw += w; total += w
+    out.append(t + "\n")
+
 for line in body.splitlines():
     if line.startswith("## "):
         flush(); seg = re.sub(r"\s*\(target.*\)", "", line[3:]).strip()
@@ -30,19 +46,21 @@ for line in body.splitlines():
         out.append(f"---\n\n## {seg}\n\nSave as: `{week}_VO_{code}.wav`\n"); shown = pending = None; continue
     if line.startswith("### "):
         out.append(f"**— {line[4:].strip()} —**\n"); continue
-    m = re.match(r"\[(VOICE ANCHOR|HYPERFRAME PROMPT|KINETIC MOTION GRAPHIC|GEOSPATIAL MAP)\]", line)
+    if line.startswith("|"):
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        if len(cells) < 3 or cells[0] == "#" or re.fullmatch(r"[-: ]+", cells[0]) or not cells[2]:
+            continue
+        pending = cue(cells[1])
+        for t in re.split(r"<br\s*/?>", cells[2]):
+            if t.strip():
+                say(t.strip())
+        continue
+    m = re.match(rf"\[({tags})\]", line)
     if m:
-        if m.group(1) == "VOICE ANCHOR":
-            d = re.search(r"\*Voice: (.*?)\*", line)
-            pending = "💬 TALK TO THE VIEWER" + (f" — *{d.group(1)}*" if d else "")
-        else:
-            pending = "🎙️ NARRATION"
+        pending = cue(line)
         continue
     if line.startswith("> "):
-        if pending and pending != shown:
-            out.append(f"**{pending}**\n"); shown = pending
-        t = line[2:]; w = len(re.sub(r"\[[^\]]*\]|\*\*", "", t).split()); segw += w; total += w
-        out.append(t + "\n")
+        say(line[2:])
 flush()
 
 head = f"""# Voiceover Text — {title} · {version}

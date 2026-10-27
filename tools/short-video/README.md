@@ -1,5 +1,7 @@
 # Short video builder (voice-only, 9:16)
 
+> **Status (Oct 2026):** the v3 look (icon scenes, full script on screen) breaks `CLAUDE.md` §6.2: no clip art and no karaoke or full-script captions. Before the next Short is rendered, rebuild the scenes as GIS-map, mind-map, data-chart and kinetic-text cards with keyword-only burned-in text (at most 8 words). Ship full captions as a separate corrected `.srt`.
+
 The W43 Russia–Ukraine Short was built with this pipeline:
 
 1. `align.py`: forced-aligns the script to the voiceover with pocketsphinx (PyPI wheel; it bundles its own English model).

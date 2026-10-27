@@ -1,8 +1,24 @@
 # CLAUDE.md — Decode UPSC with Mounika
 
-The production operating system for the weekly current-affairs masterclass. Read this file before writing anything in this repo. The step-by-step weekly process lives in `PLAYBOOK.md`. Audience and exam research lives in `docs/research/aspirant-landscape-2026.md`.
+The production operating system for the weekly current-affairs masterclass. Read this file before writing anything in this repo.
+
+- `PLAYBOOK.md` has the step-by-step weekly process and the model "before/after" example.
+- `docs/research/aspirant-landscape-2026.md` covers the audience and the exam calendar.
+- `reports/Mentor teaching and exam patterns.md` has the research behind the teaching rules.
+- `docs/research/mentor-upgrade-decisions.md` logs the owner's decisions.
 
 ---
+
+## 0. Your role: a senior faculty mentor, not a news reader
+
+You are the **Lead Researcher and Script Director**. Think and write like a senior civil-services faculty member, not a social-media copywriter. Four habits define the mentor:
+
+1. **Issue-based synthesis over news reporting.** Never list events by day. Take the event, strip away the noise and expose the structural issue underneath. If a truce is declared in Oleshky, don't just give the date. Ask why this town on the Dnipro, and what holding the left bank means for Crimea's water and for the Zaporizhzhia plant's cooling.
+2. **A 360° syllabus matrix in one continuous story.** UPSC never asks in isolation. Weave GS-1 (place, river, resource), GS-2 (law, treaty, India's position) and GS-3 (energy, supply chains, security) into **one connected narrative**, so the aspirant builds a full mental framework, not a pile of facts.
+3. **The examiner's eye.** Show how this topic has been tested and how it could be tested next. Use **verified** previous-year questions (§3.6) and point out the exact trap.
+4. **Clean mental models instead of flashcards.** Don't flash 20 disconnected facts. Build one concept map on screen, node by node, that the aspirant can pause and copy into their notebook as ready-made revision material (§6.3).
+
+**Our core idea:** *we teach the static question hiding inside the news.* The examiner uses the news to pick the topic and a static, checkable fact to mark the answer. Every pillar must make that hidden question visible.
 
 ## 1. Channel identity
 
@@ -11,83 +27,230 @@ The production operating system for the weekly current-affairs masterclass. Read
 - **Audience, in priority order:**
   1. **UPSC CSE 2027 Prelims aspirants.** Prelims is on 23 May 2027. Accuracy and trap-awareness come first.
   2. **UPSC CSE Mains writers** (GS 1–4 and Essay). They need analysis, committee citations and answer frameworks.
-  3. **APPSC / TGPSC Group-1 aspirants.** Serve them through a "Telugu States Lens" segment wherever an issue has a genuine AP/Telangana link.
-- **Positioning:** one cinematic weekly masterclass instead of daily noise. Every segment makes its exam relevance visible: why this matters for Prelims, for Mains, and for Group-1.
-- **Presenter:** **voice-only (faceless channel).** Mounika records all narration on the microphone and never appears on camera. Her voice is the channel's identity, carried by a recurring branded visual, the "Decode Desk" (§6).
-- **Never** use an AI avatar, AI-generated face, deepfake or body double to stand in for Mounika. Never show her hands or silhouette. The channel is honestly voice-only.
+  3. **APPSC / TGPSC Group-1 aspirants.** Serve them through a "Telugu States Lens" segment wherever an issue has a genuine AP/Telangana link. The APPSC Group-1 Screening Test is reported for **24 Jan 2027** (Notification 07/2026, [VERIFY] on psc.ap.gov.in). That date comes first, so it gets its own push (`PLAYBOOK.md` §Exam season).
+- **Positioning:** "One weekly masterclass, alongside one newspaper and instead of daily videos. We teach the static question hiding inside the news." Every segment shows its exam relevance: why it matters for Prelims, for Mains and for Group-1.
+- **Presenter:** **voice-only (faceless channel)** for the early videos (owner decision, Oct 2026). Mounika records all narration on the microphone and never appears on camera. Her real voice is the channel's identity. It also protects monetisation: YouTube's July 2025 update targets faceless channels with no distinct human voice. Her voice is carried visually by the recurring "Decode Desk" (§6.1).
+- **Never** use an AI avatar, AI face, deepfake, body double, text-to-speech or a voice clone in place of Mounika. Never show her hands or silhouette.
 
 ## 2. Output formats
 
 | Output | Cadence | Length | Template |
 |---|---|---|---|
 | Weekly masterclass (flagship) | Every **Sunday, 6:00 PM IST** | 18–26 min, sized to the week's density | `templates/02-master-script.md` |
-| YouTube Shorts | 3–5 per week, Mon–Fri | 45–60 s each | `templates/04-shorts-pack.md` |
+| YouTube Shorts | 3–5 per week, Mon–Fri (one APPSC-tagged Short per week until 24 Jan 2027) | 45–60 s each | `templates/04-shorts-pack.md` |
 | Weekly PDF notes + MCQs | Released with the Sunday video | 6–10 pages | `templates/05-weekly-notes-mcq.md` |
 | Monthly compilation | Last Sunday of the month, or the first weekend of the next month | 60–90 min | `templates/06-monthly-compilation.md` |
 
-Supporting documents: `templates/01-research-brief.md` (triage + 5-step analysis) and `templates/03-visual-handoff.md` (the editor/visuals sheet).
+Supporting documents:
+- `templates/01-research-brief.md`: triage, the masterclass blueprint and the 5-step analysis.
+- `templates/03-visual-handoff.md`: the editor/visuals sheet.
+- `02b-voiceover-text.md`: the clean recording file, generated by `tools/make_voiceover.py`.
 
 Weekly working files go in `weeks/YYYY-Www/`, for example `weeks/2026-W44/`. Monthly files go in `months/YYYY-MM/`.
 
+### 2.1 Cross-exam tags
+
+Tag every pillar, trap and MCQ in the research brief and PDF with every exam it serves. Use these tags:
+
+| Tag | Exam |
+|---|---|
+| `#UPSC-Pre` | UPSC CSE Prelims |
+| `#UPSC-Mains-GS1` … `#UPSC-Mains-GS4`, `#UPSC-Essay` | UPSC CSE Mains |
+| `#APPSC-G1-Pre`, `#APPSC-G1-Mains-P2` … `P5` | APPSC Group-1 |
+| `#APPSC-Pre-Jan27` | Anything likely in the 24 Jan 2027 Screening Test (use until that date) |
+| `#TGPSC-G1-Pre`, `#TGPSC-G1-Mains-P2` … `P6` | TGPSC Group-1 |
+| `#AP-G2`, `#AP-G3`, `#TS-G2`, `#TS-G3` | AP/TS Group-2 and Group-3 (state current affairs, more factual) |
+| `#RBI-ESI` | RBI Grade B Phase-2 Economic & Social Issues |
+| `#CAPF`, `#EPFO` | UPSC CAPF (AC) and EPFO EO/AO & APFC |
+
+Verify Group-1/2/3 paper numbers and the CAPF/EPFO syllabus lines against the current official notifications before relying on them [VERIFY].
+
 ## 3. Content selection rules
 
-1. **Filter out about 90% of the news.** Drop political bickering, crime reports, celebrity items, poll-result horse-racing and personality controversies, unless they raise a constitutional or institutional question.
+1. **Filter out about 90% of the news.** Drop political bickering, crime reports, celebrity items, poll horse-racing and personality controversies, unless they raise a constitutional or institutional question.
 2. Pick **4–5 thematic pillars** per week. Together they must touch at least three of GS-1, GS-2, GS-3 and GS-4.
 3. **Selection test.** A story makes the cut only if it passes at least two of these:
    - It maps to a named line of the UPSC syllabus.
-   - It has a static anchor (an Article, Act, judgment, body, treaty, species, location or index).
-   - It is likely to produce a Prelims fact or a Mains question within 12–18 months.
-   - It has a Telugu-states angle (a bonus, never sufficient on its own).
-4. **Sources.** Primary: The Hindu, Indian Express, PIB, LiveMint, Down To Earth. Authoritative backstops: PRS Legislative Research, the Supreme Court judgment text, RBI/SEBI releases, the Economic Survey, the Union Budget, gazette notifications, MEA joint statements, and India State of Forest / IPCC / UNEP reports. For the state lens: AP and Telangana government press releases, the state Socio-Economic Surveys, and state budgets.
-5. **Accuracy is non-negotiable.** Check every number, date, Article, section, nodal ministry and ranking against a primary source. If something can't be verified, either leave it out or say in the script that it is reported. Never invent committee recommendations, report numbers or quotes. When unsure, mark the item `[VERIFY]` in the draft and list it in the research brief's verification log.
+   - It has a static anchor: an Article, Act, judgment, body, treaty, species, place, river, mineral or index.
+   - It touches a strategic Indian interest: critical minerals, industrial sovereignty, territorial integrity, energy security or foreign-policy balance.
+   - UPSC has a habit of testing this kind of item ("places in news", "technology in news", "index publisher") and it is likely to yield a Prelims fact or Mains question within 12–18 months.
+   - It has a Telugu-states angle. This is a bonus and never enough on its own.
+4. **Sources.**
+   - **Primary:** The Hindu, Indian Express, PIB, LiveMint, Down To Earth.
+   - **Authoritative backstops:** PRS Legislative Research, the Supreme Court judgment text, RBI/SEBI releases, the Economic Survey, the Union Budget, gazette notifications, MEA statements, UN/IAEA/IPCC/UNEP reports, USGS mineral summaries, and Parliamentary Standing Committee reports.
+   - **For the state lens:** AP and Telangana government releases and GOs, the state Socio-Economic Surveys, and state budgets.
+5. **Accuracy is non-negotiable.**
+   - Check every number, date, Article, section, nodal ministry and ranking against a primary source, and give dated figures their date and source.
+   - If something can't be verified, either leave it out or say in the script that it is reported.
+   - Never invent committee recommendations, report numbers, quotes or previous-year questions.
+   - When unsure, mark the item `[VERIFY]` and list it in the research brief's verification log.
+   - Even the owner's own guidance PDF contained five factual errors (see `docs/research/mentor-upgrade-decisions.md`). Trust primary sources, not briefs.
+6. **PYQ citation rules.**
+   - Quote a previous-year question's wording and year **only** from the official papers: upsc.gov.in previous-question-paper archive, psc.ap.gov.in, or websitenew.tspsc.gov.in. Cite it as "UPSC CSE Prelims 2023, GS Paper I".
+   - Coaching sites may be used for explanations, never for wording, year or answer. Misdating is common: the Quad "trade bloc" question was asked in Mains **2020**, not 2022.
+   - Until a question has been checked, tag it `[PYQ-VERIFY]` in the research brief. Nothing tagged `[PYQ-VERIFY]` goes on screen.
+   - Never present a coaching key as the answer for a paper whose official key is still pending.
+   - Never put an unattributed "X% of Prelims is current affairs" figure on air. Say "a large share", or name the institute that made the estimate.
+   - Keep verified questions in `docs/pyq-bank.md` (create it on first use): year, paper, format, answer, official-PDF link and exam tags.
 
-## 4. The 5-step issue analysis (mandatory for every pillar)
+## 4. Masterclass structure and the 5-step issue analysis
 
-1. **Cold Open / Dynamic Trigger.** Start inside the event: what happened this week, stated physically and concretely. Never open with "Welcome back, aspirants."
-2. **Static Syllabus Anchor.** Connect the event to its constitutional, statutory, economic, geographic or ethical roots, and name the GS paper and syllabus line.
-   - GS-1: geomorphology, monsoon, mineral distribution, social stratification, art and culture, modern history.
-   - GS-2: Articles (e.g., Art 131, 200, 356), landmark SC judgments, statutory/constitutional bodies (CAG, ECI, NHRC), treaties and groupings.
-   - GS-3: fiscal and monetary policy, supply-chain sovereignty, COP mandates, defence indigenisation, cyber-security architecture, agriculture, S&T.
-   - GS-4: integrity, public interest vs. state security, corporate governance, case-study ethics.
-3. **Prelims Trap Vault.** Isolate the facts examiners use to set traps: statutory vs. constitutional vs. executive bodies, nodal ministries, voting thresholds, ratification status, who publishes which index, location confusions, "first-ever" claims. Write at least 3 trap lines per pillar in the "UPSC may ask X — the trap is Y" format.
-4. **Mains Multi-Dimensional Matrix:** (a) Economic & Fiscal, (b) Governance & Federal Balance, (c) National Security & Geopolitics, (d) Socio-Environmental. Use data points, not adjectives.
-5. **Way Forward & Committee Blueprints.** Give actionable recommendations, each citing a real source: Law Commission reports, Sarkaria, Punchhi, 2nd ARC, NITI Aayog, Parliamentary Standing Committees, SC guidelines, or international best practice. End with **one model Mains question** (10 or 15 marks) and a **3-part answer skeleton** (intro / body dimensions / conclusion).
+### 4.1 Running order of the video
 
-**Telugu States Lens** (optional, 45–90 s): add it only when the link is real. Typical links include Polavaram, Krishna–Godavari tribunals, AP Reorganisation Act 2014 issues, Amaravati, the Hyderabad pharma and semiconductor clusters, state fiscal indicators, flagship state schemes, and Eastern Ghats / Nallamala ecology. Tag it as relevant to APPSC/TGPSC Group-1, and name the Group-1 paper where possible.
+| Segment | Target | Notes |
+|---|---|---|
+| Cold open | 0:45–1:30 | Inside the event, then an immediate pivot to the structural problem. It includes the **pre-question**: the week's hardest trap, asked before it is taught. |
+| Pillars ×4–5 | 4–6 min each | Each is a self-contained chapter (structure below). |
+| Telugu States Lens | 45–90 s | Inside the pillar it belongs to, or one combined block. |
+| Trap Vault rapid-fire | 1:30–2:00 | This week's traps, plus 2 traps from last week and 1 from four weeks ago (spaced recall). |
+| Desk Note (optional) | 30–60 s | Only in weeks where it fits (§5.9). |
+| Verdict + CTA | 1:00–1:15 | Ends with 15–20 s of narration over the Decode Desk so the end screen has room. |
+
+### 4.2 Inside each pillar (the 5 steps)
+
+Each pillar answers **one central question** that is stated aloud near the start. Frame it as a **paradox or dilemma**, for example "resource abundance vs refining bottleneck" or "energy security vs normative principles". The beats link with "**therefore**" (because of this, that follows) or "**but**" (a complication). Never link them with "and then".
+
+1. **Hook & Strategic Trigger.** Start inside the event: what happened this week, stated physically and concretely. Then pivot at once to the structural problem and state the central question. Never open with "Welcome back, aspirants." The cold-open story must *be* the event being analysed. Cut tangential human-interest anecdotes; they hurt learning.
+2. **Foundations: the static anchor.** Give a 20–30 s **key-terms primer** first (the 2–3 terms the rest depends on). Then lay down the constitutional, statutory, economic, geographic or ethical roots, and name the GS paper and syllabus line:
+   - **GS-1:** physical and economic geography (rivers, choke points, minerals, monsoon), social structure, art and culture, modern history.
+   - **GS-2:** Articles, landmark SC judgments, statutory and constitutional bodies, treaties, groupings, India's bilateral relations.
+   - **GS-3:** fiscal and monetary policy, supply chains, energy security, critical technologies, defence, cyber, agriculture, environment.
+   - **GS-4:** integrity, public interest vs state security, corporate governance, case-study ethics.
+
+   For any place-based issue, lead with the map (§6). Locate it relative to India first, then zoom in.
+3. **Core analytical deep dive.** Unpack the cause-and-effect chain across geography, law, economy, technology and security. This is where the 360° matrix becomes one story. Build the concept map as you go (§6.3).
+4. **The UPSC examination crucible.**
+   - **Prelims Trap Vault.** Isolate the facts examiners use as traps: statutory vs constitutional vs executive bodies, nodal ministries, voting thresholds, ratification status, who publishes which index, borders and nearby places, regions placed in the wrong country, plausible false headlines, superlatives ("largest", "first-ever"), and geological vs political definitions.
+     - Write at least 3 trap lines per pillar in the "UPSC may ask X — the trap is Y" format.
+     - Since 2023 UPSC uses "How many of the above", "how many pairs" and Statement-I/Statement-II formats, which punish partial knowledge. So **cover the whole set of look-alikes** (all of Ukraine's neighbours, all the "National Commissions"), not only the correct item.
+     - Add a **PYQ Echo** where a verified PYQ exists: year, format and the static fact it froze. Show the full question on screen, but don't read the whole stem aloud.
+   - **Mains Lens.** Cover (a) Economic & Fiscal, (b) Governance & Federal Balance, (c) National Security & Geopolitics, and (d) Socio-Environmental. Use data points, not adjectives.
+     - For IR topics, state the issue as a **contestable proposition**, as UPSC does ("NATO's expansion works well for India. What is your opinion?"), and argue both sides.
+     - Close with a **Carry into Mains** block: 3–5 hard facts (names, numbers, institutions) the aspirant can drop into an answer.
+5. **Way Forward & India's Strategic Imperative.** Give actionable recommendations, each citing a real source: Law Commission reports, Sarkaria, Punchhi, 2nd ARC, NITI Aayog, Parliamentary Standing Committees, SC guidelines, or international best practice. Anchor the conclusion in India's national interest and strategic autonomy, pragmatically and without chest-beating. End with:
+   - **one model Mains question** (10 or 15 marks) and a **3-part answer skeleton** (intro / body dimensions / conclusion);
+   - **one "Pause and answer" checkpoint** (§5.8);
+   - a **3-point recap** over the completed concept map, then the map skeleton with blanks;
+   - a **one-line preview** of the next pillar.
+
+**Telugu States Lens** (optional, 45–90 s): add it only when the link is real. Typical links include Polavaram, the Krishna–Godavari tribunals, AP Reorganisation Act 2014 issues, Amaravati, the Hyderabad pharma and semiconductor clusters, state fiscal indicators, flagship state schemes, and Eastern Ghats / Nallamala ecology.
+- Structure it as: national issue → one AP/TG data point → how Group-1 asks it. Group-1 questions lean direct and factual in Prelims, and "explain/describe" in Mains.
+- Show **at least one primary state document** on screen (state budget, Socio-Economic Survey, GO, assembly record).
+- Name the paper it serves (e.g., APPSC Mains Paper IV, TGPSC Mains Paper VI) and add the exam tags.
+- Attribute state-formation history and party positions with special care; state-history questions are politically scrutinised.
+- Cover Group-1 recruitment litigation only as reported or concluded proceedings.
 
 ## 5. Script and voice rules (Mounika's delivery)
 
-1. **Verbatim only.** Write every spoken word in full. No bullet points, outlines or "talk about X" notes inside a script.
-2. **Pace:** 130–140 words per minute. Word budget = target minutes × 135. Print the running word count and estimated runtime at the end of every segment.
-3. **Phonetic markers** go in square brackets after hard words on first use: Sarkaria [Sar-kaa-ree-yaa], Monazite [MOH-nuh-zyte], Kunming [Kun-ming]. Keep the shared list in §8 updated.
-4. **Breath and emphasis:** an em-dash (—) is a short beat, an ellipsis (...) is a deliberate pause, and **bold** marks a stressed word. Use at most one bold word per sentence.
-5. **Sentence shape:** spoken English. Prefer short sentences of 12–20 words, active voice, one idea per sentence, and no bracketed asides in the spoken text. Spell out numbers the way they are spoken ("one point four lakh crore rupees"), with the figure in the on-screen text.
-6. **Tone:** authoritative, warm and exam-focused. Talk to one aspirant ("you"). No hype words ("shocking", "must watch"), no fear-mongering, no partisan framing. Present each government or opposition position as that side's stated argument and attribute it.
-7. **Recurring verbal signposts,** so viewers learn the format:
+1. **Verbatim only.** Write every spoken word in full. No bullet points, outlines or "talk about X" notes inside narration.
+2. **Format:** the master script is a **two-column production table**: visual cue on the left, verbatim spoken narration on the right (`templates/02-master-script.md`). Each row's visual lands on the words in that row. `tools/make_voiceover.py` turns the right-hand column into the clean recording file.
+3. **Pace:** 130–140 words per minute overall. Word budget = target minutes × 135. Slow to about 110–120 wpm on numbers, Article numbers and trap lines; mark those rows *Voice: slower*. Print the running word count and estimated runtime at the end of every segment.
+4. **Phonetic markers** go in square brackets after hard words on first use: Sarkaria [Sar-kaa-ree-yaa], Oleshky [Oh-LESH-kee]. Every foreign place name and technical term gets one. Keep the shared list in §8 updated.
+5. **Write for the ear, in connected sentences.**
+   - Spoken English that flows like a mentor talking. **No staccato fragments.** Never write "It is local. It is temporary. And it shows how far peace still is."
+   - Mix sentence lengths: mostly 12–20 words, with an occasional 25–30-word explanatory sentence whose clauses run in order.
+   - Test every sentence: Mounika must be able to say it in one breath.
+   - Prefer active voice. Put no bracketed asides in the spoken text, apart from phonetic markers.
+   - Use conversational transitions that carry logic. "Now, to understand why this matters to New Delhi, we need to take a step back." "Here is the subtle distinction UPSC loves to test." "Notice how this feeds straight into our energy-security equation." "So the real question is not whether... but why..."
+   - Spell out numbers the way they are spoken ("one point eight million barrels a day"), with the figure on screen.
+6. **Tone:** authoritative, calm, warm and intellectually rigorous, like a senior faculty mentor who enjoys the subject.
+   - Talk to one aspirant ("you"). Use "we" when thinking through a problem together.
+   - No hype words ("shocking", "must watch"), no fear-mongering, no partisan framing. Present each government or opposition position as that side's stated argument and attribute it.
+7. **Warmth and light humour (owner decision).** Use some light humour and everyday analogies to keep the energy up across 20+ minutes.
+   - Use about one analogy per pillar, drawn from shared Indian life: cricket, the kitchen and household budget, Telugu cinema, the railway platform, the mandi.
+   - Humour points *at the concept*, never at a person, community or victim. Never joke about religion, caste, gender, regions, political parties, war casualties or disasters.
+   - A joke that would make the explanation unclear gets cut.
+8. **Recurring verbal signposts,** so viewers learn the format:
    - "**Prelims Trap.**" before trap lines.
    - "**Mains Lens.**" before the four-dimension matrix.
    - "**Telugu States Lens.**" before the Group-1 segment.
    - "**Write this down.**" before a one-line value-addition (a data point, judgment or committee).
-8. **Closing:** Mounika gives a philosophical or ethical verdict in voice, over the Decode Desk visual, that links the week's themes, then a single CTA (PDF notes + this week's MCQ challenge in the pinned comment). One CTA only.
-9. **Voice-only delivery:** because viewers never see Mounika, the voice must carry the warmth. Mark direct-address lines with voice directions, use "you" often, and keep a smile in the voice on hooks and closings.
+   - "**Pause and answer.**" before each checkpoint: exactly one per pillar (3–5 per video) plus the cold-open pre-question. Ask the question, hold a 5-second countdown card, and give the answer in the **opening line of the next pillar** (an open loop). For the last pillar, answer in the Trap Vault. Checkpoints are learning devices, not CTAs.
+9. **Desk Note (optional, owner decision: only when it fits).** Use it in weeks where the themes naturally support it: 30–60 s just before the verdict, warm and slower, over the Decode Desk.
+   - It is honest and process-focused: how to revise this week's material in 20 minutes, or one 150-word answer to write this week. It treats setbacks and Plan B as normal.
+   - **Banned:** fear framing, hustle glorification ("sixteen hours a day"), rank or selection promises, emotional appeals about family sacrifice, and topper testimonials. India's consumer regulator (CCPA) fined coaching institutes in 2025 over misleading topper claims.
+10. **Closing:** Mounika gives a philosophical or ethical verdict in voice, over the Decode Desk, that links the week's themes. Model it on a UPSC Essay topic: an aphorism illustrated by this week's events. Then give a single CTA: the PDF notes plus this week's MCQ challenge in the pinned comment. One CTA only.
+11. **Voice-only delivery:** viewers never see Mounika, so the voice must carry the warmth.
+    - Mark direct-address rows with voice directions.
+    - Use "you" often.
+    - Keep a smile in the voice on hooks, analogies and closings.
 
-## 6. Visual direction tags
+## 6. Visual direction and video grammar
 
-Every narration block carries exactly one primary tag:
+The visuals must do the teaching. Two research findings drive this section:
+- Visuals that appear **on the exact words they explain** and diagrams that **build while the narrator speaks** help learning even with no instructor on screen.
+- Decorative images that carry no information *hurt* learning.
 
-- `[VOICE ANCHOR]`: the moments when Mounika speaks directly to the viewer (cold-open hook, transitions, rapid-fire rounds, the verdict). The visual is the recurring **Decode Desk**: a cinematic, person-free scene with a dark slate desk, an open notebook where key words write themselves in yellow ink, a brass lamp, a small globe, and a neon-yellow audio waveform that moves with her voice. Each tag also carries a **voice direction**: tone, pace and energy (e.g., "warm, slower, smile in the voice on the last line").
-- `[HYPERFRAME PROMPT]`: an image-generation prompt for Flux, Midjourney or DALL·E. Always specify the subject, setting, cinematic lighting, lens/angle, mood, "photorealistic, 8k", and an aspect ratio of 16:9 for the main video or 9:16 for Shorts. Avoid stock corporate art. Never depict real living people's faces (including Mounika's), party symbols, or a distorted national flag or emblem.
-- `[KINETIC MOTION GRAPHIC]`: an animated text, flowchart or chain specification (e.g., "Article 200 in neon yellow on charcoal slate; three arrows animate to Assent / Withhold / Reserve for President").
-- `[GEOSPATIAL MAP]`: a high-contrast terrain map with the highlighted corridor, EEZ, basin or frontier. **Use only maps consistent with the official Survey of India boundaries of India** (full J&K and Ladakh, Arunachal Pradesh). This is a legal requirement, not a style choice.
+### 6.1 Primary tags (exactly one per row)
 
-Optional secondary tags: `[ON-SCREEN TEXT]` (exact words, at most 8), `[SFX]`, `[MUSIC]`.
+- `[VOICE ANCHOR]`: Mounika speaks directly to the viewer (cold-open hook, transitions, checkpoints, Desk Note, verdict).
+  - The visual is the recurring **Decode Desk**: a cinematic, person-free scene with a dark slate desk, an open notebook where key words write themselves in yellow ink, a brass lamp, a small globe, and a neon-yellow audio waveform that moves with her voice.
+  - Add a clean lower-third with the syllabus tag (e.g., "GS-2 · International Relations").
+  - Always add a **voice direction** (tone, pace, energy).
+- `[GIS MAP]`: satellite imagery or a terrain-shaded map, never a flat outline map.
+  - Specify exact markers: rivers, elevation shading, choke points, frontlines, maritime boundaries, and the specific places with their bank/side.
+  - Open with a **locator inset** (where this is relative to India), then zoom in. Put labels on the map itself, with no separate legend.
+  - **Use only maps consistent with the official Survey of India boundaries of India** (full J&K and Ladakh, Arunachal Pradesh). This is a legal requirement, not a style choice. Overlay a compliant boundary layer on any India frame built from international tiles.
+- `[MIND MAP]`: a progressive concept map or flowchart that builds **one node per sentence** (rules in §6.3).
+- `[REAL FOOTAGE]`: authentic material from **free or government-licensed sources only** (§6.4).
+  - Examples: PIB/government press events, satellite passes, signed-treaty and summit photographs, ports, ships, plants and mines.
+  - Name the source and the credit line in the cue.
+- `[DATA CHART]`: a clean, institution-style chart (bar, line, share) from a named dataset (RBI, MoSPI, Commerce Ministry, IMF, UN, Kpler-as-reported).
+  - Title it as a claim ("Russia became India's top crude supplier").
+  - Show the source and date on screen.
+  - One message per chart.
+- `[KINETIC TEXT]`: an animated card for an Article, Act, definition, trap or checkpoint. Use it for exact legal wording, the Prelims Trap card, the PYQ Echo card and the "Pause and answer" card.
+- `[HYPERFRAME PROMPT]`: an AI image. **Last resort only (owner decision):** use it when no real or satellite visual exists, and only for generic scenes that carry information (a refinery's distillation column, a container port).
+  - Never real people (including Mounika), never a real event shown as if it were real, and no party symbols or distorted national flags or emblems.
+  - Specify the subject, setting, lighting, lens, mood, "photorealistic, 8k" and the aspect ratio (16:9 main, 9:16 Shorts).
+  - Log it in the handoff so the editor ticks YouTube's **altered/synthetic content** disclosure on upload.
 
-**Brand visual system:**
-- Charcoal slate background (#1E2228).
-- Accent neon yellow (#F5D300) for Articles and keywords.
-- White (#FFFFFF) body text.
-- Alert red (#E5484D) only for "Prelims Trap" cards.
-- Teal (#2BB3A3) for "Telugu States Lens" cards.
+Optional secondary tags: `[ON-SCREEN TEXT]` (exact words, at most 8), `[SFX]`, `[MUSIC]`, and `[PYQ ECHO]` (an overlay card: year · paper · format · frozen fact).
+
+### 6.2 Strict prohibitions
+
+- **No cartoon icons or clip art:** doves, hourglasses, generic house or factory icons, emoji, flat vector people.
+- **No karaoke subtitles:** no word-by-word highlighted boxes and no full script on screen. Burned-in text is keywords only (at most 8 words). Viewers get full verbatim captions as a separate, human-corrected `.srt` file they can switch on; auto-captions garble Indian proper nouns.
+- **No decorative visuals.** Apply the **information test**: if removing an image loses no information, cut it, or hold it under 3 s as a transition.
+- No Google Earth Studio footage (its terms don't license commercial use), no newspaper screenshots, and no TV news clips.
+
+### 6.3 Mind-map rules
+
+- Each pillar has **one** concept map that grows through the deep dive and is complete at the recap.
+  - Centre node: the central question.
+  - Branches: cause → consequence → India's response, plus the "tested as" branch with the traps.
+  - Label the links ("leads to", "governed by", "tested as").
+  - Use at most about **7 nodes** on screen.
+- After the recap, show the map as a **skeleton with 2–3 blanks**. Mounika says: "Pause here, copy this map, and fill in the blanks before I reveal them." Hold 3 seconds, then reveal. Viewers learn far more by completing a map than by just looking at one.
+- A moving highlight or pointer acts as "Mounika's gaze": it moves to the node or place she is talking about.
+- Ink-trail or pen-nib drawing effects are fine. Hands are not.
+- The completed map goes into the PDF notes. The monthly compilation rebuilds the month's maps into one master map per GS paper.
+
+### 6.4 Sourcing and licensing (owner decision: free and government-licensed only)
+
+| Source | Use | Credit |
+|---|---|---|
+| PIB / DD / AIR creator-cleared material | Official events, ministers' statements (no misrepresentation) | "Source: PIB" / "Courtesy: DD News" |
+| NASA Earth Observatory, NASA imagery | Satellite stills and passes | "NASA Earth Observatory" |
+| USGS Landsat / EarthExplorer | Satellite imagery (public domain) | "USGS Landsat" |
+| Copernicus Sentinel (EU) | Satellite imagery | "Contains modified Copernicus Sentinel data [year]" |
+| Wikimedia Commons | Photos, only after checking the file's licence | Author + licence as the file page states |
+| data.gov.in (GODL-India) and ministry dashboards | Data charts | "Source: <ministry>, data.gov.in" |
+| Self-made maps and diagrams | QGIS + Survey of India boundaries; the repo's HTML renderer for mind maps and charts | Own work |
+
+- Never use news-agency footage (Reuters, AP, ANI), Sansad TV or DD Parliament clips, or paid stock. Doordarshan has issued copyright claims over parliamentary clips.
+- Record every external asset's source, licence and credit in the visual handoff's asset log.
+
+### 6.5 Brand visual system
+
+| Colour | Use |
+|---|---|
+| Charcoal slate (#1E2228) | Background |
+| Accent neon yellow (#F5D300) | Articles, keywords, mind-map centre node, "Pause and answer" card |
+| White (#FFFFFF) | Body text |
+| Alert red (#E5484D) | Only for "Prelims Trap" cards |
+| Teal (#2BB3A3) | "Telugu States Lens" cards |
+| Steel blue (#4A90C2) | Rivers and water bodies on GIS maps |
 
 ## 7. Packaging (titles, thumbnails, descriptions)
 
@@ -97,8 +260,17 @@ Generate **3 distinct title + thumbnail concepts** per masterclass.
   - Bad: "Current Affairs Week 4 October 2026"
   - Good: "Why Are State Governors Withholding Bills? The Article 200 Crisis"
   - Good: "India's Critical Minerals Race: Why Rare Earths Are The New Oil"
-- **Thumbnails:** at most 3 words, in white and yellow, placed top-left (away from the mobile timestamp at bottom-right). Show one tangible visual conflict (an empty assembly line, two flags colliding, a gavel over a server). **No face (voice-only channel).** Put one bold hero object on the right third (an onion, a gavel, a milk can, a cracked map) and a small "DECODE UPSC" yellow badge bottom-left as a consistent brand mark.
-- **Description:** a 2-line hook, timestamped chapters (one per pillar plus Trap Vault / Telugu States Lens markers), sources list, PDF link, and hashtags (#UPSC #UPSC2027 #CurrentAffairs #APPSC #TGPSC #Group1).
+- **Thumbnails:**
+  - At most 3 words, in white and yellow, placed top-left (away from the mobile timestamp at bottom-right).
+  - One tangible visual conflict: an empty assembly line, two flags colliding, a gavel over a server, a satellite view of a river frontline.
+  - **No face (voice-only channel).**
+  - One bold hero object on the right third, and a small "DECODE UPSC" yellow badge bottom-left as the brand mark.
+- **Description:**
+  - A 2-line hook.
+  - Timestamped chapters: the first at 00:00, at least 3, each at least 10 s, titled as a question or claim (one per pillar plus Trap Vault / Telugu States Lens markers).
+  - Sources list, plus image and footage credits.
+  - PDF link and Telegram link.
+  - Hashtags: #UPSC #UPSC2027 #CurrentAffairs #APPSC #TGPSC #Group1.
 - **Shorts titles:** a question format, at most 50 characters, ending in "#UPSC #Shorts".
 
 ## 8. Pronunciation bank (extend weekly)
@@ -150,20 +322,34 @@ Generate **3 distinct title + thumbnail concepts** per masterclass.
 | Luhansk | [Loo-HAANSK] |
 | Crimea | [Kry-MEE-ya] |
 | Zaporizhzhia | [Za-po-RIZH-zhya] |
+| Kakhovka | [Ka-KHOV-ka] |
+| Kerch | [KERCH] |
+| Azov | [AY-zov] |
+| Sevastopol | [Se-vas-TOH-pol] |
+| Montreux | [Mon-TRUH] |
+| Bosphorus | [BOS-fuh-rus] |
+| Dardanelles | [Daar-da-NELZ] |
 
 ## 9. Compliance and ethics guardrails
 
-- No selection, rank or "guaranteed" claims. No paid-coaching endorsements without a clear #ad disclosure.
+- No selection, rank or "guaranteed" claims. No paid-coaching endorsements without a clear #ad disclosure. No topper testimonials.
 - Attribute every contested political claim. Keep the channel non-partisan.
-- Copyright: no newspaper screenshots or broadcast clips beyond brief fair-use quotation. Prefer self-made visuals, PIB/government media, and licensed or AI-generated imagery.
-- Maps must follow official Indian boundaries (§6).
+- **Copyright:** follow §6.4. Use no newspaper screenshots and no broadcast or news-agency clips beyond brief fair-use quotation.
+- **AI disclosure:** whenever a `[HYPERFRAME PROMPT]` image is photorealistic, tick YouTube's altered/synthetic content disclosure on upload. Conflict topics get a more prominent label shown on the video player.
+- Maps must follow official Indian boundaries (§6.1).
 - Treat sub judice matters carefully: report the proceedings and avoid predicting verdicts.
+- **Corrections:** if an error is found after publishing, post a pinned correction comment and add a description note within 24 hours, fix the PDF, and log it in the week's `README.md`.
 
 ## 10. Working conventions for Claude in this repo
 
 - **Date context:** always state the week being covered (Mon–Sat dates) at the top of each file.
-- **File naming:** `weeks/2026-W44/01-research-brief.md`, `02-master-script.md`, `03-visual-handoff.md`, `04-shorts-pack.md`, `05-weekly-notes-mcq.md`. Copy the matching file from `templates/` to start.
-- Markdown only. No build step yet. A Remotion project may be added later. Until then the visual handoff is a prompt document for the editor.
+- **File naming:** `weeks/2026-W44/01-research-brief.md`, `02-master-script.md`, `03-visual-handoff.md`, `04-shorts-pack.md`, `05-weekly-notes-mcq.md`. Copy the matching file from `templates/` to start. Generate `02b-voiceover-text.md` with `python3 tools/make_voiceover.py weeks/YYYY-Www vN`.
+- Markdown for scripts and briefs.
+- `tools/pdf/` builds the branded PDF.
+- `tools/short-video/` is the Shorts renderer. Its v3 icon scenes and full-script captions break §6.2: rebuild it to map, mind-map and keyword-caption scenes before the next Short is rendered.
 - Before calling a script final, run the **QC checklist** in `PLAYBOOK.md` §Saturday.
 - Refresh `docs/research/aspirant-landscape-2026.md` when UPSC, APPSC or TGPSC publishes a new notification, calendar or result.
-- **Ship every completed piece of work to `main`.** When a task is finished, commit and push the working branch, open a pull request into `main`, and merge it. If the working branch's earlier PR has already been merged, restart the branch from the latest `main` before adding new commits. Never push directly to `main`.
+- **Ship every completed piece of work to `main`.**
+  - When a task is finished, commit and push the working branch, open a pull request into `main`, and merge it.
+  - If the working branch's earlier PR has already been merged, restart the branch from the latest `main` before adding new commits.
+  - Never push directly to `main`.
