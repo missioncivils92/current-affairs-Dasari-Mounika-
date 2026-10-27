@@ -21,7 +21,7 @@ Owner decisions taken after reading the mentor-guidance PDF and the research rep
 Not adopted: a "voiced by a real educator" line in the About section and descriptions.
 
 Corrections to the PDF's model example (must not be copied into scripts):
-- Kerch Strait passage is governed by the 2003 Russia–Ukraine treaty on the Sea of Azov and Kerch Strait, **not** the Montreux Convention (which covers only the Turkish Straits).
+- Kerch Strait passage was governed by the 2003 Russia–Ukraine treaty on the Sea of Azov and Kerch Strait (denounced by Ukraine in Feb–Mar 2023 and by Russia in June 2023), **never** by the Montreux Convention (which covers only the Turkish Straits).
 - The Dnipro is Europe's **fourth-longest** river (after the Volga, Danube and Ural), not the "third-largest".
 - "Donbas" is commonly defined as the Donetsk and Luhansk oblasts. The Donets coal basin itself extends into Russia's Rostov oblast and into Dnipropetrovsk, so avoid "strictly".
 - Prelims 2014 asked where Turkey lies (between the Black Sea and the Mediterranean). Prelims 2019 had a sea–bordering-country pairs question (Black Sea–Croatia was the wrong pair). Prelims 2023 asked how many listed countries border Ukraine (answer: only two, Hungary and Romania).
@@ -37,3 +37,20 @@ Corrections to the PDF's model example (must not be copied into scripts):
 | 17 | Categories | Scope: Local (Telugu States), National, International, Miscellaneous. Plus subject categories; new ones may be added as needed (§3.2). |
 | 18 | Continuity | Videos form one connected course. `docs/story-tracker.md` ledger; covered stories return as Updates with callbacks, the delta and changed facts; history and earlier-episode links; story arcs; YouTube cards (§3.3). |
 | 19 | Runtime | Sized to the week, typically 20–35 min, with no fixed cap. |
+
+## One-off exception (27 Oct 2026)
+
+| # | Topic | Decision |
+|---|---|---|
+| 20 | ElevenLabs narration | **Only** the W44 Oleshky sample video uses an ElevenLabs voiceover. The channel rule is unchanged: every other video uses Mounika's real voice (`CLAUDE.md` §1). On upload, tick YouTube's altered/synthetic content disclosure for this video. |
+
+## Video length and release plan (27 Oct 2026)
+
+Based on `reports/Weekly video length and format.md`.
+
+| # | Topic | Decision |
+|---|---|---|
+| 19 (amended) | Runtime | Sunday hub **28–38 min, default about 32**. 40 min is an overflow trigger (cascade in `CLAUDE.md` §4.1), not a hard cap. Light weeks run 22–26 min, never padded. |
+| 21 | Decode Extended | **One per week**, Wednesday 6 PM IST, 10–15 min: the week's biggest story at full depth, built from the hub Deep Dive plus its `[EXT]` rows. |
+| 22 | Oleshky sample | Kept as an **internal quality reference only**; not published. |
+| 23 | Monthly compilation | Stays on the **last Sunday** of the month (unchanged). |

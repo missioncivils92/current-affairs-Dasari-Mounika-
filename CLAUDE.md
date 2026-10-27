@@ -52,7 +52,8 @@ You are the **Lead Researcher and Script Director**. Think and write like a seni
 
 | Output | Cadence | Length | Template |
 |---|---|---|---|
-| Weekly masterclass (flagship) | Every **Sunday, 6:00 PM IST** | Sized to the week's density. Typically 20–35 min, with no fixed cap; every minute must earn its place, and chapters let viewers jump | `templates/02-master-script.md` |
+| Weekly masterclass (flagship hub) | Every **Sunday, 6:00 PM IST** | **28–38 min, default about 32** (light weeks 22–26 min; never pad). **40 min is an overflow trigger, not a hard cap:** above 38 min, apply the overflow cascade (§4.1) or log the owner's override in the brief. A chapter at every pillar | `templates/02-master-script.md` |
+| **Decode Extended** (standalone Deep Dive) | Every **Wednesday, 6:00 PM IST**, **1 a week** | 10–15 min: the week's biggest story at full depth. Built from the hub Deep Dive's core plus its `[EXT]` rows, reusing the hub renders and narration, with its own 20–30 s open and close, its own title angle, a story-arc playlist, and a card from the hub chapter. Run it past 8 min so mid-roll ads are possible | `templates/02-master-script.md` (`[EXT]` rows) |
 | YouTube Shorts | 3–5 per week, Mon–Fri (one APPSC-tagged Short per week until 24 Jan 2027) | 45–60 s each | `templates/04-shorts-pack.md` |
 | Weekly PDF notes + MCQs | Released with the Sunday video | 6–10 pages | `templates/05-weekly-notes-mcq.md` |
 | Monthly compilation | Last Sunday of the month, or the first weekend of the next month | 60–90 min | `templates/06-monthly-compilation.md` |
@@ -117,7 +118,7 @@ Not every story needs the same treatment. Assign each story one tier. The tier d
 
 | Tier | When to use | What it gets | Typical length |
 |---|---|---|---|
-| **Deep Dive** | High exam yield, rich static anchor, several GS papers, likely Mains question | The full 5-step analysis (§4.2): map, mind map, traps, Mains Lens, Way Forward, model question, checkpoint, plus history and earlier-episode connections | 5–8 min each; usually 2–4 a week |
+| **Deep Dive** | High exam yield, rich static anchor, several GS papers, likely Mains question | The full 5-step analysis (§4.2): map, mind map, traps, Mains Lens, Way Forward, model question, checkpoint, plus history and earlier-episode connections. Written modularly: hub rows tagged `[HUB]`, extension rows tagged `[EXT]` (longer timeline, examiner's chair, two-sided proposition, model-answer walk-through). `[EXT]` rows go to Decode Extended or the PDF, never into the hub | **5–8 min in the hub** (about 700–1,100 words); usually 2–3 a week |
 | **Focus** | Clear exam value but narrower: one GS paper, mainly a Prelims fact plus one Mains angle | Trigger → static anchor → 2 traps → one Mains angle → one "Write this down" | 1.5–3 min each |
 | **Glimpse** | A testable fact with little analysis needed: places in news, persons in news, reports and indices, schemes launched, species, appointments to constitutional bodies | What happened → the static fact → one trap, in the category-wise **News Grid** | 20–45 s each; as many as the week genuinely has |
 | **Update** | A story we have covered before that moved this week | One-line callback to the earlier episode → what changed → what it means for the exam now (§3.3) | 30 s – 3 min; escalate to a Deep Dive if the change is big |
@@ -184,6 +185,25 @@ This is the default running order. Re-order it when a week's story demands it, f
 | Trap Vault rapid-fire | 1:30–2:30 | This week's traps, plus 2 traps from last week and 1 from four weeks ago (spaced recall). |
 | Desk Note (optional) | 30–60 s | Only in weeks where it fits (§5.10). |
 | Verdict + CTA | 1:00–1:15 | Ends with 15–20 s of narration over the Decode Desk so the end screen has room. |
+
+**Hub budget and overflow (owner decision, Oct 2026).** Budget the hub at about 32 min (§2). Project its runtime from the word count (÷ 135) at the rundown stage.
+
+- **Typical week (about 32 min):** cold open 1:15 · Update Desk 2:00 · three Deep Dives of about 6:30, 6:00 and 5:30 · two Focus segments of 2:00 · News Grid 3:30 · Trap Vault 1:45 · verdict and CTA 1:15.
+- **Heavy week (about 38–40 min):** as above, with the fourth big story as a 2–3 min Focus "trailer" in the hub and its full depth in Decode Extended.
+- **Light week:** 22–26 min. Never pad.
+
+If the projection exceeds 38 min, apply this cascade in order, and stop as soon as it is at 38 min or less:
+1. Cap each Deep Dive at 8:00 and move its `[EXT]` rows out.
+2. Cap each Update at 45 s.
+3. Cap the News Grid at about 9 Glimpses. The surplus goes to the PDF's "Also in the news" list or to Shorts.
+4. Demote the lowest-scoring pillar by one tier.
+5. Route the fourth Deep Dive to Decode Extended, with a 2–3 min Focus trailer in the hub.
+6. Defer Mains-only items with no deadline to next week or the monthly compilation.
+7. Drop the Desk Note.
+
+Never cut the pre-question, the per-pillar checkpoints, the Trap Vault's spaced recall or (until 24 Jan 2027) a genuine Telugu States Lens.
+
+Checkpoint countdown cards hold 6–8 s, because many viewers watch at 1.25–2x. Place manual mid-roll ad slots only at chapter boundaries.
 
 ### 4.2 Inside each Deep Dive (the 5 steps)
 

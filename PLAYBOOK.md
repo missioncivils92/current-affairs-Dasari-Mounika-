@@ -55,7 +55,7 @@ Run this end to end, without self-imposed limits on searches, sources or depth (
 |---|---|---|
 | Mon | Week folder + deep sweep begins; tracker check; metrics review | Short #1 (reveals last Sunday's MCQ answer); Posts quiz |
 | Tue | Sweep continues; tiers and categories forming | Short #2 (Prelims Trap, with a quiz sticker) |
-| Wed | **Rundown locked** (Deep Dives, Focus, Glimpses, Updates) with a blueprint per Deep Dive; research started | Short #3 |
+| Wed | **Rundown locked** (Deep Dives, Focus, Glimpses, Updates) with a blueprint per Deep Dive; research started · **6 PM: last week's Decode Extended goes live** | Short #3 |
 | Thu | Research brief complete; verification log and PYQ check | Short #4: APPSC-tagged until 24 Jan 2027 |
 | Fri | **Master script v1** (two-column) + visual handoff | Short #5 (optional) |
 | Sat | M read-through → v2, QC, recording; PDF notes + MCQs | Poll: "Which issue should we decode next?" |
@@ -131,18 +131,9 @@ Run this end to end, without self-imposed limits on searches, sources or depth (
 - [ ] **C** Write the **master script v1** in `02-master-script.md` as a **two-column table**: visual cue (left) | verbatim narration (right).
   - Lock the map beats and mind-map nodes first, then write the narration to them, so every visual lands on the words it explains.
   - Show the running word count. Budget: target minutes × 135.
-  - Example runtime split for a 28-minute week. Size every week to its own content; there is no fixed cap.
-
-    | Segment | Time |
-    |---|---|
-    | Cold open (with pre-question and "On today's desk") | 1:15 |
-    | Update Desk (2–3 updates) | 2:30 |
-    | Deep Dives | 3 × 6:00 |
-    | Focus segments | 2 × 2:00 |
-    | News Grid (Local, National, International, Misc) | 3:30 |
-    | Trap Vault rapid-fire (with spaced recall) | 1:45 |
-    | Optional Desk Note | 0:45 |
-    | Verdict + CTA | 1:15 |
+  - **Hub budget:** about 32 min (28–38). Use the typical- and heavy-week budgets and the overflow cascade in `CLAUDE.md` §4.1.
+  - Tag every Deep Dive row `[HUB]` or `[EXT]`, and print the hub-only word count and the Extended word count separately.
+  - Pick the week's **Decode Extended** story: the Deep Dive with the richest `[EXT]` material. Its script is the hub core plus its `[EXT]` rows, with a 20–30 s open and close of its own.
 
     Telugu States Lens: inside Deep Dives and Focus segments, or as Local Glimpses.
 - [ ] **C** Run `python3 tools/make_voiceover.py weeks/YYYY-Www v1` to generate `02b-voiceover-text.md` for Mounika.
@@ -202,6 +193,13 @@ Run this end to end, without self-imposed limits on searches, sources or depth (
   - [ ] No on-camera rows. Direct-address rows use `[VOICE ANCHOR]` with a voice direction. No faces, hands, AI avatars or synthetic voices.
   - [ ] Every external asset has its source, licence and credit logged. No news-agency or Parliament clips. No Google Earth Studio.
   - [ ] Any photorealistic AI image is flagged for YouTube's synthetic-content disclosure.
+- [ ] **M** Record in two sessions of 60–75 min each, with breaks about every 20 min:
+  - **Session 1:** cold open and Deep Dives, including the `[EXT]` rows for Decode Extended.
+  - **Session 2:** Updates, Focus segments, News Grid, Trap Vault, verdict and next week's Shorts.
+- [ ] **C/M** Length QC:
+  - [ ] The hub is projected at 38 min or less, or the overflow cascade or owner override is logged.
+  - [ ] No hub chapter runs over 8 min.
+  - [ ] Decode Extended runs 10–15 min (at least 8) and has its own title angle and playlist.
 - [ ] **M** Record the voiceover (VO), one WAV file per segment: `YYYY-Www_VO_open.wav`, `YYYY-Www_VO_P1.wav`, and so on. Use the same mic, room and distance every week so the voice sounds identical.
 - [ ] **C** Produce the **PDF notes + MCQs** in `05-weekly-notes-mcq.md`:
   - One page per pillar: anchor, the completed mind map, traps, 4 dimensions, Carry into Mains, Way Forward, Telugu lens, and exam tags.
@@ -281,6 +279,10 @@ Look at last week's video:
 - Top comments and questions.
 - Did the creative idea of the week hold retention (compare its chapter with the others)? Keep it, refine it or drop it.
 - Did viewers click through from callback cards to earlier episodes?
+- **Per-chapter retention against budget:**
+  - Any chapter type that loses viewers faster than the channel average for 3 weeks running is trimmed or moved to Shorts.
+  - Compare Decode Extended views and subscribers with the hub.
+- **Length test (first 8 weeks):** alternate hubs of about 28 and about 36 min. Compare average view duration, returning viewers and subscribers per 1,000 views, then fix the default.
 
 Log one change to try this week in `weeks/YYYY-Www/README.md`.
 
@@ -312,7 +314,7 @@ Facts below were checked on 27 Oct 2026. Re-verify any dated figure before reusi
 | 3 | `[REAL FOOTAGE]` Satellite pair, before/after: the Kakhovka [Ka-KHOV-ka] reservoir full, then drained after the June 2023 dam breach (NASA Earth Observatory or Copernicus Sentinel, with credit). Pointer moves upstream to the Zaporizhzhia plant, then south along the North Crimean Canal. | Now notice what lies upstream. When the Kakhovka dam was destroyed in June 2023, the reservoir behind it drained — and that reservoir had fed both the cooling system of the Zaporizhzhia [Za-po-RIZH-zhya] nuclear plant and the canal that carries fresh water to Crimea [Kry-MEE-ya]. So any shift along this river is never just local, and that is why local deals here are so hard to keep. |
 | 4 | `[MIND MAP]` Centre node builds: *The strategic dilemma for New Delhi*. Branch 1 appears on its words: *Energy security — discounted Russian crude*. Branch 2 appears on its words: *Principles — UN Charter Art 2(4), territorial integrity*. | Now let us come to the question UPSC actually cares about in General Studies Paper Two. How does New Delhi live with a long war without giving up its strategic autonomy? |
 | 5 | `[DATA CHART]` Bar chart: India's crude imports by source, Sept 2026. Russia highlighted at about 1.7–1.8 million barrels a day, about one-third of the total. Source line: "Kpler, as reported, Sept 2026". | On one side sits energy security — in September, Russia supplied roughly one-third of India's crude imports, a little under two million barrels every day. On the other side sits principle — New Delhi keeps repeating that this is not an era of war, and it keeps pointing to the territorial integrity that Article Two of the UN Charter protects. |
-| 6 | `[KINETIC TEXT]` Red Prelims Trap card. Line 1: *Kerch Strait = Sea of Azov ↔ Black Sea · 2003 Russia–Ukraine treaty*. Line 2: *Montreux 1936 = Turkish Straits only (Bosphorus, Dardanelles)*. Line 3: *Donbas = Donetsk + Luhansk (political usage); the coal basin spills into Rostov*. *Voice: slower.* | **Prelims Trap.** Keep two straits apart in your head. The Kerch [KERCH] Strait links the Sea of Azov [AY-zov] to the Black Sea, and its passage was governed by a 2003 treaty between Russia and Ukraine. The Montreux [Mon-TRUH] Convention of 1936 is a different animal — it governs only the Turkish Straits, the Bosphorus and the Dardanelles. And when you see "Donbas", read it as Donetsk and Luhansk — though the coal basin itself runs into Russia's Rostov region, which is exactly the kind of fine print an examiner enjoys. |
+| 6 | `[KINETIC TEXT]` Red Prelims Trap card. Line 1: *Kerch Strait = Sea of Azov ↔ Black Sea · 2003 Russia–Ukraine treaty (denounced by both in 2023)*. Line 2: *Montreux 1936 = Turkish Straits only (Bosphorus, Dardanelles)*. Line 3: *Donbas = Donetsk + Luhansk (political usage); the coal basin spills into Rostov*. *Voice: slower.* | **Prelims Trap.** Keep two straits apart in your head. The Kerch [KERCH] Strait links the Sea of Azov [AY-zov] to the Black Sea, and its passage was governed by a 2003 treaty between Russia and Ukraine — a treaty both countries denounced in 2023. The Montreux [Mon-TRUH] Convention of 1936 is a different animal — it governs only the Turkish Straits, the Bosphorus and the Dardanelles. And when you see "Donbas", read it as Donetsk and Luhansk — though the coal basin itself runs into Russia's Rostov region, which is exactly the kind of fine print an examiner enjoys. |
 | 7 | `[GIS MAP]` Ukraine's seven land neighbours light up one by one. `[PYQ ECHO]` overlay card: *UPSC CSE Prelims 2023 · "How many of the above share a land border with Ukraine?" · Answer: only two — Hungary, Romania* (only after the `[PYQ-VERIFY]` tag is cleared). | And this is not a hypothetical. In 2023, UPSC listed six European countries and simply asked how many of them border Ukraine — only two did, Hungary and Romania. So learn the whole neighbourhood, not just the one country in the headline. |
 | 8 | `[KINETIC TEXT]` Yellow "Pause and answer" card with a 5-second countdown: *Which body of water does the Kerch Strait connect to the Black Sea?* *Voice: warm, playful.* | **Pause and answer.** Which sea does the Kerch Strait join to the Black Sea? Say it out loud — I will tell you at the start of the next chapter. |
 
