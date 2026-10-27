@@ -166,3 +166,4 @@ Generate **3 distinct title + thumbnail concepts** per masterclass.
 - Markdown only. No build step yet. A Remotion project may be added later. Until then the visual handoff is a prompt document for the editor.
 - Before calling a script final, run the **QC checklist** in `PLAYBOOK.md` §Saturday.
 - Refresh `docs/research/aspirant-landscape-2026.md` when UPSC, APPSC or TGPSC publishes a new notification, calendar or result.
+- **Ship every completed piece of work to `main`.** When a task is finished, commit and push the working branch, open a pull request into `main`, and merge it. If the working branch's earlier PR has already been merged, restart the branch from the latest `main` before adding new commits. Never push directly to `main`.
