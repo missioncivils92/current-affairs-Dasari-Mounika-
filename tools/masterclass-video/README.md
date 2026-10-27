@@ -30,6 +30,14 @@ First used for `weeks/2026-W44/sample-oleshky/`.
    - Use `--stills 10,40,95 <out_dir>` for QA frames.
    - For speed, render ranges in parallel and join them with `ffmpeg -f concat`.
 
+## Syncing to a finished narration (one audio file)
+
+1. `ffmpeg -i narration.mp3 -ac 1 -ar 16000 -sample_fmt s16 narration16.wav`
+2. `python3 -I align_vo.py <script.md> narration16.wav align.json` force-aligns every word with pocketsphinx (offline; `pip install pocketsphinx`). Add any missing names to `OOV` in the script.
+3. `python3 -I timeline.py <script.md> timeline.json --align align.json` lays each row on its words. It also inserts real silence for "Pause and answer" countdowns (5 s) and the recap hold (3 s).
+4. `python3 -I build_audio.py timeline.json narration.mp3 final_audio.wav` inserts those pauses, normalises loudness to about −14 LUFS, and writes `final_audio_env.json`, which drives the Decode Desk waveform.
+5. Render the video-only parts with `node render.js ... --env final_audio_env.json`, join them with `ffmpeg -f concat`, then mux `final_audio.wav`.
+
 ## Rules baked in
 
 - **Maps:** India is always drawn from the DataMeet Survey-of-India outline. Every map shot carries its imagery and boundary credits.

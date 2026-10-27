@@ -53,14 +53,14 @@ SCENES.S03 = (ctx, s) => {
   items.forEach((it, i) => { pill(ctx, it, px, 760, { alpha: appear(s.t, 3.2 + i * 0.5), fill: i === 4 ? C.yellow : 'rgba(255,255,255,0.12)', color: i === 4 ? C.slate : C.white }); px += ws[i] + gap; });
   vignette(ctx);
 };
-function pauseCard(ctx, s, q, startAt = 0) {
+function pauseCard(ctx, s, q, startAt = 0, cdEnd = null) {
   bg(ctx);
   const k = appear(s.t, startAt);
   card(ctx, 260, 250, 1400, 520, { fill: 'rgba(38,43,51,0.96)', stroke: C.yellow, lw: 3, alpha: k });
   pill(ctx, 'PAUSE AND ANSWER', 320, 300, { alpha: k, font: F.ui(26, 800), h: 48 });
   text(ctx, q, 320, 450, { font: F.head(58), maxW: 1000, lh: 74, alpha: k });
   // countdown ring: runs over the last 5 s of the row
-  const cd = clamp((s.t - (s.d - 5.4)) / 5), left = Math.ceil(5 - cd * 5);
+  const end = cdEnd ?? (s.d - 0.4), cd = clamp((s.t - (end - 5)) / 5), left = Math.ceil(5 - cd * 5);
   ctx.save(); ctx.globalAlpha = k; ctx.lineWidth = 14; ctx.strokeStyle = 'rgba(255,255,255,0.12)'; ctx.beginPath(); ctx.arc(1460, 520, 110, 0, 7); ctx.stroke();
   ctx.strokeStyle = C.yellow; ctx.beginPath(); ctx.arc(1460, 520, 110, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * (1 - cd)); ctx.stroke(); ctx.restore();
   text(ctx, String(clamp(left, 0, 5)), 1460, 556, { font: F.head(110), align: 'center', alpha: k, color: C.yellow });
@@ -321,7 +321,7 @@ function fragMap(ctx, s, reveal, o = {}) {
     const a = reveal[i] ?? 0; if (a <= 0) return;
     const blank = o.blanks && o.blanks[i];
     const grey = i === 5 && !o.india;
-    node(ctx, n.x, n.y, blank ? '________' : n.s, { alpha: a, sub: blank ? '' : n.sub, color: grey ? C.faint : C.white, stroke: o.hi === i ? C.yellow : (grey ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.2)') });
+    node(ctx, n.x, n.y, blank ? '________' : n.s, { alpha: a, sub: blank ? '' : (i === 5 && o.india ? 'energy vs principle' : n.sub), color: grey ? C.faint : C.white, stroke: o.hi === i ? C.yellow : (grey ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.2)') });
   });
   vignette(ctx, 0.45);
 }
@@ -518,7 +518,7 @@ SCENES.S31 = (ctx, s) => {
 
 // ---------------- recap + checkpoint ----------------
 SCENES.S32 = (ctx, s) => {
-  const blanksAt = s.beat(3) - 0.3, revealAt = s.d - 2.2;
+  const blanksAt = s.beat(4) - 0.2, revealAt = s.d - 1.2;
   fragMap(ctx, s, [1, 1, 1, 1, 1, 1], { india: true });
   // three-blank recap card
   const a = appear(s.t, blanksAt);
@@ -528,10 +528,10 @@ SCENES.S32 = (ctx, s) => {
     R.forEach(([k, v], i) => { const w = text(ctx, k, 610, 470 + i * 90, { font: F.ui(34, 800), alpha: a }); text(ctx, rev ? v : '________', 610 + w, 470 + i * 90, { font: rev ? F.hand(52) : F.ui(34, 800), color: C.yellow, alpha: a }); });
     if (!rev) text(ctx, 'pause · copy · fill', 960, 700, { font: F.hand(40), align: 'center', color: C.dim, alpha: a });
   }
-  for (let i = 0; i < 3; i++) { const k = appear(s.t, s.beat(i) - 0.2) * (1 - a); if (k > 0) pill(ctx, ['1 · the river is the frontline', '2 · the dam turned land into water + nuclear', '3 · India: energy vs principle'][i], 80, 70 + i * 54, { alpha: k, fill: 'rgba(255,255,255,0.14)', color: C.white, font: F.ui(22, 800) }); }
+  for (let i = 0; i < 3; i++) { const k = appear(s.t, s.beat(i + 1) - 0.2) * (1 - a); if (k > 0) pill(ctx, ['1 · the river is the frontline', '2 · the dam turned land into water + nuclear', '3 · India: energy vs principle'][i], 80, 70 + i * 54, { alpha: k, fill: 'rgba(255,255,255,0.14)', color: C.white, font: F.ui(22, 800) }); }
 };
 SCENES.S33 = (ctx, s) => {
-  pauseCard(ctx, s, 'Name the two straits governed by the Montreux Convention.');
+  pauseCard(ctx, s, 'Name the two straits governed by the Montreux Convention.', 0, s.beat(1) - 0.1);
   const a = appear(s.t, s.beat(1) - 0.2);
   if (a > 0) { card(ctx, 320, 640, 1000, 100, { fill: C.yellow, alpha: a }); text(ctx, 'Bosphorus · Dardanelles (with the Sea of Marmara)', 350, 705, { font: F.ui(34, 800), color: C.slate, alpha: a }); }
 };

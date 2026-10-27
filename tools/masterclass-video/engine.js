@@ -12,7 +12,8 @@ const F = {
 };
 const SCENES = {};
 const A = {};           // assets: images + geo + timeline
-let REVIEW = false;     // preview build: show a discreet review caption strip
+let REVIEW = false;
+let GT = 0;              // global timeline time (s), for audio-driven visuals     // preview build: show a discreet review caption strip
 
 // ---------- math & easing ----------
 const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
@@ -289,7 +290,8 @@ function desk(ctx, t, o = {}) {
   if (o.sketch) o.sketch(ctx);
   ctx.restore();
   // waveform (moves with the voice)
-  waveform(ctx, 560, 1000, 800, 34, t, o.speaking ?? 0.8);
+  const env = A.env ? (A.env[Math.min(A.env.length - 1, Math.floor(GT * 30))] || 0) : null;   // real voice level when a narration track exists
+  waveform(ctx, 560, 1000, 800, 34, t, env != null ? 0.08 + 1.1 * env : (o.speaking ?? 0.8));
   vignette(ctx, 0.6);
 }
 

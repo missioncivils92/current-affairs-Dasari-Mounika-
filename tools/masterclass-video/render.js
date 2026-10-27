@@ -17,6 +17,7 @@ const stills = arg('--stills', null), audio = arg('--audio', null);
 (async () => {
   const tl = JSON.parse(fs.readFileSync(tlFile, 'utf8'));
   const images = {}, data = { geo: JSON.parse(fs.readFileSync(path.join(assets, 'geo.json'))) };
+  const envFile = arg('--env', null); if (envFile) data.env = JSON.parse(fs.readFileSync(envFile));
   for (const sub of ['terrain', 'sat']) for (const f of fs.readdirSync(path.join(assets, sub))) {
     if (f.endsWith('.json')) data[f.replace('.json', '_meta')] = JSON.parse(fs.readFileSync(path.join(assets, sub, f)));
     if (f.endsWith('.png') && !f.startsWith('p_')) images[f.replace('.png', '')] = 'file://' + path.join(assets, sub, f);

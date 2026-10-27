@@ -34,6 +34,7 @@ function drawRow(c, row, t) {
   g.restore(); return s;
 }
 window.renderAt = (t) => {
+  GT = t;
   const rows = TL.rows; let i = rows.findIndex(r => t >= r.start && t < r.end); if (i < 0) i = rows.length - 1;
   const row = rows[i];
   const s = drawRow(bufB, row, t);

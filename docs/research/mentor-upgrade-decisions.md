@@ -37,3 +37,9 @@ Corrections to the PDF's model example (must not be copied into scripts):
 | 17 | Categories | Scope: Local (Telugu States), National, International, Miscellaneous. Plus subject categories; new ones may be added as needed (§3.2). |
 | 18 | Continuity | Videos form one connected course. `docs/story-tracker.md` ledger; covered stories return as Updates with callbacks, the delta and changed facts; history and earlier-episode links; story arcs; YouTube cards (§3.3). |
 | 19 | Runtime | Sized to the week, typically 20–35 min, with no fixed cap. |
+
+## One-off exception (27 Oct 2026)
+
+| # | Topic | Decision |
+|---|---|---|
+| 20 | ElevenLabs narration | **Only** the W44 Oleshky sample video uses an ElevenLabs voiceover. The channel rule is unchanged: every other video uses Mounika's real voice (`CLAUDE.md` §1). On upload, tick YouTube's altered/synthetic content disclosure for this video. |

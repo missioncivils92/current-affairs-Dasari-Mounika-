@@ -18,6 +18,7 @@ from pathlib import Path
 src, out = Path(sys.argv[1]), Path(sys.argv[2])
 args = sys.argv[3:]
 vo_dir = Path(args[args.index("--vo") + 1]) if "--vo" in args else None
+align_file = Path(args[args.index("--align") + 1]) if "--align" in args else None   # from align_vo.py
 prefix = args[args.index("--prefix") + 1] if "--prefix" in args else src.parent.name
 WPM = 135
 CODES = {"COLD OPEN": "open", "UPDATE DESK": "updates", "TRAP VAULT": "traps", "NEWS GRID": "grid",
@@ -80,7 +81,32 @@ def beats_for(r, dur):
     return b
 
 t = 0.0
-if vo_dir is None:
+if align_file is not None:
+    # Exact mode: rows sit on the aligned words. Silence is inserted into the narration for countdown cards
+    # and recap holds, so viewers get real thinking time; the inserts are listed for build_audio.
+    al = json.loads(align_file.read_text()); arows = al["rows"]
+    assert [a["scene"] for a in arows] == [r["scene"] for r in rows], "script changed since alignment"
+    inserts = []
+    for r, a in zip(rows, arows):
+        if "PAUSE AND ANSWER" in r["visual"]:
+            at = a["sent_starts"][1] if len(a["sent_starts"]) > 1 and "If you said" in r["text"] else a["end"] + 0.15
+            inserts.append([round(at - 0.05, 3), 5.0])
+        if "skeleton with three blanks" in r["visual"]:
+            w = [x for x in a["words"] if x[0] == "there"]
+            if w:
+                inserts.append([round(w[-1][1] - 0.05, 3), 3.0])
+    inserts.sort()
+    def mapt(x):
+        return x + sum(d for at, d in inserts if at <= x)
+    nxt = [a["start"] for a in arows[1:]] + [al["duration"]]
+    for r, a, n in zip(rows, arows, nxt):
+        s0, e0 = mapt(0.0 if r is rows[0] else a["start"] - 0.2), mapt(n - 0.2 if n < al["duration"] else n)
+        r.update(start=round(s0, 3), end=round(e0, 3), beats=[round(mapt(b) - s0, 3) for b in a["sent_starts"]])
+    rows[-1]["end"] = round(max(rows[-1]["end"], rows[-1]["start"] + 18.0), 3)      # room for the end screen
+    t = rows[-1]["end"]
+    mode = f"aligned ({align_file.name})"
+    extra = {"audio": al["audio"], "inserts": inserts}
+elif vo_dir is None:
     for r in rows:
         d = est_duration(r)
         r.update(start=round(t, 3), end=round(t + d, 3), beats=beats_for(r, d)); t += d
@@ -109,7 +135,9 @@ chapters = []
 for r in rows:
     if not chapters or chapters[-1]["title"] != r["chapter"]:
         chapters.append({"title": r["chapter"], "start": r["start"]})
-out.write_text(json.dumps({"mode": mode, "duration": round(t, 3), "rows": rows, "chapters": chapters}, indent=1))
+doc = {"mode": mode, "duration": round(t, 3), "rows": rows, "chapters": chapters}
+doc.update(extra if align_file is not None else {})
+out.write_text(json.dumps(doc, indent=1))
 print(f"{len(rows)} rows · {t/60:.2f} min · {mode}")
 for c in chapters:
     print(f"  {int(c['start']//60):02d}:{int(c['start']%60):02d}  {c['title']}")
