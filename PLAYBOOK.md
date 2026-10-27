@@ -55,7 +55,7 @@ Run this end to end, without self-imposed limits on searches, sources or depth (
 |---|---|---|
 | Mon | Week folder + deep sweep begins; tracker check; metrics review | Short #1 (reveals last Sunday's MCQ answer); Posts quiz |
 | Tue | Sweep continues; tiers and categories forming | Short #2 (Prelims Trap, with a quiz sticker) |
-| Wed | **Rundown locked** (Deep Dives, Focus, Glimpses, Updates) with a blueprint per Deep Dive; research started | Short #3 |
+| Wed | **Rundown locked** (Deep Dives, Focus, Glimpses, Updates) with a blueprint per Deep Dive; research started · **6 PM: last week's Decode Extended goes live** | Short #3 |
 | Thu | Research brief complete; verification log and PYQ check | Short #4: APPSC-tagged until 24 Jan 2027 |
 | Fri | **Master script v1** (two-column) + visual handoff | Short #5 (optional) |
 | Sat | M read-through → v2, QC, recording; PDF notes + MCQs | Poll: "Which issue should we decode next?" |
@@ -131,18 +131,9 @@ Run this end to end, without self-imposed limits on searches, sources or depth (
 - [ ] **C** Write the **master script v1** in `02-master-script.md` as a **two-column table**: visual cue (left) | verbatim narration (right).
   - Lock the map beats and mind-map nodes first, then write the narration to them, so every visual lands on the words it explains.
   - Show the running word count. Budget: target minutes × 135.
-  - Example runtime split for a 28-minute week. Size every week to its own content; there is no fixed cap.
-
-    | Segment | Time |
-    |---|---|
-    | Cold open (with pre-question and "On today's desk") | 1:15 |
-    | Update Desk (2–3 updates) | 2:30 |
-    | Deep Dives | 3 × 6:00 |
-    | Focus segments | 2 × 2:00 |
-    | News Grid (Local, National, International, Misc) | 3:30 |
-    | Trap Vault rapid-fire (with spaced recall) | 1:45 |
-    | Optional Desk Note | 0:45 |
-    | Verdict + CTA | 1:15 |
+  - **Hub budget:** about 32 min (28–38). Use the typical- and heavy-week budgets and the overflow cascade in `CLAUDE.md` §4.1.
+  - Tag every Deep Dive row `[HUB]` or `[EXT]`, and print the hub-only word count and the Extended word count separately.
+  - Pick the week's **Decode Extended** story: the Deep Dive with the richest `[EXT]` material. Its script is the hub core plus its `[EXT]` rows, with a 20–30 s open and close of its own.
 
     Telugu States Lens: inside Deep Dives and Focus segments, or as Local Glimpses.
 - [ ] **C** Run `python3 tools/make_voiceover.py weeks/YYYY-Www v1` to generate `02b-voiceover-text.md` for Mounika.
@@ -202,6 +193,13 @@ Run this end to end, without self-imposed limits on searches, sources or depth (
   - [ ] No on-camera rows. Direct-address rows use `[VOICE ANCHOR]` with a voice direction. No faces, hands, AI avatars or synthetic voices.
   - [ ] Every external asset has its source, licence and credit logged. No news-agency or Parliament clips. No Google Earth Studio.
   - [ ] Any photorealistic AI image is flagged for YouTube's synthetic-content disclosure.
+- [ ] **M** Record in two sessions of 60–75 min each, with breaks about every 20 min:
+  - **Session 1:** cold open and Deep Dives, including the `[EXT]` rows for Decode Extended.
+  - **Session 2:** Updates, Focus segments, News Grid, Trap Vault, verdict and next week's Shorts.
+- [ ] **C/M** Length QC:
+  - [ ] The hub is projected at 38 min or less, or the overflow cascade or owner override is logged.
+  - [ ] No hub chapter runs over 8 min.
+  - [ ] Decode Extended runs 10–15 min (at least 8) and has its own title angle and playlist.
 - [ ] **M** Record the voiceover (VO), one WAV file per segment: `YYYY-Www_VO_open.wav`, `YYYY-Www_VO_P1.wav`, and so on. Use the same mic, room and distance every week so the voice sounds identical.
 - [ ] **C** Produce the **PDF notes + MCQs** in `05-weekly-notes-mcq.md`:
   - One page per pillar: anchor, the completed mind map, traps, 4 dimensions, Carry into Mains, Way Forward, Telugu lens, and exam tags.
@@ -281,6 +279,10 @@ Look at last week's video:
 - Top comments and questions.
 - Did the creative idea of the week hold retention (compare its chapter with the others)? Keep it, refine it or drop it.
 - Did viewers click through from callback cards to earlier episodes?
+- **Per-chapter retention against budget:**
+  - Any chapter type that loses viewers faster than the channel average for 3 weeks running is trimmed or moved to Shorts.
+  - Compare Decode Extended views and subscribers with the hub.
+- **Length test (first 8 weeks):** alternate hubs of about 28 and about 36 min. Compare average view duration, returning viewers and subscribers per 1,000 views, then fix the default.
 
 Log one change to try this week in `weeks/YYYY-Www/README.md`.
 

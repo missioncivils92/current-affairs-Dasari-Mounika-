@@ -1,7 +1,7 @@
 # Sample Deep Dive — The Oleshky Truce (2026-W44)
 
 **Coverage:** Mon 26 – Sat 31 Oct 2026 (event: Tue 27 Oct 2026)
-**Status:** final cut rendered with narration. Runtime 11:56 (11:32 of narration plus inserted pauses for the checkpoints and the end screen).
+**Status:** internal quality reference only (owner decision 22): not for publication. Final cut rendered with narration. Runtime 11:56 (11:32 of narration plus inserted pauses for the checkpoints and the end screen).
 
 | File | What it is |
 |---|---|

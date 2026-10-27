@@ -43,3 +43,14 @@ Corrections to the PDF's model example (must not be copied into scripts):
 | # | Topic | Decision |
 |---|---|---|
 | 20 | ElevenLabs narration | **Only** the W44 Oleshky sample video uses an ElevenLabs voiceover. The channel rule is unchanged: every other video uses Mounika's real voice (`CLAUDE.md` §1). On upload, tick YouTube's altered/synthetic content disclosure for this video. |
+
+## Video length and release plan (27 Oct 2026)
+
+Based on `reports/Weekly video length and format.md`.
+
+| # | Topic | Decision |
+|---|---|---|
+| 19 (amended) | Runtime | Sunday hub **28–38 min, default about 32**. 40 min is an overflow trigger (cascade in `CLAUDE.md` §4.1), not a hard cap. Light weeks run 22–26 min, never padded. |
+| 21 | Decode Extended | **One per week**, Wednesday 6 PM IST, 10–15 min: the week's biggest story at full depth, built from the hub Deep Dive plus its `[EXT]` rows. |
+| 22 | Oleshky sample | Kept as an **internal quality reference only**; not published. |
+| 23 | Monthly compilation | Stays on the **last Sunday** of the month (unchanged). |
