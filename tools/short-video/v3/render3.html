@@ -1,0 +1,206 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&display=block">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#14181d}
+body{font-family:"Source Sans 3",Arial,sans-serif;color:#F4F6F8;position:relative}
+#bg{position:absolute;inset:0;background:radial-gradient(1100px 900px at 50% 35%,#283039 0%,#1c2128 55%,#121519 100%)}
+#grid{position:absolute;inset:0;opacity:.05;background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);background-size:60px 60px}
+#prog{position:absolute;left:0;top:0;height:8px;background:#F5D300}
+#brand{position:absolute;top:130px;left:60px;font-family:"Barlow Condensed";font-weight:800;font-size:44px;letter-spacing:.16em;color:#F5D300}
+#brand small{font-family:"Source Sans 3";font-weight:600;font-size:26px;letter-spacing:.02em;color:#AEB6C2;margin-left:12px}
+#topic{position:absolute;top:138px;right:60px;font-family:"Barlow Condensed";font-weight:700;font-size:30px;letter-spacing:.08em;color:#AEB6C2;border:2px solid #39414C;padding:4px 14px;border-radius:8px}
+#scene{position:absolute;left:0;top:220px;width:1080px;height:1040px}
+#script{position:absolute;left:56px;right:150px;top:1285px;min-height:330px;padding:26px 30px;font-size:52px;font-weight:700;line-height:1.24;word-spacing:4px;border-radius:20px;background:rgba(15,18,22,.72);border:2px solid #313843}
+#script .w{font-weight:700;font-size:52px;line-height:1.24}
+#script .past{color:#FFFFFF}
+#script .on{color:#F5D300}
+#script .fut{color:#8B95A3}
+#script .static{font-weight:600;font-size:46px;line-height:1.28;color:#D7DCE3}
+#script .tag{font-family:"Barlow Condensed";font-weight:700;font-size:28px;letter-spacing:.14em;color:#F5D300;margin-bottom:8px}
+</style></head>
+<body>
+<div id="bg"></div><div id="grid"></div><div id="prog"></div>
+<div id="brand">DECODE UPSC<small>with Mounika</small></div>
+<div id="topic">RUSSIA–UKRAINE · GS-2</div>
+<div id="scene"></div>
+<div id="script"></div>
+<script>
+let TL=null, A=null;
+const Y='#F5D300', RED='#E5484D', TEAL='#2BB3A3', INK='#F4F6F8', MUTE='#AEB6C2';
+const e=x=>{x=Math.max(0,Math.min(1,x));return 1-Math.pow(1-x,3)};
+const ap=(t,at,d=0.45)=>e((t-at)/d);
+const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const fmt=n=>Math.round(n).toLocaleString('en-IN');
+function icon(n,x,y,size,color,op=1,rot=0){
+  const I=A.icons[n]; if(!I) return '';
+  const [a,b,w,h]=I.vb.split(' ').map(Number), sc=size/Math.max(w,h);
+  return `<g opacity="${op}" transform="translate(${x},${y}) rotate(${rot}) scale(${sc}) translate(${-w/2},${-h/2})">${I.d.map(d=>`<path d="${d}" fill="${color}"/>`).join('')}</g>`;
+}
+function txt(x,y,s,size,color,op=1,weight=800,anchor='start',fam='Barlow Condensed',ls=0){
+  return `<text x="${x}" y="${y}" font-family="${fam}" font-weight="${weight}" font-size="${size}" fill="${color}" opacity="${op}" text-anchor="${anchor}" letter-spacing="${ls}">${esc(s)}</text>`;
+}
+function wrapTxt(x,y,s,size,color,op,maxCh,lh=1.15,weight=700,fam='Source Sans 3'){
+  const words=s.split(' '); const lines=[]; let cur='';
+  for(const w of words){ if((cur+' '+w).trim().length>maxCh){lines.push(cur.trim());cur=w}else cur+=' '+w } if(cur.trim())lines.push(cur.trim());
+  return lines.map((l,i)=>txt(x,y+i*size*lh,l,size,color,op,weight,'start',fam)).join('');
+}
+function pin(p,label,t,at,color=Y,labelDx=18,labelDy=-18){
+  const k=ap(t,at,0.4); if(k<=0) return '';
+  const pulse=((t-at)%1.4)/1.4;
+  return `<g opacity="${k}"><circle cx="${p[0]}" cy="${p[1]}" r="${8+pulse*26}" fill="none" stroke="${color}" stroke-width="3" opacity="${1-pulse}"/>
+   <circle cx="${p[0]}" cy="${p[1]}" r="9" fill="${color}" stroke="#14181d" stroke-width="3"/>
+   ${label?`<text x="${p[0]+labelDx}" y="${p[1]+labelDy}" font-family="Source Sans 3" font-weight="700" font-size="30" fill="${INK}" stroke="#14181d" stroke-width="6" paint-order="stroke">${esc(label)}</text>`:''}</g>`;
+}
+function map(o,t){
+  // o: {z, cx, cy, crimea, dnipro(progress), extra}
+  const z=o.z||1, cx=o.cx??500, cy=o.cy??390;
+  const tr=`translate(${540},${470}) scale(${z}) translate(${-cx},${-cy})`;
+  let g=`<g transform="${tr}">`;
+  for(const [n,d] of Object.entries(A.countries)) if(n!=='Ukraine') g+=`<path d="${d}" fill="#262d36" stroke="#3a434f" stroke-width="${2/z}"/>`;
+  g+=`<path d="${A.ukraine}" fill="#334253" stroke="${Y}" stroke-width="${3.5/z}"/>`;
+  if(o.crimea) g+=`<path d="${A.crimea}" fill="${o.crimeaColor||RED}" opacity="${o.crimea}"/>`;
+  if(o.dnipro!=null) g+=`<path d="${A.dnipro}" fill="none" stroke="${TEAL}" stroke-width="${6/z}" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="${1-o.dnipro}"/>`;
+  if(o.labels!==false) for(const [n,p] of Object.entries(A.labels)) g+=`<text x="${p[0]}" y="${p[1]}" font-family="Barlow Condensed" font-weight="700" font-size="${26/z}" fill="#6f7a88" text-anchor="middle" letter-spacing="${3/z}">${n}</text>`;
+  g+=`<text x="${A.points.Kyiv[0]-30}" y="${A.points.Kyiv[1]+70}" font-family="Barlow Condensed" font-weight="800" font-size="${40/z}" fill="#8fa2b6" letter-spacing="${4/z}">UKRAINE</text>`;
+  g+=(o.inner||'')+`</g>`;
+  return g;
+}
+function mapPt(n,o){ // map coords -> scene coords
+  const p=A.points[n], z=o.z||1, cx=o.cx??500, cy=o.cy??390; return [540+(p[0]-cx)*z, 470+(p[1]-cy)*z];
+}
+function lerp(a,b,k){return a+(b-a)*k}
+function title(s,t,at,y=70,color=INK,size=78){const k=ap(t,at);return `<g transform="translate(${(1-k)*-40},0)">${txt(60,y,s,size,color,k)}</g>`}
+function chip(x,y,ic,label,t,at,color=Y){
+  const k=ap(t,at,0.35); if(k<=0)return '';
+  const w=34+label.length*21+70;
+  return `<g opacity="${k}" transform="translate(${x},${y+(1-k)*30})"><rect x="0" y="-38" width="${w}" height="76" rx="38" fill="#1b2027" stroke="${color}" stroke-width="3"/>${icon(ic,46,0,40,color)}<text x="80" y="12" font-family="Source Sans 3" font-weight="700" font-size="36" fill="${INK}">${esc(label)}</text></g>`;
+}
+function counter(x,y,val,t,at,dur=1.0,size=210,color=Y,prefix='',suffix=''){
+  const k=ap(t,at,dur); const v=val*k;
+  return txt(x,y,prefix+(val%1? v.toFixed(1):fmt(v))+suffix,size,color,Math.min(1,k*3));
+}
+function donut(cx,cy,r,frac,t,at){
+  const k=ap(t,at,1.2), C=2*Math.PI*r;
+  return `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#2c343e" stroke-width="64"/>
+  <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${Y}" stroke-width="64" stroke-dasharray="${C*frac*k} ${C}" transform="rotate(-90 ${cx} ${cy})"/>`;
+}
+const SC={
+ hook(t,s){const lt=t-s.start, b=s.b; const o={z:1};
+   let inner=pin(A.points.Oleshky,'Oleshky',t,s.start+0.3);
+   let out=map(o,t)+`<g>${''}</g>`;
+   const p=mapPt('Oleshky',o); out=map({z:1,inner},t);
+   const dx=lerp(-160,p[0]-40,e(lt/2.2)), dy=lerp(140,p[1]-120,e(lt/2.2))+Math.sin(lt*6)*8;
+   out+=icon('dove',dx,dy,120,INK,Math.min(1,lt*2));
+   if(t>=b[0]) for(const [i,n] of ['Donetsk','Luhansk','Kyiv'].entries()){const q=mapPt(n,o);const k=ap(t,b[0]+i*0.25,0.25);const fl=0.75+0.25*Math.sin((t-b[0])*18+i);out+=icon('explosion',q[0],q[1],90*k,i==2?Y:RED,k*fl)}
+   out+=title('ONE TOWN GETS A TRUCE.',t,s.start,80,INK,84)+title('THE WAR DOES NOT.',t,b[0],170,Y,84);
+   return out},
+ truce(t,s){const lt=t-s.start,b=s.b; const zk=e(lt/2.6); const P=A.points.Oleshky;
+   const o={z:lerp(1,2.0,zk),cx:lerp(500,P[0]+40,zk),cy:lerp(390,P[1]-60,zk)};
+   let inner=pin(A.points.Kherson,'Kherson',t,b[1],INK,-150,-14)+pin(P,'Oleshky',t,b[0],Y,16,40);
+   o.inner=inner; o.dnipro=ap(t,b[1]-0.2,1.6); o.labels=false;
+   let out=map(o,t);
+   out+=`<rect x="40" y="20" width="560" height="96" rx="14" fill="${Y}" opacity="${ap(t,s.start)}"/>`+txt(66,90,'27 OCT · LOCAL TRUCE',64,'#14181d',ap(t,s.start));
+   out+=chip(60,860,'bomb','Clear mines',t,b[2])+chip(60,960,'truck-medical','Bring in aid',t,b[3],TEAL)+chip(470,960,'person-walking-luggage','Let civilians leave',t,b[4]);
+   return out},
+ temp(t,s){const lt=t-s.start,b=s.b;
+   let out=icon('dove',780,330+Math.sin(lt*2)*16,260,INK,ap(t,s.start))+icon('hourglass-half',780,640,170,Y,ap(t,b[0]),Math.sin(lt*1.5)*10);
+   out+=title('LOCAL.',t,s.start,330,INK,170)+title('TEMPORARY.',t,b[0],500,Y,150);
+   out+=`<g opacity="${ap(t,b[1])}">${wrapTxt(60,660,'A full ceasefire is still missing.',52,MUTE,1,24)}</g>`;
+   return out},
+ why2014(t,s){const b=s.b; const o={z:1.05,cx:560,cy:430};
+   const ck=ap(t,b[0],0.6), pul=0.55+0.25*Math.sin(t*5);
+   o.crimea=ck*pul;
+   o.inner=pin(A.points.Donetsk,'Donetsk',t,b[1],RED,16,-14)+pin(A.points.Luhansk,'Luhansk',t,b[1]+0.25,RED,-40,-24);
+   let out=map(o,t);
+   out+=title('2014',t,s.start,120,Y,150);
+   if(ck>0){const q=mapPt('Crimea',o);out+=`<g opacity="${ck}">${txt(q[0]-120,q[1]+110,'Crimea annexed',40,INK,1,700,'start','Source Sans 3')}</g>`}
+   out+=`<g opacity="${ap(t,b[1])}">${txt(560,950,'Fighting in the Donbas',44,INK,1,700,'start','Source Sans 3')}</g>`;
+   return out},
+ why2022(t,s){const b=s.b; const o={z:1.05,cx:560,cy:430}; let out=map(o,t);
+   out+=title('24 FEB 2022',t,s.start,120,Y,130);
+   ['Luhansk','Donetsk','Kyiv','Zaporizhzhia NPP','Kherson'].forEach((n,i)=>{const q=mapPt(n,o);const at=s.start+0.6+i*0.45;const k=ap(t,at,0.3);const fl=0.7+0.3*Math.sin((t-at)*16+i);out+=icon('explosion',q[0],q[1],80*k,i%2?Y:RED,k*fl)});
+   out+=`<g opacity="${ap(t,b[0])}"><rect x="60" y="890" width="700" height="100" rx="16" fill="${RED}"/>${txt(90,962,'FULL-SCALE INVASION',70,'#fff')}</g>`;
+   return out},
+ claims(t,s){const b=s.b; const k1=ap(t,s.start), k2=ap(t,b[0]);
+   const card=(y,k,ic,col,head,body)=>`<g opacity="${k}" transform="translate(${(1-k)*80},0)"><rect x="60" y="${y}" width="960" height="330" rx="26" fill="#1d232b" stroke="${col}" stroke-width="4"/>${icon(ic,190,y+165,170,col)}${txt(330,y+95,head,48,col,1,700,'start','Barlow Condensed',4)}${wrapTxt(330,y+175,body,62,INK,1,18,1.1)}</g>`;
+   return title('WHY THIS WAR?',t,s.start,70,INK,78)+card(140,k1,'shield-halved',Y,'RUSSIA SAYS',"NATO's eastward expansion")+card(520,k2,'building-flag',TEAL,'UKRAINE SAYS','An attack on a sovereign state');},
+ days(t,s){const lt=t-s.start; const flip=Math.abs(Math.cos(lt*3.2));
+   return title('THE NUMBERS',t,s.start,70,MUTE,60)+`<g transform="translate(540,330) scale(1,${0.85+0.15*flip})">${icon('calendar-days',0,0,300,Y,ap(t,s.start))}</g>`+counter(540-260,720,1706,t,s.start+0.3,1.6,230)+`<g opacity="${ap(t,s.start+0.6)}">${txt(540,820,'DAYS OF FULL-SCALE WAR',60,INK,1,800,'middle')}${txt(540,890,'24 Feb 2022 → 27 Oct 2026',40,MUTE,1,600,'middle','Source Sans 3')}</g>`},
+ control(t,s){const b=s.b;
+   return title('THE NUMBERS',t,s.start,70,MUTE,60)+donut(540,430,230,0.19,t,s.start+0.2)+counter(540-150,480,19,t,s.start+0.2,1.2,150,Y,'~','%')+
+   `<g opacity="${ap(t,s.start+0.5)}">${txt(540,780,'OF UKRAINE UNDER RUSSIAN CONTROL',54,INK,1,800,'middle')}</g><g opacity="${ap(t,b[0])}">${txt(540,850,'Crimea included · DeepState map, 19 Oct 2026',38,MUTE,1,600,'middle','Source Sans 3')}</g>`},
+ cost328(t,s){const b=s.b; let out=title('HUMAN COST',t,s.start,70,MUTE,60);
+   for(let i=0;i<8;i++){const k=ap(t,s.start+i*0.18,0.3);out+=icon('house-chimney-crack',115+i*122,250,96,i%3==0?'#6d7785':'#56606c',k)}
+   out+=counter(60,560,328,t,b[0],1.0,250)+`<g opacity="${ap(t,b[0]+0.3)}">${txt(60,650,'CIVILIANS KILLED · SEPTEMBER 2026',54,INK)}${txt(60,720,'Verified by UN human rights monitors',40,MUTE,1,600,'start','Source Sans 3')}</g>`;
+   return out},
+ cost2570(t,s){const b=s.b; let out=title('HUMAN COST',t,s.start,70,MUTE,60)+counter(60,330,2570,t,s.start,1.2,230)+`<g opacity="${ap(t,s.start+0.3)}">${txt(60,420,'CIVILIANS KILLED · JAN–SEP 2026',54,INK)}</g>`;
+   const k=ap(t,b[0],1.0); const base=880, h1=220, h2=220*1.59;
+   out+=`<g opacity="${ap(t,b[0],0.3)}"><rect x="140" y="${base-h1*k}" width="200" height="${h1*k}" rx="10" fill="#4a5462"/><rect x="420" y="${base-h2*k}" width="200" height="${h2*k}" rx="10" fill="${RED}"/>${txt(240,base+50,'2025',40,MUTE,1,700,'middle')}${txt(520,base+50,'2026',40,INK,1,700,'middle')}${txt(680,base-h2*k+60,'+59%',110,RED,k)}${txt(680,base-h2*k+110,'civilian casualties',36,MUTE,k,600,'start','Source Sans 3')}</g>`;
+   return out},
+ refugees(t,s){const lt=t-s.start,b=s.b; let out=title('HUMAN COST',t,s.start,70,MUTE,60);
+   for(let i=0;i<7;i++){const x=((lt*120+i*170)%1300)-120; out+=icon('person-walking-luggage',x,300+(i%2)*40,110,INK,0.85)}
+   out+=counter(60,600,5.8,t,s.start+0.2,1.2,210,Y,'',' mn')+`<g opacity="${ap(t,s.start+0.4)}">${txt(60,680,'UKRAINIANS LIVING AS REFUGEES',54,INK)}</g>`;
+   const k=ap(t,b[0]); for(let i=0;i<5;i++) out+=icon('tent',110+i*120,800,90,TEAL,ap(t,b[0]+i*0.12,0.3));
+   out+=`<g opacity="${k}">${txt(720,800,'3.8 mn',80,TEAL)}${txt(720,850,'displaced inside',36,INK,1,600,'start','Source Sans 3')}</g>`+`<g opacity="${ap(t,s.start+0.6)}">${txt(60,960,'Source: UNHCR, July 2026',32,'#7f8996',1,600,'start','Source Sans 3')}</g>`;
+   return out},
+ nuclear(t,s){const lt=t-s.start,b=s.b; const lost=t>=b[1]&&t<b[2], fixed=t>=b[2];
+   let out=title('ZAPORIZHZHIA',t,s.start,80,Y,96)+`<g opacity="${ap(t,b[0])}">${txt(60,145,"Europe's largest nuclear plant",46,INK,1,700,'start','Source Sans 3')}</g>`;
+   out+=icon('industry',300,480,300,'#9aa6b4',ap(t,s.start))+icon('radiation',300,250,130,Y,ap(t,s.start),lt*40);
+   out+=icon('tower-cell',820,470,230,fixed?TEAL:(lost?'#6d7785':Y),ap(t,s.start));
+   const col=fixed?TEAL:(lost?RED:Y); const flow=(lt*120)%60;
+   out+=`<line x1="460" y1="440" x2="720" y2="440" stroke="${col}" stroke-width="10" stroke-dasharray="${lost?'40 30':'30 30'}" stroke-dashoffset="${lost?0:-flow}" opacity="${ap(t,s.start)}"/>`;
+   if(lost) out+=icon('plug-circle-xmark',590,440,110,RED,ap(t,b[1],0.3));
+   if(fixed) out+=icon('bolt',590,440,110,TEAL,ap(t,b[2],0.3));
+   out+=`<g opacity="${ap(t,b[1])}"><rect x="60" y="720" width="960" height="96" rx="16" fill="${lost?RED:'#2a313a'}"/>${txt(90,790,'AUG 2026: ALL OUTSIDE POWER LOST',60,'#fff')}</g>`;
+   out+=`<g opacity="${ap(t,b[2])}"><rect x="60" y="840" width="960" height="96" rx="16" fill="${TEAL}"/>${txt(90,910,'SEPT: IAEA-BROKERED TRUCE → REPAIRS',56,'#0f1418')}</g>`;
+   return out},
+ diplomacy(t,s){const b=s.b; let out=title('WHERE IS DIPLOMACY?',t,s.start,80,INK,80);
+   out+=icon('comments',230,330,240,Y,ap(t,s.start))+`<g opacity="${ap(t,s.start+0.4)}">${icon('calendar-days',460,280,70,INK)}${txt(520,300,'TALKS: MID-NOVEMBER',52,INK)}${icon('location-dot',460,380,70,INK)}${txt(520,400,'POSSIBLY ABU DHABI',52,INK)}${txt(460,470,'No date is fixed',40,MUTE,1,600,'start','Source Sans 3')}</g>`;
+   const card=(y,k,col,head,body)=>`<g opacity="${k}" transform="translate(${(1-k)*80},0)"><rect x="60" y="${y}" width="960" height="170" rx="22" fill="#1d232b" stroke="${col}" stroke-width="4"/>${txt(100,y+62,head,40,col,1,700,'start','Barlow Condensed',4)}${txt(100,y+130,body,52,INK,1,700,'start','Source Sans 3')}</g>`;
+   out+=card(600,ap(t,b[0]),RED,'MOSCOW (REPORTEDLY)','Wants the rest of the Donbas')+card(800,ap(t,b[1]),TEAL,'KYIV','Territory is a red line');
+   return out},
+ trap(t,s){const b=s.b; const o={z:1.5,cx:720,cy:470};
+   o.crimea=ap(t,b[1],0.4)*0.75; o.crimeaColor='#6d7785';
+   o.inner=pin(A.points.Donetsk,'Donetsk',t,b[0],Y,-150,40)+pin(A.points.Luhansk,'Luhansk',t,b[0]+0.3,Y,-60,-26);
+   let out=map(o,t);
+   out+=`<rect x="40" y="20" width="520" height="100" rx="16" fill="${RED}"/>${icon('triangle-exclamation',100,70,64,'#fff')}${txt(150,96,'PRELIMS TRAP',70,'#fff')}`;
+   out+=`<g opacity="${ap(t,b[0])}"><rect x="40" y="820" width="1000" height="96" rx="16" fill="#1d232b" stroke="${Y}" stroke-width="3"/>${txt(70,890,'DONBAS = DONETSK + LUHANSK',64,Y)}</g>`;
+   if(t>=b[1]){const q=mapPt('Crimea',o);const k=ap(t,b[1],0.3);out+=icon('circle-xmark',q[0],q[1]-20,150*k,RED,k)+`<g opacity="${k}">${txt(q[0]-140,q[1]+110,'NOT CRIMEA',70,RED)}</g>`}
+   return out},
+ india(t,s){const b=s.b; let out=title('INDIA ANGLE',t,s.start,80,Y,90);
+   out+=icon('landmark',250,370,250,INK,ap(t,b[0]))+`<g opacity="${ap(t,b[0])}">${txt(450,340,'ABSTAINED',90,INK)}${txt(450,410,'on UN votes',48,MUTE,1,600,'start','Source Sans 3')}</g>`;
+   out+=icon('dove',250,720,220,TEAL,ap(t,b[1]))+`<g opacity="${ap(t,b[1])}">${txt(450,700,'DIALOGUE &',80,TEAL)}${txt(450,780,'DIPLOMACY',80,TEAL)}</g>`;
+   return out},
+ quote(t,s){const lt=t-s.start; return icon('earth-asia',540,320,300,'#3d4a58',ap(t,s.start),lt*6)+`<g opacity="${ap(t,s.start+0.2)}">${txt(540,620,'“This is not',120,INK,1,800,'middle')}${txt(540,740,'an era of war.”',120,Y,1,800,'middle')}${txt(540,830,'— PM Narendra Modi',46,MUTE,1,600,'middle','Source Sans 3')}</g>`},
+ oil(t,s){const lt=t-s.start,b=s.b; let out=title('RUSSIA = NO. 1 CRUDE SUPPLIER',t,s.start,80,INK,64);
+   out+=`<rect x="0" y="330" width="1080" height="150" fill="#1b3346" opacity=".8"/>`;
+   for(let i=0;i<12;i++){const x=(i*100+lt*40)%1100;out+=`<path d="M${x} 400 q25 -12 50 0 t50 0" stroke="#2f5672" stroke-width="4" fill="none"/>`}
+   out+=txt(40,300,'RUSSIA',48,MUTE)+txt(1040,300,'INDIA',48,Y,1,800,'end');
+   const sx=lerp(120,880,((lt*0.12)%1)); out+=icon('ship',sx,380+Math.sin(lt*3)*5,150,INK)+icon('droplet',sx-110,385,50,Y,0.9);
+   out+=counter(60,700,1.8,t,b[0],1.0,200,Y,'',' mn')+`<g opacity="${ap(t,b[0]+0.2)}">${txt(60,780,'BARRELS A DAY · SEPTEMBER 2026',52,INK)}</g>`;
+   out+=`<g opacity="${ap(t,b[1])}">${donut(860,880,70,0.333,t,b[1]).replace(/stroke-width="64"/g,'stroke-width="40"')}${txt(60,900,'≈ one-third of India\'s oil imports',46,MUTE,1,600,'start','Source Sans 3')}${txt(60,960,'Source: Kpler',32,'#7f8996',1,600,'start','Source Sans 3')}</g>`;
+   return out},
+ mains(t,s){const lt=t-s.start,b=s.b; const tilt=Math.sin(lt*1.4)*8;
+   let out=`<rect x="40" y="20" width="440" height="96" rx="16" fill="${TEAL}" opacity="${ap(t,s.start)}"/>`+txt(66,92,'MAINS LINE',66,'#0f1418',ap(t,s.start));
+   out+=`<g opacity="${ap(t,b[0])}">${txt(540,240,'STRATEGIC AUTONOMY',96,INK,1,800,'middle')}</g>`+icon('scale-balanced',540,520,320,Y,ap(t,b[0]),tilt);
+   out+=`<g opacity="${ap(t,b[1])}">${icon('oil-can',200,760,120,Y)}${txt(200,880,'ENERGY SECURITY',44,INK,1,800,'middle')}</g>`;
+   out+=`<g opacity="${ap(t,b[2])}">${icon('landmark',880,760,120,TEAL)}${txt(880,880,'RULES-BASED ORDER',44,INK,1,800,'middle')}</g>`;
+   return out},
+ end(t,s){return icon('bell',540,300,200,Y,ap(t,s.start),Math.sin((t-s.start)*8)*12)+`<g opacity="${ap(t,s.start+0.2)}">${txt(540,560,'EVERY SUNDAY',130,Y,1,800,'middle')}${txt(540,690,'6 PM IST',130,INK,1,800,'middle')}${txt(540,790,'Full weekly current affairs masterclass',44,MUTE,1,600,'middle','Source Sans 3')}${txt(540,860,'UPSC 2027 · APPSC / TGPSC Group-1',40,MUTE,1,600,'middle','Source Sans 3')}</g>`}
+};
+const sceneEl=document.getElementById('scene'), scriptEl=document.getElementById('script'), prog=document.getElementById('prog');
+window.renderAt=function(t){
+  const s=TL.scenes.find(s=>t>=s.start&&t<s.end)||TL.scenes[TL.scenes.length-1];
+  const kin=e((t-s.start)/0.35), kout=Math.min(1,(s.end-t)/0.25);
+  sceneEl.innerHTML=`<svg width="1080" height="1040" viewBox="0 0 1080 1040" style="opacity:${Math.min(kin*1.3,kout,1)}">${SC[s.kind](t,s)}</svg>`;
+  const se=TL.sents.find(x=>t>=x.s&&t<x.e);
+  if(s.kind==='end') scriptEl.style.opacity=0; else scriptEl.style.opacity=1;
+  if(!se){ /* keep last sentence visible briefly */ }
+  else if(se.static){ scriptEl.innerHTML=`<div class="tag">KEY POINTS</div><div class="static">${esc(se.static)}</div>` }
+  else scriptEl.innerHTML=se.w.map(w=>`<span class="w ${t>=w[1]&&t<w[2]+0.05?'on':(t>=w[2]?'past':'fut')}">${esc(w[0])}</span>`).join(' ');
+  prog.style.width=(Math.min(1,t/TL.total)*1080)+'px';
+};
+window.loadTL=function(tl,assets){TL=tl;A=assets;return document.fonts.ready.then(()=>true)};
+</script></body></html>

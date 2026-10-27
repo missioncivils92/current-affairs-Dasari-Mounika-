@@ -10,7 +10,7 @@
 
 ## COLD OPEN (target 0:45)
 
-[ON-CAMERA - MOUNIKA] *Direction: …*
+[VOICE ANCHOR] Decode Desk. *Voice: …*
 
 > Spoken text…
 
@@ -67,7 +67,7 @@
 ---
 
 ## VERDICT & CTA (target 1:15)
-[ON-CAMERA - MOUNIKA] *Direction: slow, reflective, direct eye contact.*
+[VOICE ANCHOR] Decode Desk, lamp dims slowly. *Voice: slow, reflective, warm.*
 > Philosophical / ethical verdict linking the week's themes…
 > Single CTA: PDF notes + MCQ challenge in the pinned comment.
 
@@ -77,7 +77,7 @@
 
 ## PACKAGING
 
-| # | Title (45–70 chars) | Thumbnail words (≤3) | Visual conflict | Mounika expression |
+| # | Title (45–70 chars) | Thumbnail words (≤3) | Visual conflict | Hero object (no face) |
 |---|---|---|---|---|
 | A | | | | |
 | B | | | | |
