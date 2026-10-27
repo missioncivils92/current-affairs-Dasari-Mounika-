@@ -89,8 +89,11 @@ else:
     for code in dict.fromkeys(r["code"] for r in rows):
         segrows = [r for r in rows if r["code"] == code]
         wav = vo_dir / f"{prefix}_VO_{code}.wav"
-        with wave.open(str(wav)) as w:
-            seg_len = w.getnframes() / w.getframerate()
+        parts = [wav] if wav.exists() else sorted(vo_dir.glob(f"{prefix}_VO_{code}[a-z].wav"))  # e.g. D1a, D1b (ElevenLabs blocks)
+        seg_len = 0.0
+        for pw in parts:
+            with wave.open(str(pw)) as w:
+                seg_len += w.getnframes() / w.getframerate()
         extra = sum(max(0, est_duration(r) - (r["words"] / WPM * 60 + 0.45)) for r in segrows)
         tot_words = sum(r["words"] for r in segrows) or 1
         s = t
