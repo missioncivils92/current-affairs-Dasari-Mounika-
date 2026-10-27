@@ -21,7 +21,7 @@ Owner decisions taken after reading the mentor-guidance PDF and the research rep
 Not adopted: a "voiced by a real educator" line in the About section and descriptions.
 
 Corrections to the PDF's model example (must not be copied into scripts):
-- Kerch Strait passage is governed by the 2003 Russia–Ukraine treaty on the Sea of Azov and Kerch Strait, **not** the Montreux Convention (which covers only the Turkish Straits).
+- Kerch Strait passage was governed by the 2003 Russia–Ukraine treaty on the Sea of Azov and Kerch Strait (denounced by Ukraine in Feb–Mar 2023 and by Russia in June 2023), **never** by the Montreux Convention (which covers only the Turkish Straits).
 - The Dnipro is Europe's **fourth-longest** river (after the Volga, Danube and Ural), not the "third-largest".
 - "Donbas" is commonly defined as the Donetsk and Luhansk oblasts. The Donets coal basin itself extends into Russia's Rostov oblast and into Dnipropetrovsk, so avoid "strictly".
 - Prelims 2014 asked where Turkey lies (between the Black Sea and the Mediterranean). Prelims 2019 had a sea–bordering-country pairs question (Black Sea–Croatia was the wrong pair). Prelims 2023 asked how many listed countries border Ukraine (answer: only two, Hungary and Romania).

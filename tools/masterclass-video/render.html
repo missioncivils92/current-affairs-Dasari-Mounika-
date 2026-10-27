@@ -1,0 +1,57 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Decode UPSC renderer</title>
+<link rel="stylesheet" id="fontcss">
+<style>html,body{margin:0;background:#000}canvas{display:block}</style>
+</head><body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script>
+// Assets (fonts, d3, scene file, images, geo, timeline) are injected by render.js through window.boot().
+const XF = 0.5;               // cross-fade between rows (s)
+let ctx, bufA, bufB, TL;
+function loadImg(src) { return new Promise((ok, no) => { const i = new Image(); i.onload = () => ok(i); i.onerror = () => no(src); i.src = src; }); }
+function loadScript(src) { return new Promise((ok, no) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = () => no(src); document.head.appendChild(s); }); }
+window.boot = async (cfg) => {
+  document.getElementById('fontcss').href = cfg.fontCss;
+  for (const s of cfg.scripts) await loadScript(s);
+  REVIEW = !!cfg.review;
+  await Promise.all(['400 20px Inter', '600 20px Inter', '800 20px Inter', '700 20px Caveat', '500 20px "JetBrains Mono"', '700 20px "JetBrains Mono"', '600 20px Fraunces', '800 20px Fraunces'].map(f => document.fonts.load(f)));
+  Object.assign(A, cfg.data);
+  for (const [k, v] of Object.entries(cfg.images)) A[k] = await loadImg(v);
+  TL = cfg.timeline; makeGrain();
+  ctx = document.getElementById('c').getContext('2d');
+  const mk = () => { const c = document.createElement('canvas'); c.width = W; c.height = H; return c; };
+  bufA = mk(); bufB = mk();
+  return { rows: TL.rows.length, duration: TL.duration };
+};
+function sceneState(row, t) {
+  const d = row.end - row.start, lt = clamp(t - row.start, 0, d), beats = row.beats || [0];
+  return { t: lt, d, p: lt / d, text: row.text, beat: (i) => (i < beats.length ? beats[i] : d * 0.92), credit: null };
+}
+function drawRow(c, row, t) {
+  const g = c.getContext('2d'); g.save(); g.clearRect(0, 0, W, H);
+  const s = sceneState(row, t); const fn = SCENES[row.scene];
+  if (fn) fn(g, s); else { bg(g); text(g, 'Missing scene ' + row.scene, 960, 540, { align: 'center', font: F.ui(60, 800), color: C.red }); }
+  g.restore(); return s;
+}
+window.renderAt = (t) => {
+  const rows = TL.rows; let i = rows.findIndex(r => t >= r.start && t < r.end); if (i < 0) i = rows.length - 1;
+  const row = rows[i];
+  const s = drawRow(bufB, row, t);
+  ctx.clearRect(0, 0, W, H);
+  const into = t - row.start;
+  if (i > 0 && into < XF) {
+    drawRow(bufA, rows[i - 1], rows[i - 1].end - 0.001);
+    ctx.drawImage(bufA, 0, 0); ctx.globalAlpha = ease(into / XF); ctx.drawImage(bufB, 0, 0); ctx.globalAlpha = 1;
+  } else ctx.drawImage(bufB, 0, 0);
+  grain(ctx, t);
+  // chrome
+  brand(ctx);
+  const ch = TL.chapters.filter(c => c.start <= t).pop();
+  if (ch && ch.start > 0) chapterBanner(ctx, ch.title, Math.min(appear(t, ch.start + 0.3), 1 - span(t, ch.start + 3.6, ch.start + 4.2)));
+  credit(ctx, s.credit);
+  // review caption: the sentence being spoken (estimated)
+  if (REVIEW) { const k = (row.beats || [0]).filter(b => b <= into).length - 1; const sent = (row.text.match(/[^.?!]+[.?!]+["”']?|[^.?!]+$/g) || [row.text]); reviewCaption(ctx, (sent[Math.max(0, k)] || '').trim()); }
+  return i;
+};
+</script>
+</body></html>
