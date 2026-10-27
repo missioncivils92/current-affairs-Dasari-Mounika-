@@ -410,7 +410,6 @@ SCENES.S37 = (ctx, s) => {
   const pts = [];
   C4.forEach(([d, , , , x, y]) => { ctx.save(); ctx.setLineDash([12, 10]); ctx.strokeStyle = 'rgba(237,230,214,0.25)'; ctx.lineWidth = 2; rr(ctx, x, y, 770, 270, 6); ctx.stroke(); ctx.restore();
     text(ctx, d, x + 40, y + 70, { font: F.mono(30, 700), color: 'rgba(237,230,214,0.35)' }); });            // the dated slots wait on the board
-  const pts = [];
   C4.forEach(([d, h, sub, cw, x, y], i) => {
     const a = pop(s.t, s.w(cw) - 0.2); if (a <= 0) return; pts.push([x + 385, y + 30]);
     ctx.save(); ctx.translate(x + 385, y + 135); ctx.rotate([-0.02, 0.015, 0.012, -0.018][i]); ctx.scale(a, a); ctx.translate(-(x + 385), -(y + 135));

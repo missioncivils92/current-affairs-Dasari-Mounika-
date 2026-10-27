@@ -25,13 +25,15 @@ const stills = arg('--stills', null), audio = arg('--audio', null);
   }
   const browser = await chromium.launch({ args: ['--allow-file-access-from-files', '--disable-web-security'] });
   const page = await browser.newPage({ viewport: { width: 1920, height: 1080 } });
-  page.on('pageerror', e => console.error('PAGE ERROR', e.message));
+  const pageErrors = [];
+  page.on('pageerror', e => { pageErrors.push(e.message); console.error('PAGE ERROR', e.message); });
   page.on('console', m => { if (m.type() === 'error') console.error('console:', m.text()); });
   await page.goto('file://' + path.join(__dirname, 'render.html'));
   const info = await page.evaluate(cfg => window.boot(cfg), {
     fontCss: 'file://' + path.join(assets, 'fonts', 'local.css'), review, images, data, timeline: tl,
     scripts: ['file://' + path.join(assets, 'd3.min.js'), 'file://' + path.join(__dirname, 'engine.js'), 'file://' + sceneFile],
   });
+  if (pageErrors.length) { console.error('Scene or engine code failed to load; not rendering.'); await browser.close(); process.exit(1); }
   console.log('booted', { rows: info.rows, duration: info.duration });
   if (info.cueMisses.length) {
     console.error('Word cues not found in the narration (build falls back to a default time):\n  ' + info.cueMisses.join('\n  '));
