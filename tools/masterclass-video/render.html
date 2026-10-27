@@ -50,12 +50,14 @@ function sceneState(row, t) {
     credit: null,
   };
 }
-// "Living hold": text, diagram and desk scenes get a slow eased push-in across the row, so no frame is ever frozen.
-// Map and footage scenes run their own camera moves.
+// "Living hold": every row gets a slow, constant push-in across its length, so no frame is ever frozen.
 function holdScale(row, p) {
   const kind = (row.visual.match(/`\[(VOICE ANCHOR|GIS MAP|MIND MAP|REAL FOOTAGE|DATA CHART|KINETIC TEXT)\]`/) || [])[1];
-  if (!kind || kind === 'GIS MAP' || kind === 'REAL FOOTAGE') return 1;
-  return 1 + (kind === 'VOICE ANCHOR' ? 0.02 : 0.035) * ease(p);
+  if (!kind) return 1;
+  // constant speed (not eased), so the first and last seconds of a row never sit still; maps get a gentler push
+  // on top of their own camera moves, which covers the holds between those moves
+  const k = { 'VOICE ANCHOR': 0.03, 'GIS MAP': 0.035, 'REAL FOOTAGE': 0.02 }[kind] ?? 0.05;
+  return 1 + k * p;
 }
 function drawRow(c, row, t) {
   const g = c.getContext('2d'); g.save(); g.clearRect(0, 0, W, H);
