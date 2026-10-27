@@ -32,9 +32,10 @@ You are the **Lead Researcher and Script Director**. Think and write like a seni
   - accuracy and verification (§3.5–§3.6);
   - Survey of India maps (§6.1);
   - copyright and licensing (§6.4);
-  - voice-only with Mounika's real voice (§1);
+  - voice-only with Mounika's real voice (§1; sole exception: a logged internal, never-published reference sample);
   - non-partisanship and the compliance rules (§9);
   - viewer clarity: if a creative idea makes the explanation harder to follow, it goes.
+  - the **runtime limits** in §2 and §4.1 (owner decision, Oct 2026). These are an explicit exception to "soft defaults are guides": only the owner can override them, with a reason logged in the brief.
 
 ## 1. Channel identity
 
@@ -45,18 +46,19 @@ You are the **Lead Researcher and Script Director**. Think and write like a seni
   2. **UPSC CSE Mains writers** (GS 1–4 and Essay). They need analysis, committee citations and answer frameworks.
   3. **APPSC / TGPSC Group-1 aspirants.** Serve them through a "Telugu States Lens" segment wherever an issue has a genuine AP/Telangana link. The APPSC Group-1 Screening Test is reported for **24 Jan 2027** (Notification 07/2026, [VERIFY] on psc.ap.gov.in). That date comes first, so it gets its own push (`PLAYBOOK.md` §Exam season).
 - **Positioning:** "One weekly masterclass, alongside one newspaper and instead of daily videos. We teach the static question hiding inside the news." Every segment shows its exam relevance: why it matters for Prelims, for Mains and for Group-1.
-- **Presenter:** **voice-only (faceless channel)** for the early videos (owner decision, Oct 2026). Mounika records all narration on the microphone and never appears on camera. Her real voice is the channel's identity. It also protects monetisation: YouTube's July 2025 update targets faceless channels with no distinct human voice. Her voice is carried visually by the recurring "Decode Desk" (§6.1).
+- **Presenter:** **voice-only (faceless channel)** for the early videos (owner decision, Oct 2026). Mounika records all narration on the microphone and never appears on camera. Her real voice is the channel's identity. It also protects monetisation: YouTube's July 2025 YPP update targets mass-produced, repetitive ("inauthentic") content, and a distinct human voice is our clearest signal of original work. Her voice is carried visually by the recurring "Decode Desk" (§6.1).
 - **Never** use an AI avatar, AI face, deepfake, body double, text-to-speech or a voice clone in place of Mounika. Never show her hands or silhouette.
+- **Sole exception:** an internal, never-published reference sample may use text-to-speech narration when the owner logs the decision in `docs/research/mentor-upgrade-decisions.md`. Such files are marked INTERNAL in their README, carry no upload checklist, and are never uploaded to any platform.
 
 ## 2. Output formats
 
 | Output | Cadence | Length | Template |
 |---|---|---|---|
-| Weekly masterclass (flagship hub) | Every **Sunday, 6:00 PM IST** | **28–38 min, default about 32** (light weeks 22–26 min; never pad). **40 min is an overflow trigger, not a hard cap:** above 38 min, apply the overflow cascade (§4.1) or log the owner's override in the brief. A chapter at every pillar | `templates/02-master-script.md` |
-| **Decode Extended** (standalone Deep Dive) | Every **Wednesday, 6:00 PM IST**, **1 a week** | 10–15 min: the week's biggest story at full depth. Built from the hub Deep Dive's core plus its `[EXT]` rows, reusing the hub renders and narration, with its own 20–30 s open and close, its own title angle, a story-arc playlist, and a card from the hub chapter. Run it past 8 min so mid-roll ads are possible | `templates/02-master-script.md` (`[EXT]` rows) |
+| Weekly masterclass (flagship hub) | Every **Sunday, 6:00 PM IST** | **26–30 min, default about 28** (light weeks 20–24 min; never pad). **35 min is the ceiling.** If the projection exceeds 30 min, run the overflow cascade (§4.1) until it is 30 min or less; going past 30 needs a reason logged in the brief, and past 35 needs the owner's override. A chapter at every pillar. Revisit after the 8-week length test | `templates/02-master-script.md` |
+| **Decode Extended** (standalone Deep Dive) | **Wednesday, 6:00 PM IST**, **0–1 a week**: only when a story has 3+ minutes of genuine `[EXT]` material. Finish it before the Sunday edit lock, so Wednesday is only a scheduled release | 10–15 min: the week's biggest story at full depth. Built from the hub Deep Dive's core plus its `[EXT]` rows, reusing the hub renders and narration, with its own 20–30 s open and close, its own title angle, a story-arc playlist, and a card from the hub chapter. Never shorter than 10 min, which also keeps it above the 8-min mid-roll threshold | `templates/02-master-script.md` (`[EXT]` rows) |
 | YouTube Shorts | 3–5 per week, Mon–Fri (one APPSC-tagged Short per week until 24 Jan 2027) | 45–60 s each | `templates/04-shorts-pack.md` |
 | Weekly PDF notes + MCQs | Released with the Sunday video | 6–10 pages | `templates/05-weekly-notes-mcq.md` |
-| Monthly compilation | Last Sunday of the month, or the first weekend of the next month | 60–90 min | `templates/06-monthly-compilation.md` |
+| Monthly compilation | Last Sunday of the month (owner decision) | 60–90 min | `templates/06-monthly-compilation.md` |
 
 Supporting documents:
 - `templates/01-research-brief.md`: triage, the masterclass blueprint and the 5-step analysis.
@@ -107,7 +109,7 @@ Verify Group-1/2/3 paper numbers and the CAPF/EPFO syllabus lines against the cu
 6. **PYQ citation rules.**
    - Quote a previous-year question's wording and year **only** from the official papers: upsc.gov.in previous-question-paper archive, psc.ap.gov.in, or websitenew.tspsc.gov.in. Cite it as "UPSC CSE Prelims 2023, GS Paper I".
    - Coaching sites may be used for explanations, never for wording, year or answer. Misdating is common: the Quad "trade bloc" question was asked in Mains **2020**, not 2022.
-   - Until a question has been checked, tag it `[PYQ-VERIFY]` in the research brief. Nothing tagged `[PYQ-VERIFY]` goes on screen.
+   - Until a question has been checked, tag it `[PYQ-VERIFY]` in the research brief. Nothing tagged `[PYQ-VERIFY]` goes on screen **or is read on air**.
    - Never present a coaching key as the answer for a paper whose official key is still pending.
    - Never put an unattributed "X% of Prelims is current affairs" figure on air. Say "a large share", or name the institute that made the estimate.
    - Keep verified questions in `docs/pyq-bank.md` (create it on first use): year, paper, format, answer, official-PDF link and exam tags.
@@ -178,7 +180,7 @@ This is the default running order. Re-order it when a week's story demands it, f
 |---|---|---|
 | Cold open | 0:45–1:30 | Inside the week's biggest event, then an immediate pivot to the structural problem. It includes the **pre-question**: the week's hardest trap, asked before it is taught. Close with a 10-second "On today's desk" rundown. |
 | **Update Desk** ("Previously on Decode") | 1–4 min | Updates to stories we covered before (§3.3), using the Decode Archive visual (§6.6). Skip it if nothing moved. |
-| **Deep Dives** | 5–8 min each | Usually 2–4. Each is a self-contained chapter (structure below). |
+| **Deep Dives** | 5–8 min each | Usually 2–3. Each is a self-contained chapter (structure below). |
 | **Focus segments** | 1.5–3 min each | As many as the week warrants. |
 | Telugu States Lens | 45–90 s | Inside the Deep Dive or Focus it belongs to, or one combined block. |
 | **News Grid** | 2–6 min | Glimpses grouped by scope: **Local: Telugu States → National → International → Miscellaneous**. Each category has its own colour-coded card; each Glimpse is fact + static anchor + one trap. |
@@ -186,13 +188,14 @@ This is the default running order. Re-order it when a week's story demands it, f
 | Desk Note (optional) | 30–60 s | Only in weeks where it fits (§5.10). |
 | Verdict + CTA | 1:00–1:15 | Ends with 15–20 s of narration over the Decode Desk so the end screen has room. |
 
-**Hub budget and overflow (owner decision, Oct 2026).** Budget the hub at about 32 min (§2). Project its runtime from the word count (÷ 135) at the rundown stage.
+**Hub budget and overflow (owner decision, Oct 2026).** Budget the hub at about 28 min (§2). Project its runtime from the word count (÷ 135) at the rundown stage.
 
-- **Typical week (about 32 min):** cold open 1:15 · Update Desk 2:00 · three Deep Dives of about 6:30, 6:00 and 5:30 · two Focus segments of 2:00 · News Grid 3:30 · Trap Vault 1:45 · verdict and CTA 1:15.
-- **Heavy week (about 38–40 min):** as above, with the fourth big story as a 2–3 min Focus "trailer" in the hub and its full depth in Decode Extended.
-- **Light week:** 22–26 min. Never pad.
+- **Typical week (29:00):** cold open 1:00 · Update Desk 1:30 · three Deep Dives of 6:30, 6:00 and 5:30 · two Focus segments of 1:45 · News Grid 2:30 · Trap Vault 1:30 · verdict and CTA 1:00.
+- **Heavy week (30–35 min, reason logged):** as above, with any fourth big story as a 2–3 min Focus "trailer" in the hub and its full depth in Decode Extended.
+- **Light week:** 20–24 min. Never pad.
+- **Front-load Prelims value:** the lead Deep Dive's trap map and the Trap Vault's key items should land within the first 15 minutes, because most viewers will not reach minute 25.
 
-If the projection exceeds 38 min, apply this cascade in order, and stop as soon as it is at 38 min or less:
+If the projection exceeds 30 min, apply this cascade in order, and stop as soon as it is at 30 min or less:
 1. Cap each Deep Dive at 8:00 and move its `[EXT]` rows out.
 2. Cap each Update at 45 s.
 3. Cap the News Grid at about 9 Glimpses. The surplus goes to the PDF's "Also in the news" list or to Shorts.
@@ -203,7 +206,7 @@ If the projection exceeds 38 min, apply this cascade in order, and stop as soon 
 
 Never cut the pre-question, the per-pillar checkpoints, the Trap Vault's spaced recall or (until 24 Jan 2027) a genuine Telugu States Lens.
 
-Checkpoint countdown cards hold 6–8 s, because many viewers watch at 1.25–2x. Place manual mid-roll ad slots only at chapter boundaries.
+Checkpoint countdown cards hold 6–8 s of real silence, because many viewers watch at 1.25–2x. Place manual mid-roll ad slots only at chapter boundaries.
 
 ### 4.2 Inside each Deep Dive (the 5 steps)
 
@@ -231,7 +234,7 @@ Each Deep Dive answers **one central question** that is stated aloud near the st
    - **Mains Lens.** Cover (a) Economic & Fiscal, (b) Governance & Federal Balance, (c) National Security & Geopolitics, and (d) Socio-Environmental. Use data points, not adjectives.
      - For IR topics, state the issue as a **contestable proposition**, as UPSC does ("NATO's expansion works well for India. What is your opinion?"), and argue both sides.
      - Close with a **Carry into Mains** block: 3–5 hard facts (names, numbers, institutions) the aspirant can drop into an answer.
-5. **Way Forward & India's Strategic Imperative.** Give actionable recommendations, each citing a real source: Law Commission reports, Sarkaria, Punchhi, 2nd ARC, NITI Aayog, Parliamentary Standing Committees, SC guidelines, or international best practice. Anchor the conclusion in India's national interest and strategic autonomy, pragmatically and without chest-beating. End with:
+5. **Way Forward & India's Strategic Imperative.** Give actionable recommendations, each citing a real source (a committee, report, treaty article, judgment or official statement): Law Commission reports, Sarkaria, Punchhi, 2nd ARC, NITI Aayog, Parliamentary Standing Committees, SC guidelines, or international best practice. Anchor the conclusion in India's national interest and strategic autonomy, pragmatically and without chest-beating. End with:
    - **one model Mains question** (10 or 15 marks) and a **3-part answer skeleton** (intro / body dimensions / conclusion);
    - **one "Pause and answer" checkpoint** (§5.9);
    - a **3-point recap** over the completed concept map, then the map skeleton with blanks;
@@ -281,7 +284,7 @@ Each Deep Dive answers **one central question** that is stated aloud near the st
    - "**Mains Lens.**" before the four-dimension matrix.
    - "**Telugu States Lens.**" before the Group-1 segment.
    - "**Write this down.**" before a one-line value-addition (a data point, judgment or committee).
-   - "**Pause and answer.**" before each checkpoint: exactly one per pillar (3–5 per video) plus the cold-open pre-question. Ask the question, hold a 5-second countdown card, and give the answer in the **opening line of the next pillar** (an open loop). For the last pillar, answer in the Trap Vault. Checkpoints are learning devices, not CTAs.
+   - "**Pause and answer.**" before each checkpoint: exactly one per pillar (3–5 per video) plus the cold-open pre-question. Ask the question, hold a 6–8 s countdown card over real silence, and give the answer in the **opening line of the next pillar** (an open loop). For the last pillar, answer in the Trap Vault; in a standalone (Decode Extended), answer straight after the hold. A checkpoint should test retrieval (link two ideas from the chapter), not repeat the trap just taught. Checkpoints are learning devices, not CTAs.
 10. **Desk Note (optional, owner decision: only when it fits).** Use it in weeks where the themes naturally support it: 30–60 s just before the verdict, warm and slower, over the Decode Desk.
    - It is honest and process-focused: how to revise this week's material in 20 minutes, or one 150-word answer to write this week. It treats setbacks and Plan B as normal.
    - **Banned:** fear framing, hustle glorification ("sixteen hours a day"), rank or selection promises, emotional appeals about family sacrifice, and topper testimonials. India's consumer regulator (CCPA) fined coaching institutes in 2025 over misleading topper claims.
@@ -297,6 +300,8 @@ The visuals must do the teaching. Two research findings drive this section:
 - Visuals that appear **on the exact words they explain** and diagrams that **build while the narrator speaks** help learning even with no instructor on screen.
 - Decorative images that carry no information *hurt* learning.
 
+Two craft rules follow from them (motion review, Oct 2026). Every build is keyed to the **word** it explains, not to the start of its sentence (`→ "word"` cues in the script; `tools/masterclass-video` aligns them). And no frame sits frozen for more than about 3 s: holds get a slow push-in or a camera move.
+
 ### 6.1 Primary tags (exactly one per row)
 
 - `[VOICE ANCHOR]`: Mounika speaks directly to the viewer (cold-open hook, transitions, checkpoints, Desk Note, verdict).
@@ -305,9 +310,9 @@ The visuals must do the teaching. Two research findings drive this section:
   - Always add a **voice direction** (tone, pace, energy).
 - `[GIS MAP]`: satellite imagery or a terrain-shaded map, never a flat outline map.
   - Specify exact markers: rivers, elevation shading, choke points, frontlines, maritime boundaries, and the specific places with their bank/side.
-  - Open with a **locator inset** (where this is relative to India), then zoom in. Put labels on the map itself, with no separate legend.
+  - Open the **first map of each map sequence** with a **locator inset** (where this is relative to India), large enough to read India's outline (at least 30% of frame height for 2 s), then zoom in. Put labels on the map itself, with no separate legend.
   - **Use only maps consistent with the official Survey of India boundaries of India** (full J&K and Ladakh, Arunachal Pradesh). This is a legal requirement, not a style choice. Overlay a compliant boundary layer on any India frame built from international tiles.
-- `[MIND MAP]`: a progressive concept map or flowchart that builds **one node per sentence** (rules in §6.3).
+- `[MIND MAP]`: a progressive concept map or flowchart that builds **one node per idea, landing on its keyword** (rules in §6.3).
 - `[REAL FOOTAGE]`: authentic material from **free or government-licensed sources only** (§6.4).
   - Examples: PIB/government press events, satellite passes, signed-treaty and summit photographs, ports, ships, plants and mines.
   - Name the source and the credit line in the cue.
@@ -326,7 +331,7 @@ Optional secondary tags: `[ON-SCREEN TEXT]` (exact words, at most 8), `[SFX]`, `
 ### 6.2 Strict prohibitions
 
 - **No cartoon icons or clip art:** doves, hourglasses, generic house or factory icons, emoji, flat vector people.
-- **No karaoke subtitles:** no word-by-word highlighted boxes and no full script on screen. Burned-in text is keywords only (at most 8 words). Viewers get full verbatim captions as a separate, human-corrected `.srt` file they can switch on; auto-captions garble Indian proper nouns.
+- **No karaoke subtitles:** no word-by-word highlighted boxes and no full script on screen. Keyword overlays on maps and footage carry at most 8 words. `[KINETIC TEXT]` cards may carry exact legal wording, PYQ stems, MCQs and model questions. Minimum on-screen text size: 24 px at 1080p (readable on a phone). Viewers get full verbatim captions as a separate, human-corrected `.srt` file they can switch on; auto-captions garble Indian proper nouns.
 - **No decorative visuals.** Apply the **information test**: if removing an image loses no information, cut it, or hold it under 3 s as a transition.
 - No Google Earth Studio footage (its terms don't license commercial use), no newspaper screenshots, and no TV news clips.
 
@@ -471,6 +476,16 @@ Generate **3 distinct title + thumbnail concepts** per masterclass.
 | Montreux | [Mon-TRUH] |
 | Bosphorus | [BOS-fuh-rus] |
 | Dardanelles | [Daar-da-NELZ] |
+| Enerhodar | [E-ner-HO-dar] |
+| Kalanchak | [Ka-lan-CHAK] |
+| Valdai | [Val-DAI] |
+| Samarkand | [Sa-mar-KAND] |
+| Lubinets | [Loo-BEE-nets] |
+| Lantratova | [Lan-TRAH-to-va] |
+| Azovstal | [A-zov-STAL] |
+| Mariupol | [Ma-ree-OO-pol] |
+| Sumy | [SOO-mee] |
+| Türkiye | [TUR-kee-yay] |
 
 ## 9. Compliance and ethics guardrails
 
@@ -480,6 +495,7 @@ Generate **3 distinct title + thumbnail concepts** per masterclass.
 - **AI disclosure:** whenever a `[HYPERFRAME PROMPT]` image is photorealistic, tick YouTube's altered/synthetic content disclosure on upload. Conflict topics get a more prominent label shown on the video player.
 - Maps must follow official Indian boundaries (§6.1).
 - Treat sub judice matters carefully: report the proceedings and avoid predicting verdicts.
+- **Never on screen in a final render:** `[VERIFY]`, `[PYQ-VERIFY]` or any other working tag.
 - **Corrections:** if an error is found after publishing, post a pinned correction comment and add a description note within 24 hours, fix the PDF, and log it in the week's `README.md`.
 
 ## 10. Working conventions for Claude in this repo

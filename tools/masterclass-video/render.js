@@ -1,6 +1,7 @@
 // Render a masterclass timeline to MP4 (or stills) with Playwright + ffmpeg.
 //
-//   node render.js <assets_dir> <timeline.json> <scene_file.js> <out.mp4> [--review] [--fps 30] [--from s] [--to s]
+//   node render.js <assets_dir> <timeline.json> <scene_file.js> <out.mp4> [--review] [--strict] [--fps 30] [--from s] [--to s]
+//   --strict stops the render if any word cue (s.w("...") in a scene) is missing from the narration.
 //   node render.js <assets_dir> <timeline.json> <scene_file.js> <out_dir> --stills 12.5,40,95
 //
 // <assets_dir> must contain: fonts/local.css (+ ttf), d3.min.js, geo.json, terrain/*.png|json, sat/*.png|json.
@@ -31,7 +32,11 @@ const stills = arg('--stills', null), audio = arg('--audio', null);
     fontCss: 'file://' + path.join(assets, 'fonts', 'local.css'), review, images, data, timeline: tl,
     scripts: ['file://' + path.join(assets, 'd3.min.js'), 'file://' + path.join(__dirname, 'engine.js'), 'file://' + sceneFile],
   });
-  console.log('booted', info);
+  console.log('booted', { rows: info.rows, duration: info.duration });
+  if (info.cueMisses.length) {
+    console.error('Word cues not found in the narration (build falls back to a default time):\n  ' + info.cueMisses.join('\n  '));
+    if (process.argv.includes('--strict')) process.exit(2);
+  }
   const canvas = await page.$('#c');
 
   if (stills) {

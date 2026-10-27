@@ -8,6 +8,8 @@
 
 > **Rules (`CLAUDE.md` §5–§6):**
 > - **Columns:** visual cue on the left, verbatim narration on the right.
+> - **Cut tags (Deep Dives):** put `[HUB]` (both cuts), `[HUB-ONLY]` (Sunday hub only) or `[EXT]` (Decode Extended / PDF only) in the # column, e.g. `1.4 [EXT]`. Untagged rows count as `[HUB]`. `timeline.py --cut hub|ext` builds either cut from this one file.
+> - **Word cues:** in the visual cell, mark where a build lands with `→ "word"` (the spoken word it explains), not "one per sentence".
 > - **Visual tags:** exactly one primary tag per row: `[VOICE ANCHOR]` `[GIS MAP]` `[MIND MAP]` `[REAL FOOTAGE]` `[DATA CHART]` `[KINETIC TEXT]` `[HYPERFRAME PROMPT]` (last resort).
 > - **Narration:** connected spoken sentences that pass the one-breath test; no staccato fragments. Phonetic markers on first use.
 > - **Marks:** — = beat, ... = pause, **bold** = stress (at most one per sentence).
@@ -62,7 +64,7 @@
 | 1.11 | `[KINETIC TEXT]` Model question text | Model Mains question + 3-part skeleton… |
 | 1.12 | `[GIS MAP]` Teal TELUGU STATES LENS card + state document on screen (optional) | **Telugu States Lens.** National issue → AP/TG data point → how Group-1 asks it… |
 | 1.13 | `[MIND MAP]` Completed map → skeleton with 2–3 blanks → 3 s hold → reveal | 3-point recap. "Pause here, copy this map, and fill in the blanks before I reveal them." … |
-| 1.14 | `[KINETIC TEXT]` Yellow "Pause and answer" card, 5 s countdown. *Voice: warm.* | **Pause and answer.** … One-line preview of the next pillar. |
+| 1.14 | `[KINETIC TEXT]` Yellow "Pause and answer" card, 6–8 s countdown. *Voice: warm.* | **Pause and answer.** … One-line preview of the next pillar. |
 
 *Segment words: __ · Running total: __ · Est. time: __*
 

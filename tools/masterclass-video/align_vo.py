@@ -11,6 +11,9 @@ Usage: python3 -I align_vo.py <02-master-script.md> <audio_16k_mono.wav> <out.js
 import json, re, sys, wave
 from pathlib import Path
 from pocketsphinx import Decoder
+import importlib.util
+_spec = importlib.util.spec_from_file_location("vo_text", Path(__file__).with_name("vo_text.py"))
+_vt = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(_vt); norm = _vt.norm
 
 script, audio, out = Path(sys.argv[1]), Path(sys.argv[2]), Path(sys.argv[3])
 
@@ -27,16 +30,6 @@ OOV = {
     "fertiliser": "F ER T AH L AY Z ER", "shallowest": "SH AE L OW AH S T", "upsc": "Y UW P IY EH S S IY", "yana": "Y AA N AH",
     "marks": "M AA R K S", "aspirants": "AE S P ER AH N T S", "fifteen-marker": "F IH F T IY N M AA R K ER",
 }
-YEARS = {"2014": "twenty fourteen", "2022": "twenty twenty two", "2023": "twenty twenty three", "2003": "two thousand three",
-         "2026": "twenty twenty six", "1936": "nineteen thirty six", "1977": "nineteen seventy seven"}
-
-def norm(t):
-    for k, v in YEARS.items():
-        t = t.replace(k, v)
-    t = re.sub(r"\bUN\b", "U N", t).replace("’", "'")
-    t = re.sub(r"[—–\-/]", " ", t.lower())
-    return [w for w in re.sub(r"[^a-z' ]", " ", t).split() if w.strip("'")]
-
 # --- rows from the script (same parsing as timeline.py)
 body = re.split(r"^## (?:PACKAGING|RUNTIME SUMMARY)", script.read_text(), flags=re.M)[0]
 rows = []
