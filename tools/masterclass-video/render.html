@@ -21,15 +21,46 @@ window.boot = async (cfg) => {
   ctx = document.getElementById('c').getContext('2d');
   const mk = () => { const c = document.createElement('canvas'); c.width = W; c.height = H; return c; };
   bufA = mk(); bufB = mk();
-  return { rows: TL.rows.length, duration: TL.duration };
+  // dry run: draw every row at a few points so every word cue is looked up once, then report the ones not found
+  for (const r of TL.rows) for (const f of [0.05, 0.5, 0.97]) drawRow(bufA, r, r.start + f * (r.end - r.start));
+  return { rows: TL.rows.length, duration: TL.duration, cueMisses: [...CUE_MISS] };
 };
+
+// Word cues: s.w("Kherson") is the time (s from row start) at which that word is spoken; s.w("left bank", 1) is the
+// second occurrence. Unknown cues fall back to the default and are reported at boot, so a script edit can't silently
+// leave a build on the wrong word.
+const CUE_CACHE = new Map(), CUE_MISS = new Set();
+const cueKey = w => w.toLowerCase().replace(/’/g, "'").replace(/[^\p{L}\p{N}_'-]/gu, '');
+function cue(row, phrase, k, dflt) {
+  const id = row.scene + '|' + phrase + '|' + k; if (CUE_CACHE.has(id)) return CUE_CACHE.get(id);
+  const toks = phrase.split(/\s+/).map(cueKey), wt = row.wt || []; let n = 0, res = null;
+  for (let i = 0; i + toks.length <= wt.length && res == null; i++)
+    if (toks.every((tk, j) => wt[i + j][0].startsWith(tk)) && n++ === k) res = wt[i][1];
+  if (res == null) { CUE_MISS.add(`${row.scene}: "${phrase}"${k ? ' #' + k : ''}`); res = dflt; }
+  CUE_CACHE.set(id, res); return res;
+}
 function sceneState(row, t) {
   const d = row.end - row.start, lt = clamp(t - row.start, 0, d), beats = row.beats || [0];
-  return { t: lt, d, p: lt / d, text: row.text, beat: (i) => (i < beats.length ? beats[i] : d * 0.92), credit: null };
+  const hold = (row.holds || [])[0];
+  return {
+    t: lt, d, p: lt / d, text: row.text, row,
+    beat: (i) => (i < beats.length ? beats[i] : d * 0.92),
+    w: (phrase, k = 0, dflt = d * 0.6) => cue(row, phrase, k, dflt),
+    hold: hold ? { at: hold[0], dur: hold[1] } : null,
+    credit: null,
+  };
+}
+// "Living hold": text, diagram and desk scenes get a slow eased push-in across the row, so no frame is ever frozen.
+// Map and footage scenes run their own camera moves.
+function holdScale(row, p) {
+  const kind = (row.visual.match(/`\[(VOICE ANCHOR|GIS MAP|MIND MAP|REAL FOOTAGE|DATA CHART|KINETIC TEXT)\]`/) || [])[1];
+  if (!kind || kind === 'GIS MAP' || kind === 'REAL FOOTAGE') return 1;
+  return 1 + (kind === 'VOICE ANCHOR' ? 0.02 : 0.035) * ease(p);
 }
 function drawRow(c, row, t) {
   const g = c.getContext('2d'); g.save(); g.clearRect(0, 0, W, H);
   const s = sceneState(row, t); const fn = SCENES[row.scene];
+  const k = holdScale(row, s.p); if (k !== 1) { g.translate(W / 2, H / 2); g.scale(k, k); g.translate(-W / 2, -H / 2); }
   if (fn) fn(g, s); else { bg(g); text(g, 'Missing scene ' + row.scene, 960, 540, { align: 'center', font: F.ui(60, 800), color: C.red }); }
   g.restore(); return s;
 }
@@ -48,10 +79,10 @@ window.renderAt = (t) => {
   // chrome
   brand(ctx);
   const ch = TL.chapters.filter(c => c.start <= t).pop();
-  if (ch && ch.start > 0) chapterBanner(ctx, ch.title, Math.min(appear(t, ch.start + 0.3), 1 - span(t, ch.start + 3.6, ch.start + 4.2)));
+  if (ch && ch.start > 0) chapterBanner(ctx, ch.title, Math.min(appear(t, ch.start + 0.3), 1 - span(t, ch.start + 4.0, ch.start + 4.6)));
   credit(ctx, s.credit);
-  // review caption: the sentence being spoken (estimated)
-  if (REVIEW) { const k = (row.beats || [0]).filter(b => b <= into).length - 1; const sent = (row.text.match(/[^.?!]+[.?!]+["”']?|[^.?!]+$/g) || [row.text]); reviewCaption(ctx, (sent[Math.max(0, k)] || '').trim()); }
+  // review caption: the sentence being spoken, from the word timings
+  if (REVIEW) { const k = (row.beats || [0]).filter(b => b <= into + 0.05).length - 1; const sent = (row.text.match(/[^.?!]+[.?!]+["”']?|[^.?!]+$/g) || [row.text]); reviewCaption(ctx, (sent[Math.max(0, k)] || '').trim()); }
   return i;
 };
 </script>

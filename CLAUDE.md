@@ -300,6 +300,8 @@ The visuals must do the teaching. Two research findings drive this section:
 - Visuals that appear **on the exact words they explain** and diagrams that **build while the narrator speaks** help learning even with no instructor on screen.
 - Decorative images that carry no information *hurt* learning.
 
+Two craft rules follow from them (motion review, Oct 2026). Every build is keyed to the **word** it explains, not to the start of its sentence (`→ "word"` cues in the script; `tools/masterclass-video` aligns them). And no frame sits frozen for more than about 3 s: holds get a slow push-in or a camera move.
+
 ### 6.1 Primary tags (exactly one per row)
 
 - `[VOICE ANCHOR]`: Mounika speaks directly to the viewer (cold-open hook, transitions, checkpoints, Desk Note, verdict).
@@ -310,7 +312,7 @@ The visuals must do the teaching. Two research findings drive this section:
   - Specify exact markers: rivers, elevation shading, choke points, frontlines, maritime boundaries, and the specific places with their bank/side.
   - Open the **first map of each map sequence** with a **locator inset** (where this is relative to India), large enough to read India's outline (at least 30% of frame height for 2 s), then zoom in. Put labels on the map itself, with no separate legend.
   - **Use only maps consistent with the official Survey of India boundaries of India** (full J&K and Ladakh, Arunachal Pradesh). This is a legal requirement, not a style choice. Overlay a compliant boundary layer on any India frame built from international tiles.
-- `[MIND MAP]`: a progressive concept map or flowchart that builds **one node per sentence** (rules in §6.3).
+- `[MIND MAP]`: a progressive concept map or flowchart that builds **one node per idea, landing on its keyword** (rules in §6.3).
 - `[REAL FOOTAGE]`: authentic material from **free or government-licensed sources only** (§6.4).
   - Examples: PIB/government press events, satellite passes, signed-treaty and summit photographs, ports, ships, plants and mines.
   - Name the source and the credit line in the cue.
@@ -474,6 +476,16 @@ Generate **3 distinct title + thumbnail concepts** per masterclass.
 | Montreux | [Mon-TRUH] |
 | Bosphorus | [BOS-fuh-rus] |
 | Dardanelles | [Daar-da-NELZ] |
+| Enerhodar | [E-ner-HO-dar] |
+| Kalanchak | [Ka-lan-CHAK] |
+| Valdai | [Val-DAI] |
+| Samarkand | [Sa-mar-KAND] |
+| Lubinets | [Loo-BEE-nets] |
+| Lantratova | [Lan-TRAH-to-va] |
+| Azovstal | [A-zov-STAL] |
+| Mariupol | [Ma-ree-OO-pol] |
+| Sumy | [SOO-mee] |
+| Türkiye | [TUR-kee-yay] |
 
 ## 9. Compliance and ethics guardrails
 

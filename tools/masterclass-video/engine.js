@@ -12,8 +12,8 @@ const F = {
 };
 const SCENES = {};
 const A = {};           // assets: images + geo + timeline
-let REVIEW = false;
-let GT = 0;              // global timeline time (s), for audio-driven visuals     // preview build: show a discreet review caption strip
+let REVIEW = false;      // preview build: show a discreet review caption strip
+let GT = 0;              // global timeline time (s), for audio-driven visuals
 
 // ---------- math & easing ----------
 const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
@@ -22,6 +22,10 @@ const ease = t => (t = clamp(t), t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t +
 const easeOut = t => 1 - Math.pow(1 - clamp(t), 3);
 const span = (t, a, b) => clamp((t - a) / (b - a));
 const appear = (t, at, dur = 0.6) => easeOut(span(t, at, at + dur));
+// spring-in (overshoots a little, then settles), for nodes and stamps
+const pop = (t, at, dur = 0.45) => { const x = span(t, at, at + dur); return x <= 0 ? 0 : 1 + 2.4 * Math.pow(x - 1, 3) + 1.4 * Math.pow(x - 1, 2); };
+// number roll-up: the value counts from 0 over 0.8 s from `at`
+const roll = (v, t, at, dur = 0.8) => v * easeOut(span(t, at, at + dur));
 
 // ---------- text ----------
 function wrap(ctx, text, maxW) {
@@ -80,7 +84,7 @@ function card(ctx, x, y, w, h, o = {}) {
   ctx.restore();
 }
 function pill(ctx, s, x, y, o = {}) {
-  ctx.save(); ctx.font = o.font || F.ui(22, 800); const w = ctx.measureText(s).width + 36, h = o.h || 40;
+  ctx.save(); ctx.font = o.font || F.ui(26, 800); const w = ctx.measureText(s).width + 36, h = o.h || 46;
   ctx.globalAlpha *= (o.alpha ?? 1); rr(ctx, x, y, w, h, h / 2); ctx.fillStyle = o.fill || C.yellow; ctx.fill();
   ctx.fillStyle = o.color || C.slate; ctx.textBaseline = 'middle'; ctx.fillText(s, x + 18, y + h / 2 + 1); ctx.restore(); return w;
 }
@@ -180,7 +184,7 @@ function pin(ctx, proj, lonlat, label, o = {}) {
     const dx = o.dx ?? 18, dy = o.dy ?? -14; ctx.font = o.font || F.ui(30, 800); ctx.textAlign = dx < 0 ? 'right' : 'left';
     ctx.lineWidth = 6; ctx.strokeStyle = 'rgba(20,23,28,0.85)'; ctx.strokeText(label, x + dx, y + dy);
     ctx.fillStyle = o.labelColor || C.white; ctx.fillText(label, x + dx, y + dy);
-    if (o.sub) { ctx.font = F.ui(20, 600); ctx.strokeText(o.sub, x + dx, y + dy + 28); ctx.fillStyle = o.subColor || C.dim; ctx.fillText(o.sub, x + dx, y + dy + 28); }
+    if (o.sub) { ctx.font = F.ui(24, 600); ctx.strokeText(o.sub, x + dx, y + dy + 32); ctx.fillStyle = o.subColor || '#D5DAE0'; ctx.fillText(o.sub, x + dx, y + dy + 32); }
   }
   ctx.restore(); return [x, y];
 }
@@ -199,21 +203,21 @@ function locatorInset(ctx, x, y, w, h, target, a = 1) {   // India + target poin
   const [tx, ty] = proj(target), [ix, iy] = proj([78.9, 22.5]);
   ctx.setLineDash([5, 5]); ctx.strokeStyle = C.yellow; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(ix, iy); ctx.quadraticCurveTo((ix + tx) / 2, Math.min(iy, ty) - 40, tx, ty); ctx.stroke(); ctx.setLineDash([]);
   ctx.beginPath(); ctx.arc(tx, ty, 6, 0, 7); ctx.fillStyle = C.red; ctx.fill();
-  ctx.font = F.ui(15, 800); ctx.fillStyle = C.yellow; ctx.fillText('INDIA', ix - 22, iy + 4);
+  ctx.font = F.ui(24, 800); ctx.fillStyle = C.yellow; ctx.fillText('INDIA', ix - 34, iy + 8);
   ctx.restore();
-  text(ctx, 'Boundaries: Survey of India (DataMeet) · Natural Earth', x + 10, y + h + 22, { font: F.ui(13, 400), color: C.faint, alpha: a });
+  text(ctx, 'Boundaries: Survey of India outline (DataMeet)', x + 6, y + h + 30, { font: F.ui(24, 600), color: C.dim, alpha: a });
 }
 
 // ---------- mind maps ----------
 function node(ctx, x, y, s, o = {}) {
-  ctx.save(); ctx.font = o.font || F.ui(30, 800); const lines = wrap(ctx, s, o.maxW || 340);
-  const lh = o.lh || 38, w = Math.max(...lines.map(l => ctx.measureText(l).width)) + 48, h = lines.length * lh + 30;
-  const a = o.alpha ?? 1, sc = 0.85 + 0.15 * a;
+  ctx.save(); ctx.font = o.font || F.ui(34, 800); const lines = wrap(ctx, s, o.maxW || 380);
+  const lh = o.lh || 42, w = Math.max(...lines.map(l => ctx.measureText(l).width)) + 48, h = lines.length * lh + 30;
+  const a = o.alpha ?? 1, sc = o.scale ?? (0.85 + 0.15 * a);
   ctx.translate(x, y); ctx.scale(sc, sc); ctx.globalAlpha *= a;
   card(ctx, -w / 2, -h / 2, w, h, { fill: o.fill || 'rgba(38,43,51,0.96)', stroke: o.stroke || 'rgba(255,255,255,0.18)', lw: o.lw || 2, r: o.r ?? 16 });
   ctx.fillStyle = o.color || C.white; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
   lines.forEach((l, i) => ctx.fillText(l, 0, -((lines.length - 1) * lh) / 2 + i * lh + 2));
-  if (o.sub) { ctx.font = F.ui(20, 600); ctx.fillStyle = o.subColor || C.dim; ctx.fillText(o.sub, 0, h / 2 + 22); }
+  if (o.sub) { ctx.font = F.ui(24, 600); ctx.fillStyle = o.subColor || '#C9CFD6'; ctx.fillText(o.sub, 0, h / 2 + 28); }
   ctx.restore(); return { w, h };
 }
 function link(ctx, a, b, p, o = {}) {
@@ -223,7 +227,7 @@ function link(ctx, a, b, p, o = {}) {
   ctx.beginPath(); ctx.moveTo(...a);
   const e = clamp(p); const qx = (t) => (1 - t) * (1 - t) * a[0] + 2 * (1 - t) * t * mx + t * t * b[0], qy = (t) => (1 - t) * (1 - t) * a[1] + 2 * (1 - t) * t * my + t * t * b[1];
   for (let k = 1; k <= 24; k++) ctx.lineTo(qx(k / 24 * e), qy(k / 24 * e)); ctx.stroke();
-  if (o.label && p > 0.6) { ctx.font = F.ui(18, 600); ctx.fillStyle = C.dim; ctx.textAlign = 'center'; ctx.globalAlpha *= span(p, 0.6, 1); ctx.fillText(o.label, qx(0.5), qy(0.5) - 10); }
+  if (o.label && p > 0.6) { ctx.font = F.ui(24, 600); ctx.fillStyle = '#C9CFD6'; ctx.textAlign = 'center'; ctx.globalAlpha *= span(p, 0.6, 1); ctx.fillText(o.label, qx(0.5), qy(0.5) - 10); }
   ctx.restore();
 }
 
@@ -240,7 +244,7 @@ function waveform(ctx, x, y, w, h, t, amp) {
   ctx.stroke(); ctx.restore();
 }
 function desk(ctx, t, o = {}) {
-  const lamp = o.lamp ?? 1;
+  const lamp = (o.lamp ?? 1) * (1 + 0.025 * Math.sin(t * 2.3) * Math.sin(t * 0.7));     // a faint, living flicker
   // room + desk surface
   const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#101318'); g.addColorStop(0.55, '#171B21'); g.addColorStop(1, '#0D1014');
   ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
@@ -303,18 +307,25 @@ function lowerThird(ctx, s, a = 1) {
   ctx.fillStyle = C.white; ctx.textBaseline = 'middle'; ctx.fillText(s, 110, 933); ctx.restore();
 }
 function brand(ctx) {
-  ctx.save(); ctx.globalAlpha = 0.85; pill(ctx, 'DECODE UPSC', 1690, 40, { font: F.ui(18, 800), h: 34 }); ctx.restore();
+  ctx.save(); ctx.globalAlpha = 0.85; pill(ctx, 'DECODE UPSC', 1650, 40, { font: F.ui(24, 800), h: 42 }); ctx.restore();
 }
-function chapterBanner(ctx, title, k) {
+function chapterBanner(ctx, title, k) {    // top-centre, inside the title-safe area, 40 px title, held about 4 s
   if (k <= 0) return; ctx.save(); ctx.globalAlpha = k;
-  ctx.font = F.ui(20, 800); ctx.fillStyle = C.yellow; ctx.fillText('CHAPTER', 80, 70);
-  ctx.font = F.ui(30, 800); ctx.fillStyle = C.white; ctx.fillText(title, 80, 108); ctx.restore();
+  ctx.font = F.ui(40, 800); const tw = ctx.measureText(title).width; ctx.font = F.ui(24, 800); const cw = ctx.measureText('CHAPTER').width;
+  const w = tw + cw + 90, x = (W - w) / 2, y = 34 - (1 - k) * 20;
+  card(ctx, x, y, w, 70, { fill: 'rgba(20,23,28,0.92)', stroke: 'rgba(245,211,0,0.6)', r: 35 });
+  ctx.textBaseline = 'middle'; ctx.fillStyle = C.yellow; ctx.fillText('CHAPTER', x + 34, y + 37);
+  ctx.font = F.ui(40, 800); ctx.fillStyle = C.white; ctx.fillText(title, x + 56 + cw, y + 37); ctx.restore();
 }
-function credit(ctx, s, a = 1) { if (s) text(ctx, s, W - 40, H - 28, { font: F.ui(16, 400), color: 'rgba(255,255,255,0.55)', align: 'right', alpha: a }); }
+function credit(ctx, s, a = 1) {      // bottom-right; long credit lines break at " · " onto a second line
+  if (!s) return; ctx.save(); ctx.font = F.ui(24, 500); let lines = [s];
+  if (ctx.measureText(s).width > W - 120) { const p = s.split(' · '), h = Math.ceil(p.length / 2); lines = [p.slice(0, h).join(' · '), p.slice(h).join(' · ')]; }
+  ctx.restore(); lines.forEach((l, i) => text(ctx, l, W - 40, H - 24 - (lines.length - 1 - i) * 30, { font: F.ui(24, 500), color: 'rgba(255,255,255,0.75)', align: 'right', alpha: a, shadow: 6 }));
+}
 function reviewCaption(ctx, s) {
   if (!REVIEW || !s) return; ctx.save(); ctx.font = F.ui(24, 400);
   const lines = wrap(ctx, s, 1500).slice(-2), h = lines.length * 32 + 22;
   ctx.globalAlpha = 0.9; rr(ctx, 210, H - 40 - h, 1500, h, 10); ctx.fillStyle = 'rgba(0,0,0,0.72)'; ctx.fill();
   ctx.fillStyle = 'rgba(255,255,255,0.9)'; ctx.textAlign = 'center'; lines.forEach((l, i) => ctx.fillText(l, W / 2, H - 40 - h + 36 + i * 32));
-  ctx.font = F.ui(13, 800); ctx.fillStyle = C.yellow; ctx.fillText('REVIEW CAPTION · NOT IN FINAL', W / 2, H - 40 - h - 8); ctx.restore();
+  ctx.font = F.ui(16, 800); ctx.fillStyle = C.yellow; ctx.fillText('REVIEW CAPTION · NOT IN FINAL', W / 2, H - 40 - h - 8); ctx.restore();
 }

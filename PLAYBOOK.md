@@ -193,6 +193,9 @@ Run this end to end, without self-imposed limits on searches, sources or depth (
   - [ ] No on-camera rows. Direct-address rows use `[VOICE ANCHOR]` with a voice direction. No faces, hands, AI avatars or synthetic voices (sole exception: a logged internal, never-published sample, `CLAUDE.md` §1).
   - [ ] Every external asset has its source, licence and credit logged. No news-agency or Parliament clips. No Google Earth Studio.
   - [ ] Any photorealistic AI image is flagged for YouTube's synthetic-content disclosure.
+  - [ ] **Motion:** every build is keyed to the word it explains (`→ "word"` cues), and `render.js --strict` reports no missing cue. No frame is frozen for more than 3 s outside the end screen (living holds, camera moves). Every countdown runs over its own card.
+  - [ ] **Text size:** body text at least 32 px and every other on-screen text at least 24 px at 1080p; chapter banners readable on a phone.
+  - [ ] **Sound:** the bed is self-made (`sound_bed.py`) or a track we hold a licence for, ducked under the voice.
 - [ ] **M** Record in two sessions of 60–75 min each, with breaks about every 20 min:
   - **Session 1:** cold open and Deep Dives, including the `[EXT]` rows for Decode Extended.
   - **Session 2:** Updates, Focus segments, News Grid, Trap Vault, verdict and next week's Shorts.
@@ -203,7 +206,7 @@ Run this end to end, without self-imposed limits on searches, sources or depth (
   - [ ] Decode Extended (if any) runs 10–15 min and has its own title angle and playlist.
   - [ ] No working tag (`[VERIFY]`, `[PYQ-VERIFY]`) is visible in any frame of the final render.
   - [ ] Checkpoint holds are 6–8 s of real silence and play over the checkpoint card.
-- [ ] **M** Record the voiceover (VO), one WAV file per segment: `YYYY-Www_VO_open.wav`, `YYYY-Www_VO_P1.wav`, and so on. Use the same mic, room and distance every week so the voice sounds identical.
+- [ ] **M** Record the voiceover (VO), one WAV file per segment, in script order: `YYYY-Www_VO_open.wav`, `YYYY-Www_VO_P1.wav`, and so on. Read every row once, including `[EXT]` rows; the files are joined and aligned once, and `timeline.py --cut` builds the hub and Decode Extended from the same recording. Use the same mic, room and distance every week so the voice sounds identical.
 - [ ] **C** Produce the **PDF notes + MCQs** in `05-weekly-notes-mcq.md`:
   - One page per pillar: anchor, the completed mind map, traps, 4 dimensions, Carry into Mains, Way Forward, Telugu lens, and exam tags.
   - 10 MCQs in the current UPSC formats ("How many of the above", Statement-I/II, "how many pairs"), plus 2 direct factual items in Group-1 style. The answer key and explanations go at the end.

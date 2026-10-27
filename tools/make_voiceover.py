@@ -21,6 +21,7 @@ tags = r"VOICE ANCHOR|HYPERFRAME PROMPT|KINETIC MOTION GRAPHIC|KINETIC TEXT|GEOS
 
 out, segs = [], []
 shown = pending = seg = None
+cutw = {"HUB": 0, "HUB-ONLY": 0, "EXT": 0}     # words per cut tag ([HUB] rows are in both cuts)
 segw = total = 0
 
 def flush():
@@ -52,7 +53,9 @@ for line in body.splitlines():
         cells = [c.strip() for c in line.strip().strip("|").split("|")]
         if len(cells) < 3 or cells[0] == "#" or re.fullmatch(r"[-: ]+", cells[0]) or not cells[2]:
             continue
-        pending = cue(cells[1])
+        tag = re.search(r"\[(HUB-ONLY|HUB|EXT)\]", cells[0])
+        pending = cue(cells[1]) + (f" · `{tag.group(1)}`" if tag else "")
+        cutw[tag.group(1) if tag else "HUB"] += len(re.sub(r"\[[^\]]*\]|\*\*", "", cells[2]).split())
         for t in re.split(r"<br\s*/?>", cells[2]):
             if t.strip():
                 say(t.strip())
@@ -74,6 +77,8 @@ head = f"""# Voiceover Text — {title} · {version}
 
 Visual directions for the editor are in `02-master-script.md`.
 
+**Cuts:** every row is listed once, so each line is recorded once. `HUB` rows go in both videos, `HUB-ONLY` rows only in the Sunday hub, `EXT` rows only in Decode Extended (`02-master-script.md`, cut tags).
+""" + (f"Sunday hub: {cutw['HUB'] + cutw['HUB-ONLY']} words · Decode Extended: {cutw['HUB'] + cutw['EXT']} words\n" if cutw["HUB-ONLY"] or cutw["EXT"] else "") + """
 **Two kinds of blocks (both microphone-only)**
 - **🎙️ NARRATION** — explaining over maps, images and graphics. Steady, clear teaching voice.
 - **💬 TALK TO THE VIEWER** — speaking directly to one aspirant. Viewers can't see you, so put the expression into the voice and follow the voice direction next to each block.

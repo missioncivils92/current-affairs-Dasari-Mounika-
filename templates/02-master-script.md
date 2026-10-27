@@ -8,6 +8,8 @@
 
 > **Rules (`CLAUDE.md` §5–§6):**
 > - **Columns:** visual cue on the left, verbatim narration on the right.
+> - **Cut tags (Deep Dives):** put `[HUB]` (both cuts), `[HUB-ONLY]` (Sunday hub only) or `[EXT]` (Decode Extended / PDF only) in the # column, e.g. `1.4 [EXT]`. Untagged rows count as `[HUB]`. `timeline.py --cut hub|ext` builds either cut from this one file.
+> - **Word cues:** in the visual cell, mark where a build lands with `→ "word"` (the spoken word it explains), not "one per sentence".
 > - **Visual tags:** exactly one primary tag per row: `[VOICE ANCHOR]` `[GIS MAP]` `[MIND MAP]` `[REAL FOOTAGE]` `[DATA CHART]` `[KINETIC TEXT]` `[HYPERFRAME PROMPT]` (last resort).
 > - **Narration:** connected spoken sentences that pass the one-breath test; no staccato fragments. Phonetic markers on first use.
 > - **Marks:** — = beat, ... = pause, **bold** = stress (at most one per sentence).

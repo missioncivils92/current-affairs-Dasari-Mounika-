@@ -1,143 +1,183 @@
 """Build the render timeline (timeline.json) from a two-column master script.
 
-Every script row with a scene ID (**S01**, **S02**, ...) in its visual cell becomes one timeline
-entry: {scene, row, segment, chapter, start, end, beats[], text}. "beats" are the start times
-(seconds from the row start) of each spoken sentence, which scenes use to build one element per sentence.
+Every script row with a scene ID (**S01**, **S02**, ...) in its visual cell becomes one timeline entry:
+  {scene, row, cut, segment, chapter, start, end, beats[], wt[], holds[], text}
+- beats: start time of each spoken sentence (seconds from the row start).
+- wt:    [token, time] for every spoken word, so scenes can key a build to the exact word (s.w("Kherson")).
+- holds: [time, seconds] of real silence inside the row ("Pause and answer" countdowns, the recap hold).
+
+Cuts. Rows carry a tag in the # column: [HUB] (both cuts), [HUB-ONLY] (Sunday hub), [EXT] (Decode Extended).
+--cut hub|ext keeps only that cut's rows; without --cut every row is kept (useful for checking the whole source).
+
+Holds. A "PAUSE AND ANSWER" row gets a 7 s hold straight after its question (the first sentence ending in "?").
+A recap row with "skeleton with three blanks" gets a 3 s hold before "there". Holds always sit inside their own
+row, so a countdown can never play over the next scene (asserted below).
 
 Two timing modes:
-- Estimate (default): 135 wpm, plus pauses for "...", "—", row gaps, countdown cards and holds.
-- Voiceover: --vo <dir> with one WAV per segment, named as in 02b-voiceover-text.md
-  (e.g. 2026-W44_VO_D1.wav). Rows are placed by forced alignment (pocketsphinx, if installed)
-  or, as a fallback, by word share inside each segment's real duration.
+- Estimate (default): 135 wpm, word length and punctuation pauses.
+- Aligned: --align align.json from align_vo.py (run on a recording of the whole source). Rows sit on their
+  aligned words; the output's "audio_plan" tells build_audio.py which source spans to keep for this cut and
+  where to insert the silences.
 
-Usage: python3 -I timeline.py <02-master-script.md> <out.json> [--vo <dir> --prefix <name>]
+Usage: python3 -I timeline.py <02-master-script.md> <out.json> [--cut hub|ext] [--align align.json]
 """
-import json, re, sys, wave
+import json, re, sys
 from pathlib import Path
 
 src, out = Path(sys.argv[1]), Path(sys.argv[2])
 args = sys.argv[3:]
-vo_dir = Path(args[args.index("--vo") + 1]) if "--vo" in args else None
-align_file = Path(args[args.index("--align") + 1]) if "--align" in args else None   # from align_vo.py
-prefix = args[args.index("--prefix") + 1] if "--prefix" in args else src.parent.name
-WPM = 135
-CODES = {"COLD OPEN": "open", "UPDATE DESK": "updates", "TRAP VAULT": "traps", "NEWS GRID": "grid",
-         "DESK NOTE": "desknote", "VERDICT": "verdict"}
+opt = lambda k: args[args.index(k) + 1] if k in args else None
+cut, align_file = opt("--cut"), opt("--align")
+WPM, HOLD_Q, HOLD_RECAP, END_MIN = 135, 7.0, 3.0, 18.0
+assert cut in (None, "hub", "ext"), "--cut must be hub or ext"
 
 def spoken(t):
     t = re.sub(r"\[[^\]]*\]", "", t).replace("**", "")
-    return re.sub(r"<br\s*/?>", " ", t).strip()
-
-def words(t):
-    return len(spoken(t).split())
+    return re.sub(r"\s+", " ", re.sub(r"<br\s*/?>", " ", t)).strip()
 
 def sentences(t):
-    parts = re.split(r"(?<=[.?!])\s+(?=[A-Z\"'“])", spoken(t))
-    return [p for p in parts if p.strip()]
+    return [p for p in re.split(r"(?<=[.?!])\s+(?=[A-Z\"'“])", t) if p.strip()]
 
-def seg_code(seg):
-    for k, v in CODES.items():
-        if seg.startswith(k):
-            return v
-    m = re.match(r"(DEEP DIVE|FOCUS|PILLAR) (\d+)", seg)
-    if m:
-        return {"DEEP DIVE": "D", "FOCUS": "F", "PILLAR": "P"}[m.group(1)] + m.group(2)
-    return re.sub(r"\W+", "_", seg.lower())[:12]
+def key(w):
+    return re.sub(r"[^\w'-]", "", w.lower().replace("’", "'"))
 
+def in_cut(tag):
+    if cut is None or tag is None or tag == "HUB":
+        return True
+    return (cut == "hub" and tag == "HUB-ONLY") or (cut == "ext" and tag == "EXT")
+
+# ---------- parse ----------
 rows, seg, chapter = [], None, None
 body = re.split(r"^## (?:PACKAGING|RUNTIME SUMMARY)", src.read_text(), flags=re.M)[0]
 for line in body.splitlines():
     if line.startswith("## "):
-        seg = re.sub(r"\s*\(target.*\)", "", line[3:]).strip(); part = seg.split(" — ")[-1]; chapter = re.sub(r"\b(cta|upsc|gs)\b", lambda m: m.group(1).upper(), part.capitalize(), flags=re.I) if part.isupper() else part; continue
+        seg = re.sub(r"\s*\(.*\)", "", line[3:]).strip(); part = seg.split(" — ")[-1]
+        chapter = re.sub(r"\b(cta|upsc|gs)\b", lambda m: m.group(1).upper(), part.capitalize(), flags=re.I) if part.isupper() else part
+        continue
     if line.startswith("### "):
         chapter = line[4:].strip(); continue
     if not line.startswith("|"):
         continue
     cells = [c.strip() for c in line.strip().strip("|").split("|")]
-    if len(cells) < 3:
-        continue
-    m = re.search(r"\*\*(S\d+)\*\*", cells[1])
+    m = len(cells) >= 3 and re.search(r"\*\*(S\d+)\*\*", cells[1])
     if not m:
         continue
-    rows.append({"row": cells[0], "scene": m.group(1), "segment": seg, "code": seg_code(seg), "chapter": chapter,
-                 "visual": cells[1], "text": spoken(cells[2]), "words": words(cells[2]), "sents": sentences(cells[2])})
+    tag = re.search(r"\[(HUB-ONLY|HUB|EXT)\]", cells[0])
+    text = spoken(cells[2])
+    rows.append({"row": re.sub(r"\s*\[.*\]", "", cells[0]), "cut": tag.group(1) if tag else None, "scene": m.group(1),
+                 "segment": seg, "chapter": chapter, "visual": cells[1], "text": text, "tokens": text.split(),
+                 "sents": sentences(text)})
+all_rows = rows
+rows = [r for r in rows if in_cut(r["cut"])]
 
-def est_duration(r):
-    d = r["words"] / WPM * 60 + r["text"].count("...") * 0.7 + r["text"].count("—") * 0.12 + 0.45
+def hold_points(r):
+    """[(token index the hold comes AFTER, seconds)] for this row."""
+    toks, h = r["tokens"], []
     if "PAUSE AND ANSWER" in r["visual"]:
-        d += 5.0                      # countdown on screen
+        q = next((i for i, t in enumerate(toks) if t.endswith("?")), len(toks) - 1)
+        h.append((q, HOLD_Q))
     if "skeleton with three blanks" in r["visual"]:
-        d += 3.0                      # hold before the reveal
-    if "End-screen" in r["visual"]:
-        d = max(d, 18.0)
-    return d
+        th = [i for i, t in enumerate(toks) if key(t) == "there"]
+        if th:
+            h.append((th[-1] - 1, HOLD_RECAP))
+    return h
 
-def beats_for(r, dur):
-    n = [len(s.split()) for s in r["sents"]] or [1]
-    tot, acc, b = sum(n), 0, []
-    speak = min(dur, r["words"] / WPM * 60 + r["text"].count("...") * 0.7) or dur
-    for k in n:
-        b.append(round(acc / tot * speak, 3)); acc += k
-    return b
+def sent_starts(r, times):
+    starts, k = [], 0
+    for s in r["sents"]:
+        starts.append(times[k]); k += len(s.split())
+    return starts
+
+# ---------- estimate mode ----------
+def estimate(r):
+    toks = r["tokens"]; avg = sum(len(key(t)) for t in toks) / max(1, len(toks))
+    holds = dict(hold_points(r)); t, times, hl = 0.15, [], []
+    for i, tok in enumerate(toks):
+        times.append(round(t, 3))
+        t += 60 / 158 * (0.55 + 0.45 * len(key(tok)) / max(avg, 1))   # 158 wpm of voiced words + the pauses below ≈ 135 wpm overall
+        if tok in ("—", "–", "...", "…"):
+            t += 0.5 if tok != "—" else 0.12
+        elif tok.endswith(("...", "…")):
+            t += 0.7
+        elif tok.endswith((".", "?", "!")):
+            t += 0.35
+        elif tok.endswith((",", ";", ":")):
+            t += 0.18
+        if i in holds:
+            hl.append([round(t, 3), holds[i]]); t += holds[i]
+    d = t + 0.45
+    if "End-screen" in r["visual"]:
+        d = max(d, END_MIN)
+    return d, times, hl
 
 t = 0.0
-if align_file is not None:
-    # Exact mode: rows sit on the aligned words. Silence is inserted into the narration for countdown cards
-    # and recap holds, so viewers get real thinking time; the inserts are listed for build_audio.
-    al = json.loads(align_file.read_text()); arows = al["rows"]
-    assert [a["scene"] for a in arows] == [r["scene"] for r in rows], "script changed since alignment"
-    inserts = []
-    for r, a in zip(rows, arows):
-        if "PAUSE AND ANSWER" in r["visual"]:
-            at = a["sent_starts"][1] if len(a["sent_starts"]) > 1 and "If you said" in r["text"] else a["end"] + 0.15
-            inserts.append([round(at - 0.05, 3), 5.0])
-        if "skeleton with three blanks" in r["visual"]:
-            w = [x for x in a["words"] if x[0] == "there"]
-            if w:
-                inserts.append([round(w[-1][1] - 0.05, 3), 3.0])
-    inserts.sort()
-    def mapt(x):
-        return x + sum(d for at, d in inserts if at <= x)
-    nxt = [a["start"] for a in arows[1:]] + [al["duration"]]
-    for r, a, n in zip(rows, arows, nxt):
-        s0, e0 = mapt(0.0 if r is rows[0] else a["start"] - 0.2), mapt(n - 0.2 if n < al["duration"] else n)
-        r.update(start=round(s0, 3), end=round(e0, 3), beats=[round(mapt(b) - s0, 3) for b in a["sent_starts"]])
-    rows[-1]["end"] = round(max(rows[-1]["end"], rows[-1]["start"] + 18.0), 3)      # room for the end screen
-    t = rows[-1]["end"]
-    mode = f"aligned ({align_file.name})"
-    extra = {"audio": al["audio"], "inserts": inserts}
-elif vo_dir is None:
+extra = {}
+if align_file is None:
     for r in rows:
-        d = est_duration(r)
-        r.update(start=round(t, 3), end=round(t + d, 3), beats=beats_for(r, d)); t += d
+        d, times, hl = estimate(r)
+        r.update(start=round(t, 3), end=round(t + d, 3), wt=[[key(w), x] for w, x in zip(r["tokens"], times)],
+                 beats=sent_starts(r, times), holds=hl)
+        t += d
     mode = "estimate (135 wpm)"
 else:
-    for code in dict.fromkeys(r["code"] for r in rows):
-        segrows = [r for r in rows if r["code"] == code]
-        wav = vo_dir / f"{prefix}_VO_{code}.wav"
-        parts = [wav] if wav.exists() else sorted(vo_dir.glob(f"{prefix}_VO_{code}[a-z].wav"))  # e.g. D1a, D1b (ElevenLabs blocks)
-        seg_len = 0.0
-        for pw in parts:
-            with wave.open(str(pw)) as w:
-                seg_len += w.getnframes() / w.getframerate()
-        extra = sum(max(0, est_duration(r) - (r["words"] / WPM * 60 + 0.45)) for r in segrows)
-        tot_words = sum(r["words"] for r in segrows) or 1
-        s = t
-        for r in segrows:
-            share = r["words"] / tot_words * seg_len
-            d = share + max(0, est_duration(r) - (r["words"] / WPM * 60 + 0.45))
-            r.update(start=round(s, 3), end=round(s + d, 3), beats=beats_for(r, share), vo=str(wav), vo_offset=round(t, 3))
-            s += d
-        t = s
-    mode = f"voiceover ({vo_dir})"
+    al = json.loads(Path(align_file).read_text()); arows = al["rows"]
+    assert [a["scene"] for a in arows] == [r["scene"] for r in all_rows], "script changed since alignment: re-run align_vo.py"
+    A = {id(r): a for r, a in zip(all_rows, arows)}
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("vo_text", Path(__file__).with_name("vo_text.py"))
+    vt = importlib.util.module_from_spec(spec); spec.loader.exec_module(vt); norm = vt.norm
+    plan = []
+    for r in rows:
+        a = A[id(r)]; k = all_rows.index(r)
+        prev_end = arows[k - 1]["end"] if k else 0.0
+        next_start = arows[k + 1]["start"] if k + 1 < len(arows) else al["duration"]
+        s0 = 0.0 if k == 0 else max(prev_end, a["start"] - 0.25)
+        e0 = al["duration"] if k + 1 == len(arows) else min(next_start, a["end"] + 0.35)
+        # token start/end times: each script token maps to the aligned words its normalised form produces
+        aw, wi, tok_t = a["words"], 0, []
+        for tok in r["tokens"]:
+            n = len(norm(tok))
+            tok_t.append((aw[wi][1], aw[wi + n - 1][2]) if n and wi + n <= len(aw) else (tok_t[-1][1] if tok_t else a["start"],) * 2)
+            wi += n
+        ins = []
+        for i, dur in hold_points(r):
+            at = tok_t[i][1] + 0.1
+            if i + 1 < len(tok_t):
+                at = min(at, tok_t[i + 1][0] - 0.05)
+            at = min(at, e0 - 0.05)
+            ins.append((at, dur))
+        tail = 0.0
+        span = e0 - s0 + sum(d for _, d in ins)
+        if "End-screen" in r["visual"] and span < END_MIN:
+            tail = END_MIN - span
+        t0 = t
+        mp = lambda x: t0 + (x - s0) + sum(d for at, d in ins if at <= x)
+        last = s0
+        for at, dur in ins:
+            plan += [["src", round(last, 3), round(at, 3)], ["sil", dur]]; last = at
+        plan.append(["src", round(last, 3), round(e0, 3)])
+        if tail:
+            plan.append(["sil", round(tail, 3)])
+        start = t; t = mp(e0) + tail
+        r.update(start=round(start, 3), end=round(t, 3), wt=[[key(w), round(mp(x[0]) - start, 3)] for w, x in zip(r["tokens"], tok_t)],
+                 holds=[[round(mp(at) - dur - start, 3), dur] for at, dur in ins], src=[s0, e0])
+        r["beats"] = sent_starts(r, [x for _, x in r["wt"]])
+    mode = f"aligned ({Path(align_file).name})"
+    extra = {"audio": al["audio"], "audio_plan": plan}
+
+# ---------- checks ----------
+for r in rows:
+    for at, dur in r["holds"]:
+        assert at + dur <= r["end"] - r["start"] - 0.2, f"{r['scene']}: hold runs past its row"
+    del r["tokens"], r["sents"]
 
 chapters = []
 for r in rows:
     if not chapters or chapters[-1]["title"] != r["chapter"]:
         chapters.append({"title": r["chapter"], "start": r["start"]})
-doc = {"mode": mode, "duration": round(t, 3), "rows": rows, "chapters": chapters}
-doc.update(extra if align_file is not None else {})
+doc = {"mode": mode, "cut": cut or "all", "duration": round(t, 3), "rows": rows, "chapters": chapters, **extra}
 out.write_text(json.dumps(doc, indent=1))
-print(f"{len(rows)} rows · {t/60:.2f} min · {mode}")
+words = sum(len(r["wt"]) for r in rows)
+print(f"{len(rows)} rows · {words} words · {t/60:.2f} min · cut {cut or 'all'} · {mode}")
 for c in chapters:
     print(f"  {int(c['start']//60):02d}:{int(c['start']%60):02d}  {c['title']}")
