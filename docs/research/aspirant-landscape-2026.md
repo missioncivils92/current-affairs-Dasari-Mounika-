@@ -11,7 +11,7 @@
 |---|---|---|
 | **CSE 2027 Prelims aspirants** (largest group) | Fact-accurate current affairs tied to static topics, trap awareness, MCQ practice | About 7 months to Prelims (23 May 2027). Notification due 13 Jan 2027 **[verify]** |
 | **CSE Mains writers** (2026 Mains candidates and 2027 repeaters) | Multi-dimensional analysis, committee and report citations, answer frameworks, value-addition data | 2026 Mains written in Aug 2026. Results expected around Nov–Dec 2026 **[verify]**. Repeaters are restarting Mains prep |
-| **APPSC / TGPSC Group-1 aspirants** | The same national issues plus an Andhra Pradesh / Telangana angle (state economy, schemes, geography, state formation) | APPSC Group-1 notification expected around 2026 **[verify]**. Many Telugu-state aspirants prepare for UPSC and Group-1 together |
+| **APPSC / TGPSC Group-1 aspirants** | The same national issues plus an Andhra Pradesh / Telangana angle (state economy, schemes, geography, state formation) | **APPSC Notification 07/2026** (dated 6 Oct 2026): 166 posts (some sites say 163). Applications closed 27 Oct 2026. Screening Test **24 Jan 2027** **[verify]**. **TGPSC:** no new Group-1 notification as of Oct 2026. The 2024 cycle's results were upheld by the High Court division bench (Feb 2026), and the Supreme Court dismissed the challenges (about Apr 2026) **[verify]**. Many Telugu-state aspirants prepare for UPSC and Group-1 together |
 
 Telugu-state pipeline: more than 40 candidates from AP and Telangana made the CSE 2025 final list (AIR 23 Jinu Sreejaswant Chandra, Kakinada; AIR 55 Gudelli Srujana, Peddapalli) **[verify]**. That is a large, motivated regional base, and the reason the channel layers a state angle on top of English-medium national content.
 
@@ -59,6 +59,10 @@ Telugu-state pipeline: more than 40 candidates from AP and Telangana made the CS
 **APPSC Group-1:** Prelims screening (2 objective papers), then descriptive Mains, then interview. Mains has qualifying Telugu and English papers, plus Essay and four GS papers covering History & Culture (India + AP), Polity, Constitution, Governance, Law & Ethics, Economy & Development (India + AP), and S&T and Environment.
 
 **TGPSC Group-1:** Prelims screening (GS & Mental Ability), then descriptive Mains with General English (qualifying) and six papers: Essay; History, Culture & Geography; Indian Society, Constitution & Governance; Economy & Development; S&T & Data Interpretation; Telangana Movement & State Formation.
+
+**Medium:** In TGPSC Group-1 Mains 2024, 12,323 of 20,161 candidates wrote in English (about 61%), 7,829 in Telugu and 9 in Urdu **[verify]**. An English-medium state lens therefore serves the majority.
+
+**More detail:** see `reports/Mentor teaching and exam patterns.md` and `research_notes/Mentor teaching and exam patterns/appsc_tgpsc_patterns.md`.
 
 **Implication:** about 70% of Group-1 content overlaps with UPSC GS. The extra value we add is a short **"Telugu States Lens"** segment where a topic has a real AP/Telangana link: Polavaram, Krishna–Godavari water sharing, AP Reorganisation Act 2014 disputes, Amaravati, Hyderabad's semiconductor and pharma clusters, state fiscal health, state welfare schemes, Nallamala and Eastern Ghats biodiversity, and similar.
 
