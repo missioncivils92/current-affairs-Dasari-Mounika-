@@ -13,6 +13,11 @@
 | GS-4 | | | |
 | Telugu States Lens | | | |
 
+## 1a. Story arcs this month (from `docs/story-tracker.md`)
+| Arc | Weeks covered | Where the story stands now | What to watch next month |
+|---|---|---|---|
+| | | | |
+
 ## 2. Segment plan
 | Chapter | Content | New narration or reused VO | Est. time |
 |---|---|---|---|

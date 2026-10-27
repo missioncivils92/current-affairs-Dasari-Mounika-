@@ -6,7 +6,14 @@
 
 ---
 
-## Pillar 1 — <Theme> (GS-_)
+## Updates to earlier stories
+| Story (first covered) | What changed this week | Exam effect |
+|---|---|---|
+| | | |
+
+---
+
+## Deep Dive 1 — <Theme> (GS-_)
 **Exam tags:** #UPSC-Pre #UPSC-Mains-GS_ …
 
 - **Why in news:**
@@ -23,7 +30,19 @@
 - **Way forward (with source):**
 - **Telugu States Lens:** data point + source + Group-1 paper
 
-(Repeat for each pillar)
+(Repeat for each Deep Dive. Focus segments get a half-page each: why in news, static anchor, 2 traps, one Mains angle.)
+
+---
+
+## News Grid (one-liners by category)
+**Local: Telugu States**
+-
+**National**
+-
+**International**
+-
+**Miscellaneous** (places, persons, reports, awards)
+-
 
 ---
 

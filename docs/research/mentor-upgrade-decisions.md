@@ -26,3 +26,14 @@ Corrections to the PDF's model example (must not be copied into scripts):
 - "Donbas" is commonly defined as the Donetsk and Luhansk oblasts. The Donets coal basin itself extends into Russia's Rostov oblast and into Dnipropetrovsk, so avoid "strictly".
 - Prelims 2014 asked where Turkey lies (between the Black Sea and the Mediterranean). Prelims 2019 had a sea–bordering-country pairs question (Black Sea–Croatia was the wrong pair). Prelims 2023 asked how many listed countries border Ukraine (answer: only two, Hungary and Romania).
 - No GS-2 Mains 2023 "strategic autonomy" question was found. Use the verified 2023 GS-2 NATO-expansion question instead, after checking it against the official paper.
+
+## Follow-up instruction (27 Oct 2026)
+
+| # | Topic | Decision |
+|---|---|---|
+| 14 | Caps and creativity | No self-imposed caps on research depth, sources, story count or creative ambition. Soft defaults (pillar count, timings, analogies, map nodes, runtime) are guides. Accuracy, maps, licensing, voice-only and compliance never relax (`CLAUDE.md` §0.1). |
+| 15 | Weekly trigger | "Start this week's current affairs video" runs a deep, category-by-category web sweep, then filtering, tiering, categories, a continuity check and a proposed rundown (`PLAYBOOK.md` §"Start this week's video"). |
+| 16 | Depth tiers | Deep Dive / Focus / Glimpse / Update, so each story gets the depth it deserves (`CLAUDE.md` §3.1). |
+| 17 | Categories | Scope: Local (Telugu States), National, International, Miscellaneous. Plus subject categories; new ones may be added as needed (§3.2). |
+| 18 | Continuity | Videos form one connected course. `docs/story-tracker.md` ledger; covered stories return as Updates with callbacks, the delta and changed facts; history and earlier-episode links; story arcs; YouTube cards (§3.3). |
+| 19 | Runtime | Sized to the week, typically 20–35 min, with no fixed cap. |

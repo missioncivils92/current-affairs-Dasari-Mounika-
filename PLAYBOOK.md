@@ -11,13 +11,51 @@ Each week runs from Monday triage to the Sunday 6:00 PM IST upload. `CLAUDE.md` 
 
 ---
 
+## Start this week's video (what Claude does when Mounika says "start this week's current affairs video")
+
+Run this end to end, without self-imposed limits on searches, sources or depth (`CLAUDE.md` §0.1). The day-by-day checklist below is the same work spread over the week. When the request comes late in the week, compress it into one session.
+
+1. **Set up.**
+   - Create `weeks/YYYY-Www/` from the templates and fill in the Mon–Sat dates.
+   - Read `docs/story-tracker.md`, the last four weeks' `README.md` carry-forward lists, and any open corrections.
+2. **Deep sweep (wide, parallel).** Search the web for everything that happened in the coverage window, category by category. Use parallel research agents, one per scope or subject category, when the week is busy. For every candidate, record the date, the event, a primary-source link and a one-line exam angle. Cover at least:
+
+   | Category | Sources |
+   |---|---|
+   | **National: polity & governance** | PIB (all ministries), Parliament / PRS, Supreme Court and High Court judgments, ECI, gazette notifications, cabinet decisions |
+   | **National: economy** | RBI, SEBI, Finance Ministry, MoSPI data releases (CPI, IIP, GDP), trade data, the GST Council |
+   | **Environment, geography & disasters** | IMD, NDMA, MoEFCC, Down To Earth, CPCB, wildlife and protected-area news, ISRO/NRSC satellite products |
+   | **Science & technology / defence** | ISRO, DRDO, DST, MeitY, the defence ministry, space and tech missions |
+   | **International** | MEA statements and joint statements, UN bodies, summits, treaties, conflicts, global reports and indices |
+   | **Local: Telugu States** | AP and Telangana government releases and GOs, state cabinet decisions, the High Courts of AP and Telangana, state budgets and surveys, river boards (KRMB, GRMB), Polavaram, disasters, ecology |
+   | **Miscellaneous** | Places in news, persons in news, awards, reports and indices, important days, sports and culture with a testable fact |
+   | **Newspapers** | The Hindu, Indian Express, LiveMint, Down To Earth, read cover to cover as a cross-check on the categories |
+3. **Filter.** Apply the selection test (`CLAUDE.md` §3) and drop the noise.
+4. **Tier and categorise** every surviving story: Deep Dive / Focus / Glimpse / Update (`CLAUDE.md` §3.1), with one scope category and its subject categories (§3.2).
+5. **Continuity check** (§3.3).
+   - For every story, check the tracker. If we covered it before, it becomes an **Update** (or an escalated Deep Dive) with a callback.
+   - Find the history and earlier-episode links for each Deep Dive.
+   - Note any fact we taught that has changed.
+6. **Propose the rundown** to Mounika in `01-research-brief.md` §2:
+   - the tiers, categories and running order;
+   - the runtime estimate;
+   - the central question for each Deep Dive;
+   - the creative idea of the week;
+   - anything dropped that she might expect to see, with the reason.
+
+   Wait for her approval (or swaps).
+7. **Research brief → two-column script → voiceover file → visual handoff → PDF → Shorts pack**, following the day-by-day checklist and the Saturday QC.
+8. **After publishing:** update `docs/story-tracker.md` and write next week's carry-forward list.
+
+---
+
 ## Weekly timeline at a glance
 
 | Day | Main output | Shorts & community |
 |---|---|---|
-| Mon | Week folder + rolling story log; metrics review | Short #1 (reveals last Sunday's MCQ answer); Posts quiz |
-| Tue | Log continues; themes forming | Short #2 (Prelims Trap, with a quiz sticker) |
-| Wed | **Pillars locked** with a masterclass blueprint per pillar; research started | Short #3 |
+| Mon | Week folder + deep sweep begins; tracker check; metrics review | Short #1 (reveals last Sunday's MCQ answer); Posts quiz |
+| Tue | Sweep continues; tiers and categories forming | Short #2 (Prelims Trap, with a quiz sticker) |
+| Wed | **Rundown locked** (Deep Dives, Focus, Glimpses, Updates) with a blueprint per Deep Dive; research started | Short #3 |
 | Thu | Research brief complete; verification log and PYQ check | Short #4: APPSC-tagged until 24 Jan 2027 |
 | Fri | **Master script v1** (two-column) + visual handoff | Short #5 (optional) |
 | Sat | M read-through → v2, QC, recording; PDF notes + MCQs | Poll: "Which issue should we decode next?" |
@@ -28,37 +66,51 @@ Each week runs from Monday triage to the Sunday 6:00 PM IST upload. `CLAUDE.md` 
 ## Monday: set up and triage
 
 - [ ] **C** Create `weeks/YYYY-Www/` and copy `templates/01`–`05` into it. Fill in the week's Mon–Sat dates.
-- [ ] **C** Start the **rolling story log** in `01-research-brief.md` §1. For each candidate story, add a one-line summary, source link, GS mapping, selection-test score (`CLAUDE.md` §3) and exam tags (`CLAUDE.md` §2.1).
-- [ ] **C** Scan these sources daily:
-  - The Hindu, Indian Express, PIB (all ministries), LiveMint, Down To Earth.
-  - PRS, the SC daily judgments list, RBI press releases.
-  - AP/Telangana government press releases and GOs.
+- [ ] **C** Read `docs/story-tracker.md` and the last four weeks' carry-forward lists.
+- [ ] **C** Start the **deep sweep** (see "Start this week's video", step 2) and the **rolling story log** in `01-research-brief.md` §1. For each candidate story, add:
+  - a one-line summary and a source link;
+  - its scope and subject categories;
+  - its proposed tier;
+  - its continuity link (tracker ID, or "new");
+  - its GS mapping, selection-test score (`CLAUDE.md` §3) and exam tags (`CLAUDE.md` §2.1).
+- [ ] **C** Repeat the sweep daily through Saturday.
 - [ ] **E/M** Publish Short #1, revealing the answer to last Sunday's pinned MCQ challenge.
 - [ ] **E/M** Post a **Posts-tab quiz**: one MCQ from last week's Trap Vault, with the explanation pointing to the video timestamp.
 
-## Tuesday: keep logging, build themes
+## Tuesday: keep logging, build themes and tiers
 
 - [ ] **C** Keep adding to the story log. Merge related stories into **themes**: for example, three separate stories about rare earths, a China export curb and a new KABIL deal become one "Critical Minerals" theme.
+- [ ] **C** Draft the tiers: which themes deserve a Deep Dive, which a Focus, which a Glimpse in the News Grid, and which are Updates to earlier stories.
 - [ ] **C** Flag likely Telugu-state links and APPSC Screening relevance (`#APPSC-Pre-Jan27`).
 - [ ] **E/M** Publish Short #2, a Prelims Trap with a Shorts quiz sticker.
 
-## Wednesday: lock the pillars with a blueprint
+## Wednesday: lock the rundown with blueprints
 
-- [ ] **C** Propose **4–5 pillars**. Together they must cover at least 3 GS papers. For each, write the **masterclass blueprint** (in `01-research-brief.md` §2):
+- [ ] **C** Propose the **rundown** in `01-research-brief.md` §2, as many items in each tier as the week genuinely warrants:
+  - Update Desk items;
+  - Deep Dives (usually 2–4);
+  - Focus segments;
+  - News Grid Glimpses by category (Local: Telugu States / National / International / Miscellaneous);
+  - the running order, the runtime estimate and the **creative idea of the week**.
+
+  Deep Dives and Focus segments together must cover at least 3 GS papers.
+- [ ] **C** For each Deep Dive, write the **masterclass blueprint**:
   - **Primary syllabus anchor**, e.g. "GS-2: bilateral, regional and global groupings involving India".
   - **Central question / paradox**, e.g. "Why does a local truce on the Dnipro expose a war of attrition rather than peace?"
   - **Target PYQs**: candidates from the official papers, tagged `[PYQ-VERIFY]` until checked.
   - **Map beats**: what the GIS map must show, in order.
   - **Mind-map plan**: centre node and up to about 7 nodes.
   - **Pre-question / checkpoint idea.**
+  - **History and continuity links:** the historical origin, our earlier episodes, and the story arc.
   - **Exam tags** and **estimated runtime.**
-- [ ] **M** Approve or swap pillars. **Decision deadline: Wednesday 8 PM.** If a big story breaks after this, see "Late-breaking news" below.
+- [ ] **M** Approve or swap items in the rundown. **Decision deadline: Wednesday 8 PM.** If a big story breaks after this, see "Late-breaking news" below.
 - [ ] **C** Start the 5-step analysis for each pillar in `01-research-brief.md` §3.
 - [ ] **E/M** Publish Short #3.
 
 ## Thursday: finish the research brief
 
-- [ ] **C** Complete all 5 steps for every pillar:
+- [ ] **C** Write each Focus segment (compressed format), each Glimpse (fact + static anchor + trap) and each Update (callback → refresher → delta → exam angle).
+- [ ] **C** Complete all 5 steps for every Deep Dive:
   - the key-terms primer;
   - at least 3 Prelims traps that cover the whole look-alike set;
   - 4 Mains dimensions with data;
@@ -79,16 +131,20 @@ Each week runs from Monday triage to the Sunday 6:00 PM IST upload. `CLAUDE.md` 
 - [ ] **C** Write the **master script v1** in `02-master-script.md` as a **two-column table**: visual cue (left) | verbatim narration (right).
   - Lock the map beats and mind-map nodes first, then write the narration to them, so every visual lands on the words it explains.
   - Show the running word count. Budget: target minutes × 135.
-  - Suggested runtime split for 22 min:
+  - Example runtime split for a 28-minute week. Size every week to its own content; there is no fixed cap.
 
     | Segment | Time |
     |---|---|
-    | Cold open (with pre-question) | 1:00 |
-    | Pillars | 4 × 4:30 |
-    | Trap Vault rapid-fire (with spaced recall) | 1:30 |
-    | Telugu States Lens | 1:00 inside pillars |
+    | Cold open (with pre-question and "On today's desk") | 1:15 |
+    | Update Desk (2–3 updates) | 2:30 |
+    | Deep Dives | 3 × 6:00 |
+    | Focus segments | 2 × 2:00 |
+    | News Grid (Local, National, International, Misc) | 3:30 |
+    | Trap Vault rapid-fire (with spaced recall) | 1:45 |
     | Optional Desk Note | 0:45 |
     | Verdict + CTA | 1:15 |
+
+    Telugu States Lens: inside Deep Dives and Focus segments, or as Local Glimpses.
 - [ ] **C** Run `python3 tools/make_voiceover.py weeks/YYYY-Www v1` to generate `02b-voiceover-text.md` for Mounika.
 - [ ] **C** Fill in the **visual handoff** in `03-visual-handoff.md`:
   - a shot-by-shot table with timing cues;
@@ -107,7 +163,14 @@ Each week runs from Monday triage to the Sunday 6:00 PM IST upload. `CLAUDE.md` 
   **Script and teaching**
   - [ ] Every spoken word is written in full, in the right-hand column. No bullet points inside narration.
   - [ ] **No staccato fragments.** Sentences are connected, with logical transitions. Every sentence passes the one-breath test.
-  - [ ] Runtime is 18–26 min (word count ÷ 135). Numbers and trap rows are marked *slower*.
+  - [ ] Runtime fits the week's content, with no padding and nothing rushed (word count ÷ 135). Numbers and trap rows are marked *slower*.
+  - [ ] Every story has a tier and categories. The News Grid runs in scope order (Local → National → International → Misc).
+  - [ ] **Continuity:**
+    - Every story already in `docs/story-tracker.md` is handled as an Update with a callback, not re-explained from zero.
+    - Changed facts are flagged ("last time we said…").
+    - Every callback has a YouTube card and a description link.
+  - [ ] Each Deep Dive links to its history and to at least one earlier episode or story arc where one exists.
+  - [ ] The creative idea of the week is in the script, and it makes the explanation clearer.
   - [ ] No "Welcome back" opener. The cold open is inside the event, pivots to the structural problem and asks the pre-question.
   - [ ] Every pillar has:
     - a stated central question and a key-terms primer;
@@ -162,6 +225,10 @@ Each week runs from Monday triage to the Sunday 6:00 PM IST upload. `CLAUDE.md` 
 - [ ] **E** Pinned comment: "This week's MCQ challenge" (1 question; the answer is revealed in Monday's Short #1) + PDF link.
 - [ ] **M** Spend 30–60 minutes replying to comments after publishing.
 - [ ] **M** **Weekly answer feedback:** by Wednesday, pick one viewer's answer to last week's model Mains question. Reply with 2–3 specific improvements and pin it. Be kind and specific, and don't rank or grade publicly.
+- [ ] **C** Update `docs/story-tracker.md`:
+  - add new stories;
+  - append this week to updated ones;
+  - record the traps taught, the video link with its chapter timestamp, and the next trigger to watch.
 - [ ] **C** Write next week's carry-forward list in `weeks/YYYY-Www/README.md`: stories still developing, unanswered viewer questions, unused traps, and traps due for spaced recall next week and in four weeks.
 
 ---
@@ -212,6 +279,8 @@ Look at last week's video:
 - Posts quiz and poll responses.
 - PDF downloads and Telegram views.
 - Top comments and questions.
+- Did the creative idea of the week hold retention (compare its chapter with the others)? Keep it, refine it or drop it.
+- Did viewers click through from callback cards to earlier episodes?
 
 Log one change to try this week in `weeks/YYYY-Www/README.md`.
 
@@ -261,4 +330,5 @@ What changed:
 - [ ] All foreign names and technical terms carry phonetic brackets.
 - [ ] All cartoon icons, clip art and karaoke captions are gone. Every visual is a GIS map, real or satellite footage, a data chart, a mind map, a kinetic text card or the Decode Desk; an AI image appears only as a disclosed last resort.
 - [ ] The Prelims Trap, PYQ Echo, Mains Lens and checkpoints are clearly marked and tied to real exam demands.
-- [ ] The script flows naturally as an uninterrupted 18–26 minute lecture, with no robotic staccato sentences.
+- [ ] The script flows naturally as one connected lecture, whatever the week's length, with no robotic staccato sentences.
+- [ ] Updates call back to earlier episodes, and `docs/story-tracker.md` is ready to update after upload.
