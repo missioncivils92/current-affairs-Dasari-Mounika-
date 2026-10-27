@@ -55,7 +55,7 @@ Run this end to end, without self-imposed limits on searches, sources or depth (
 |---|---|---|
 | Mon | Week folder + deep sweep begins; tracker check; metrics review | Short #1 (reveals last Sunday's MCQ answer); Posts quiz |
 | Tue | Sweep continues; tiers and categories forming | Short #2 (Prelims Trap, with a quiz sticker) |
-| Wed | **Rundown locked** (Deep Dives, Focus, Glimpses, Updates) with a blueprint per Deep Dive; research started · **6 PM: last week's Decode Extended goes live** | Short #3 |
+| Wed | **Rundown locked** (Deep Dives, Focus, Glimpses, Updates) with a blueprint per Deep Dive; research started · **6 PM: last week's Decode Extended goes live (if one was made; it was finished before Sunday's edit lock)** | Short #3 |
 | Thu | Research brief complete; verification log and PYQ check | Short #4: APPSC-tagged until 24 Jan 2027 |
 | Fri | **Master script v1** (two-column) + visual handoff | Short #5 (optional) |
 | Sat | M read-through → v2, QC, recording; PDF notes + MCQs | Poll: "Which issue should we decode next?" |
@@ -131,9 +131,9 @@ Run this end to end, without self-imposed limits on searches, sources or depth (
 - [ ] **C** Write the **master script v1** in `02-master-script.md` as a **two-column table**: visual cue (left) | verbatim narration (right).
   - Lock the map beats and mind-map nodes first, then write the narration to them, so every visual lands on the words it explains.
   - Show the running word count. Budget: target minutes × 135.
-  - **Hub budget:** about 32 min (28–38). Use the typical- and heavy-week budgets and the overflow cascade in `CLAUDE.md` §4.1.
+  - **Hub budget:** about 28 min (26–30; ceiling 35). Use the typical- and heavy-week budgets and the overflow cascade in `CLAUDE.md` §4.1.
   - Tag every Deep Dive row `[HUB]` or `[EXT]`, and print the hub-only word count and the Extended word count separately.
-  - Pick the week's **Decode Extended** story: the Deep Dive with the richest `[EXT]` material. Its script is the hub core plus its `[EXT]` rows, with a 20–30 s open and close of its own.
+  - Decide whether this week has a **Decode Extended** (0–1 a week): only a Deep Dive with 3+ minutes of genuine `[EXT]` material qualifies. Its script is the hub core plus its `[EXT]` rows, with a 20–30 s open and close of its own.
 
     Telugu States Lens: inside Deep Dives and Focus segments, or as Local Glimpses.
 - [ ] **C** Run `python3 tools/make_voiceover.py weeks/YYYY-Www v1` to generate `02b-voiceover-text.md` for Mounika.
@@ -168,7 +168,7 @@ Run this end to end, without self-imposed limits on searches, sources or depth (
     - all 5 steps;
     - at least 3 traps covering the look-alike set;
     - 4 Mains dimensions with data and a Carry into Mains block;
-    - a cited committee or report;
+    - a cited source for the Way Forward (committee, report, treaty article, judgment or official statement);
     - a model question with an answer skeleton;
     - one checkpoint (answered at the start of the next pillar);
     - a recap and a one-line preview.
@@ -188,18 +188,21 @@ Run this end to end, without self-imposed limits on searches, sources or depth (
   - [ ] Every row has exactly one primary visual tag.
   - [ ] No cartoon icons or clip art, no karaoke or full-script captions, and burned-in text is at most 8 words.
   - [ ] Every image passes the **information test**.
-  - [ ] Every map is a GIS map (satellite or terrain), opens with a locator inset, and follows **official Survey of India boundaries**.
+  - [ ] Every map is a GIS map (satellite or terrain), has a locator inset on the first map of each map sequence, and follows **official Survey of India boundaries**.
   - [ ] Every pillar has a progressive mind map, a skeleton with blanks and a reveal.
-  - [ ] No on-camera rows. Direct-address rows use `[VOICE ANCHOR]` with a voice direction. No faces, hands, AI avatars or synthetic voices.
+  - [ ] No on-camera rows. Direct-address rows use `[VOICE ANCHOR]` with a voice direction. No faces, hands, AI avatars or synthetic voices (sole exception: a logged internal, never-published sample, `CLAUDE.md` §1).
   - [ ] Every external asset has its source, licence and credit logged. No news-agency or Parliament clips. No Google Earth Studio.
   - [ ] Any photorealistic AI image is flagged for YouTube's synthetic-content disclosure.
 - [ ] **M** Record in two sessions of 60–75 min each, with breaks about every 20 min:
   - **Session 1:** cold open and Deep Dives, including the `[EXT]` rows for Decode Extended.
   - **Session 2:** Updates, Focus segments, News Grid, Trap Vault, verdict and next week's Shorts.
 - [ ] **C/M** Length QC:
-  - [ ] The hub is projected at 38 min or less, or the overflow cascade or owner override is logged.
+  - [ ] The hub is projected at 30 min or less, or the cascade ran and the reason is logged; never over 35 min without the owner's override.
+  - [ ] The narration was recorded at 130–140 wpm, with trap and number rows slower (check the aligned timeline).
   - [ ] No hub chapter runs over 8 min.
-  - [ ] Decode Extended runs 10–15 min (at least 8) and has its own title angle and playlist.
+  - [ ] Decode Extended (if any) runs 10–15 min and has its own title angle and playlist.
+  - [ ] No working tag (`[VERIFY]`, `[PYQ-VERIFY]`) is visible in any frame of the final render.
+  - [ ] Checkpoint holds are 6–8 s of real silence and play over the checkpoint card.
 - [ ] **M** Record the voiceover (VO), one WAV file per segment: `YYYY-Www_VO_open.wav`, `YYYY-Www_VO_P1.wav`, and so on. Use the same mic, room and distance every week so the voice sounds identical.
 - [ ] **C** Produce the **PDF notes + MCQs** in `05-weekly-notes-mcq.md`:
   - One page per pillar: anchor, the completed mind map, traps, 4 dimensions, Carry into Mains, Way Forward, Telugu lens, and exam tags.
@@ -314,9 +317,9 @@ Facts below were checked on 27 Oct 2026. Re-verify any dated figure before reusi
 | 3 | `[REAL FOOTAGE]` Satellite pair, before/after: the Kakhovka [Ka-KHOV-ka] reservoir full, then drained after the June 2023 dam breach (NASA Earth Observatory or Copernicus Sentinel, with credit). Pointer moves upstream to the Zaporizhzhia plant, then south along the North Crimean Canal. | Now notice what lies upstream. When the Kakhovka dam was destroyed in June 2023, the reservoir behind it drained — and that reservoir had fed both the cooling system of the Zaporizhzhia [Za-po-RIZH-zhya] nuclear plant and the canal that carries fresh water to Crimea [Kry-MEE-ya]. So any shift along this river is never just local, and that is why local deals here are so hard to keep. |
 | 4 | `[MIND MAP]` Centre node builds: *The strategic dilemma for New Delhi*. Branch 1 appears on its words: *Energy security — discounted Russian crude*. Branch 2 appears on its words: *Principles — UN Charter Art 2(4), territorial integrity*. | Now let us come to the question UPSC actually cares about in General Studies Paper Two. How does New Delhi live with a long war without giving up its strategic autonomy? |
 | 5 | `[DATA CHART]` Bar chart: India's crude imports by source, Sept 2026. Russia highlighted at about 1.7–1.8 million barrels a day, about one-third of the total. Source line: "Kpler, as reported, Sept 2026". | On one side sits energy security — in September, Russia supplied roughly one-third of India's crude imports, a little under two million barrels every day. On the other side sits principle — New Delhi keeps repeating that this is not an era of war, and it keeps pointing to the territorial integrity that Article Two of the UN Charter protects. |
-| 6 | `[KINETIC TEXT]` Red Prelims Trap card. Line 1: *Kerch Strait = Sea of Azov ↔ Black Sea · 2003 Russia–Ukraine treaty (denounced by both in 2023)*. Line 2: *Montreux 1936 = Turkish Straits only (Bosphorus, Dardanelles)*. Line 3: *Donbas = Donetsk + Luhansk (political usage); the coal basin spills into Rostov*. *Voice: slower.* | **Prelims Trap.** Keep two straits apart in your head. The Kerch [KERCH] Strait links the Sea of Azov [AY-zov] to the Black Sea, and its passage was governed by a 2003 treaty between Russia and Ukraine — a treaty both countries denounced in 2023. The Montreux [Mon-TRUH] Convention of 1936 is a different animal — it governs only the Turkish Straits, the Bosphorus and the Dardanelles. And when you see "Donbas", read it as Donetsk and Luhansk — though the coal basin itself runs into Russia's Rostov region, which is exactly the kind of fine print an examiner enjoys. |
+| 6 | `[KINETIC TEXT]` Red Prelims Trap card. Line 1: *Kerch Strait = Sea of Azov ↔ Black Sea · 2003 Russia–Ukraine treaty (denounced by both in 2023)*. Line 2: *Montreux 1936 = Turkish Straits only (Bosphorus, Dardanelles)*. Line 3: *Donbas = Donetsk + Luhansk (political usage); the coal basin spills into Rostov*. *Voice: slower.* | **Prelims Trap.** Keep two straits apart in your head. The Kerch [KERCH] Strait links the Sea of Azov [AY-zov] to the Black Sea, and its passage was governed by a 2003 treaty between Russia and Ukraine — a treaty both countries denounced in 2023, and the strait's status is still disputed. The Montreux [Mon-TRUH] Convention of 1936 is a different animal — it governs only the Turkish Straits, the Bosphorus and the Dardanelles. And when you see "Donbas", read it as Donetsk and Luhansk — though the coal basin itself runs into Russia's Rostov region, which is exactly the kind of fine print an examiner enjoys. |
 | 7 | `[GIS MAP]` Ukraine's seven land neighbours light up one by one. `[PYQ ECHO]` overlay card: *UPSC CSE Prelims 2023 · "How many of the above share a land border with Ukraine?" · Answer: only two — Hungary, Romania* (only after the `[PYQ-VERIFY]` tag is cleared). | And this is not a hypothetical. In 2023, UPSC listed six European countries and simply asked how many of them border Ukraine — only two did, Hungary and Romania. So learn the whole neighbourhood, not just the one country in the headline. |
-| 8 | `[KINETIC TEXT]` Yellow "Pause and answer" card with a 5-second countdown: *Which body of water does the Kerch Strait connect to the Black Sea?* *Voice: warm, playful.* | **Pause and answer.** Which sea does the Kerch Strait join to the Black Sea? Say it out loud — I will tell you at the start of the next chapter. |
+| 8 | `[KINETIC TEXT]` Yellow "Pause and answer" card with a 6–8 s countdown: *Which body of water does the Kerch Strait connect to the Black Sea?* *Voice: warm, playful.* | **Pause and answer.** Which sea does the Kerch Strait join to the Black Sea? Say it out loud — I will tell you at the start of the next chapter. |
 
 What changed:
 - **One structural question** drives the pillar.
@@ -324,7 +327,7 @@ What changed:
 - **Every visual lands on its words** and carries information.
 - **Connected spoken sentences** replace fragments.
 - **The trap covers the look-alikes** (Kerch vs Montreux, political vs geological Donbas).
-- **The PYQ is verified, not invented.**
+- **The PYQ comes from the official paper** (checked on upsc.gov.in before release), not from memory or a coaching site.
 - **The checkpoint** turns the viewer from a watcher into a learner.
 
 ## Production handoff checklist (before VO recording and editing)

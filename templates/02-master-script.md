@@ -62,7 +62,7 @@
 | 1.11 | `[KINETIC TEXT]` Model question text | Model Mains question + 3-part skeleton… |
 | 1.12 | `[GIS MAP]` Teal TELUGU STATES LENS card + state document on screen (optional) | **Telugu States Lens.** National issue → AP/TG data point → how Group-1 asks it… |
 | 1.13 | `[MIND MAP]` Completed map → skeleton with 2–3 blanks → 3 s hold → reveal | 3-point recap. "Pause here, copy this map, and fill in the blanks before I reveal them." … |
-| 1.14 | `[KINETIC TEXT]` Yellow "Pause and answer" card, 5 s countdown. *Voice: warm.* | **Pause and answer.** … One-line preview of the next pillar. |
+| 1.14 | `[KINETIC TEXT]` Yellow "Pause and answer" card, 6–8 s countdown. *Voice: warm.* | **Pause and answer.** … One-line preview of the next pillar. |
 
 *Segment words: __ · Running total: __ · Est. time: __*
 

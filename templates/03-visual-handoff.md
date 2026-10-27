@@ -57,7 +57,7 @@ Every external asset needs a row.
 - [ ] **Decode Desk** loop (build once, reuse every week): person-free slate desk, notebook with self-writing yellow ink, brass lamp, globe, neon-yellow waveform driven by the VO audio
 - [ ] "PRELIMS TRAP" red card (reuse)
 - [ ] "PYQ ECHO" card: year · paper · format · frozen fact (reuse)
-- [ ] "PAUSE AND ANSWER" yellow card with 5 s countdown (reuse)
+- [ ] "PAUSE AND ANSWER" yellow card with 6–8 s countdown (reuse)
 - [ ] "MAINS LENS" 4-quadrant matrix (reuse)
 - [ ] "TELUGU STATES LENS" teal lower-third (reuse)
 - [ ] "WRITE THIS DOWN" / "CARRY INTO MAINS" yellow highlight (reuse)
