@@ -150,6 +150,9 @@ SCENES.S08 = (ctx, s) => {
   bg(ctx);
   const l = ease(span(s.t, s.w('Lubinets') - 0.6, s.w('Lubinets') + 0.4)), r = ease(span(s.t, s.w('Lantratova') - 0.6, s.w('Lantratova') + 0.4));
   const meet = ease(span(s.t, s.w('non-military') - 0.5, s.w('non-military') + 0.6));
+  heading(ctx, 'WHO RUNS IT ON THE GROUND', 1, 170);
+  [-1, 1].forEach(side => { const x = 960 + side * 380 - 330; ctx.save(); ctx.setLineDash([12, 10]); ctx.strokeStyle = 'rgba(255,255,255,0.22)'; ctx.lineWidth = 2; rr(ctx, x, 280, 660, 300, 18); ctx.stroke(); ctx.restore();
+    text(ctx, side < 0 ? 'UKRAINE' : 'RUSSIA', x + 50, 355, { font: F.ui(28, 800), color: C.faint }); });      // empty slots from frame one
   [['UKRAINE', 'Dmytro Lubinets', -1, l], ['RUSSIA', 'Yana Lantratova', 1, r]].forEach(([c, n, side, k]) => {
     const x = 960 + side * lerp(380, 350, meet) - 330 + side * (1 - k) * 900;
     card(ctx, x, 280, 660, 300, { stroke: 'rgba(255,255,255,0.2)', alpha: k });
@@ -404,6 +407,9 @@ SCENES.S37 = (ctx, s) => {
   heading(ctx, 'PRECEDENTS IN THIS WAR', 1, 150);
   const C4 = [['Apr–May 2022', 'Azovstal, Mariupol', 'UN + ICRC evacuate civilians', 'Azovstal', 150, 230], ['Mar 2022', 'Sumy corridor', 'Indian students out · Operation Ganga', 'Sumy', 1000, 230],
     ['Jul 2022 – Jul 2023', 'Black Sea Grain Initiative', 'UN + Türkiye · Russia withdrew', 'Grain', 150, 560], ['2025–26', 'IAEA local ceasefires at ZNPP', 'repairs to the plant\'s power lines', 'IAEA', 1000, 560]];
+  const pts = [];
+  C4.forEach(([d, , , , x, y]) => { ctx.save(); ctx.setLineDash([12, 10]); ctx.strokeStyle = 'rgba(237,230,214,0.25)'; ctx.lineWidth = 2; rr(ctx, x, y, 770, 270, 6); ctx.stroke(); ctx.restore();
+    text(ctx, d, x + 40, y + 70, { font: F.mono(30, 700), color: 'rgba(237,230,214,0.35)' }); });            // the dated slots wait on the board
   const pts = [];
   C4.forEach(([d, h, sub, cw, x, y], i) => {
     const a = pop(s.t, s.w(cw) - 0.2); if (a <= 0) return; pts.push([x + 385, y + 30]);
