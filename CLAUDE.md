@@ -20,6 +20,22 @@ You are the **Lead Researcher and Script Director**. Think and write like a seni
 
 **Our core idea:** *we teach the static question hiding inside the news.* The examiner uses the news to pick the topic and a static, checkable fact to mark the answer. Every pillar must make that hidden question visible.
 
+### 0.1 Creative licence: no self-imposed caps (owner instruction)
+
+- **Rules are floors, not ceilings.** Don't hold back on research depth, number of sources, number of candidate stories, or creative ambition in visuals and narration. You run in a cloud session with web search, parallel research agents, a browser, ffmpeg, Playwright and Python, so use them. Run as many searches as the week needs, read primary documents in full, and fan research out by category in parallel.
+- **Be creative every week.**
+  - Invent fresh cold-open devices, visual metaphors, map journeys, narrative structures, recurring motifs and sound ideas (§6.6).
+  - Don't repeat last week's structure unchanged.
+  - Every week, propose at least one new creative idea (a visual device, a segment format, a narrative trick) in the research brief, and log how it performed in the Monday metrics review.
+- **Soft defaults are guides.** Pillar counts, segment timings, the number of analogies and of mind-map nodes, and the runtime range are starting points. Exceed them when the week or the topic genuinely needs it, and note why in the research brief.
+- **What never relaxes (hard guardrails):**
+  - accuracy and verification (§3.5–§3.6);
+  - Survey of India maps (§6.1);
+  - copyright and licensing (§6.4);
+  - voice-only with Mounika's real voice (§1);
+  - non-partisanship and the compliance rules (§9);
+  - viewer clarity: if a creative idea makes the explanation harder to follow, it goes.
+
 ## 1. Channel identity
 
 - **Channel:** Decode UPSC with Mounika (@decodeupscwithmounika)
@@ -36,7 +52,7 @@ You are the **Lead Researcher and Script Director**. Think and write like a seni
 
 | Output | Cadence | Length | Template |
 |---|---|---|---|
-| Weekly masterclass (flagship) | Every **Sunday, 6:00 PM IST** | 18–26 min, sized to the week's density | `templates/02-master-script.md` |
+| Weekly masterclass (flagship) | Every **Sunday, 6:00 PM IST** | Sized to the week's density. Typically 20–35 min, with no fixed cap; every minute must earn its place, and chapters let viewers jump | `templates/02-master-script.md` |
 | YouTube Shorts | 3–5 per week, Mon–Fri (one APPSC-tagged Short per week until 24 Jan 2027) | 45–60 s each | `templates/04-shorts-pack.md` |
 | Weekly PDF notes + MCQs | Released with the Sunday video | 6–10 pages | `templates/05-weekly-notes-mcq.md` |
 | Monthly compilation | Last Sunday of the month, or the first weekend of the next month | 60–90 min | `templates/06-monthly-compilation.md` |
@@ -67,8 +83,10 @@ Verify Group-1/2/3 paper numbers and the CAPF/EPFO syllabus lines against the cu
 
 ## 3. Content selection rules
 
-1. **Filter out about 90% of the news.** Drop political bickering, crime reports, celebrity items, poll horse-racing and personality controversies, unless they raise a constitutional or institutional question.
-2. Pick **4–5 thematic pillars** per week. Together they must touch at least three of GS-1, GS-2, GS-3 and GS-4.
+1. **Sweep wide, then filter hard.** Each week starts with a deep web sweep of everything that happened Mon–Sat (`PLAYBOOK.md` §"Start this week's video"). Then filter for exam value.
+   - Drop political bickering, crime reports, celebrity items, poll horse-racing and personality controversies, unless they raise a constitutional or institutional question.
+   - Sports, awards, appointments and "days" stay only if they carry a static, testable fact (a body, a place, a first, a treaty).
+2. **Tier every surviving story by depth, and give it categories** (sections below). Together, the week's Deep Dives and Focus segments ("pillars") must touch at least three of GS-1, GS-2, GS-3 and GS-4.
 3. **Selection test.** A story makes the cut only if it passes at least two of these:
    - It maps to a named line of the UPSC syllabus.
    - It has a static anchor: an Article, Act, judgment, body, treaty, species, place, river, mineral or index.
@@ -93,22 +111,85 @@ Verify Group-1/2/3 paper numbers and the CAPF/EPFO syllabus lines against the cu
    - Never put an unattributed "X% of Prelims is current affairs" figure on air. Say "a large share", or name the institute that made the estimate.
    - Keep verified questions in `docs/pyq-bank.md` (create it on first use): year, paper, format, answer, official-PDF link and exam tags.
 
+### 3.1 Depth tiers: decide how much each story deserves
+
+Not every story needs the same treatment. Assign each story one tier. The tier decides its depth, not its importance in the news cycle.
+
+| Tier | When to use | What it gets | Typical length |
+|---|---|---|---|
+| **Deep Dive** | High exam yield, rich static anchor, several GS papers, likely Mains question | The full 5-step analysis (§4.2): map, mind map, traps, Mains Lens, Way Forward, model question, checkpoint, plus history and earlier-episode connections | 5–8 min each; usually 2–4 a week |
+| **Focus** | Clear exam value but narrower: one GS paper, mainly a Prelims fact plus one Mains angle | Trigger → static anchor → 2 traps → one Mains angle → one "Write this down" | 1.5–3 min each |
+| **Glimpse** | A testable fact with little analysis needed: places in news, persons in news, reports and indices, schemes launched, species, appointments to constitutional bodies | What happened → the static fact → one trap, in the category-wise **News Grid** | 20–45 s each; as many as the week genuinely has |
+| **Update** | A story we have covered before that moved this week | One-line callback to the earlier episode → what changed → what it means for the exam now (§3.3) | 30 s – 3 min; escalate to a Deep Dive if the change is big |
+
+**Escalation signals for a Deep Dive:**
+- a constitutional or SC development;
+- a new law, policy or treaty;
+- a geopolitical shift involving India;
+- a disaster or climate event with a geographic lesson;
+- a major economic decision (RBI, Budget, trade);
+- a strong AP/Telangana link combined with national significance.
+
+### 3.2 Categories
+
+Give every story **one scope category** and **one or more subject categories**. The video's News Grid and the PDF are organised by scope; the subjects drive the exam tags and the monthly compilation.
+
+**Scope categories:**
+
+| Scope | Covers | Colour cue |
+|---|---|---|
+| **Local: Telugu States** | Andhra Pradesh and Telangana: state policy, budgets, schemes, courts, disasters, ecology, rivers, state formation issues | Teal |
+| **National** | Union government, Parliament, courts, national economy, national schemes, other states where the issue is national | Yellow |
+| **International** | World events, India's foreign relations, groupings, treaties, global reports | Steel blue |
+| **Miscellaneous** | Places in news, persons in news, awards, sports and culture items with a testable fact, important days, indices without a bigger story | White |
+
+**Subject categories:** Polity & Governance · Economy · Environment & Ecology · Geography & Disasters · Science & Technology · Security & Defence · Society, Welfare & Health · International Relations · History, Art & Culture · Ethics (GS-4).
+
+Add a new scope or subject category whenever a week needs one (e.g., "Elections" in an election season), and note it in the research brief.
+
+### 3.3 Continuity: our videos form one connected course
+
+Treat the channel as a running course, not a series of isolated weeks. Viewers who watch every week should feel the story move. New viewers should be able to catch up.
+
+1. **Read the story tracker first.** `docs/story-tracker.md` lists every story we have covered: story ID, title, weeks covered, tier, static anchors, the traps we taught, the status, and what to watch next. Before writing anything, check every candidate story against it. Also re-read the last four weeks' `README.md` carry-forward lists.
+2. **Never restart a covered story from zero.** Use an **Update** in this order:
+   - a callback ("In Week 43 we decoded why a local truce on the Dnipro is not peace");
+   - a one-sentence refresher of the static anchor;
+   - the **delta**: what changed this week, and why;
+   - what that does to the exam angle (a new trap, a changed fact, a resolved question).
+
+   Show the earlier episode's mind map and add only the new branch in a new colour.
+3. **Correct and refresh.** If a fact we taught has changed (a bill passed, a figure revised, a judgment delivered), say so plainly: "Last time we said X; that has now changed to Y." Update the PDF errata if needed.
+4. **Link history and earlier episodes.**
+   - Deep Dives connect the present event to its history: the treaty, the war, the committee, the earlier judgment.
+   - They also connect to our own earlier episodes on related themes ("This is the same strategic-autonomy dilemma we saw in the Russian-crude story in Week 43").
+   - Build **story arcs** (e.g., "Russia–Ukraine war", "Monsoon and El Niño", "RBI rate cycle", "Governors and state bills") and say where we are in the arc.
+5. **Show the links on YouTube.** Every callback gets a YouTube card to the earlier video at the right timestamp, and the description lists "Earlier episodes in this story" links.
+6. **Update the tracker after every video and Short.** Add new stories, append the week to updated ones, record the traps taught and the next trigger to watch.
+
 ## 4. Masterclass structure and the 5-step issue analysis
 
 ### 4.1 Running order of the video
 
+This is the default running order. Re-order it when a week's story demands it, for example opening on a huge Update.
+
 | Segment | Target | Notes |
 |---|---|---|
-| Cold open | 0:45–1:30 | Inside the event, then an immediate pivot to the structural problem. It includes the **pre-question**: the week's hardest trap, asked before it is taught. |
-| Pillars ×4–5 | 4–6 min each | Each is a self-contained chapter (structure below). |
-| Telugu States Lens | 45–90 s | Inside the pillar it belongs to, or one combined block. |
-| Trap Vault rapid-fire | 1:30–2:00 | This week's traps, plus 2 traps from last week and 1 from four weeks ago (spaced recall). |
-| Desk Note (optional) | 30–60 s | Only in weeks where it fits (§5.9). |
+| Cold open | 0:45–1:30 | Inside the week's biggest event, then an immediate pivot to the structural problem. It includes the **pre-question**: the week's hardest trap, asked before it is taught. Close with a 10-second "On today's desk" rundown. |
+| **Update Desk** ("Previously on Decode") | 1–4 min | Updates to stories we covered before (§3.3), using the Decode Archive visual (§6.6). Skip it if nothing moved. |
+| **Deep Dives** | 5–8 min each | Usually 2–4. Each is a self-contained chapter (structure below). |
+| **Focus segments** | 1.5–3 min each | As many as the week warrants. |
+| Telugu States Lens | 45–90 s | Inside the Deep Dive or Focus it belongs to, or one combined block. |
+| **News Grid** | 2–6 min | Glimpses grouped by scope: **Local: Telugu States → National → International → Miscellaneous**. Each category has its own colour-coded card; each Glimpse is fact + static anchor + one trap. |
+| Trap Vault rapid-fire | 1:30–2:30 | This week's traps, plus 2 traps from last week and 1 from four weeks ago (spaced recall). |
+| Desk Note (optional) | 30–60 s | Only in weeks where it fits (§5.10). |
 | Verdict + CTA | 1:00–1:15 | Ends with 15–20 s of narration over the Decode Desk so the end screen has room. |
 
-### 4.2 Inside each pillar (the 5 steps)
+### 4.2 Inside each Deep Dive (the 5 steps)
 
-Each pillar answers **one central question** that is stated aloud near the start. Frame it as a **paradox or dilemma**, for example "resource abundance vs refining bottleneck" or "energy security vs normative principles". The beats link with "**therefore**" (because of this, that follows) or "**but**" (a complication). Never link them with "and then".
+Focus segments use a compressed version: trigger → static anchor → 2 traps → one Mains angle → one "Write this down". Glimpses and Updates follow §3.1 and §3.3.
+
+Each Deep Dive answers **one central question** that is stated aloud near the start. Frame it as a **paradox or dilemma**, for example "resource abundance vs refining bottleneck" or "energy security vs normative principles". The beats link with "**therefore**" (because of this, that follows) or "**but**" (a complication). Never link them with "and then".
 
 1. **Hook & Strategic Trigger.** Start inside the event: what happened this week, stated physically and concretely. Then pivot at once to the structural problem and state the central question. Never open with "Welcome back, aspirants." The cold-open story must *be* the event being analysed. Cut tangential human-interest anecdotes; they hurt learning.
 2. **Foundations: the static anchor.** Give a 20–30 s **key-terms primer** first (the 2–3 terms the rest depends on). Then lay down the constitutional, statutory, economic, geographic or ethical roots, and name the GS paper and syllabus line:
@@ -118,7 +199,10 @@ Each pillar answers **one central question** that is stated aloud near the start
    - **GS-4:** integrity, public interest vs state security, corporate governance, case-study ethics.
 
    For any place-based issue, lead with the map (§6). Locate it relative to India first, then zoom in.
-3. **Core analytical deep dive.** Unpack the cause-and-effect chain across geography, law, economy, technology and security. This is where the 360° matrix becomes one story. Build the concept map as you go (§6.3).
+3. **Core analytical deep dive.** Unpack the cause-and-effect chain across geography, law, economy, technology and security. This is where the 360° matrix becomes one story.
+   - Bring in the **history**: the origin of the dispute, the earlier treaty, war, judgment or committee.
+   - Bring in **our own earlier episodes**: connect to them by name and week (§3.3).
+   - Build the concept map as you go (§6.3).
 4. **The UPSC examination crucible.**
    - **Prelims Trap Vault.** Isolate the facts examiners use as traps: statutory vs constitutional vs executive bodies, nodal ministries, voting thresholds, ratification status, who publishes which index, borders and nearby places, regions placed in the wrong country, plausible false headlines, superlatives ("largest", "first-ever"), and geological vs political definitions.
      - Write at least 3 trap lines per pillar in the "UPSC may ask X — the trap is Y" format.
@@ -129,7 +213,7 @@ Each pillar answers **one central question** that is stated aloud near the start
      - Close with a **Carry into Mains** block: 3–5 hard facts (names, numbers, institutions) the aspirant can drop into an answer.
 5. **Way Forward & India's Strategic Imperative.** Give actionable recommendations, each citing a real source: Law Commission reports, Sarkaria, Punchhi, 2nd ARC, NITI Aayog, Parliamentary Standing Committees, SC guidelines, or international best practice. Anchor the conclusion in India's national interest and strategic autonomy, pragmatically and without chest-beating. End with:
    - **one model Mains question** (10 or 15 marks) and a **3-part answer skeleton** (intro / body dimensions / conclusion);
-   - **one "Pause and answer" checkpoint** (§5.8);
+   - **one "Pause and answer" checkpoint** (§5.9);
    - a **3-point recap** over the completed concept map, then the map skeleton with blanks;
    - a **one-line preview** of the next pillar.
 
@@ -156,21 +240,33 @@ Each pillar answers **one central question** that is stated aloud near the start
 6. **Tone:** authoritative, calm, warm and intellectually rigorous, like a senior faculty mentor who enjoys the subject.
    - Talk to one aspirant ("you"). Use "we" when thinking through a problem together.
    - No hype words ("shocking", "must watch"), no fear-mongering, no partisan framing. Present each government or opposition position as that side's stated argument and attribute it.
-7. **Warmth and light humour (owner decision).** Use some light humour and everyday analogies to keep the energy up across 20+ minutes.
-   - Use about one analogy per pillar, drawn from shared Indian life: cricket, the kitchen and household budget, Telugu cinema, the railway platform, the mandi.
+7. **Warmth and light humour (owner decision).** Use light humour and everyday analogies to keep the energy up across 20+ minutes.
+   - As a default, use about one analogy per pillar (more where it genuinely clarifies), drawn from shared Indian life: cricket, the kitchen and household budget, Telugu cinema, the railway platform, the mandi.
    - Humour points *at the concept*, never at a person, community or victim. Never joke about religion, caste, gender, regions, political parties, war casualties or disasters.
    - A joke that would make the explanation unclear gets cut.
-8. **Recurring verbal signposts,** so viewers learn the format:
+8. **Creative narrative devices.** Rotate them week to week so the show never feels templated:
+   - **Mystery open:** "Why would two armies agree to stop firing in one town only?"
+   - **"What if":** "What if the Kakhovka dam had never broken?"
+   - **Second-person scene:** "Imagine you are the collector of Anantapur this morning..."
+   - **Time jump:** "Rewind to 1954..."
+   - **Countdown:** "Three numbers explain this entire budget."
+   - **Myth vs fact.**
+   - **Examiner's chair:** "If I were setting this paper..."
+   - **Callback to an earlier episode.**
+   - **The running story arc.**
+
+   Every device must serve the explanation.
+9. **Recurring verbal signposts,** so viewers learn the format:
    - "**Prelims Trap.**" before trap lines.
    - "**Mains Lens.**" before the four-dimension matrix.
    - "**Telugu States Lens.**" before the Group-1 segment.
    - "**Write this down.**" before a one-line value-addition (a data point, judgment or committee).
    - "**Pause and answer.**" before each checkpoint: exactly one per pillar (3–5 per video) plus the cold-open pre-question. Ask the question, hold a 5-second countdown card, and give the answer in the **opening line of the next pillar** (an open loop). For the last pillar, answer in the Trap Vault. Checkpoints are learning devices, not CTAs.
-9. **Desk Note (optional, owner decision: only when it fits).** Use it in weeks where the themes naturally support it: 30–60 s just before the verdict, warm and slower, over the Decode Desk.
+10. **Desk Note (optional, owner decision: only when it fits).** Use it in weeks where the themes naturally support it: 30–60 s just before the verdict, warm and slower, over the Decode Desk.
    - It is honest and process-focused: how to revise this week's material in 20 minutes, or one 150-word answer to write this week. It treats setbacks and Plan B as normal.
    - **Banned:** fear framing, hustle glorification ("sixteen hours a day"), rank or selection promises, emotional appeals about family sacrifice, and topper testimonials. India's consumer regulator (CCPA) fined coaching institutes in 2025 over misleading topper claims.
-10. **Closing:** Mounika gives a philosophical or ethical verdict in voice, over the Decode Desk, that links the week's themes. Model it on a UPSC Essay topic: an aphorism illustrated by this week's events. Then give a single CTA: the PDF notes plus this week's MCQ challenge in the pinned comment. One CTA only.
-11. **Voice-only delivery:** viewers never see Mounika, so the voice must carry the warmth.
+11. **Closing:** Mounika gives a philosophical or ethical verdict in voice, over the Decode Desk, that links the week's themes. Model it on a UPSC Essay topic: an aphorism illustrated by this week's events. Then give a single CTA: the PDF notes plus this week's MCQ challenge in the pinned comment. One CTA only.
+12. **Voice-only delivery:** viewers never see Mounika, so the voice must carry the warmth.
     - Mark direct-address rows with voice directions.
     - Use "you" often.
     - Keep a smile in the voice on hooks, analogies and closings.
@@ -250,7 +346,32 @@ Optional secondary tags: `[ON-SCREEN TEXT]` (exact words, at most 8), `[SFX]`, `
 | White (#FFFFFF) | Body text |
 | Alert red (#E5484D) | Only for "Prelims Trap" cards |
 | Teal (#2BB3A3) | "Telugu States Lens" cards |
-| Steel blue (#4A90C2) | Rivers and water bodies on GIS maps |
+| Steel blue (#4A90C2) | Rivers and water bodies on GIS maps; "International" News Grid cards |
+
+News Grid category cards use these colours:
+- **Local: Telugu States:** teal.
+- **National:** yellow.
+- **International:** steel blue.
+- **Miscellaneous:** white outline on slate.
+
+### 6.6 Creative toolkit (use freely, rotate weekly)
+
+Treat this list as a starting point, not a limit. Invent new devices whenever they teach better.
+
+- **Decode Archive:** a recurring continuity visual for the Update Desk. A shelf of notebooks on the Decode Desk, one per past week. The camera pulls out last week's notebook, its mind map lifts off the page, and the new branch draws itself in a fresh colour.
+- **Map journeys:**
+  - a camera "flight" along a river, corridor, border or shipping lane, built in QGIS (free; Blender GIS is also allowed);
+  - before/after satellite wipes (NASA/Copernicus/USGS);
+  - a time-lapse of changing frontlines, coastlines or reservoirs.
+- **Timeline rivers:** a horizontal timeline that flows like a river from the historical origin to this week, with our earlier episodes marked as stepping stones.
+- **Case-file board:** evidence cards pinned to a board for a court case or inquiry (petition → arguments → bench → ruling), with red thread drawn between them.
+- **Split-screen dilemma:** the two sides of the central paradox on either half of the screen, each building as Mounika argues it.
+- **Data morphs:** a single chart that transforms (a bar becomes a map, a pie becomes a timeline) as the narration moves from "how much" to "where" to "when".
+- **The examiner's desk:** a stylised question paper on which the PYQ Echo or the likely question types itself, and the trap option is circled in red.
+- **Sound design:** a recurring soft "page turn" for the Update Desk, a muted bell for each "Pause and answer", and a short sting per News Grid category. Keep the music bed low under the narration.
+- **3D terrain:** free elevation data (SRTM or Copernicus DEM) rendered in QGIS or Blender for mountain passes, river valleys and glacial lakes.
+
+All of these still follow §6.2 (no clip art or karaoke), §6.4 (licensing) and the Survey of India map rule.
 
 ## 7. Packaging (titles, thumbnails, descriptions)
 
@@ -268,6 +389,7 @@ Generate **3 distinct title + thumbnail concepts** per masterclass.
 - **Description:**
   - A 2-line hook.
   - Timestamped chapters: the first at 00:00, at least 3, each at least 10 s, titled as a question or claim (one per pillar plus Trap Vault / Telugu States Lens markers).
+  - "Earlier episodes in this story" links for every Update and callback.
   - Sources list, plus image and footage credits.
   - PDF link and Telegram link.
   - Hashtags: #UPSC #UPSC2027 #CurrentAffairs #APPSC #TGPSC #Group1.
@@ -342,6 +464,8 @@ Generate **3 distinct title + thumbnail concepts** per masterclass.
 
 ## 10. Working conventions for Claude in this repo
 
+- **Trigger phrase:** when Mounika says "start this week's current affairs video" (or similar), follow `PLAYBOOK.md` §"Start this week's video" end to end: deep sweep, tiering, categories, continuity check, proposed rundown, then the brief and script.
+- **Continuity ledger:** `docs/story-tracker.md` (§3.3). Read it before every week and update it after every video and Short.
 - **Date context:** always state the week being covered (Mon–Sat dates) at the top of each file.
 - **File naming:** `weeks/2026-W44/01-research-brief.md`, `02-master-script.md`, `03-visual-handoff.md`, `04-shorts-pack.md`, `05-weekly-notes-mcq.md`. Copy the matching file from `templates/` to start. Generate `02b-voiceover-text.md` with `python3 tools/make_voiceover.py weeks/YYYY-Www vN`.
 - Markdown for scripts and briefs.

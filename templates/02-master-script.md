@@ -24,14 +24,27 @@
 | 0.1 | `[VOICE ANCHOR]` Decode Desk. Lower-third: *GS-_ · …*. *Voice: …* | Start inside the event… |
 | 0.2 | `[GIS MAP]` … | Pivot to the structural problem… |
 | 0.3 | `[KINETIC TEXT]` Yellow "Pause and answer" card: pre-question… | **Pause and answer.** (the week's hardest trap, asked before it is taught) |
+| 0.4 | `[VOICE ANCHOR]` "On today's desk" rundown cards | A ten-second map of today's class… |
 
 *Segment words: __ · Running total: __ · Est. time: __*
 
 ---
 
-## PILLAR 1 — <Theme> (target __:__)
+## UPDATE DESK — Previously on Decode (target __:__; skip if nothing moved)
 
-**Central question:** …  ·  **Exam tags:** #UPSC-Pre #UPSC-Mains-GS_ …
+| # | Visual cue | Narration (verbatim) |
+|---|---|---|
+| U.1 | `[VOICE ANCHOR]` Decode Archive: last week's notebook comes off the shelf. Callback card to the earlier video (Week __, chapter timestamp). *Voice: warm, brisk.* | Callback ("In Week __ we decoded…") + one-sentence refresher of the static anchor… |
+| U.2 | `[MIND MAP]` Earlier episode's map; the new branch draws itself in a fresh colour | The delta: what changed this week, and why… |
+| U.3 | `[KINETIC TEXT]` "Then → Now" card (if a fact we taught changed) | What it does to the exam angle… ("Last time we said X; that has now changed to Y.") |
+
+*Segment words: __ · Running total: __ · Est. time: __*
+
+---
+
+## DEEP DIVE 1 — <Theme> (target __:__)
+
+**Central question:** …  ·  **Scope · subject:** …  ·  **Story arc / earlier episodes:** …  ·  **Exam tags:** #UPSC-Pre #UPSC-Mains-GS_ …
 
 | # | Visual cue | Narration (verbatim) |
 |---|---|---|
@@ -39,6 +52,7 @@
 | 1.2 | `[KINETIC TEXT]` Key terms: … | Key-terms primer (20–30 s)… |
 | 1.3 | `[GIS MAP]` Locator inset → zoom … (official Survey of India boundaries) | Static anchor: geography / law / economics… |
 | 1.4 | `[MIND MAP]` Centre node: central question. Node 1 appears on "…" | Deep dive: cause → consequence ("therefore… but…")… |
+| 1.4a | `[GIS MAP]` / timeline river: historical origin; our earlier episode marked as a stepping stone | History + earlier-episode connection… |
 | 1.5 | `[DATA CHART]` … Source: …, date | … |
 | 1.6 | `[KINETIC TEXT]` Red PRELIMS TRAP card: … *Voice: slower.* | **Prelims Trap.** … (cover the whole look-alike set) |
 | 1.7 | `[KINETIC TEXT]` PYQ Echo card: UPSC CSE Prelims YYYY, GS Paper I · format · answer (only once `[PYQ-VERIFY]` is cleared) | … |
@@ -54,7 +68,35 @@
 
 ---
 
-## PILLAR 2 … (repeat structure)
+## DEEP DIVE 2 … (repeat structure)
+
+---
+
+## FOCUS 1 — <Story> (target 1:30–3:00)
+
+**Scope · subject:** …  ·  **Exam tags:** …
+
+| # | Visual cue | Narration (verbatim) |
+|---|---|---|
+| F1.1 | `[GIS MAP]` / `[REAL FOOTAGE]` … | Trigger… |
+| F1.2 | `[KINETIC TEXT]` … | Static anchor… |
+| F1.3 | `[KINETIC TEXT]` Red PRELIMS TRAP card (2 traps). *Voice: slower.* | **Prelims Trap.** … |
+| F1.4 | `[DATA CHART]` / `[MIND MAP]` … | One Mains angle + **Write this down.** … |
+
+*Segment words: __ · Running total: __ · Est. time: __*
+
+---
+
+## NEWS GRID — Glimpses by category (target __:__)
+
+| # | Visual cue | Narration (verbatim) |
+|---|---|---|
+| G.L1 | `[GIS MAP]` Teal LOCAL: TELUGU STATES card + … | What happened → static fact → one trap… |
+| G.N1 | `[KINETIC TEXT]` Yellow NATIONAL card + … | … |
+| G.I1 | `[GIS MAP]` Steel-blue INTERNATIONAL card + locator inset … | … |
+| G.M1 | `[KINETIC TEXT]` White MISCELLANEOUS card (places / persons / reports / awards) … | … |
+
+*Segment words: __ · Running total: __ · Est. time: __*
 
 ---
 
@@ -62,7 +104,7 @@
 
 | # | Visual cue | Narration (verbatim) |
 |---|---|---|
-| T.1 | `[KINETIC TEXT]` Countdown cards, one trap per card. *Voice: brisk, slower on numbers.* | Answer to the last pillar's checkpoint, then this week's traps… |
+| T.1 | `[KINETIC TEXT]` Countdown cards, one trap per card. *Voice: brisk, slower on numbers.* | Answer to the last segment's checkpoint, then this week's traps… |
 | T.2 | `[KINETIC TEXT]` "From last week" cards (2) + "From four weeks ago" (1) | Spaced recall… |
 
 *Segment words: __ · Running total: __ · Est. time: __*

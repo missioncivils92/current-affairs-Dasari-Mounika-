@@ -2,40 +2,67 @@
 
 **Coverage:** Mon DD Mon – Sat DD Mon YYYY
 **Release:** Sunday DD Mon YYYY, 6:00 PM IST
-**Pillars locked on:** (Wed) — approved by Mounika: [ ]
+**Rundown locked on:** (Wed) — approved by Mounika: [ ]
+**Tracker read:** `docs/story-tracker.md` ☐ · last 4 weeks' carry-forwards ☐ · open corrections ☐
 
 ---
 
-## 1. Rolling story log (Mon–Wed)
+## 1. Deep-sweep story log (Mon–Sat; no cap on entries)
 
-| # | Date | Story (1 line) | Source link | GS paper | Static anchor | Selection test (syllabus / anchor / strategic interest / exam habit / Telugu) | Exam tags | Keep? |
-|---|---|---|---|---|---|---|---|---|
-| 1 | | | | | | ☐ ☐ ☐ ☐ ☐ | | |
+**Scope:** Local: Telugu States / National / International / Misc.
+**Subject:** Polity · Economy · Environment · Geography & Disasters · S&T · Security · Society · IR · History & Culture · Ethics.
+**Tier:** Deep Dive / Focus / Glimpse / Update / Drop.
 
-## 2. Pillar shortlist and masterclass blueprints
+| # | Date | Story (1 line) | Primary source link | Scope | Subject(s) | Continuity (tracker ID or "new") | GS paper | Static anchor | Selection test (syllabus / anchor / strategic interest / exam habit / Telugu) | Proposed tier | Exam tags |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | | | | | | | | | ☐ ☐ ☐ ☐ ☐ | | |
 
-| Pillar | One-line pitch | GS paper(s) | Static anchor | Telugu link? | Exam tags | Est. runtime |
-|---|---|---|---|---|---|---|
-| P1 | | | | | | |
-| P2 | | | | | | |
-| P3 | | | | | | |
-| P4 | | | | | | |
-| P5 (opt.) | | | | | | |
+**Dropped but notable** (with the reason, so Mounika can overrule):
 
-GS coverage check (need ≥3): GS-1 ☐ GS-2 ☐ GS-3 ☐ GS-4 ☐
+## 2. Proposed rundown and blueprints
 
-**Blueprint (copy for each pillar, Wednesday):**
+**Running order and runtime estimate:**
+
+| Order | Segment | Tier | Scope · subject | Continuity / callback | GS paper(s) | Exam tags | Est. time |
+|---|---|---|---|---|---|---|---|
+| 0 | Cold open | — | | | | | |
+| 1 | Update Desk: <story> | Update | | Week __ (tracker ID) | | | |
+| 2 | <Deep Dive 1> | Deep Dive | | | | | |
+| 3 | <Focus 1> | Focus | | | | | |
+| 4 | News Grid: Local / National / International / Misc | Glimpses | | | | | |
+| 5 | Trap Vault · Desk Note? · Verdict | — | | | | | |
+
+GS coverage check (Deep Dives + Focus need ≥3): GS-1 ☐ GS-2 ☐ GS-3 ☐ GS-4 ☐
+
+**Creative idea of the week** (new visual device, segment format or narrative trick, and why it teaches better):
+
+**Blueprint (copy for each Deep Dive, Wednesday):**
 - **Primary syllabus anchor:**
 - **Central question / paradox:**
 - **Target PYQs** (from official papers only; tag `[PYQ-VERIFY]` until checked):
 - **Map beats** (in order; locator inset first):
 - **Mind-map plan** (centre node + up to about 7 nodes):
 - **Pre-question / checkpoint idea:**
-- **Analogy idea** (one; never religion, caste, gender, region, party):
+- **Analogy idea** (never religion, caste, gender, region, party):
+- **History link** (origin, treaty, war, judgment, committee):
+- **Earlier episodes / story arc** (week, tracker ID, what we taught then):
+- **Narrative device** (mystery open, what-if, time jump, examiner's chair…):
+
+## 2a. Updates to earlier stories (copy for each)
+
+| Tracker ID | Earlier week(s) | What we taught then (one line) | What changed this week (the delta) | Exam effect (new trap, changed fact) | Escalate to Deep Dive? | Callback card link |
+|---|---|---|---|---|---|---|
+| | | | | | ☐ | |
+
+## 2b. Focus segments and Glimpses
+
+| Story | Tier | Scope | Static fact / anchor | Trap | Mains angle (Focus only) | Source |
+|---|---|---|---|---|---|---|
+| | | | | | | |
 
 ---
 
-## 3. Five-step analysis (copy this block for each pillar)
+## 3. Five-step analysis (copy this block for each Deep Dive)
 
 ### P1 — <Theme title>
 
