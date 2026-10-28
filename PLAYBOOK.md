@@ -30,20 +30,34 @@ Run this end to end, without self-imposed limits on searches, sources or depth (
    | **Local: Telugu States** | AP and Telangana government releases and GOs, state cabinet decisions, the High Courts of AP and Telangana, state budgets and surveys, river boards (KRMB, GRMB), Polavaram, disasters, ecology |
    | **Miscellaneous** | Places in news, persons in news, awards, reports and indices, important days, sports and culture with a testable fact |
    | **Newspapers** | The Hindu, Indian Express, LiveMint, Down To Earth, read cover to cover as a cross-check on the categories |
-3. **Filter.** Apply the selection test (`CLAUDE.md` §3) and drop the noise.
-4. **Tier and categorise** every surviving story: Deep Dive / Focus / Glimpse / Update (`CLAUDE.md` §3.1), with one scope category and its subject categories (§3.2).
+3. **Triage table (mandatory, before any tier).** In `01-research-brief.md` §1, list **at least 25 candidates** from the sweep. For each, record:
+   - the date, a one-line summary and a primary source;
+   - the scope and GS paper;
+   - the static anchor, marked *arising* or *borrowed*;
+   - the **EYS with its components** (`CLAUDE.md` §3 item 3);
+   - the consensus flag;
+   - the tracker ID.
+
+   Sort by EYS and drop the noise. **No Deep Dive is named until this table exists and covers the whole Mon–Sat window.** A story picked on its event day stays provisional until Wednesday's triage confirms it on score.
+4. **Tier and categorise from the table, by rule** (`CLAUDE.md` §3.1):
+   - **Deep Dives:** the top EYS items that meet the India-centricity and arc-fatigue rules (2, or 3 in a heavy week).
+   - **Prelims Grid:** the next 14–16 items.
+   - **AP–TG Desk:** the best 6–7 Telugu-states items.
+   - Give each story its scope and subject categories (§3.2).
 5. **Continuity check** (§3.3).
-   - For every story, check the tracker. If we covered it before, it becomes an **Update** (or an escalated Deep Dive) with a callback.
+   - Check every story against the tracker. A story covered before becomes an **Update**, scored on its change only. Skip the Update Desk if nothing important moved.
    - Find the history and earlier-episode links for each Deep Dive.
    - Note any fact we taught that has changed.
-6. **Propose the rundown** to Mounika in `01-research-brief.md` §2:
+6. **Propose the rundown** to Mounika in `01-research-brief.md` §2, with **the sorted triage table attached**. Include:
    - the tiers, categories and running order;
    - the runtime estimate;
    - the central question for each Deep Dive;
    - the creative idea of the week;
-   - anything dropped that she might expect to see, with the reason.
+   - a "dropped, with EYS" list.
 
-   Wait for her approval (or swaps).
+   She approves, or swaps against the scores. If she promotes an item below EYS 7 to a Deep Dive, log the reason.
+
+   **Samples and pilots follow the same triage.** A reference sample is built on a story from a real triage table, never on one chosen for its craft potential.
 7. **Research brief → two-column script → voiceover file → visual handoff → PDF → Shorts pack**, following the day-by-day checklist and the Saturday QC.
 8. **After publishing:** update `docs/story-tracker.md` and write next week's carry-forward list.
 
@@ -80,17 +94,17 @@ Run this end to end, without self-imposed limits on searches, sources or depth (
 ## Tuesday: keep logging, build themes and tiers
 
 - [ ] **C** Keep adding to the story log. Merge related stories into **themes**: for example, three separate stories about rare earths, a China export curb and a new KABIL deal become one "Critical Minerals" theme.
-- [ ] **C** Draft the tiers: which themes deserve a Deep Dive, which a Focus, which a Glimpse in the News Grid, and which are Updates to earlier stories.
+- [ ] **C** Draft the tiers: which themes deserve a Deep Dive, which a Focus, which a Glimpse in the Prelims Grid or AP–TG Desk, and which are Updates to earlier stories. Score every candidate with the EYS first.
 - [ ] **C** Flag likely Telugu-state links and APPSC Screening relevance (`#APPSC-Pre-Jan27`).
 - [ ] **E/M** Publish Short #2, a Prelims Trap with a Shorts quiz sticker.
 
 ## Wednesday: lock the rundown with blueprints
 
 - [ ] **C** Propose the **rundown** in `01-research-brief.md` §2, as many items in each tier as the week genuinely warrants:
-  - Update Desk items;
-  - Deep Dives (usually 2–4);
-  - Focus segments;
-  - News Grid Glimpses by category (Local: Telugu States / National / International / Miscellaneous);
+  - Update Desk items (optional; only changes that matter);
+  - Deep Dives (2; a 3rd only in a heavy week at EYS ≥ 8);
+  - Focus segments (0–1);
+  - Prelims Grid Glimpses (14–16: National / International / Miscellaneous) and the AP–TG Desk (6–7 items);
   - the running order, the runtime estimate and the **creative idea of the week**.
 
   Deep Dives and Focus segments together must cover at least 3 GS papers.
@@ -155,7 +169,7 @@ Run this end to end, without self-imposed limits on searches, sources or depth (
   - [ ] Every spoken word is written in full, in the right-hand column. No bullet points inside narration.
   - [ ] **No staccato fragments.** Sentences are connected, with logical transitions. Every sentence passes the one-breath test.
   - [ ] Runtime fits the week's content, with no padding and nothing rushed (word count ÷ 135). Numbers and trap rows are marked *slower*.
-  - [ ] Every story has a tier and categories. The News Grid runs in scope order (Local → National → International → Misc).
+  - [ ] Every story has a tier and categories. The Prelims Grid starts by 2:30 and runs National → International → Misc; the AP–TG Desk has its own chapter after Deep Dive 1. Every Deep Dive's EYS is in the brief.
   - [ ] **Continuity:**
     - Every story already in `docs/story-tracker.md` is handled as an Update with a callback, not re-explained from zero.
     - Changed facts are flagged ("last time we said…").
@@ -173,6 +187,11 @@ Run this end to end, without self-imposed limits on searches, sources or depth (
     - one checkpoint (answered at the start of the next pillar);
     - a recap and a one-line preview.
   - [ ] At least 3 GS papers covered across the pillars.
+  - [ ] Every Deep Dive came from the triage table at EYS ≥ 7 (or an owner swap, logged). No more than one international Deep Dive, and at least one at I = 2.
+  - [ ] Prelims Grid: 14–16 items; AP–TG Desk: 6–7 items (until 24 Jan 2027); together never fewer than 15.
+  - [ ] Every on-screen question uses a UPSC format (no yes/no), and its answer is stated with a one-line reason.
+  - [ ] Concept-map nodes state facts, not headings. Lists that are the trap are given in full.
+  - [ ] State tags (#APPSC, #TGPSC, #Group1) appear only on items with a state-testable fact on screen.
   - [ ] Humour: at most about one analogy or light moment per pillar, aimed at the concept. Nothing on religion, caste, gender, region, party, casualties or disasters.
   - [ ] Desk Note (if used): no rank, fear, hustle or topper-testimonial lines.
   - [ ] Exactly one CTA. The checkpoints are not CTAs.
@@ -194,11 +213,12 @@ Run this end to end, without self-imposed limits on searches, sources or depth (
   - [ ] Every external asset has its source, licence and credit logged. No news-agency or Parliament clips. No Google Earth Studio.
   - [ ] Any photorealistic AI image is flagged for YouTube's synthetic-content disclosure.
   - [ ] **Motion:** every build is keyed to the word it explains (`→ "word"` cues), and `render.js --strict` reports no missing cue. No frame is frozen for more than 3 s outside the end screen (living holds, camera moves). Every countdown runs over its own card.
+  - [ ] **Numbers:** every revision number appears at its final value (no count-up on copyable cards).
   - [ ] **Text size:** body text at least 32 px and every other on-screen text at least 24 px at 1080p; chapter banners readable on a phone.
   - [ ] **Sound:** the bed is self-made (`sound_bed.py`) or a track we hold a licence for, ducked under the voice.
 - [ ] **M** Record in two sessions of 60–75 min each, with breaks about every 20 min:
   - **Session 1:** cold open and Deep Dives, including the `[EXT]` rows for Decode Extended.
-  - **Session 2:** Updates, Focus segments, News Grid, Trap Vault, verdict and next week's Shorts.
+  - **Session 2:** Updates, Focus segments, Prelims Grid, AP–TG Desk, Trap Vault, verdict and next week's Shorts.
 - [ ] **C/M** Length QC:
   - [ ] The hub is projected at 30 min or less, or the cascade ran and the reason is logged; never over 35 min without the owner's override.
   - [ ] The narration was recorded at 130–140 wpm, with trap and number rows slower (check the aligned timeline).
@@ -295,6 +315,8 @@ Log one change to try this week in `weeks/YYYY-Www/README.md`.
 ---
 
 ## Model example: robotic vs mentor (Russia–Ukraine, W43)
+
+> This example shows **how to write**, not **what to pick**. The story itself is low-yield (the W44 exam-value reviews scored a one-town truce at EYS 2), so judge selection by the triage table, never by this example. An India-centric model example will be added from the first breadth-first week.
 
 ### ❌ How we wrote it before (robotic reel style)
 

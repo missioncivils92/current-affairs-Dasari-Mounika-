@@ -65,10 +65,10 @@ Every external asset needs a row.
 - [ ] GIS map style: terrain shading, steel-blue rivers, on-map labels, locator inset
 - [ ] Chapter title cards (per pillar, titled as a question or claim)
 - [ ] **Decode Archive** shelf (Update Desk): one notebook per past week; pull-out + mind-map lift-off + new branch in a fresh colour
-- [ ] News Grid category cards: LOCAL: TELUGU STATES (teal) · NATIONAL (yellow) · INTERNATIONAL (steel blue) · MISCELLANEOUS (white outline)
+- [ ] Prelims Grid and AP–TG Desk category cards: LOCAL: TELUGU STATES (teal) · NATIONAL (yellow) · INTERNATIONAL (steel blue) · MISCELLANEOUS (white outline)
 - [ ] "Then → Now" card for facts that changed since an earlier episode
 - [ ] Timeline-river template (history → our earlier episodes → this week)
-- [ ] Sound kit: Update Desk page turn, checkpoint bell, one sting per News Grid category
+- [ ] Sound kit: Update Desk page turn, checkpoint bell, one sting per Prelims Grid category
 
 ## Tools
 

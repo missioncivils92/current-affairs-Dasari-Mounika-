@@ -1,6 +1,6 @@
 # DRAFT: Story selection and weekly format rules (for owner review)
 
-**Status:** DRAFT. Nothing below is in force until Mounika approves it. Once approved, each block replaces the named section of `CLAUDE.md` or `PLAYBOOK.md`, and the decision is logged in `docs/research/mentor-upgrade-decisions.md`.
+**Status:** APPROVED WITH CHANGES on 28 Oct 2026 (decisions 28–29) and now in force in `CLAUDE.md` and `PLAYBOOK.md`, which are the authoritative text. Changes from this draft: up to 3 Deep Dives in a heavy week (the 3rd needs EYS ≥ 8); the Update Desk is optional; the consensus check is a flag only; the AP–TG Desk stays 3 min weekly until 24 Jan 2027. This file is kept as the record of the proposal.
 **Date:** 28 Oct 2026
 **Why:** five independent exam-value reviews of the Oleshky sample (`docs/research/reviews/2026-W44-exam-value/`) agreed that the video was low-yield for exam study. They traced the root cause to **story selection, not production**:
 - Oleshky was picked on its event day, before the week was swept.

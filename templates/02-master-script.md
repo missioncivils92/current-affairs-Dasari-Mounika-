@@ -19,26 +19,40 @@
 
 ---
 
-## COLD OPEN (target 1:00)
+## COLD OPEN (target 0:45)
 
 | # | Visual cue | Narration (verbatim) |
 |---|---|---|
 | 0.1 | `[VOICE ANCHOR]` Decode Desk. Lower-third: *GS-_ · …*. *Voice: …* | Start inside the event… |
 | 0.2 | `[GIS MAP]` … | Pivot to the structural problem… |
-| 0.3 | `[KINETIC TEXT]` Yellow "Pause and answer" card: pre-question… | **Pause and answer.** (the week's hardest trap, asked before it is taught) |
+| 0.3 | `[KINETIC TEXT]` Yellow "Pause and answer" card: pre-question from the Prelims Grid, in a UPSC format (never yes/no) | **Pause and answer.** (the week's hardest trap, asked before it is taught) |
 | 0.4 | `[VOICE ANCHOR]` "On today's desk" rundown cards | A ten-second map of today's class… |
 
 *Segment words: __ · Running total: __ · Est. time: __*
 
 ---
 
-## UPDATE DESK — Previously on Decode (target __:__; skip if nothing moved)
+## UPDATE DESK — Previously on Decode (optional, 0–1:30; skip if nothing important moved)
 
 | # | Visual cue | Narration (verbatim) |
 |---|---|---|
 | U.1 | `[VOICE ANCHOR]` Decode Archive: last week's notebook comes off the shelf. Callback card to the earlier video (Week __, chapter timestamp). *Voice: warm, brisk.* | Callback ("In Week __ we decoded…") + one-sentence refresher of the static anchor… |
 | U.2 | `[MIND MAP]` Earlier episode's map; the new branch draws itself in a fresh colour | The delta: what changed this week, and why… |
 | U.3 | `[KINETIC TEXT]` "Then → Now" card (if a fact we taught changed) | What it does to the exam angle… ("Last time we said X; that has now changed to Y.") |
+
+*Segment words: __ · Running total: __ · Est. time: __*
+
+---
+
+## PRELIMS GRID — National · International · Misc (target 8:00; starts by 2:30)
+
+14–16 Glimpses × 25–35 s. Each one: what happened → the static set → one trap. The card is reused as-is in the PDF.
+
+| # | Visual cue | Narration (verbatim) |
+|---|---|---|
+| G.N1 | `[KINETIC TEXT]` Yellow NATIONAL card + … (final values only, no count-up) | What happened → static set → one trap… |
+| G.I1 | `[GIS MAP]` Steel-blue INTERNATIONAL card + locator inset … | … |
+| G.M1 | `[KINETIC TEXT]` White MISCELLANEOUS card (places / persons / reports / awards / days) … | … |
 
 *Segment words: __ · Running total: __ · Est. time: __*
 
@@ -70,7 +84,20 @@
 
 ---
 
-## DEEP DIVE 2 … (repeat structure)
+## AP–TG DESK — Local: Telugu States (target 3:00; every week until 24 Jan 2027)
+
+6–7 Glimpses in this order: polity and courts → schemes and budget → rivers, projects and disasters → indices, persons and firsts. Show a primary state document on each card (GO number, gazette or budget page).
+
+| # | Visual cue | Narration (verbatim) |
+|---|---|---|
+| L.1 | `[KINETIC TEXT]` Teal AP–TG DESK card + GO / gazette strip … | What happened → static anchor → one trap… |
+| L.7 | `[KINETIC TEXT]` Teal card: one Group-1-style question on screen, answer stated with a one-line reason | "Group-1 asks it as…" |
+
+*Segment words: __ · Running total: __ · Est. time: __*
+
+---
+
+## DEEP DIVE 2 … (repeat structure; DEEP DIVE 3 only in a heavy week at EYS ≥ 8)
 
 ---
 
@@ -89,20 +116,7 @@
 
 ---
 
-## NEWS GRID — Glimpses by category (target __:__)
-
-| # | Visual cue | Narration (verbatim) |
-|---|---|---|
-| G.L1 | `[GIS MAP]` Teal LOCAL: TELUGU STATES card + … | What happened → static fact → one trap… |
-| G.N1 | `[KINETIC TEXT]` Yellow NATIONAL card + … | … |
-| G.I1 | `[GIS MAP]` Steel-blue INTERNATIONAL card + locator inset … | … |
-| G.M1 | `[KINETIC TEXT]` White MISCELLANEOUS card (places / persons / reports / awards) … | … |
-
-*Segment words: __ · Running total: __ · Est. time: __*
-
----
-
-## TRAP VAULT RAPID-FIRE (target 1:30)
+## TRAP VAULT RAPID-FIRE (target 2:00; 10 items in UPSC formats, answers stated)
 
 | # | Visual cue | Narration (verbatim) |
 |---|---|---|

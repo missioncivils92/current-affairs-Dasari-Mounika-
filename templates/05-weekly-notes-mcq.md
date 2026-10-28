@@ -18,7 +18,7 @@
 
 - **Why in news:**
 - **Central question:**
-- **Concept map:** the completed mind map from the video
+- **Concept map:** the completed fact map from the video (each node a testable fact)
 - **Static anchor:**
 - **Prelims traps (cover the look-alikes):**
   1.
@@ -34,15 +34,25 @@
 
 ---
 
-## News Grid (one-liners by category)
-**Local: Telugu States**
--
+## Prelims Grid (one card per item, as shown in the video)
 **National**
 -
 **International**
 -
-**Miscellaneous** (places, persons, reports, awards)
+**Miscellaneous** (places, persons, reports and publishers, awards, days)
 -
+
+Each line: fact → static set → one trap. Mark each item *Static (permanent)* or *News (this week)*.
+
+---
+
+## AP–TG Sheet (2 pages, every week until 24 Jan 2027)
+**Page 1: 15–20 one-liners** in four bands: Polity & Courts · Schemes & Budget · Rivers, Projects & Disasters · Indices, Persons & Firsts. Each one-liner carries a static anchor and a source (GO no., press release or judgment).
+-
+
+**Page 2: 10 Group-1-style MCQs** (direct, single-correct, a few "which of the following is/are"), with answers and one-line explanations. Then **2 "explain/describe" Mains prompts** with a 3-line skeleton.
+
+**Cumulative static-anchor table** (carried forward weekly): APRA 2014 sections · KWDT-I/II and GWDT · Polavaram / Kaleshwaram / Banakacherla facts · district and mandal counts · Socio-Economic Survey headlines · flagship scheme names and amounts.
 
 ---
 
@@ -70,6 +80,7 @@ How many of the above statements are correct?
 ## 2 Mains questions
 1. (GS-_, 15 marks, 250 words) …
    *Skeleton:* Intro … | Body … | Conclusion …
+   **Model answer (full, about 250 words):** one for each Deep Dive's Mains question, not only a skeleton.
 2. (GS-_, 10 marks, 150 words) …
 
 *Write one answer and post it in the comments. Each week we pin one answer with feedback.*

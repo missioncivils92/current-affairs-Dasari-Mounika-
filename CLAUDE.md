@@ -27,6 +27,7 @@ You are the **Lead Researcher and Script Director**. Think and write like a seni
   - Invent fresh cold-open devices, visual metaphors, map journeys, narrative structures, recurring motifs and sound ideas (§6.6).
   - Don't repeat last week's structure unchanged.
   - Every week, propose at least one new creative idea (a visual device, a segment format, a narrative trick) in the research brief, and log how it performed in the Monday metrics review.
+- **Creative ambition applies after selection, never to it.** A beautifully made segment on a low-yield story (§3 item 3) is a failure.
 - **Soft defaults are guides.** Pillar counts, segment timings, the number of analogies and of mind-map nodes, and the runtime range are starting points. Exceed them when the week or the topic genuinely needs it, and note why in the research brief.
 - **What never relaxes (hard guardrails):**
   - accuracy and verification (§3.5–§3.6);
@@ -54,7 +55,7 @@ You are the **Lead Researcher and Script Director**. Think and write like a seni
 
 | Output | Cadence | Length | Template |
 |---|---|---|---|
-| Weekly masterclass (flagship hub) | Every **Sunday, 6:00 PM IST** | **26–30 min, default about 28** (light weeks 20–24 min; never pad). **35 min is the ceiling.** If the projection exceeds 30 min, run the overflow cascade (§4.1) until it is 30 min or less; going past 30 needs a reason logged in the brief, and past 35 needs the owner's override. A chapter at every pillar. Revisit after the 8-week length test | `templates/02-master-script.md` |
+| Weekly masterclass (flagship hub) | Every **Sunday, 6:00 PM IST** | **26–30 min, default about 28** (light weeks 20–24 min; never pad). **35 min is the ceiling.** If the projection exceeds 30 min, run the overflow cascade (§4.1) until it is 30 min or less; going past 30 needs a reason logged in the brief, and past 35 needs the owner's override. **Breadth-first** (owner decision, Oct 2026): a Prelims Grid of about 15 items plus a fixed AP–TG Desk, and 2 Deep Dives (3 in a heavy week). A chapter at every pillar. Revisit after the 8-week length test | `templates/02-master-script.md` |
 | **Decode Extended** (standalone Deep Dive) | **Wednesday, 6:00 PM IST**, **0–1 a week**: only when a story has 3+ minutes of genuine `[EXT]` material. Finish it before the Sunday edit lock, so Wednesday is only a scheduled release | 10–15 min: the week's biggest story at full depth. Built from the hub Deep Dive's core plus its `[EXT]` rows, reusing the hub renders and narration, with its own 20–30 s open and close, its own title angle, a story-arc playlist, and a card from the hub chapter. Never shorter than 10 min, which also keeps it above the 8-min mid-roll threshold | `templates/02-master-script.md` (`[EXT]` rows) |
 | YouTube Shorts | 3–5 per week, Mon–Fri (one APPSC-tagged Short per week until 24 Jan 2027) | 45–60 s each | `templates/04-shorts-pack.md` |
 | Weekly PDF notes + MCQs | Released with the Sunday video | 6–10 pages | `templates/05-weekly-notes-mcq.md` |
@@ -84,18 +85,24 @@ Tag every pillar, trap and MCQ in the research brief and PDF with every exam it 
 
 Verify Group-1/2/3 paper numbers and the CAPF/EPFO syllabus lines against the current official notifications before relying on them [VERIFY].
 
+Tag only what is actually taught: an `#APPSC`, `#TGPSC` or `#Group1` tag (in the brief, the PDF or the YouTube description) needs a state-testable fact on screen for that item.
+
 ## 3. Content selection rules
 
 1. **Sweep wide, then filter hard.** Each week starts with a deep web sweep of everything that happened Mon–Sat (`PLAYBOOK.md` §"Start this week's video"). Then filter for exam value.
    - Drop political bickering, crime reports, celebrity items, poll horse-racing and personality controversies, unless they raise a constitutional or institutional question.
    - Sports, awards, appointments and "days" stay only if they carry a static, testable fact (a body, a place, a first, a treaty).
 2. **Tier every surviving story by depth, and give it categories** (sections below). Together, the week's Deep Dives and Focus segments ("pillars") must touch at least three of GS-1, GS-2, GS-3 and GS-4.
-3. **Selection test.** A story makes the cut only if it passes at least two of these:
-   - It maps to a named line of the UPSC syllabus.
-   - It has a static anchor: an Article, Act, judgment, body, treaty, species, place, river, mineral or index.
-   - It touches a strategic Indian interest: critical minerals, industrial sovereignty, territorial integrity, energy security or foreign-policy balance.
-   - UPSC has a habit of testing this kind of item ("places in news", "technology in news", "index publisher") and it is likely to yield a Prelims fact or Mains question within 12–18 months.
-   - It has a Telugu-states angle. This is a bonus and never enough on its own.
+3. **Exam-yield score (EYS).** Score every candidate from 0 to 10 in the research brief's triage table **before** you assign any tier (owner decision, Oct 2026).
+   - **P · Prelims yield (0–3):** distinct testable static facts that *arise from this week's event*: a new Act or section, a scheme and its nodal ministry, a report and its publisher, a designated site, species or place, a body's membership or composition, a treaty step, a "first". 0 = none; 1 = one; 2 = two or three; 3 = four or more, or a complete look-alike set. **Borrowed anchors score 0**: facts teachable in any week, whatever the news.
+   - **M · Mains yield (0–2):** 2 = a recurring Mains theme with a verified past-question precedent; 1 = plausible; 0 = commentary only.
+   - **I · India-centricity (0–2):** 2 = an Indian law, court, institution, scheme or policy is the actor or the object; 1 = a direct, measurable effect on India (its citizens, prices, a treaty India is party to, a vote India cast); 0 = India is a bystander.
+   - **D · Durability (0–2):** 2 = still examinable in May 2027 without updating; 1 = a process with known next steps; 0 = episodic.
+   - **S · State exams (0–1):** a genuine AP/TG link that APPSC or TGPSC Group-1 could examine.
+
+   Write the score as `EYS 8 (P3·M2·I2·D1·S0)` with a one-line reason per component. A story scoring below 3 is dropped or becomes a Short. **No story is tiered from memory, from tracker momentum or from last week's plan.**
+
+   **Consensus flag:** for each Deep Dive candidate, record whether it appears in The Hindu or Indian Express, in PIB, and in at least two UPSC daily digests that week. This is a flag, not a bar: a Deep Dive that appears in none of them needs a one-line reason in the brief.
 4. **Sources.**
    - **Primary:** The Hindu, Indian Express, PIB, LiveMint, Down To Earth.
    - **Authoritative backstops:** PRS Legislative Research, the Supreme Court judgment text, RBI/SEBI releases, the Economic Survey, the Union Budget, gazette notifications, MEA statements, UN/IAEA/IPCC/UNEP reports, USGS mineral summaries, and Parliamentary Standing Committee reports.
@@ -120,22 +127,26 @@ Not every story needs the same treatment. Assign each story one tier. The tier d
 
 | Tier | When to use | What it gets | Typical length |
 |---|---|---|---|
-| **Deep Dive** | High exam yield, rich static anchor, several GS papers, likely Mains question | The full 5-step analysis (§4.2): map, mind map, traps, Mains Lens, Way Forward, model question, checkpoint, plus history and earlier-episode connections. Written modularly: hub rows tagged `[HUB]`, extension rows tagged `[EXT]` (longer timeline, examiner's chair, two-sided proposition, model-answer walk-through). `[EXT]` rows go to Decode Extended or the PDF, never into the hub | **5–8 min in the hub** (about 700–1,100 words); usually 2–3 a week |
-| **Focus** | Clear exam value but narrower: one GS paper, mainly a Prelims fact plus one Mains angle | Trigger → static anchor → 2 traps → one Mains angle → one "Write this down" | 1.5–3 min each |
-| **Glimpse** | A testable fact with little analysis needed: places in news, persons in news, reports and indices, schemes launched, species, appointments to constitutional bodies | What happened → the static fact → one trap, in the category-wise **News Grid** | 20–45 s each; as many as the week genuinely has |
-| **Update** | A story we have covered before that moved this week | One-line callback to the earlier episode → what changed → what it means for the exam now (§3.3) | 30 s – 3 min; escalate to a Deep Dive if the change is big |
+| **Deep Dive** | **EYS ≥ 7, with I ≥ 1, D ≥ 1 and P ≥ 2.** At least one Deep Dive a week has I = 2 (an Indian institution or policy at its centre). At most one is international, and only if India's policy, its citizens or a treaty obligation is directly engaged this week | The full 5-step analysis (§4.2): map, mind map, traps, Mains Lens, Way Forward, model question, checkpoint, plus history and earlier-episode connections. Written modularly: hub rows tagged `[HUB]`, extension rows tagged `[EXT]` (longer timeline, examiner's chair, two-sided proposition, model-answer walk-through). `[EXT]` rows go to Decode Extended or the PDF, never into the hub | **5–6.5 min in the hub** (about 700–900 words); **2 a week; a 3rd only in a heavy week** if it scores EYS ≥ 8 (otherwise it goes to Decode Extended) |
+| **Focus** | EYS 5–6, or a Deep Dive candidate that loses on runtime: one GS paper, mainly a Prelims fact plus one Mains angle | Trigger → static anchor → 2 traps → one Mains angle → one "Write this down" | 1.5–3 min each |
+| **Glimpse** | EYS 3–4 with P ≥ 1, or any higher-scoring item whose value is mainly a Prelims set: places in news, persons in news, reports and indices, schemes launched, species, appointments to constitutional bodies | What happened → the static fact → one trap, in the **Prelims Grid** (and the AP–TG Desk) | 25–35 s each; **14–16 in the Grid** plus 6–7 on the AP–TG Desk; never fewer than 15 in total unless the triage table has fewer qualifying items |
+| **Update** | A story we have covered before that moved this week | One-line callback to the earlier episode → what changed → what it means for the exam now (§3.3) | 20–45 s; score the **change only**. It becomes a Deep Dive only if the change alone scores EYS ≥ 7 |
 
-**Escalation signals for a Deep Dive:**
-- a constitutional or SC development;
-- a new law, policy or treaty;
-- a geopolitical shift involving India;
-- a disaster or climate event with a geographic lesson;
-- a major economic decision (RBI, Budget, trade);
-- a strong AP/Telangana link combined with national significance.
+**Escalation signals for a Deep Dive** (each still needs the EYS thresholds):
+- an SC or HC judgment, or a Constitution Bench order;
+- a new or amended law, rule or scheme;
+- India signing, joining, ratifying or leaving a treaty or body;
+- a disaster in India or its neighbourhood with a geographic lesson;
+- an RBI, Budget or trade decision;
+- a foreign event **that changes Indian policy or directly affects Indian citizens**.
+
+A local development in a foreign conflict (a truce, an offensive, a town captured) is a Glimpse or an Update unless India is a party.
+
+**Arc fatigue:** the same story arc may not supply a Deep Dive in two consecutive weeks unless the change scores EYS ≥ 8.
 
 ### 3.2 Categories
 
-Give every story **one scope category** and **one or more subject categories**. The video's News Grid and the PDF are organised by scope; the subjects drive the exam tags and the monthly compilation.
+Give every story **one scope category** and **one or more subject categories**. The video's Prelims Grid (National · International · Misc) and AP–TG Desk (Local: Telugu States), and the PDF, are organised by scope; the subjects drive the exam tags and the monthly compilation.
 
 **Scope categories:**
 
@@ -174,37 +185,43 @@ Treat the channel as a running course, not a series of isolated weeks. Viewers w
 
 ### 4.1 Running order of the video
 
-This is the default running order. Re-order it when a week's story demands it, for example opening on a huge Update.
+This is the default **breadth-first** running order (owner decision, Oct 2026). Re-order it when a week's story demands it.
 
-| Segment | Target | Notes |
-|---|---|---|
-| Cold open | 0:45–1:30 | Inside the week's biggest event, then an immediate pivot to the structural problem. It includes the **pre-question**: the week's hardest trap, asked before it is taught. Close with a 10-second "On today's desk" rundown. |
-| **Update Desk** ("Previously on Decode") | 1–4 min | Updates to stories we covered before (§3.3), using the Decode Archive visual (§6.6). Skip it if nothing moved. |
-| **Deep Dives** | 5–8 min each | Usually 2–3. Each is a self-contained chapter (structure below). |
-| **Focus segments** | 1.5–3 min each | As many as the week warrants. |
-| Telugu States Lens | 45–90 s | Inside the Deep Dive or Focus it belongs to, or one combined block. |
-| **News Grid** | 2–6 min | Glimpses grouped by scope: **Local: Telugu States → National → International → Miscellaneous**. Each category has its own colour-coded card; each Glimpse is fact + static anchor + one trap. |
-| Trap Vault rapid-fire | 1:30–2:30 | This week's traps, plus 2 traps from last week and 1 from four weeks ago (spaced recall). |
-| Desk Note (optional) | 30–60 s | Only in weeks where it fits (§5.10). |
-| Verdict + CTA | 1:00–1:15 | Ends with 15–20 s of narration over the Decode Desk so the end screen has room. |
+| # | Segment | Target | Notes |
+|---|---|---|---|
+| 1 | Cold open | 0:45 | Inside the week's top story, then an immediate pivot to the structural problem. The **pre-question** comes from the Prelims Grid, in a UPSC format (never yes/no). Close with a 10-second "On today's desk" rundown. |
+| 2 | Update Desk ("Previously on Decode") | 0–1:30 | **Optional.** Use only when a tracked story moved in a way that changes what the viewer wrote down ("Last time we said X; now it's Y"): 3–5 changes × 20–30 s, with the Decode Archive visual (§6.6). Skip it entirely when nothing important moved. |
+| 3 | **Prelims Grid: National · International · Misc** | 8:00 | 14–16 Glimpses × 25–35 s: what happened → the static set → one trap. **Starts by 2:30.** One colour-coded card per item, reused as-is in the PDF. |
+| 4 | Deep Dive 1 (I = 2) | 6:00–6:30 | The 5 steps (§4.2). `[EXT]` rows go to Decode Extended or the PDF. |
+| 5 | **AP–TG Desk** (Local: Telugu States) | 3:00 | Its own chapter, **every week until 24 Jan 2027** (then review). 6–7 Glimpses in this order: polity and courts → schemes and budget → rivers, projects and disasters → indices, persons and firsts. A primary state document (GO no., gazette, budget page) on each card. It ends with one Group-1-style question on screen. |
+| 6 | Deep Dive 2 | 5:00–5:30 | As above. |
+| 6a | Deep Dive 3 (heavy weeks only) | 5:00 | Only at EYS ≥ 8; the reason is logged. |
+| 7 | Focus / Telugu States Lens | 0–1:30 | An EYS 5–6 item with a Mains angle, or a genuine AP/TG link inside a Deep Dive. |
+| 8 | Trap Vault | 2:00 | 10 items in "how many", Statement-I/II and pairs formats: this week's traps, plus 2 from last week and 1 from four weeks ago (spaced recall). |
+| 9 | Desk Note (optional) | 30–60 s | Only in weeks where it fits (§5.10). |
+| 10 | Verdict + CTA | 0:45 | Ends with 15–20 s of narration over the Decode Desk, so the end screen has room. |
 
-**Hub budget and overflow (owner decision, Oct 2026).** Budget the hub at about 28 min (§2). Project its runtime from the word count (÷ 135) at the rundown stage.
+**Hub budget and overflow (owner decisions, Oct 2026).** Budget the hub at about 28 min (§2). Project its runtime from the word count (÷ 135) at the rundown stage.
 
-- **Typical week (29:00):** cold open 1:00 · Update Desk 1:30 · three Deep Dives of 6:30, 6:00 and 5:30 · two Focus segments of 1:45 · News Grid 2:30 · Trap Vault 1:30 · verdict and CTA 1:00.
-- **Heavy week (30–35 min, reason logged):** as above, with any fourth big story as a 2–3 min Focus "trailer" in the hub and its full depth in Decode Extended.
+- **Typical week (29:00):** cold open 0:45 · Update Desk 1:30 · Prelims Grid 8:00 · Deep Dive 1 6:15 · AP–TG Desk 3:00 · Deep Dive 2 5:15 · Focus 1:30 · Trap Vault 2:00 · verdict 0:45.
+- **Heavy week (30–35 min, reason logged):** a third Deep Dive (EYS ≥ 8). The Focus and the Desk Note go first. Any further big story becomes a 2–3 min Focus "trailer" with its full depth in Decode Extended.
 - **Light week:** 20–24 min. Never pad.
-- **Front-load Prelims value:** the lead Deep Dive's trap map and the Trap Vault's key items should land within the first 15 minutes, because most viewers will not reach minute 25.
+- **Front-load Prelims value:** the Prelims Grid starts by 2:30, and the lead Deep Dive's traps land before 15:00, because most viewers will not reach minute 25.
 
 If the projection exceeds 30 min, apply this cascade in order, and stop as soon as it is at 30 min or less:
-1. Cap each Deep Dive at 8:00 and move its `[EXT]` rows out.
-2. Cap each Update at 45 s.
-3. Cap the News Grid at about 9 Glimpses. The surplus goes to the PDF's "Also in the news" list or to Shorts.
-4. Demote the lowest-scoring pillar by one tier.
-5. Route the fourth Deep Dive to Decode Extended, with a 2–3 min Focus trailer in the hub.
-6. Defer Mains-only items with no deadline to next week or the monthly compilation.
-7. Drop the Desk Note.
+1. Move `[EXT]` rows out and cap each Deep Dive at 6:30.
+2. Shorten or skip the Update Desk (30 s per change at most).
+3. Drop the Desk Note and the Focus.
+4. Route a third Deep Dive to Decode Extended, with a 2–3 min Focus trailer in the hub.
+5. Demote Deep Dive 2 to a 2:30 Focus.
+6. Defer Mains-only items with no deadline to the monthly compilation.
 
-Never cut the pre-question, the per-pillar checkpoints, the Trap Vault's spaced recall or (until 24 Jan 2027) a genuine Telugu States Lens.
+**Never cut:**
+- the Prelims Grid below 15 items;
+- the AP–TG Desk (until 24 Jan 2027);
+- the pre-question;
+- the per-pillar checkpoints;
+- the Trap Vault's spaced recall.
 
 Checkpoint countdown cards hold 6–8 s of real silence, because many viewers watch at 1.25–2x. Place manual mid-roll ad slots only at chapter boundaries.
 
@@ -230,6 +247,9 @@ Each Deep Dive answers **one central question** that is stated aloud near the st
    - **Prelims Trap Vault.** Isolate the facts examiners use as traps: statutory vs constitutional vs executive bodies, nodal ministries, voting thresholds, ratification status, who publishes which index, borders and nearby places, regions placed in the wrong country, plausible false headlines, superlatives ("largest", "first-ever"), and geological vs political definitions.
      - Write at least 3 trap lines per pillar in the "UPSC may ask X — the trap is Y" format.
      - Since 2023 UPSC uses "How many of the above", "how many pairs" and Statement-I/Statement-II formats, which punish partial knowledge. So **cover the whole set of look-alikes** (all of Ukraine's neighbours, all the "National Commissions"), not only the correct item.
+     - **UPSC formats only:** every on-screen question (the pre-question, MCQs, Trap Vault items) uses a real UPSC format: "how many of the above", Statement-I/II, pairs, or a single correct option. Never yes/no. **Always state the answer with a one-line reason** after a consistent 6–8 s hold; never leave an on-screen question unanswered.
+     - **Bridge to India:** give every foreign anchor one Indian link where a real one exists, for example ZNPP's VVER-1000 reactors and Kudankulam's, or the river-bank rule applied to the Ganga's tributaries.
+     - **When a list is the trap, state the whole list:** for example, UN Charter Art 33 names seven methods, not three.
      - Add a **PYQ Echo** where a verified PYQ exists: year, format and the static fact it froze. Show the full question on screen, but don't read the whole stem aloud.
    - **Mains Lens.** Cover (a) Economic & Fiscal, (b) Governance & Federal Balance, (c) National Security & Geopolitics, and (d) Socio-Environmental. Use data points, not adjectives.
      - For IR topics, state the issue as a **contestable proposition**, as UPSC does ("NATO's expansion works well for India. What is your opinion?"), and argue both sides.
@@ -332,12 +352,14 @@ Optional secondary tags: `[ON-SCREEN TEXT]` (exact words, at most 8), `[SFX]`, `
 
 - **No cartoon icons or clip art:** doves, hourglasses, generic house or factory icons, emoji, flat vector people.
 - **No karaoke subtitles:** no word-by-word highlighted boxes and no full script on screen. Keyword overlays on maps and footage carry at most 8 words. `[KINETIC TEXT]` cards may carry exact legal wording, PYQ stems, MCQs and model questions. Minimum on-screen text size: 24 px at 1080p (readable on a phone). Viewers get full verbatim captions as a separate, human-corrected `.srt` file they can switch on; auto-captions garble Indian proper nouns.
+- **Numbers appear at their final value** on any card a viewer might pause and copy. No count-up animations on revision numbers. A paused frame must never show a wrong figure.
 - **No decorative visuals.** Apply the **information test**: if removing an image loses no information, cut it, or hold it under 3 s as a transition.
 - No Google Earth Studio footage (its terms don't license commercial use), no newspaper screenshots, and no TV news clips.
 
 ### 6.3 Mind-map rules
 
 - Each pillar has **one** concept map that grows through the deep dive and is complete at the recap.
+  - **Fact maps, not label maps:** each node states a testable fact ("Donbas = Donetsk + Luhansk"), not a heading ("Civilians"). The recap blanks test the pillar's most examinable facts.
   - Centre node: the central question.
   - Branches: cause → consequence → India's response, plus the "tested as" branch with the traps.
   - Label the links ("leads to", "governed by", "tested as").
@@ -371,9 +393,9 @@ Optional secondary tags: `[ON-SCREEN TEXT]` (exact words, at most 8), `[SFX]`, `
 | White (#FFFFFF) | Body text |
 | Alert red (#E5484D) | Only for "Prelims Trap" cards |
 | Teal (#2BB3A3) | "Telugu States Lens" cards |
-| Steel blue (#4A90C2) | Rivers and water bodies on GIS maps; "International" News Grid cards |
+| Steel blue (#4A90C2) | Rivers and water bodies on GIS maps; "International" Prelims Grid cards |
 
-News Grid category cards use these colours:
+Prelims Grid and AP–TG Desk category cards use these colours:
 - **Local: Telugu States:** teal.
 - **National:** yellow.
 - **International:** steel blue.
@@ -393,7 +415,7 @@ Treat this list as a starting point, not a limit. Invent new devices whenever th
 - **Split-screen dilemma:** the two sides of the central paradox on either half of the screen, each building as Mounika argues it.
 - **Data morphs:** a single chart that transforms (a bar becomes a map, a pie becomes a timeline) as the narration moves from "how much" to "where" to "when".
 - **The examiner's desk:** a stylised question paper on which the PYQ Echo or the likely question types itself, and the trap option is circled in red.
-- **Sound design:** a recurring soft "page turn" for the Update Desk, a muted bell for each "Pause and answer", and a short sting per News Grid category. Keep the music bed low under the narration.
+- **Sound design:** a recurring soft "page turn" for the Update Desk, a muted bell for each "Pause and answer", and a short sting per Prelims Grid category. Keep the music bed low under the narration.
 - **3D terrain:** free elevation data (SRTM or Copernicus DEM) rendered in QGIS or Blender for mountain passes, river valleys and glacial lakes.
 
 All of these still follow §6.2 (no clip art or karaoke), §6.4 (licensing) and the Survey of India map rule.
@@ -413,7 +435,7 @@ Generate **3 distinct title + thumbnail concepts** per masterclass.
   - One bold hero object on the right third, and a small "DECODE UPSC" yellow badge bottom-left as the brand mark.
 - **Description:**
   - A 2-line hook.
-  - Timestamped chapters: the first at 00:00, at least 3, each at least 10 s, titled as a question or claim (one per pillar plus Trap Vault / Telugu States Lens markers).
+  - Timestamped chapters: the first at 00:00, at least 3, each at least 10 s, titled as a question or claim, named by exam hook ("Montreux vs Kerch (Prelims)"), never by internal labels. One per pillar, plus Prelims Grid, AP–TG Desk and Trap Vault markers.
   - "Earlier episodes in this story" links for every Update and callback.
   - Sources list, plus image and footage credits.
   - PDF link and Telegram link.
