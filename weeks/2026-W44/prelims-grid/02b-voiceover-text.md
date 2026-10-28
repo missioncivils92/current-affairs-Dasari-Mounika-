@@ -1,9 +1,9 @@
-# Voiceover Text — 2026-W44 (Prelims Grid: National · International · Misc) · v6
+# Voiceover Text — 2026-W44 (Prelims Grid: National · International · Misc) · v7
 
 **Release:** Sunday 1 Nov 2026, 6:00 PM IST, as its own video (owner decision 33, 28 Oct 2026)
 **Coverage:** Mon 26 Oct – Sat 31 Oct 2026, plus 8–25 Oct items W43 did not cover (marked in the brief)
 **Format:** voice-only. Everything below is recorded on the microphone; there is no on-camera recording.
-**Total:** 3466 words · about 25.7 min at 135 wpm (24.8–26.7 min at 140–130 wpm)
+**Total:** 3657 words · about 27.1 min at 135 wpm (26.1–28.1 min at 140–130 wpm)
 
 Visual directions for the editor are in `02-master-script.md`.
 
@@ -25,7 +25,7 @@ Visual directions for the editor are in `02-master-script.md`.
 
 | Segment | Words | Min |
 |---|---|---|
-| PRELIMS GRID — Prelims Grid: sixteen topics, exam format | 3466 | 25.7 |
+| PRELIMS GRID — Prelims Grid: sixteen topics, exam format | 3657 | 27.1 |
 
 ---
 
@@ -35,13 +35,15 @@ Save as: `prelims-grid_VO_grid.wav`
 
 **🎙️ NARRATION — *warm, bright.***
 
-Decode U-P-S-C: unlock your potential, decode your future. Hello, and welcome! This is your Prelims Grid for week forty-four. Keep your notebook and a pen next to you, because today you are going to do more than watch the news; you are going to practise it.
+Decode U-P-S-C: unlock your potential, decode your future. This is your Prelims Grid for week forty-four, the one video that turns a whole week of news into the questions UPSC could actually ask you.
 
 **🎙️ NARRATION — *brisk, warm.***
 
-Here is the plan. Sixteen topics from one week, and think of it as a train journey: we board on the Andhra coast, where a cyclone has just come ashore, and we get off at the Statue of Unity. At every station you get the news, the static facts the examiner marks, the trap, and a practice question. Keep a score as we go, one tick for every question you get right, and we will look at your total together at the end.
+Sixteen topics, and we will travel through them like a train journey, from the Andhra coast, where a cyclone has just come ashore, to the Statue of Unity. At every station you get the news, the static facts the examiner marks, the trap, and a question you answer before I do. Keep a score, one tick for every right answer, and stay till the end, because there I will show you the three tricks the examiner used across all sixteen topics.
 
 **🎙️ NARRATION**
+
+But first, a warm-up question. Consider three places: Yanam, Karaikal and Mahe. How many of them are part of Andhra Pradesh? Lock in your answer, because our very first station settles it.
 
 First station, and it is a stormy one. Topic one: Cyclone Arnab, from Geography and Disaster Management.
 
@@ -53,7 +55,7 @@ Now the naming process, and it is simpler than it sounds. Thirteen countries of 
 
 The I-M-D grades storms by wind speed, like the steps of a ladder: a cyclonic storm starts at sixty-two kilometres an hour, and a very severe one, like Arnab, runs from one hundred and eighteen to one hundred and sixty-six.
 
-Prelims Trap, and it hides in plain sight on the map. Yanam sits inside Andhra Pradesh, but it belongs to the Union Territory of Puducherry, with Karaikal and Mahe.
+Prelims Trap, and it also settles our warm-up question. Yanam sits inside Andhra Pradesh, but it belongs to the Union Territory of Puducherry, with Karaikal and Mahe. So the answer to the warm-up is none: not one of the three is part of Andhra Pradesh.
 
 Now, your first question of the day. Read each line slowly and decide: how many of these three statements are correct?
 
@@ -159,7 +161,7 @@ The answer is option b, one and three only, because the C-D-R-I was launched in 
 
 Notes card. Four alliances, four years, two cities: copy it.
 
-We are halfway through our journey, so check your score. However many ticks you have, you are learning, and that is what matters. Topic nine: the BRICS Parliamentary Forum, from International Relations.
+We are halfway, so check your score. However many ticks you have, you are learning, and that is what matters; and the examiner's three tricks are still waiting for you at the end. Topic nine: the BRICS Parliamentary Forum, from International Relations.
 
 Why in news: the twelfth BRICS Parliamentary Forum met at Samvidhan Sadan in New Delhi on the twenty-sixth and twenty-seventh of October, chaired by the Lok Sabha Speaker, as India holds the BRICS chair this year.
 
@@ -271,8 +273,10 @@ The answer is only one: statement two, because India's Savings Day is the thirti
 
 Your last notes card. Copy it, and your week is complete.
 
+Now, the moment I promised. Look back over all sixteen traps, and you will see that the examiner used only three tricks. First, swap the body or the ministry: DIPAM moved to Commerce, the pollution plan handed to the wrong board, the innovation index given to the wrong publisher. Second, move the place or the date: Yanam pushed into Andhra Pradesh, the C-D-R-I sent to Gurugram, Savings Day shifted to the thirty-first. And third, stretch the set or the number: thirty by thirty made combined, Saudi Arabia slipped into BRICS, and Chilika left on the Montreux Record. Once you can see these three tricks, you will start spotting them in every paper you practise. That is what we do here: we find the question hiding inside the news.
+
 Pause here: this is your whole week on one page, and it is also page one of the PDF. Now count your ticks. If you have many, wonderful. If you have fewer, that is useful too, because every mistake you found today is one less surprise in the exam hall.
 
-And here is the second half of the sheet. Sixteen topics in one sitting: that is real work, and you did it. Preparation does not grow in one heroic night; it grows one honest week at a time, and this was a good week. The PDF and this week's MCQ challenge are in the pinned comment. See you next week on the Grid.
+And here is the second half of the sheet. Sixteen topics in one sitting: that is real work, and you did it. Preparation does not grow in one heroic night; it grows one honest week at a time. If this hour helped you, subscribe, so that next Sunday's masterclass finds you at six in the evening, and share your score with the whole desk under the pinned comment, where the PDF and this week's MCQ challenge are waiting. See you next Sunday.
 
-*Words: 3466 · about 25.7 min*
+*Words: 3657 · about 27.1 min*

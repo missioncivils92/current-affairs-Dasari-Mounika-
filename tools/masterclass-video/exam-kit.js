@@ -278,11 +278,11 @@ const EX_TYPES = {
   },
 };
 function exMcq(ctx, s, T, d, answer) {
-  const c = EP[d.col || 'purple']; exSlide(ctx, c, T, 'PRACTICE');
+  const c = EP[d.col || 'purple']; exSlide(ctx, c, T, T ? 'PRACTICE' : null);   // no topic (T) = the opening pre-question
   exBox(ctx, 72, 140, 1776, 880);
-  exChip(ctx, 'PRACTICE · UPSC FORMAT', 112, 170, c.main, '#FFFFFF', 26);
+  exChip(ctx, d.label || 'PRACTICE · UPSC FORMAT', 112, 170, c.main, '#FFFFFF', 26);
   kt(ctx, d.stem || 'Consider the following statements:', 112, 290, { font: F.head(44), color: c.ink });
-  const typed = answer ? 1 : span(s.t, 0.2, Math.min(s.d - 1, s.w('correct'))), n = d.qs.length;
+  const typed = answer ? 1 : span(s.t, 0.2, Math.min(s.d - 1, s.w(d.typeCue || 'correct'))), n = d.qs.length;
   let y = 380; d.qs.forEach((q, i) => {
     const a = clamp(typed * (n + 2) - i);
     const hh = kt(ctx, `${i + 1}.  ${q}`, 140, y, { font: F.ui(32, 700), color: c.ink, maxW: 1500, lh: 40, alpha: a });
@@ -327,6 +327,19 @@ function exIntro(ctx, s, chip, line) {
   ctx.save(); ctx.font = F.ui(30, 800); const cwid = ctx.measureText(chip).width + 39; ctx.restore(); exChip(ctx, chip, 960 - cwid / 2, 900, '#FFFFFF', c.ink, 30, ta);
   kt(ctx, line, 960, 1010, { font: F.ui(30, 700), color: c.t[1], align: 'center', alpha: eia(s, s.w('week') - 0.2) });
 };
+// the examiner's tricks: a closing slide that names the trap patterns of the week; items = [[trick, examples, cue]]
+function exTricks(ctx, s, title, items) {
+  const c = EP.violet; exSlide(ctx, c);
+  exChip(ctx, title, 72, 40, '#FFFFFF', c.ink, 28, eia(s, 0.1));
+  items.forEach(([h, ex, cw], i) => {
+    const y = 140 + i * 300, a = eia(s, ecue(s, cw, 0.5 + i * 1.5));
+    exBox(ctx, 72, y, 1776, 270, { alpha: a, bar: '#E63946' });
+    ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.arc(170, y + 135, 58, 0, 7); ctx.fillStyle = c.main; ctx.fill(); ctx.restore();
+    kt(ctx, String(i + 1), 170, y + 158, { font: F.head(64), color: '#FFFFFF', align: 'center', alpha: a });
+    kt(ctx, h, 270, y + 105, { font: F.head(46), color: c.ink, alpha: a, maxW: 1520 });
+    kt(ctx, ex, 270, y + 175, { font: F.ui(30, 700), color: c.ink, alpha: a * 0.85, maxW: 1520, lh: 40 });
+  });
+}
 // register a topic: T = { n, cat, title, short, tags, locator, slides: [{type, ...}] }
 function exTopic(T) {
   const order = []; for (const sl of T.slides) { const st = { news: 'NEWS', trap: 'TRAP', mcq: 'PRACTICE', answer: 'PRACTICE', notes: 'NOTES' }[sl.type] || sl.step; if (st && !order.includes(st)) order.push(st); }
