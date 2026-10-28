@@ -27,7 +27,7 @@ Sunday hub: 935 words · Decode Extended: 1197 words
 | Segment | Words | Min |
 |---|---|---|
 | DEEP DIVE 1 — NSAP becomes the PM Samajik Sahayata Yojana | 1135 | 8.4 |
-| AP–TG DESK (opening line only; answers the Deep Dive 1 checkpoint) | 94 | 0.7 |
+| AP–TG DESK — AP–TG Desk (opening rows only: the checkpoint answer and the Telugu States Lens) | 94 | 0.7 |
 
 ---
 
@@ -169,7 +169,7 @@ Next, we cross to the AP–TG Desk.
 
 ---
 
-## AP–TG DESK (opening line only; answers the Deep Dive 1 checkpoint)
+## AP–TG DESK — AP–TG Desk (opening rows only: the checkpoint answer and the Telugu States Lens)
 
 Save as: `sample-nsap_VO_aptg.wav`
 

@@ -2,7 +2,7 @@
 
 Turns a two-column master script into a finished video. Everything on screen is drawn by code: real satellite imagery, terrain maps, India-compliant boundaries, progressive mind maps, data charts, kinetic cards and the Decode Desk. There is no clip art, no AI imagery and no karaoke captions (`CLAUDE.md` §6).
 
-First used for `weeks/2026-W44/sample-oleshky/`.
+First used for `weeks/2026-W44/sample-oleshky/`; `scenes/nsap.js` builds `weeks/2026-W44/sample-nsap/`.
 
 ## Pipeline
 
@@ -21,7 +21,10 @@ First used for `weeks/2026-W44/sample-oleshky/`.
 3. **Timeline:** `timeline.py <02-master-script.md> timeline.json [--cut hub|ext]` gives every row with a scene ID (`**S01**`…) a start, an end, sentence beats, **word times** and **holds**.
    - `--cut hub` keeps `[HUB]` + `[HUB-ONLY]` rows; `--cut ext` keeps `[HUB]` + `[EXT]` rows (the Decode Extended).
    - Without a recording, timing is estimated at 135 wpm overall (word length plus punctuation pauses).
-   - Holds: a 7 s silent countdown straight after each "Pause and answer" question, and a 3 s recap hold before "there you go". A hold always sits inside its own row (asserted), so a countdown can never play over the next scene.
+   - Holds:
+     - a 7 s silent countdown straight after each "Pause and answer" question;
+     - a 3 s recap hold before "there you go", or after the recap row's first sentence;
+     - `HOLD 7 s` in a visual cell (e.g. an on-screen MCQ) adds that hold after the row's last word. A hold always sits inside its own row (asserted), so a countdown can never play over the next scene.
 4. **Scenes:** `scenes/<topic>.js` defines `SCENES.S01`, `SCENES.S02`… using the shared toolkit in `engine.js`.
    - **Key every build to its word:** `s.w("Kherson")` is the time that word is spoken (`s.w("left bank", 1)` for the second occurrence). The script's visual cells mark these as `→ "word"`. Missing cues are listed at boot; `--strict` stops the render.
    - `s.hold` gives the row's countdown window; `pop()` springs a stamp in; `roll()` counts a number up.

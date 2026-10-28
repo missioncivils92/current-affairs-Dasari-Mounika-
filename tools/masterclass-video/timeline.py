@@ -10,7 +10,8 @@ Cuts. Rows carry a tag in the # column: [HUB] (both cuts), [HUB-ONLY] (Sunday hu
 --cut hub|ext keeps only that cut's rows; without --cut every row is kept (useful for checking the whole source).
 
 Holds. A "PAUSE AND ANSWER" row gets a 7 s hold straight after its question (the first sentence ending in "?").
-A recap row with "skeleton with three blanks" gets a 3 s hold before "there". Holds always sit inside their own
+A recap row with "skeleton with three blanks" gets a 3 s hold before "there" (or, without it, after the row's first
+sentence). A visual cell with "HOLD 7 s" gets that hold after the row's last word. Holds always sit inside their own
 row, so a countdown can never play over the next scene (asserted below).
 
 Two timing modes:
@@ -78,8 +79,12 @@ def hold_points(r):
         h.append((q, HOLD_Q))
     if "skeleton with three blanks" in r["visual"]:
         th = [i for i, t in enumerate(toks) if key(t) == "there"]
-        if th:
-            h.append((th[-1] - 1, HOLD_RECAP))
+        if not th:      # no "there you go": hold after the first sentence ("…before I reveal them.")
+            th = [1 + next((i for i, t in enumerate(toks) if t.endswith(".")), len(toks) - 2)]
+        h.append((th[-1] - 1, HOLD_RECAP))
+    m = re.search(r"\bHOLD (\d+) s\b", r["visual"])      # explicit hold (e.g. an MCQ) after the row's last word
+    if m:
+        h.append((len(toks) - 1, float(m.group(1))))
     return h
 
 def sent_starts(r, times):
