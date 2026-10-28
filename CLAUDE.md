@@ -508,6 +508,13 @@ Generate **3 distinct title + thumbnail concepts** per masterclass.
 | Mariupol | [Ma-ree-OO-pol] |
 | Sumy | [SOO-mee] |
 | Türkiye | [TUR-kee-yay] |
+| Samajik Sahayata | [Saa-maa-jik Sa-haa-ya-taa] |
+| Vridhavastha | [Vri-dhaa-vus-thaa] |
+| Vidhawa | [Vi-dhuh-waa] |
+| Divyangjan | [Div-yaang-jun] |
+| Parivar Labh | [Pa-ri-vaar Laabh] |
+| Annapurna | [Un-na-poor-naa] |
+| Bharosa | [Bha-ROH-saa] |
 
 ## 9. Compliance and ethics guardrails
 
