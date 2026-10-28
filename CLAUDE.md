@@ -518,6 +518,9 @@ Generate **3 distinct title + thumbnail concepts** per masterclass.
 | Surya Kant | [SOOR-ya Kaant] |
 | Seshan | [SHAY-shun] |
 | Anoop Baranwal | [A-noop Ba-RAAN-wal] |
+| Yerevan | [Ye-re-VAAN] |
+| Sauj Jheel | [Saunj Jheel] |
+| Mohanthal | [MOHAN-thaal] |
 
 ## 9. Compliance and ethics guardrails
 
