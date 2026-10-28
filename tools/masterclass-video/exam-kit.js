@@ -129,7 +129,8 @@ function exPanel(ctx, s, b, c, p) {
       const yy = top + i * rh + 10, a = eia(s, ecue(s, cw, 0.6 + i * 0.5)); let cx = bx;
       kt(ctx, lab, x + 36, yy + rh * 0.42, { font: F.ui(28, 800), color: c.ink, alpha: a });
       segs.forEach(([l, v, ci]) => { const ww = bw * v / 100; ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = ci === 'g' ? '#CFCFD6' : [c.t[2], c.t[4], c.main, c.ink][ci]; ctx.fillRect(cx, yy, ww - 3, rh * 0.62); ctx.restore();
-        if (l) kt(ctx, l, cx + 12, yy + rh * 0.4, { font: F.ui(24, 800), color: ci >= 2 ? '#FFFFFF' : c.ink, alpha: a }); cx += ww; });
+        if (l) { ctx.font = F.ui(24, 800); const out = ctx.measureText(l).width + 24 > ww;   // a thin segment gets its label beside it
+          kt(ctx, l, out ? cx + ww + 10 : cx + 12, yy + rh * 0.4, { font: F.ui(24, 800), color: ci >= 2 && !out ? '#FFFFFF' : c.ink, alpha: a }); } cx += ww; });
     });
     if (p.note) kt(ctx, p.note, x + 36, y + h - 26, { font: F.ui(24, 600), color: c.ink, alpha: 0.75 });
   }
@@ -197,7 +198,7 @@ const EX_TYPES = {
   title(ctx, s, T, d) {
     const c = EP[d.col || 'purple']; exSlide(ctx, c, T);
     exChip(ctx, `${EX.series} · ${T.cat} · TOPIC ${String(T.n).padStart(2, '0')} OF ${EX.total}`, 120, 150, '#FFFFFF', c.ink, 28, eia(s, 0.1));
-    const z = fitFont(ctx, T.title, 1080, 120, 64); revealWords(ctx, T.title, 116, 330, span(s.t, 0.2, 1.4), { font: F.head(z), color: '#FFFFFF', maxW: 1100, lh: z * 1.1 });
+    const z = fitFont(ctx, T.title, 1040, 120, 64); revealWords(ctx, T.title, 116, 330, span(s.t, 0.2, 1.4), { font: F.head(z), color: '#FFFFFF', maxW: 1180, lh: z * 1.1 });
     let x = 120; T.tags.forEach((t, i) => { x += exChip(ctx, t, x, 400, c.t[1], c.ink, 28, eia(s, 0.8 + i * 0.25)) + 14; });
     kt(ctx, 'In this topic', 120, 560, { font: F.ui(28, 800), color: c.t[2], alpha: eia(s, 1.2) });
     T.steps.forEach((t, i) => exChip(ctx, `${i + 1}  ${t}`, 120 + (i % 3) * 330, 590 + Math.floor(i / 3) * 76, 'rgba(255,255,255,0.18)', '#FFFFFF', 26, eia(s, 1.4 + i * 0.12)));
@@ -309,6 +310,23 @@ function exMcq(ctx, s, T, d, answer) {
 function exEnter(ctx, s, fn) {            // slide entrance: a short settle from 104% to 100%
   const k = 1 + 0.04 * (1 - easeOut(span(s.t, 0, 0.7))); ctx.save(); ctx.translate(960, 540); ctx.scale(k, k); ctx.translate(-960, -540); fn(); ctx.restore();
 }
+// the intro sting: the channel emblem over turning gold rays, a shine sweep, then the series chip and a line
+function exIntro(ctx, s, chip, line) {
+  const c = EP.purple; exSlide(ctx, c);
+  const a = eia(s, 0.2, 0.9), k = 0.6 + 0.4 * clamp(pop(s.t, 0.2, 0.9));
+  ctx.save(); ctx.translate(960, 470); ctx.rotate(GT * 0.15); ctx.globalAlpha = 0.18 * a;     // turning light rays behind the emblem
+  for (let i = 0; i < 18; i++) { ctx.rotate(Math.PI / 9); ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(-50, -900); ctx.lineTo(50, -900); ctx.closePath(); ctx.fillStyle = '#FFD60A'; ctx.fill(); }
+  ctx.restore();
+  const g = ctx.createRadialGradient(960, 470, 50, 960, 470, 420); g.addColorStop(0, 'rgba(255,214,10,0.35)'); g.addColorStop(1, 'rgba(255,214,10,0)'); ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); ctx.restore();
+  ctx.save(); ctx.translate(960, 470); ctx.scale(k, k); ctx.rotate((1 - clamp(pop(s.t, 0.2, 0.9))) * -0.5); ctx.translate(-960, -470); exLogo(ctx, 960, 470, 330, a);
+  const sw = span(s.t, 1.2, 2.2); if (sw > 0 && sw < 1) {                                       // a shine sweep across the emblem
+    ctx.beginPath(); ctx.arc(960, 470, 320, 0, 7); ctx.clip(); const sx = 560 + 800 * sw, sg = ctx.createLinearGradient(sx - 90, 0, sx + 90, 0);
+    sg.addColorStop(0, 'rgba(255,255,255,0)'); sg.addColorStop(0.5, 'rgba(255,255,255,0.45)'); sg.addColorStop(1, 'rgba(255,255,255,0)'); ctx.fillStyle = sg; ctx.fillRect(sx - 90, 120, 180, 720); }
+  ctx.restore();
+  const ta = eia(s, s.w('this') - 0.2);
+  ctx.save(); ctx.font = F.ui(30, 800); const cwid = ctx.measureText(chip).width + 39; ctx.restore(); exChip(ctx, chip, 960 - cwid / 2, 900, '#FFFFFF', c.ink, 30, ta);
+  kt(ctx, line, 960, 1010, { font: F.ui(30, 700), color: c.t[1], align: 'center', alpha: eia(s, s.w('week') - 0.2) });
+};
 // register a topic: T = { n, cat, title, short, tags, locator, slides: [{type, ...}] }
 function exTopic(T) {
   const order = []; for (const sl of T.slides) { const st = { news: 'NEWS', trap: 'TRAP', mcq: 'PRACTICE', answer: 'PRACTICE', notes: 'NOTES' }[sl.type] || sl.step; if (st && !order.includes(st)) order.push(st); }

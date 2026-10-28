@@ -328,23 +328,8 @@ exTopic({ n: 16, cat: 'MISC', title: 'Three days to note', short: 'Days to note'
     { type: 'notes', lines: ['27 Oct Infantry Day: 1947, 1 Sikh air-landed at Srinagar', '30 Oct World Savings Day (India; elsewhere 31 Oct) · origin Milan 1924', '31 Oct Rashtriya Ekta Diwas (since 2014) · Statue of Unity 182 m, Ekta Nagar, Narmada'] },
   ] });
 
-// ---------- the intro: the channel emblem ----------
-SCENES.S00 = (ctx, s) => {
-  const c = EP.purple; exSlide(ctx, c);
-  const a = eia(s, 0.2, 0.9), k = 0.6 + 0.4 * clamp(pop(s.t, 0.2, 0.9));
-  ctx.save(); ctx.translate(960, 470); ctx.rotate(GT * 0.15); ctx.globalAlpha = 0.18 * a;     // turning light rays behind the emblem
-  for (let i = 0; i < 18; i++) { ctx.rotate(Math.PI / 9); ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(-50, -900); ctx.lineTo(50, -900); ctx.closePath(); ctx.fillStyle = '#FFD60A'; ctx.fill(); }
-  ctx.restore();
-  const g = ctx.createRadialGradient(960, 470, 50, 960, 470, 420); g.addColorStop(0, 'rgba(255,214,10,0.35)'); g.addColorStop(1, 'rgba(255,214,10,0)'); ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); ctx.restore();
-  ctx.save(); ctx.translate(960, 470); ctx.scale(k, k); ctx.rotate((1 - clamp(pop(s.t, 0.2, 0.9))) * -0.5); ctx.translate(-960, -470); exLogo(ctx, 960, 470, 330, a);
-  const sw = span(s.t, 1.2, 2.2); if (sw > 0 && sw < 1) {                                       // a shine sweep across the emblem
-    ctx.beginPath(); ctx.arc(960, 470, 320, 0, 7); ctx.clip(); const sx = 560 + 800 * sw, sg = ctx.createLinearGradient(sx - 90, 0, sx + 90, 0);
-    sg.addColorStop(0, 'rgba(255,255,255,0)'); sg.addColorStop(0.5, 'rgba(255,255,255,0.45)'); sg.addColorStop(1, 'rgba(255,255,255,0)'); ctx.fillStyle = sg; ctx.fillRect(sx - 90, 120, 180, 720); }
-  ctx.restore();
-  const ta = eia(s, s.w('this') - 0.2);
-  exChip(ctx, 'PRELIMS GRID · WEEK 44 · 26 OCT – 1 NOV 2026', 960 - 380, 900, '#FFFFFF', c.ink, 30, ta);
-  kt(ctx, 'One week · 16 topics · the static facts, the traps and a practice question for each', 960, 1010, { font: F.ui(30, 700), color: c.t[1], align: 'center', alpha: eia(s, s.w('week') - 0.2) });
-};
+// ---------- the intro: the channel emblem (exIntro in exam-kit.js) ----------
+SCENES.S00 = (ctx, s) => exIntro(ctx, s, 'PRELIMS GRID · WEEK 44 · 26 OCT – 1 NOV 2026', 'One week · 16 topics · the static facts, the traps and a practice question for each');
 
 // ---------- G.0 the board, and the revision sheet ----------
 const BOARD = [['Cyclone Arnab', 'N'], ['IDBI sale', 'N'], ['RBI forex reserve', 'N'], ['GRAP Stage I', 'N'], ['Vigilance Week', 'N'], ['SIOFA', 'I'], ['Hunger Index', 'I'], ['Poland · CDRI', 'I'],

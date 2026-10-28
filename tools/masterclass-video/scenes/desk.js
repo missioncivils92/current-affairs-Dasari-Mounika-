@@ -1,251 +1,184 @@
-// Scenes for the W44 AP–TG Desk (weeks/2026-W44/aptg-desk), v3. Same notes-ready Glimpse kit as the Prelims Grid
-// (engine.js), in teal: Local · Telugu States. Every card ends on a frame an aspirant can pause and copy: a labelled
-// visual on the left, a "write this down" table on the right (with the primary state document), and the trap bar.
-window.NO_PUSH = true;
-const ORDER = ['L', 'L', 'L', 'L', 'L', 'L', 'L'];
-GK = { order: ORDER, cat: { L: { name: 'LOCAL · TELUGU STATES', col: C.teal, ink: C.slate } } };
-const WIN = GZ.win, NOTES = GZ.notes, ID = (p) => p;   // ID: identity "projection" for labelPill on charts
-const RIVER = 'rgba(120,205,255,0.98)', CR = TERRAIN_CREDIT + ' · Rivers: Natural Earth';
+// Scenes for the W44 AP–TG Desk (weeks/2026-W44/aptg-desk), v5: the animated exam format (exam-kit.js), seven
+// Telugu States topics; topic n's slides are S{n}01, S{n}02… in the master script. One colour per slide, purple first;
+// why-in-news slides are teal (Local: Telugu States).
+window.NO_PUSH = true; window.EX_LOGO = true;
+EX.series = 'AP–TG DESK'; EX.total = 7;
+const mcq = (qs, ok, o = {}) => [{ type: 'mcq', qs, ok, ...o }, { type: 'answer', qs, ok, ...o }];
+const CODES = { ask: 'Which of the statements given above are correct?' };
+const TG = { 'Andhra Pradesh': '#5FD9C2', Telangana: '#99EBDA' };
+const line = (g, proj, pts, o = {}) => { g.save(); g.globalAlpha *= o.alpha ?? 1; g.strokeStyle = o.color || '#1E88E5'; g.lineWidth = o.lw || 6; g.lineCap = g.lineJoin = 'round'; if (o.dash) g.setLineDash(o.dash);
+  g.beginPath(); pts.map(p => proj(p)).forEach((p, i) => i ? g.lineTo(...p) : g.moveTo(...p)); g.stroke(); g.restore(); };
 
-function mapWin(ctx, s, west, south, east, north, draw, o = {}) {
-  gWindow(ctx, s, (g, box) => {
-    const proj = zoomProj(windowCamera(box, west, south, east, north), box, 1 + 0.04 * s.p);
-    terrainMap(g, proj, o.local || 'telugu', o);
-    if (o.sat) raster(g, proj, A[o.sat], A[o.sat + '_meta'], { feather: 50 });
-    if (o.rivers) rivers(g, proj, o.rivers, { color: RIVER, lw: o.lw || 4 });
-    draw(g, proj, box);
-  }, { push: false });
-}
-function chartWin(ctx, s, draw) { gWindow(ctx, s, (g, box) => { g.fillStyle = '#1E2228'; g.fillRect(...box); draw(g, box); }, { push: false }); }
-function item(ctx, s, k, title, sub) { glimpseBase(ctx, k); gHeader(ctx, s, k, title, sub); }
-function riverLabel(g, proj, ll, s, a = 1) { mapLabel(g, proj, ll, s, { font: 'italic ' + F.ui(26, 800), color: '#BFE0FA', alpha: a }); }
-function line(g, proj, pts, o = {}) {    // a schematic river course (lon/lat points), drawn in the river colour
-  g.save(); g.globalAlpha *= o.alpha ?? 1; g.strokeStyle = o.color || RIVER; g.lineWidth = o.lw || 5; g.lineCap = g.lineJoin = 'round';
-  if (o.dash) g.setLineDash(o.dash); g.beginPath(); pts.map(p => proj(p)).forEach((p, i) => i ? g.lineTo(...p) : g.moveTo(...p)); g.stroke(); g.restore();
-}
+// ---------- 1 · AP BC quota ----------
+const CHAIN = { title: 'The judgment chain', table: { size: 24, rowH: 120, cols: [['Year', 0.22], ['Case / order', 0.78]], rows: [
+  [['1992', 'Indra Sawhney · 50% ceiling'], 'sawhney'], [['2010', 'K. Krishna Murthy · local-body quota needs inquiry'], 'krishna'],
+  [['2021', 'Vikas Kishanrao Gawali · the triple test'], 'gawali', { hl: true }], [['Oct 2026', 'AP HC sets aside 34% · SC dismisses appeal']]] } };
+exTopic({ n: 1, cat: 'LOCAL', title: 'AP\'s BC quota in local bodies', short: 'AP BC quota', tags: ['GS-2 · Local government', 'APPSC Group-1', 'TGPSC Group-1'],
+  locator: { focus: { 'Andhra Pradesh': '#7C3AED' }, bounds: [72, 8, 90, 24], pins: [['Andhra Pradesh', [79.7, 15.6], [-60, -90]]] },
+  slides: [
+    { type: 'title' },
+    { type: 'news', col: 'teal', headline: 'AP HC sets aside the 34% BC quota in rural local bodies; SC dismisses the appeal', hz: 44,
+      facts: [['AP HIGH COURT', '1 Oct 2026 · 34% BC quota orders set aside', 'first'], ['SUPREME COURT', '9 Oct · State\'s appeal dismissed', 'ninth'], ['NEXT', 'AP Cabinet adopted the dedicated commission\'s report', 'cabinet']],
+      side: { title: 'Primary document: AP High Court order, 1 Oct 2026', bigs: [['BC QUOTA STRUCK', '34% (rural local bodies)', 'thirty-four'], ['CEILING', 'Total ≤ 50%', 'ninth']] } },
+    { type: 'steps', step: 'FACTS', head: 'THE TRIPLE TEST (GAWALI, 2021)',
+      items: [['A dedicated commission', 'Studies backwardness in local bodies', 'commission'], ['Body-wise proportion', 'The quota is fixed body by body, on that data', 'body'], ['A 50% ceiling', 'Total SC + ST + OBC reservation ≤ 50%', 'fifty']], side: CHAIN },
+    { type: 'trap', myth: 'Article 243D makes a BC quota in panchayats mandatory', truth: 'Enabling only: Art 243D(6) · Art 243T(6) for municipalities', cue: 'enables',
+      extra: [['The quota must still pass the triple test · total ≤ 50%', 'triple']] },
+    ...mcq(['Article 243D(6) obliges States to reserve seats for Backward Classes in panchayats.', 'The triple test requires a dedicated commission to study backwardness.', 'Under the triple test, total reservation in local bodies may not exceed 50%.'], [false, true, true],
+      { reason: 'Answer (b): 2 and 3 · Art 243D(6) only enables a quota' }),
+    { type: 'notes', lines: ['AP HC (1 Oct) set aside the 34% BC quota in rural local bodies · SC dismissed the appeal (9 Oct)', 'Triple test (Gawali 2021): dedicated commission · body-wise share · total ≤ 50%', 'Art 243D(6) panchayats · 243T(6) municipalities: enabling, not mandatory', 'Chain: Indra Sawhney 1992 (50%) → K. Krishna Murthy 2010 → Gawali 2021'] },
+  ] });
 
-// ---------------- A.0 checkpoint answer (Deep Dive 1) ----------------
-SCENES.S01 = (ctx, s) => {
-  desk(ctx, s.t, { book: false, lamp: 0.95 });
-  const a = appear(s.t, 0.2), b = appear(s.t, s.w('directive') - 0.3);
-  card(ctx, 260, 160, 1400, 480, { stroke: C.yellow, lw: 3, alpha: a });
-  pill(ctx, 'CHECKPOINT ANSWER', 320, 210, { alpha: a, font: F.ui(28, 800), h: 50 });
-  text(ctx, 'The RPwD Act, 2016: a statute that courts enforce', 320, 340, { font: F.head(52), color: C.yellow, alpha: appear(s.t, s.w('statute') - 0.3), maxW: 1280, lh: 66 });
-  text(ctx, 'Article 41 is a Directive Principle: not enforceable by any court (Art 37)', 320, 520, { font: F.ui(38, 700), alpha: b, maxW: 1280, lh: 50 });
-  lowerThird(ctx, 'AP–TG Desk · Local: Telugu States', appear(s.t, 0.6));
-};
+// ---------- 2 · Telangana HC ----------
+exTopic({ n: 2, cat: 'LOCAL', title: 'Telangana HC: acting Chief Justice', short: 'Telangana HC', tags: ['GS-2 · Judiciary', 'TGPSC Group-1', 'TS Group-2'],
+  locator: { focus: { Telangana: '#7C3AED' }, bounds: [72, 8, 90, 24], pins: [['Hyderabad', [78.47, 17.38], [-80, -80]]] },
+  slides: [
+    { type: 'title' },
+    { type: 'news', col: 'teal', headline: 'Justice P. Sam Koshy is the acting Chief Justice of the Telangana High Court',
+      facts: [['WHO', 'Justice P. Sam Koshy', 'koshy'], ['ROLE', 'Acting Chief Justice, Telangana HC', 'acting'], ['WHY', 'The Chief Justice was elevated to the Supreme Court', 'elevated']],
+      side: { title: 'Primary document: Ministry of Law notification, Oct 2026', bigs: [['APPOINTED BY', 'The President · Art 223', 'acting'], ['TELANGANA HC', 'Its own High Court since 1 Jan 2019', 'elevated']] } },
+    { type: 'table', col: 'violet', step: 'FACTS', head: 'HIGH COURT ARTICLES: THE SET',
+      table: { size: 28, rowH: 120, cols: [['Article', 0.18], ['What it covers', 0.82]], rows: [
+        [['214', 'A High Court for each State'], 'two-fourteen'], [['217', 'Appointment of High Court judges (President, after consulting the CJI and the Governor)'], 'two-seventeen'],
+        [['223', 'Acting Chief Justice: appointed by the President'], 'two-twenty-three', { hl: true }], [['224', 'Additional and acting judges'], 'two-twenty-four'],
+        [['224A', 'Retired judges may be asked to sit'], 'retired'], [['231', 'One High Court for two or more States'], 'two-thirty-one']] } },
+    { type: 'trap', myth: 'The CJI appoints the acting Chief Justice of a High Court', truth: 'The President · Article 223', cue: 'not',
+      extra: [['Telangana got its own High Court on 1 January 2019 (shared with AP until then)', 'president']] },
+    ...mcq(['The acting Chief Justice of a High Court is appointed by the President.', 'Article 231 allows one High Court for two or more States.', 'Article 224A deals with the appointment of the Chief Justice of India.'], [true, true, false],
+      { ...CODES, opts: ['(a) 1 only', '(b) 1 and 2 only', '(c) 2 and 3 only', '(d) 1, 2 and 3'], key: 1, reason: 'Answer (b): Art 224A is about retired judges' }),
+    { type: 'notes', lines: ['Telangana HC: acting CJ Justice P. Sam Koshy (CJ elevated to the SC)', 'Acting CJ: appointed by the President · Art 223', 'Set: 214 HC per State · 217 appointment · 224 additional/acting · 224A retired · 231 common HC', 'Telangana HC: separate since 1 Jan 2019'] },
+  ] });
 
-// ---------------- D.1 AP BC quota · judgment chain ----------------
-SCENES.S02 = (ctx, s) => {
-  item(ctx, s, 0, 'AP\'s BC quota in local bodies struck down', 'AP High Court, 1 Oct → Supreme Court dismisses the State\'s appeal, 9 Oct');
-  gTable(ctx, s, 0, WIN, [['Year', 0.17], ['Case / order', 0.37], ['What it held', 0.46]],
-    [[['1992', 'Indra Sawhney', '50% ceiling on reservation']],
-     [['2010', 'K. Krishna Murthy (5 judges)', 'Local-body BC quota needs a rigorous inquiry']],
-     [['2021', 'Vikas Kishanrao Gawali', 'The triple test'], 'triple', { hl: true }],
-     [['1 Oct 2026', 'AP High Court', '34% BC quota orders set aside'], 'first'],
-     [['9 Oct 2026', 'Supreme Court', 'State\'s appeal dismissed'], 'ninth']], { size: 26, rowH: 106 });
-  gNotes(ctx, s, 0, [['Enabling only', 'Art 243D(6) panchayats · Art 243T(6) municipalities', '243d6', { hl: true }],
-    ['Triple test', '1 dedicated commission · 2 body-wise proportion · 3 total ≤ 50%', 'triple'],
-    ['AP next', 'Cabinet adopted the dedicated commission\'s report, 10 Oct'],
-    ['Document', 'AP High Court order, 1 Oct 2026']]);
-  gTrap(ctx, s, 'Art 243D makes a BC quota mandatory', 'Enabling only: 243D(6) · total ≤ 50%');
-  finish(ctx, s, 0, 'Sources: AP High Court (1 Oct) and Supreme Court (9 Oct) orders; AP Cabinet, 10 Oct (as reported)');
-};
+// ---------- 3 · NTR Bharosa (Telugu States Lens) ----------
+exTopic({ n: 3, cat: 'LOCAL', title: 'Who pays AP\'s pension?', short: 'NTR Bharosa · NSAP', tags: ['GS-2 · Welfare schemes', 'Telugu States Lens', 'APPSC Group-1'],
+  locator: { focus: { 'Andhra Pradesh': '#7C3AED' }, bounds: [72, 8, 90, 24], pins: [['Andhra Pradesh', [79.7, 15.6], [-60, -90]]] },
+  slides: [
+    { type: 'title' },
+    { type: 'news', col: 'teal', headline: 'NTR Bharosa: ₹4,000 a month, of which the Centre pays ₹200',
+      facts: [['SCHEME', 'NTR Bharosa pensions, Andhra Pradesh', 'bharosa'], ['AMOUNT', '₹4,000 a month (elderly)', 'four thousand'], ['CENTRE\'S SHARE', '₹200 · about one-twentieth', 'two hundred']],
+      side: { title: 'Who pays the ₹4,000 (%)', bars: [['Centre', [['₹200 (5%)', 5, 3]], 'two hundred'], ['State', [['₹3,800 (95%)', 95, 1]], 'four thousand']], note: 'Sources: Govt of AP (NTR Bharosa) · NSAP guidelines (MoRD)' } },
+    { type: 'table', col: 'violet', step: 'FACTS', head: 'NSAP: WHAT THE CENTRE PAYS',
+      table: { size: 28, rowH: 112, cols: [['Scheme', 0.55], ['Centre pays', 0.45]], rows: [
+        [['Old age (IGNOAPS), 60–79', '₹200 a month'], 'sixty', { hl: true }], [['Old age, 80 and above', '₹500 a month'], 'eighty'], [['Widow (IGNWPS)', '₹300 a month'], 'widows'],
+        [['Disability (IGNDPS)', '₹300 a month'], 'disabilities'], [['Family Benefit (NFBS)', '₹20,000 once'], 'family'], [['Annapurna', '10 kg free grain a month'], 'annapurna']] } },
+    { type: 'trap', myth: 'NSAP is run by the Ministry of Social Justice', truth: 'NSAP: Ministry of Rural Development', cue: 'not' },
+    ...mcq(['Under IGNOAPS, the Centre pays ₹200 a month to beneficiaries aged 60–79.', 'NSAP is administered by the Ministry of Rural Development.', 'Annapurna gives 10 kg of free food grain a month.'], [true, true, true],
+      { reason: 'Answer (c): all three are correct' }),
+    { type: 'notes', lines: ['NTR Bharosa (AP): ₹4,000/month to the elderly · Centre\'s share ₹200 (IGNOAPS)', 'NSAP (MoRD): IGNOAPS ₹200 (60–79), ₹500 (80+) · IGNWPS ₹300 · IGNDPS ₹300', 'NFBS ₹20,000 once · Annapurna 10 kg grain a month', 'Group-1 Mains: Describe the State\'s social security pensions and the role of central assistance.'] },
+  ] });
 
-// ---------------- D.2 Telangana HC acting CJ · Article set ----------------
-SCENES.S03 = (ctx, s) => {
-  item(ctx, s, 1, 'Telangana HC: an acting Chief Justice', 'Justice P. Sam Koshy · after the Chief Justice\'s elevation to the Supreme Court');
-  gTable(ctx, s, 1, WIN, [['Article', 0.2], ['High Courts: the look-alike set', 0.8]],
-    [[['214', 'A High Court for each State']],
-     [['217', 'Judges appointed by the President (after consulting the CJI and the Governor)']],
-     [['223', 'Acting Chief Justice: appointed by the President'], 'president', { hl: true }],
-     [['224', 'Additional and acting judges']],
-     [['224A', 'Retired judges may be asked to sit']],
-     [['231', 'One High Court for two or more States']]], { size: 26, rowH: 88 });
-  gNotes(ctx, s, 1, [['Acting CJ', 'Justice P. Sam Koshy', 'koshy', { big: true }],
-    ['Telangana HC', 'Its own High Court since 1 Jan 2019 (until then shared with AP)', null, { hl: true }],
-    ['Document', 'Ministry of Law notification, Oct 2026']]);
-  gTrap(ctx, s, 'The CJI appoints an acting Chief Justice', 'The President · Article 223');
-  finish(ctx, s, 1, 'Source: Union Ministry of Law notification, Oct 2026 (as reported); Constitution of India');
-};
+// ---------- 4 · KRMB / GRMB ----------
+const RIVERS = { bounds: [76.4, 13.6, 83.6, 19.9], focus: TG, rivers: ['Krishna', 'Godavari', 'Tungabhadra', 'Bhima'],
+  labels: [['TELANGANA', [78.9, 18.0], 28], ['ANDHRA PRADESH', [79.3, 14.9], 28], ['BAY OF BENGAL', [82.6, 15.0], 28, '#FFFFFF']],
+  pins: [['Srisailam', [78.87, 16.08], [-110, 40], 1.6], ['Nagarjuna Sagar', [79.31, 16.57], [60, 60], 1.9], ['Polavaram', [81.66, 17.27], [40, -60], 'polavaram', { bg: '#FFD60A' }]] };
+exTopic({ n: 4, cat: 'LOCAL', title: 'Two river boards meet', short: 'KRMB · GRMB', tags: ['GS-1 · Rivers', 'GS-2 · Federalism', 'APPSC · TGPSC Group-1'],
+  locator: { focus: { 'Andhra Pradesh': '#7C3AED', Telangana: '#9D6BFF' }, bounds: [72, 8, 90, 24], rivers: ['Krishna', 'Godavari'] },
+  slides: [
+    { type: 'title' },
+    { type: 'news', col: 'teal', headline: 'The Krishna and Godavari river boards meet, with Polavaram on the agenda',
+      facts: [['KRMB', '26 October (scheduled)', 'twenty-sixth'], ['GRMB', '30 October (scheduled)', 'thirtieth'], ['AGENDA', 'Polavaram backwater', 'polavaram']], side: { map: RIVERS } },
+    { type: 'table', col: 'violet', step: 'FACTS', head: 'BOARDS vs TRIBUNALS',
+      table: { size: 27, rowH: 120, cols: [['Body', 0.3], ['Basis', 0.7]], rows: [
+        [['KRMB · GRMB', 'AP Reorganisation Act 2014 (s.85)'], 'reorganisation', { hl: true }], [['Apex Council', 's.84 · Jal Shakti Minister + both CMs'], 'apex'],
+        [['Polavaram', 'A national project · s.90'], 'national'], [['KWDT-I · II', 'Bachawat (1973) · Brijesh Kumar (2010)'], 'krishna'],
+        [['GWDT', 'Bachawat (1980)'], 'godavari'], [['Tribunals', 'Inter-State River Water Disputes Act 1956 · Art 262'], 'disputes']] } },
+    { type: 'trap', myth: 'The river boards are Art 262 tribunals', truth: 'Boards: APRA 2014 · tribunals: the 1956 Act', cue: 'not' },
+    ...mcq(['KRMB and GRMB were created under the AP Reorganisation Act, 2014.', 'River water tribunals are set up under the Inter-State River Water Disputes Act, 1956.', 'Polavaram is a national project under the AP Reorganisation Act, 2014.'], [true, true, true],
+      { reason: 'Answer (c): all three are correct' }),
+    { type: 'notes', lines: ['KRMB (26 Oct) and GRMB (30 Oct) meetings scheduled · Polavaram backwater on the GRMB agenda', 'Boards: APRA 2014 s.85 · Apex Council s.84 · Polavaram national project s.90', 'Tribunals: ISRWD Act 1956, under Art 262 · KWDT-I 1973, KWDT-II 2010 · GWDT 1980', 'Jurisdiction: Ministry of Jal Shakti notification, July 2021'] },
+  ] });
 
-// ---------------- D.3 Telugu States Lens: NTR Bharosa ----------------
-SCENES.S04 = (ctx, s) => {
-  item(ctx, s, 2, 'Telugu States Lens: who pays AP\'s pension?', 'NTR Bharosa · links to Deep Dive 1 (NSAP)');
-  chartWin(ctx, s, (g, [x, y, w, h]) => {
-    const b = appear(s.t, s.w('four thousand') - 0.3), c = appear(s.t, s.w('two hundred') - 0.3);
-    text(g, 'An elderly pensioner in AP gets ₹4,000 a month', x + 40, y + 70, { font: F.ui(32, 800), alpha: b });
-    const x0 = x + 40, x1 = x + w - 40, by = y + 110, cS = x0 + (x1 - x0) * 200 / 4000;
-    g.save(); g.globalAlpha = b; g.fillStyle = C.teal; g.fillRect(x0, by, x1 - x0, 96); g.globalAlpha = c; g.fillStyle = C.yellow; g.fillRect(x0, by, cS - x0, 96); g.restore();
-    text(g, 'State ₹3,800', x1 - 24, by + 62, { font: F.ui(34, 800), color: C.slate, align: 'right', alpha: b });
-    labelPill(g, ID, [cS - 10, by + 150], 'Centre ₹200 (NSAP) ≈ one twentieth', { align: 'left', alpha: c, fill: 'rgba(245,211,0,0.95)', color: C.slate });
-    g.save(); g.globalAlpha = c; g.strokeStyle = C.yellow; g.lineWidth = 2; g.beginPath(); g.moveTo(x0 + 10, by + 96); g.lineTo(x0 + 10, by + 128); g.stroke(); g.restore();
-    const q = appear(s.t, s.w('group-1') - 0.3);
-    g.save(); g.globalAlpha = q; rr(g, x + 40, y + 330, w - 80, 220, 14); g.strokeStyle = C.teal; g.lineWidth = 3; g.stroke(); g.restore();
-    text(g, 'GROUP-1 MAINS STYLE', x + 70, y + 380, { font: F.ui(24, 800), color: C.teal, alpha: q });
-    text(g, 'Describe the State\'s social security pensions and the role of central assistance.', x + 70, y + 440, { font: F.head(36), maxW: w - 140, lh: 46, alpha: q });
+// ---------- 5 · Tummidihatti ----------
+const WARDHA = [[78.75, 20.75], [79.0, 20.3], [79.3, 19.9], [79.55, 19.68], [79.82, 19.58]], PRAN = [[79.82, 19.58], [79.86, 19.45], [79.92, 19.15], [79.91, 18.81]];
+const pranMap = steps => ({ map: { bounds: [78.3, 18.45, 81.2, 20.95], focus: { Telangana: '#99EBDA', Maharashtra: '#E9DDFF' }, rivers: ['Godavari', 'Wainganga'],
+  labels: [['MAHARASHTRA', [80.3, 20.1], 28], ['TELANGANA', [79.15, 19.1], 28]],
+  draw: (g, proj, s) => {
+    line(g, proj, WARDHA, { dash: [14, 8], alpha: steps ? eia(s, ecue(s, 'wardha', 1)) : 1 });
+    line(g, proj, PRAN, { lw: 10, color: '#7C3AED', alpha: steps ? eia(s, ecue(s, 'pranahita', 1)) : 1 });
+    exTag(g, proj, [79.0, 20.4], 'Wardha', [-60, -40], steps ? eia(s, ecue(s, 'wardha', 1)) : 1, EP.purple);
+    exTag(g, proj, [80.2, 20.4], 'Wainganga', [60, -40], steps ? eia(s, ecue(s, 'wainganga', 1)) : 1, EP.purple);
+    exTag(g, proj, [79.88, 19.3], 'PRANAHITA', [150, 0], steps ? eia(s, ecue(s, 'pranahita', 1)) : 1, EP.purple, { bg: '#7C3AED', fg: '#FFFFFF' });
+    exTag(g, proj, [79.86, 19.46], 'Tummidihatti (approx.)', [-190, -30], steps ? 1 : eia(s, ecue(s, 'tummidihatti', 1)), EP.purple, { bg: '#FFD60A' });
+    exTag(g, proj, [79.91, 18.81], 'Kaleshwaram · joins the Godavari', [190, 30], steps ? eia(s, ecue(s, 'kaleshwaram', 2)) : 1.5, EP.purple);
+  }, credit: 'Boundaries: Survey of India outline (DataMeet) · Natural Earth · Wardha and Pranahita courses schematic' } });
+exTopic({ n: 5, cat: 'LOCAL', title: 'Tummidihatti: how high?', short: 'Tummidihatti barrage', tags: ['GS-1 · Rivers', 'Inter-State relations', 'TGPSC Group-1'],
+  locator: { focus: { Telangana: '#7C3AED', Maharashtra: '#BB9BFF' }, bounds: [72, 8, 90, 24], pins: [['Tummidihatti', [79.86, 19.46], [-90, -70]]] },
+  slides: [
+    { type: 'title' },
+    { type: 'news', col: 'teal', headline: 'Telangana and Maharashtra agree to a joint committee on the Tummidihatti barrage', hz: 44,
+      facts: [['TELANGANA WANTS', 'Full reservoir level 152 m', 'fifty-two'], ['AGREED IN 2016', '148 m (as Telangana says)', 'forty-eight'], ['OUTCOME', 'A joint committee of officials', 'joint']], side: pranMap(false) },
+    { type: 'panel', step: 'FACTS', head: 'THE PRANAHITA', side: pranMap(true),
+      notes: [['FORMED BY', 'The Wardha + the Wainganga', 'wardha'], ['RUNS ALONG', 'The Telangana–Maharashtra border', 'border'], ['JOINS', 'The Godavari at Kaleshwaram', 'kaleshwaram']] },
+    { type: 'trap', myth: 'The barrage is on the Godavari main stem', truth: 'On the Pranahita (Wardha + Wainganga)', cue: 'not' },
+    ...mcq(['The Pranahita is formed by the confluence of the Wardha and the Wainganga.', 'The Pranahita is a tributary of the Krishna.', 'The Tummidihatti barrage is proposed on the main stem of the Godavari.'], [true, false, false],
+      { reason: 'Answer (a): only 1 · the Pranahita joins the Godavari' }),
+    { type: 'notes', lines: ['Tummidihatti: Telangana seeks FRL 152 m vs 148 m (2016) · joint committee of officials (26 Oct)', 'Pranahita = Wardha + Wainganga · Telangana–Maharashtra border', 'Joins the Godavari at Kaleshwaram'] },
+  ] });
+
+// ---------- 6 · DM Act tiers ----------
+exTopic({ n: 6, cat: 'LOCAL', title: 'Who runs a disaster response?', short: 'DM Act tiers · Arnab', tags: ['GS-3 · Disaster Management', 'APPSC Group-1'],
+  locator: { focus: { 'Andhra Pradesh': '#7C3AED' }, bounds: [72, 8, 90, 24], pins: [['Godavari delta', [82.0, 16.6], [-60, -90]]] },
+  slides: [
+    { type: 'title' },
+    { type: 'news', col: 'teal', headline: 'Cyclone Arnab: AP\'s response runs through its State Disaster Management Authority', hz: 44,
+      facts: [['WHEN', '28 Oct · Cyclone Arnab', 'arnab'], ['WHERE', 'Godavari delta coast', 'godavari'], ['WHO', 'AP State Disaster Management Authority', 'authority']],
+      side: { map: { bounds: [80.4, 15.4, 84.6, 18.3], focus: { 'Andhra Pradesh': '#5FD9C2' }, rivers: ['Godavari', 'Krishna'], arrow: [[84.7, 14.6], [83.2, 15.7], [81.89, 16.5]],
+        labels: [['BAY OF BENGAL', [83.6, 16.4], 32, '#FFFFFF']], pins: [['Kakinada', [82.247, 16.989], [130, -60], 2.0], ['Yanam', [82.214, 16.733], [-150, -60], 2.3, { bg: '#FFD60A' }]] } } },
+    { type: 'steps', step: 'FACTS', head: 'DISASTER MANAGEMENT ACT, 2005',
+      items: [['NDMA · section 3', 'Chair: the Prime Minister', 'prime'], ['SDMA · section 14', 'Chair: the Chief Minister', 'chief'], ['DDMA · section 25', 'Chair: the District Collector', 'collector'], ['NDRF · section 44', 'The specialist response force', 'forty-four']] },
+    { type: 'trap', myth: 'The SDMA is chaired by the Governor', truth: 'The Chief Minister · section 14', cue: 'not' },
+    ...mcq(['The NDMA is chaired by the Prime Minister.', 'The SDMA is chaired by the Governor.', 'The NDRF is constituted under the Disaster Management Act, 2005.'], [true, false, true],
+      { ...CODES, opts: ['(a) 1 only', '(b) 1 and 3 only', '(c) 2 and 3 only', '(d) 1, 2 and 3'], key: 1, reason: 'Answer (b): the SDMA is chaired by the CM' }),
+    { type: 'notes', lines: ['DM Act 2005: NDMA (s.3) PM · SDMA (s.14) CM · DDMA (s.25) Collector', 'NDRF: s.44 of the same Act', 'Warnings: IMD is the RSMC New Delhi for the north Indian Ocean', 'Document: APSDMA bulletins, 27–28 Oct'] },
+  ] });
+
+// ---------- 7 · Kolleru ----------
+exTopic({ n: 7, cat: 'LOCAL', title: 'Kolleru: a sanctuary\'s limits', short: 'Kolleru Lake', tags: ['GS-3 · Wetlands', 'Places in news', 'APPSC Group-1'],
+  locator: { focus: { 'Andhra Pradesh': '#7C3AED' }, bounds: [72, 8, 90, 24], pins: [['Kolleru', [81.22, 16.62], [-80, -80]]] },
+  slides: [
+    { type: 'title' },
+    { type: 'news', col: 'teal', headline: 'AP asks to exclude about 20,000 acres from the Kolleru Wildlife Sanctuary (as reported)', hz: 44,
+      facts: [['WHAT', 'Exclude ≈ 20,000 acres (as reported)', 'twenty'], ['FROM', 'Kolleru Wildlife Sanctuary', 'kolleru'], ['BEFORE', 'The SC\'s Central Empowered Committee', 'central']],
+      side: { map: { bounds: [80.0, 15.6, 82.6, 17.4], focus: { 'Andhra Pradesh': '#99EBDA' }, rivers: ['Godavari', 'Krishna'],
+        labels: [['Krishna delta', [80.85, 15.95], 28], ['Godavari delta', [81.95, 16.6], 28], ['BAY OF BENGAL', [81.9, 15.75], 28, '#FFFFFF']],
+        pins: [['KOLLERU · freshwater', [81.22, 16.62], [0, -80], 'kolleru', { bg: '#0F9D8F', fg: '#FFFFFF' }], ['Eluru', [81.1, 16.71], [-120, 40], 2.5]] } } },
+    { type: 'table', col: 'violet', step: 'FACTS', head: 'LAKES: THE LOOK-ALIKE SET',
+      table: { size: 28, rowH: 135, cols: [['Lake', 0.25], ['Type · State · Ramsar', 0.75]], rows: [
+        [['Kolleru', 'Freshwater · AP · Ramsar 2002'], 'kolleru', { hl: true }], [['Chilika', 'Brackish lagoon · Odisha · Ramsar 1981'], 'chilika'],
+        [['Pulicat', 'Brackish lagoon · AP–Tamil Nadu'], 'pulicat'], [['Sambhar', 'Saline · Rajasthan · Ramsar 1990'], 'sambhar'], [['Loktak', 'Freshwater · phumdis · Manipur · Ramsar 1990'], 'loktak']] } },
+    { type: 'trap', myth: 'Kolleru is a brackish lagoon like Chilika', truth: 'Freshwater · between the Krishna and Godavari deltas', cue: 'not' },
+    ...mcq(['Kolleru is a brackish-water lagoon.', 'Kolleru lies between the Krishna and Godavari deltas.', 'Pulicat is a brackish lagoon on the AP–Tamil Nadu border.'], [false, true, true],
+      { reason: 'Answer (b): 2 and 3 · Kolleru is freshwater' }),
+    { type: 'notes', lines: ['Kolleru: AP seeks to exclude ≈ 20,000 acres (as reported) · before the SC\'s CEC', 'Freshwater lake between the Krishna and Godavari deltas · Ramsar 2002', 'Look-alikes: Chilika, Pulicat brackish · Sambhar saline · Loktak freshwater (phumdis)'] },
+  ] });
+
+// ---------- intro, board, sheet ----------
+SCENES.S00 = (ctx, s) => exIntro(ctx, s, 'AP–TG DESK · WEEK 44 · 26 OCT – 1 NOV 2026', 'Seven Telugu States topics · static facts, traps and a Group-1 style question for each');
+const BOARD = ['AP BC quota', 'Telangana HC', 'NTR Bharosa · NSAP', 'KRMB · GRMB', 'Tummidihatti', 'DM Act tiers', 'Kolleru Lake'];
+SCENES.S0 = (ctx, s) => {
+  const c = EP.purple; exSlide(ctx, c);
+  kt(ctx, 'AP–TG DESK · WEEK 44', 960, 150, { font: F.ui(38, 800), align: 'center', color: '#FFFFFF', alpha: eia(s, 0.1) });
+  kt(ctx, 'Why in news → static facts → trap → Group-1 style question', 960, 210, { font: F.ui(30, 700), align: 'center', color: c.t[2], alpha: eia(s, s.w('static') - 0.3) });
+  BOARD.forEach((t, i) => {
+    const x = i < 4 ? 210 + i * 380 : 400 + (i - 4) * 380, y = i < 4 ? 320 : 540, a = eia(s, s.w('seven') - 0.2 + i * 0.12);
+    exBox(ctx, x, y, 350, 170, { alpha: a, bar: '#14B8A6' });
+    kt(ctx, String(i + 1).padStart(2, '0'), x + 40, y + 70, { font: F.head(44), color: c.main, alpha: a });
+    kt(ctx, t, x + 40, y + 128, { font: F.ui(30, 800), color: c.ink, alpha: a, maxW: 290 });
   });
-  gTable(ctx, s, 2, NOTES, [['NSAP scheme', 0.56], ['Centre pays', 0.44]],
-    [[['Old age (IGNOAPS) 60–79', '₹200 a month'], 'two hundred', { hl: true }], [['Old age, 80 and above', '₹500 a month']],
-     [['Widow (IGNWPS)', '₹300 a month']], [['Disability (IGNDPS)', '₹300 a month']], [['Family Benefit (NFBS)', '₹20,000 once']], [['Annapurna', '10 kg grain a month']]], { size: 24, rowH: 86 });
-  finish(ctx, s, 2, 'Sources: Govt of Andhra Pradesh (NTR Bharosa); NSAP guidelines, Ministry of Rural Development');
 };
-
-// ---------------- D.4 KRMB / GRMB · boards vs tribunals ----------------
-SCENES.S05 = (ctx, s) => {
-  item(ctx, s, 3, 'Two river boards meet', 'Scheduled: KRMB 26 Oct · GRMB 30 Oct · Polavaram backwater on the GRMB agenda');
-  mapWin(ctx, s, 76.4, 13.6, 83.6, 19.9, (g, proj) => {
-    riverLabel(g, proj, [77.9, 16.55], 'Krishna', appear(s.t, s.w('krishna') - 0.3));
-    riverLabel(g, proj, [79.0, 19.15], 'Godavari', appear(s.t, s.w('godavari') - 0.3));
-    riverLabel(g, proj, [77.3, 15.3], 'Tungabhadra');
-    [['Srisailam', [78.87, 16.08], [-90, 40]], ['Nagarjuna Sagar', [79.31, 16.57], [40, 50]], ['Polavaram', [81.66, 17.27], [30, -50], 'polavaram']].forEach(([n, ll, off, cw]) => {
-      const a = cw ? appear(s.t, s.w(cw) - 0.3) : 1; pin(g, proj, ll, null, { r: 9, color: C.teal, alpha: a }); labelPill(g, proj, ll, n, { off, font: F.ui(24, 800), alpha: a });
-    });
-  }, { rivers: ['Krishna', 'Godavari', 'Tungabhadra', 'Bhima'], states: { labels: { 'Telangana': [78.9, 18.0], 'Andhra Pradesh': [79.3, 14.9] } } });
-  gTable(ctx, s, 3, NOTES, [['Body', 0.38], ['Basis', 0.62]],
-    [[['KRMB · GRMB', 'AP Reorganisation Act 2014, s.85'], 'reorganisation', { hl: true }],
-     [['Apex Council', 's.84 · Jal Shakti Minister + both CMs']],
-     [['Polavaram', 'National project · s.90']],
-     [['KWDT-I · II', 'Bachawat (1973) · Brijesh Kumar (2010)']],
-     [['GWDT', 'Bachawat (1980)']],
-     [['Tribunals', 'Inter-State River Water Disputes Act 1956 · Art 262'], 'article']], { size: 24, rowH: 88 });
-  gTrap(ctx, s, 'The river boards are Art 262 tribunals', 'Boards: APRA 2014 · tribunals: 1956 Act');
-  finish(ctx, s, 3, CR + ' · Jurisdiction: Ministry of Jal Shakti notification, July 2021');
-};
-
-// ---------------- D.5 Tummidihatti · the Pranahita ----------------
-SCENES.S06 = (ctx, s) => {
-  item(ctx, s, 4, 'Tummidihatti: how high should the barrage be?', '26 Oct · Telangana CM\'s talks in Mumbai · a joint committee of officials');
-  const wardha = [[78.75, 20.75], [79.0, 20.3], [79.3, 19.9], [79.55, 19.68], [79.82, 19.58]];
-  const pranahita = [[79.82, 19.58], [79.86, 19.45], [79.92, 19.15], [79.91, 18.81]];
-  mapWin(ctx, s, 78.3, 18.45, 81.2, 20.95, (g, proj) => {
-    line(g, proj, wardha, { lw: 5, dash: [14, 8] });
-    line(g, proj, pranahita, { lw: 9, color: '#9CD2FF' });
-    riverLabel(g, proj, [79.0, 20.62], 'Wardha', appear(s.t, s.w('wardha') - 0.3));
-    riverLabel(g, proj, [80.35, 20.45], 'Wainganga', appear(s.t, s.w('wainganga') - 0.3));
-    riverLabel(g, proj, [79.2, 18.62], 'Godavari');
-    labelPill(g, proj, [79.89, 19.3], 'PRANAHITA', { off: [150, 0], fill: 'rgba(156,210,255,0.95)', color: C.slate, alpha: appear(s.t, s.w('pranahita') - 0.3) });
-    pin(g, proj, [79.86, 19.46], null, { r: 10, color: C.teal }); labelPill(g, proj, [79.86, 19.46], 'Tummidihatti (approx.)', { off: [-170, -40], font: F.ui(24, 800), alpha: appear(s.t, s.w('tummidihatti') - 0.3) });
-    pin(g, proj, [79.91, 18.81], null, { r: 9, color: C.white }); labelPill(g, proj, [79.91, 18.81], 'Kaleshwaram · joins the Godavari', { off: [190, 20], font: F.ui(24, 800) });
-    mapLabel(g, proj, [80.3, 20.1], 'MAHARASHTRA', { font: F.ui(26, 800), color: 'rgba(255,255,255,0.8)' });
-    mapLabel(g, proj, [79.15, 19.1], 'TELANGANA', { font: F.ui(26, 800), color: 'rgba(255,255,255,0.8)' });
-  }, { rivers: ['Godavari', 'Wainganga'], states: {} });
-  gNotes(ctx, s, 4, [['Telangana wants (FRL)', '152 m', 'one hundred and fifty-two', { big: true }],
-    ['Agreed in 2016 (Telangana says)', '148 m', 'forty-eight', { big: true }],
-    ['Outcome', 'A joint committee of officials', 'joint', { hl: true }],
-    ['River', 'Pranahita = Wardha + Wainganga → Godavari at Kaleshwaram', 'pranahita']]);
-  gTrap(ctx, s, 'The barrage is on the Godavari main stem', 'On the Pranahita (Wardha + Wainganga)');
-  finish(ctx, s, 4, CR + ' · Wardha and Pranahita courses schematic');
-};
-
-// ---------------- D.6 Arnab: the State's response · DM Act tiers ----------------
-SCENES.S07 = (ctx, s) => {
-  item(ctx, s, 5, 'Arnab: who runs the response?', '28 Oct · Very Severe Cyclonic Storm · Godavari delta coast');
-  mapWin(ctx, s, 81.1, 16.45, 82.6, 17.2, (g, proj, [x, y]) => {
-    pin(g, proj, [82.247, 16.989], null, { r: 8, color: C.white }); labelPill(g, proj, [82.247, 16.989], 'Kakinada', { off: [0, -46], font: F.ui(24, 800) });
-    pin(g, proj, [82.214, 16.733], null, { r: 9 }); labelPill(g, proj, [82.214, 16.733], 'Yanam · Puducherry UT', { off: [0, 50], font: F.ui(24, 800), fill: 'rgba(245,211,0,0.92)', color: C.slate });
-    const T = [['NDMA', 'Prime Minister', 's.3', 'prime minister'], ['SDMA', 'Chief Minister', 's.14', 'chief minister'], ['DDMA', 'Collector', 's.25', 'collector']];
-    T.forEach(([b, ch, sec, cw], i) => {
-      const a = appear(s.t, s.w(cw) - 0.3), yy = y + 40 + i * 150, hl = i === 1;
-      g.save(); g.globalAlpha = a; rr(g, x + 30, yy, 470, 116, 12); g.fillStyle = hl ? 'rgba(43,179,163,0.95)' : 'rgba(20,23,28,0.92)'; g.fill(); g.restore();
-      text(g, b + ' · ' + sec, x + 56, yy + 46, { font: F.ui(26, 800), color: hl ? C.slate : C.teal, alpha: a });
-      text(g, 'Chair: ' + ch, x + 56, yy + 92, { font: F.ui(32, 800), color: hl ? C.slate : C.white, alpha: a });
-      if (i) arrow(g, [[x + 265, yy - 32], [x + 265, yy - 4]], a, { color: 'rgba(255,255,255,0.7)', lw: 3 });
-    });
-    text(g, 'Disaster Management Act, 2005', x + 34, y + 520, { font: F.ui(24, 800), color: C.white, shadow: 6 });
-  }, { local: 'apcoast', sat: 'arnab_coast' });
-  gNotes(ctx, s, 5, [['NDRF', 'Constituted under s.44 of the same Act'], ['Warnings', 'IMD is the RSMC New Delhi for the north Indian Ocean'],
-    ['State link', 'National cyclone set: Prelims Grid card 01'], ['Document', 'APSDMA bulletins, 27–28 Oct']]);
-  gTrap(ctx, s, 'The SDMA is chaired by the Governor', 'The Chief Minister · s.14, DM Act 2005');
-  finish(ctx, s, 5, SENT_CREDIT + ' · ' + TERRAIN_CREDIT);
-};
-
-// ---------------- D.7 Kolleru · lakes look-alike set ----------------
-SCENES.S08 = (ctx, s) => {    // Kolleru · v4: fly in from the State to the lake, then the lakes set
-  const keys = [[0.4, [76.5, 12.5, 85, 20]], [4.5, [80.85, 16.2, 81.8, 16.95]]];
-  cine(ctx, s, 6, { title: 'Kolleru: a sanctuary\'s limits', kicker: 'AP asks the SC\'s Central Empowered Committee to exclude land', sub: 'AP asks the SC\'s Central Empowered Committee to exclude ≈ 20,000 acres (as reported)',
-    draw: (g, box) => {
-      const proj = windowCamera(box, ...boundsAt(s.t, keys));
-      terrainMap(g, proj, 'telugu', { states: { labels: s.t < 4 ? { 'Andhra Pradesh': [79.3, 15.0], 'Telangana': [78.9, 18.0] } : {} } });
-      raster(g, proj, A.kolleru_wide, A.kolleru_wide_meta, { feather: 50, alpha: span(s.t, 2.6, 4.6) });
-      const [lx, ly] = proj([81.22, 16.62]), kc = s.w('kolleru');
-      inkEllipse(g, lx, ly, 150 * box[2] / 1080, 110 * box[3] / 600, span(s.t, kc - 0.1, kc + 0.9), { seed: 2, color: C.teal });
-      labelPill(g, proj, [81.22, 16.63], 'KOLLERU · freshwater', { fill: 'rgba(43,179,163,0.95)', color: C.slate, alpha: appear(s.t, kc) });
-      labelPill(g, proj, [81.0, 16.3], 'Krishna delta side', { font: F.ui(24, 800), alpha: appear(s.t, s.w('deltas') - 0.3) });
-      labelPill(g, proj, [81.6, 16.85], 'Godavari delta side', { font: F.ui(24, 800), alpha: appear(s.t, s.w('deltas') - 0.3) });
-    } });
-  bigFact(ctx, s, 1240, 260, 'AP SEEKS TO EXCLUDE', '≈ 20,000 acres', s.w('twenty') - 0.2, { col: C.teal });
-  bigFact(ctx, s, 1240, 470, 'BEFORE', 'SC\'s Central Empowered Committee', s.w('central') - 0.2, { col: ACC[1], size: 44 });
-  gTable(ctx, s, 6, NOTES, [['Lake', 0.3], ['Type · State · Ramsar', 0.7]],
-    [[['Kolleru', 'Freshwater · AP · 2002'], 'freshwater', { hl: true }],
-     [['Chilika', 'Brackish lagoon · Odisha · 1981'], 'chilika', { trapCol: 1 }],
-     [['Pulicat', 'Brackish lagoon · AP–Tamil Nadu'], 'pulicat'],
-     [['Sambhar', 'Saline · Rajasthan · 1990']],
-     [['Loktak', 'Freshwater · phumdis · Manipur · 1990']]], { size: 24, rowH: 104 });
-  gTrap(ctx, s, 'Kolleru is a brackish lagoon like Chilika', 'Freshwater · between the two deltas');
-  finish(ctx, s, 6, SENT_CREDIT + ' · Ramsar Sites Information Service');
-};
-
-// ---------------- D.R Telugu States sheet ----------------
-const SHEET = [
-  ['01', 'BC quota', 'AP HC 1 Oct, SC 9 Oct · Art 243D(6) enabling · triple test (Gawali 2021) · ≤ 50%'],
-  ['02', 'Telangana HC', 'Acting CJ Justice P. Sam Koshy · appointed by the President, Art 223'],
-  ['03', 'NTR Bharosa', '₹4,000 a month · Centre ₹200 (IGNOAPS) ≈ one twentieth'],
-  ['04', 'KRMB · GRMB', 'APRA 2014 (s.85) boards · not Art 262 tribunals (1956 Act)'],
-  ['05', 'Tummidihatti', 'Pranahita = Wardha + Wainganga · FRL 152 m sought vs 148 m (2016)'],
-  ['06', 'DM Act 2005', 'NDMA PM (s.3) · SDMA CM (s.14) · DDMA Collector (s.25) · NDRF s.44'],
-  ['07', 'Kolleru', 'Freshwater, between the deltas · Ramsar 2002 · Chilika, Pulicat brackish'],
-];
-SCENES.S11 = (ctx, s) => {
-  glimpseBase(ctx, 0);
-  text(ctx, 'TELUGU STATES SHEET · AP–TG DESK W44', 96, 110, { font: F.ui(30, 800), color: C.teal });
-  text(ctx, 'Pause and copy · the question that follows tests it', 96, 156, { font: F.ui(26, 600), color: C.dim });
+const SHEET = [['01', 'BC quota', 'AP HC 1 Oct, SC 9 Oct · Art 243D(6) enabling · triple test (Gawali 2021) · ≤ 50%'], ['02', 'Telangana HC', 'Acting CJ Justice P. Sam Koshy · appointed by the President, Art 223'],
+  ['03', 'NTR Bharosa', '₹4,000/month · Centre ₹200 (IGNOAPS) · NSAP is MoRD'], ['04', 'KRMB · GRMB', 'APRA 2014 boards (s.85) · tribunals: 1956 Act, Art 262'],
+  ['05', 'Tummidihatti', 'Pranahita = Wardha + Wainganga · FRL 152 m sought vs 148 m (2016)'], ['06', 'DM Act 2005', 'NDMA PM (s.3) · SDMA CM (s.14) · DDMA Collector (s.25) · NDRF s.44'],
+  ['07', 'Kolleru', 'Freshwater, between the deltas · Ramsar 2002 · Chilika, Pulicat brackish']];
+SCENES.S99 = (ctx, s) => {
+  const c = EP.purple; exSlide(ctx, c);
+  exChip(ctx, 'TELUGU STATES SHEET · AP–TG DESK W44', 72, 40, '#FFFFFF', c.ink, 28);
+  exBox(ctx, 72, 140, 1776, 880);
   SHEET.forEach(([n, it, fact], i) => {
-    const y = 200 + i * 112, a = appear(s.t, 0.2 + i * 0.12, 0.35);
-    const rc = ACC[i % ACC.length];
-    ctx.save(); ctx.globalAlpha = a; rr(ctx, 96, y, 1728, 98, 10); ctx.fillStyle = tint(rc, 0.13); ctx.fill(); ctx.fillStyle = rc; ctx.fillRect(96, y, 8, 98); ctx.restore();
-    ctx.save(); ctx.globalAlpha = a; rr(ctx, 116, y + 23, 60, 52, 10); ctx.fillStyle = rc; ctx.fill(); ctx.restore();
-    text(ctx, n, 146, y + 61, { font: F.ui(28, 800), color: C.slate, align: 'center', alpha: a });
-    text(ctx, it, 200, y + 61, { font: F.ui(30, 800), color: rc, alpha: a });
-    text(ctx, fact, 520, y + 61, { font: F.ui(28, 600), color: '#E3E7EC', alpha: a });
+    const y = 165 + i * 120, a = eia(s, 0.2 + i * 0.1);
+    ctx.save(); ctx.globalAlpha *= a; rr(ctx, 96, y, 1728, 106, 12); ctx.fillStyle = c.t[i % 2]; ctx.fill(); ctx.fillStyle = '#14B8A6'; ctx.fillRect(96, y, 10, 106); ctx.restore();
+    kt(ctx, n, 136, y + 66, { font: F.head(36), color: c.main, alpha: a });
+    kt(ctx, it, 210, y + 66, { font: F.ui(30, 800), color: c.ink, alpha: a });
+    kt(ctx, fact, 520, y + 66, { font: F.ui(28, 600), color: c.ink, alpha: a, maxW: 1280 });
   });
-};
-
-// ---------------- D.8–D.9 the Group-1 question ----------------
-const Q = ['1. The Pranahita is formed by the Wardha and the Wainganga.', '2. The State Disaster Management Authority is chaired by the Governor.',
-  '3. The Krishna and Godavari River Management Boards were set up under the Andhra Pradesh Reorganisation Act, 2014.'];
-function g1Paper(ctx, s, o = {}) {
-  bg(ctx, { inner: '#22262D' });
-  ctx.save(); ctx.translate(960, 540); ctx.rotate(-0.008); ctx.translate(-960, -540);
-  card(ctx, 180, 70, 1560, 940, { fill: '#EDE6D6', r: 6 });
-  ctx.fillStyle = C.teal; ctx.fillRect(180, 70, 1560, 16);
-  text(ctx, 'GROUP-1 STYLE · Consider the following statements:', 240, 170, { font: F.head(40), color: '#1E2228' });
-  // five reveal steps (three statements, the stem, the options), each reaching full opacity once typed = 1
-  const typed = o.typed ?? 1, step = i => clamp(typed * 5 - i);
-  Q.forEach((m, i) => {
-    const y = 270 + i * 130;
-    text(ctx, m, 270, y, { font: F.ui(36, 600), color: '#1E2228', alpha: step(i), maxW: 1400, lh: 46 });
-    if (i === 1 && o.strike > 0) strike(ctx, 265, 1390, y - 12, o.strike);
-  });
-  text(ctx, 'How many of the above statements are correct?', 240, 700, { font: F.head(40), color: '#1E2228', alpha: step(3) });
-  ['(a) Only one', '(b) Only two', '(c) All three', '(d) None'].forEach((op, i) => {
-    const x = 270 + i * 360; text(ctx, op, x, 800, { font: F.ui(36, 700), color: '#1E2228', alpha: step(4) });
-    if (i === 1 && o.circle > 0) { ctx.save(); ctx.strokeStyle = '#C08A00'; ctx.lineWidth = 6; ctx.beginPath(); ctx.ellipse(x + 100, 788, 140, 44, -0.04, -Math.PI / 2, -Math.PI / 2 + 2 * Math.PI * easeOut(o.circle)); ctx.stroke(); ctx.restore(); }
-  });
-  if (o.reason) text(ctx, o.reason, 240, 930, { font: F.hand(46), color: '#8A5A00', alpha: o.reasonA ?? 1, maxW: 1440 });
-  ctx.restore();
-}
-SCENES.S09 = (ctx, s) => {
-  g1Paper(ctx, s, { typed: span(s.t, 0.2, Math.min(s.d - 1, s.w('correct'))) });
-  const h = s.hold; if (!h) return;
-  const ra = appear(s.t, h.at - 0.2, 0.4), cd = clamp((s.t - h.at) / h.dur), left = Math.ceil(h.dur - cd * h.dur);
-  ctx.save(); ctx.globalAlpha = ra; ctx.fillStyle = 'rgba(20,23,28,0.92)'; ctx.beginPath(); ctx.arc(1730, 900, 120, 0, 7); ctx.fill();
-  ctx.lineWidth = 14; ctx.strokeStyle = 'rgba(255,255,255,0.15)'; ctx.beginPath(); ctx.arc(1730, 900, 95, 0, 7); ctx.stroke();
-  ctx.strokeStyle = C.teal; ctx.beginPath(); ctx.arc(1730, 900, 95, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * (1 - cd)); ctx.stroke(); ctx.restore();
-  text(ctx, String(clamp(left, 0, h.dur)), 1730, 935, { font: F.head(96), align: 'center', alpha: ra, color: C.teal });
-};
-SCENES.S10 = (ctx, s) => {
-  const cm = s.w('chief minister') - 0.2;
-  g1Paper(ctx, s, { circle: span(s.t, s.w('only two') - 0.2, s.w('only two') + 0.8), strike: span(s.t, cm, cm + 0.7),
-    reason: '(b): 1 and 3 are correct · the SDMA is chaired by the Chief Minister', reasonA: appear(s.t, cm + 0.5) });
 };
