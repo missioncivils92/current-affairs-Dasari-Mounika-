@@ -85,7 +85,10 @@ for tile in tiles:
 img = mosaic.astype(np.float32) / 255.0
 img = np.clip((img ** 0.85) * 1.08, 0, 1)
 rgba = np.dstack([(img.transpose(1, 2, 0) * 255).astype(np.uint8), (filled * 255).astype(np.uint8)])
-Image.fromarray(rgba, "RGBA").save(out_dir / f"{name}.png", optimize=True)
+import importlib.util                       # sharpen and de-haze for video (sat_enhance.py)
+_spec = importlib.util.spec_from_file_location("sat_enhance", Path(__file__).with_name("sat_enhance.py"))
+_se = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(_se)
+_se.enhance(Image.fromarray(rgba, "RGBA")).save(out_dir / f"{name}.png", optimize=True)
 years = sorted({s["id"].split("_")[2][:4] for s in used})
 (out_dir / f"{name}.json").write_text(json.dumps({
     "bounds": [west, south, east, north], "width": width, "height": height, "scenes": used,

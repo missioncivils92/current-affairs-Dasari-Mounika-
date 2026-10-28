@@ -52,12 +52,12 @@ const stills = arg('--stills', null), audio = arg('--audio', null);
   const t0 = +arg('--from', 0), t1 = +arg('--to', tl.duration);
   const ffArgs = ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(fps), '-c:v', 'mjpeg', '-i', '-'];
   if (audio) ffArgs.push('-ss', String(t0), '-i', audio, '-map', '0:v', '-map', '1:a', '-c:a', 'aac', '-b:a', '192k', '-shortest');
-  ffArgs.push('-c:v', 'libx264', '-preset', 'medium', '-crf', '19', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out);
+  ffArgs.push('-c:v', 'libx264', '-preset', 'slow', '-crf', '16', '-tune', 'animation', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out);   // crisp text at 1080p
   const ff = spawn('ffmpeg', ffArgs, { stdio: ['pipe', 'inherit', 'inherit'] });
   const n0 = Math.round(t0 * fps), n1 = Math.round(t1 * fps), started = Date.now();
   for (let n = n0; n < n1; n++) {
     await page.evaluate(t => window.renderAt(t), n / fps);
-    const buf = await canvas.screenshot({ type: 'jpeg', quality: 92 });
+    const buf = await canvas.screenshot({ type: 'jpeg', quality: 97 });
     if (!ff.stdin.write(buf)) await new Promise(r => ff.stdin.once('drain', r));
     if ((n - n0) % (fps * 30) === 0) console.log(`${((n - n0) / fps).toFixed(0)}s / ${(t1 - t0).toFixed(0)}s · ${((Date.now() - started) / 1000).toFixed(0)}s elapsed`);
   }
