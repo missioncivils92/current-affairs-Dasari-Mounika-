@@ -27,19 +27,19 @@ The video opens on the channel emblem (decisions 34–35) and ends with a one-pa
 | File | What it is |
 |---|---|
 | `01-research-brief.md` | Sources, verification log and exam tags. The running order is unchanged; the v5 format is described here and in the script |
-| `02-master-script.md` | Two-column script v7 (opening question, connected narration, the examiner's three tricks; decision 36): 54 rows, 2,005 words, about 16 min with the holds |
-| `02b-voiceover-text.md` | Recording file: `python3 tools/make_voiceover.py weeks/2026-W44/aptg-desk v7` |
+| `02-master-script.md` | Two-column script v8 (decisions 36–37: opening question at 0:19, connected narration, the examiner's three tricks, reach CTA): 54 rows, 2,024 words, about 16 min with the holds |
+| `02b-voiceover-text.md` | Recording file: `python3 tools/make_voiceover.py weeks/2026-W44/aptg-desk v8` |
 
 ## Review render
-`w44-aptg-desk-exam-1080p.mp4` was sent in chat; videos are gitignored. It is a silent review render at 1080p, timed at 135 wpm, with the music bed only. Mounika's recording replaces the timing (see the tool README, "Syncing to a finished narration").
+`w44-desk-v8-1080p.mp4` (v8) was sent in chat; videos are gitignored. It is a silent review render at 1080p, timed at 135 wpm, with the music bed only. Mounika's recording replaces the timing (see the tool README, "Syncing to a finished narration").
 
 To rebuild it, run from `tools/masterclass-video` with `$A` as the asset folder:
 
 ```bash
 python3 -I prep_geo.py $A/ne $A/geo.json     # Natural Earth + the Survey of India outline + state shapes
-python3 -I timeline.py ../../weeks/2026-W44/aptg-desk/02-master-script.md $A/desk5.json
-python3 -I sound_bed.py $A/desk5.json $A/desk5_bed.wav --pulse
-node render.js $A $A/desk5.json scenes/desk.js $A/desk.mp4 --review --strict --fps 24   # then mux desk5_bed.wav
+python3 -I timeline.py ../../weeks/2026-W44/aptg-desk/02-master-script.md $A/desk8.json
+python3 -I sound_bed.py $A/desk8.json $A/desk8_bed.wav --pulse
+node render.js $A $A/desk8.json scenes/desk.js $A/desk.mp4 --review --strict --fps 24   # then mux desk8_bed.wav
 ```
 
 ## Before the edit lock
