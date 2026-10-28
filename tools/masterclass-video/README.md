@@ -73,6 +73,38 @@ First used for `weeks/2026-W44/sample-oleshky/`. `scenes/nsap.js` and `scenes/ec
   - `countries_wide`, which now runs from 90° W to 160° E, so world maps reach Brazil.
 - **Encoding:** `render.js` uses x264 `slow`, CRF 16, `tune animation`, BT.709 tags and JPEG-97 frames. Deliver previews at 1080p; a 720p downscale blurs the tables.
 
+## Exam kit v5 (animated exam format)
+
+`exam-kit.js` is loaded by `render.js` after `engine.js`. It replaced the v3 Glimpse kit for the Grid and the Desk (owner, 28 Oct 2026: "exam oriented", "one colour per slide, purple", "I need animations", "keep my channel icon").
+
+**Topics are data.** `exTopic({n, cat, title, short, tags, locator, slides})` registers scenes `S<n><two-digit index>`:
+- **Slide types:** `title`, `news`, `steps`, `table`, `panel`, `trap`, `mcq`, `answer`, `notes`.
+- **Panel kinds:** map (flat Survey-of-India shapes via `exFlat`), ladder, bars, line, bigs, scale, tiles, table, chips, or a custom `draw`.
+- **MCQs:** the key is computed from the statements' truth values unless `key` is given. The answer lands on the cue `answer` (or `keyCue`).
+- **Palettes:** `EP` has purple, violet, orange, blue, teal, red and yellow. Red is used only for traps.
+
+**Animation:**
+- Text rises in (`kt`).
+- Boxes and chips rise and scale.
+- Every slide zooms in on entry (`exEnter`).
+- `exSlide` draws a living background: a drifting glow, turning dashed rings and slow bubbles.
+- Maps push in, and their pins drop in.
+- Headlines and topic titles reveal word by word.
+- The trap's myth shakes before its strike.
+- Notes lines get a highlighter sweep.
+- The correct option gets a confetti burst.
+- Every build still lands on its cue word.
+
+**Brand:**
+- `brand/decode-upsc-logo.png` is the channel emblem.
+- `exIntro(ctx, s, chip, line)` is the opening sting: rays, glow, the emblem's spin-in and a shine sweep.
+- `exLogo` puts the emblem in the corner of every slide.
+- Scene files set `window.EX_LOGO = true`, which makes `brand()` skip the old pill.
+
+**QA:**
+- `--stills t1,t2,…` takes a list of times, for example each row's end time minus 0.3 s. A bare `--stills` renders nothing useful.
+- Run `--strict` before every full render.
+
 ## Sound
 
 `sound_bed.py <timeline.json> <out.wav> [--voice final_audio.wav]` synthesises the bed: a low ambient pad (ducked about 10 dB under the voice, rising in holds and under the end screen), a muted bell per countdown and a page turn for the Decode Archive. It is all own work, so there is nothing to license. Without `--voice` it writes the bed alone for silent previews.

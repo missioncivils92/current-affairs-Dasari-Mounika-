@@ -19,9 +19,9 @@ const stills = arg('--stills', null), audio = arg('--audio', null);
   const tl = JSON.parse(fs.readFileSync(tlFile, 'utf8'));
   const images = {}, data = { geo: JSON.parse(fs.readFileSync(path.join(assets, 'geo.json'))) };
   const envFile = arg('--env', null); if (envFile) data.env = JSON.parse(fs.readFileSync(envFile));
-  for (const sub of ['terrain', 'sat']) for (const f of fs.readdirSync(path.join(assets, sub))) {
-    if (f.endsWith('.json')) data[f.replace('.json', '_meta')] = JSON.parse(fs.readFileSync(path.join(assets, sub, f)));
-    if (f.endsWith('.png') && !f.startsWith('p_')) images[f.replace('.png', '')] = 'file://' + path.join(assets, sub, f);
+  for (const dir of [path.join(assets, 'terrain'), path.join(assets, 'sat'), path.join(__dirname, 'brand')]) for (const f of fs.existsSync(dir) ? fs.readdirSync(dir) : []) {
+    if (f.endsWith('.json')) data[f.replace('.json', '_meta')] = JSON.parse(fs.readFileSync(path.join(dir, f)));
+    if (f.endsWith('.png') && !f.startsWith('p_')) images[f.replace('.png', '')] = 'file://' + path.join(dir, f);
   }
   const browser = await chromium.launch({ args: ['--allow-file-access-from-files', '--disable-web-security'] });
   const page = await browser.newPage({ viewport: { width: 1920, height: 1080 } });
@@ -31,7 +31,7 @@ const stills = arg('--stills', null), audio = arg('--audio', null);
   await page.goto('file://' + path.join(__dirname, 'render.html'));
   const info = await page.evaluate(cfg => window.boot(cfg), {
     fontCss: 'file://' + path.join(assets, 'fonts', 'local.css'), review, images, data, timeline: tl,
-    scripts: ['file://' + path.join(assets, 'd3.min.js'), 'file://' + path.join(__dirname, 'engine.js'), 'file://' + sceneFile],
+    scripts: ['file://' + path.join(assets, 'd3.min.js'), 'file://' + path.join(__dirname, 'engine.js'), 'file://' + path.join(__dirname, 'exam-kit.js'), 'file://' + sceneFile],
   });
   if (pageErrors.length) { console.error('Scene or engine code failed to load; not rendering.'); await browser.close(); process.exit(1); }
   console.log('booted', { rows: info.rows, duration: info.duration });

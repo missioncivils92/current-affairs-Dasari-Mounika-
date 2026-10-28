@@ -334,7 +334,7 @@ function fitFont(ctx, s, maxW, size, min, fam = F.head) {   // largest size ≤ 
 }
 function gHeader(ctx, s, k, title, sub) {
   const c = GK.cat[GK.order[k]], a = appear(s.t, 0.3, 0.6);
-  ctx.save(); ctx.globalAlpha = a; ctx.font = F.ui(24, 800);
+  ctx.save(); ctx.globalAlpha *= a; ctx.font = F.ui(24, 800);
   const chip = `${c.name}  ${String(k + 1).padStart(2, '0')}/${GK.order.length}`, cw = ctx.measureText(chip).width + 36;
   rr(ctx, 96, 52, cw, 44, 22); ctx.fillStyle = c.col; ctx.fill(); ctx.fillStyle = c.ink; ctx.textBaseline = 'middle'; ctx.fillText(chip, 114, 75);
   const z = fitFont(ctx, title, 1500, 60, 44);
@@ -346,16 +346,20 @@ function gHeader(ctx, s, k, title, sub) {
 }
 // the visual window: clipped, undarkened; fn(ctx, box) draws inside. A slow push-in lives only here.
 function gWindow(ctx, s, fn, o = {}) {
-  const [x, y, w, h] = o.box || GZ.win;
-  ctx.save(); rr(ctx, x, y, w, h, 14); ctx.clip();
+  const [x, y, w, h] = o.box || GZ.win, r = o.r ?? 14;
+  ctx.save(); rr(ctx, x, y, w, h, r); ctx.clip();
   ctx.fillStyle = '#12283A'; ctx.fillRect(x, y, w, h);
   if (o.push !== false) { const k = 1 + 0.035 * s.p, cx = x + w / 2, cy = y + h / 2; ctx.translate(cx, cy); ctx.scale(k, k); ctx.translate(-cx, -cy); }
   fn(ctx, [x, y, w, h]);
   ctx.restore();
-  ctx.save(); rr(ctx, x, y, w, h, 14); ctx.strokeStyle = 'rgba(255,255,255,0.14)'; ctx.lineWidth = 2; ctx.stroke(); ctx.restore();
+  ctx.save(); rr(ctx, x, y, w, h, r); ctx.strokeStyle = 'rgba(255,255,255,0.14)'; ctx.lineWidth = 2; ctx.stroke(); ctx.restore();
 }
 // the notes panel: rows = [[label, value, cueWord, {big, hl}] ...]; values wrap and shrink to fit the panel
 function gNotes(ctx, s, k, rows, o = {}) {
+  const after = o.after ?? s.after, pa = after != null ? appear(s.t, after, 0.5) : 1; if (pa <= 0) return;
+  ctx.save(); ctx.globalAlpha *= pa; ctx.translate((1 - pa) * 90, 0); gNotesBody(ctx, s, k, rows, o, after); ctx.restore();
+}
+function gNotesBody(ctx, s, k, rows, o, after) {
   const c = GK.cat[GK.order[k]], [x, y, w, h] = o.box || GZ.notes, pad = 26, iw = w - 2 * pad;
   ctx.save(); rr(ctx, x, y, w, h, 14); const pg = ctx.createLinearGradient(x, y, x, y + h); pg.addColorStop(0, tint(c.col, 0.22)); pg.addColorStop(0.35, '#1F242C'); pg.addColorStop(1, '#1A1E25');
   ctx.fillStyle = pg; ctx.fill(); ctx.strokeStyle = tint(c.col, 0.55); ctx.lineWidth = 2; ctx.stroke(); ctx.restore();
@@ -375,7 +379,8 @@ function gNotes(ctx, s, k, rows, o = {}) {
     if (yy <= y + h - 12) break;
   }
   lay.forEach((r, i) => {
-    const a = r.cw === null ? 1 : appear(s.t, (r.cw ? s.w(r.cw) : s.d * (0.15 + 0.6 * i / lay.length)) - 0.3, 0.45);
+    const t0 = r.cw === null ? -9 : (r.cw ? s.w(r.cw) : s.d * (0.15 + 0.6 * i / lay.length)) - 0.3;
+    const a = appear(s.t, after != null ? Math.max(t0, after + 0.25 + 0.15 * i) : t0, 0.45);
     if (a <= 0) return;
     const dx = (1 - a) * 24, rc = r.op.acc || ACC[(i + (o.shift || 0)) % ACC.length];
     ctx.save(); ctx.globalAlpha = a; rr(ctx, x + 12, r.yy - 4, w - 24, r.rh - 6, 8); ctx.fillStyle = tint(rc, r.op.hl ? 0.26 : 0.10); ctx.fill();
@@ -387,6 +392,10 @@ function gNotes(ctx, s, k, rows, o = {}) {
 }
 // a comparison table inside a box: cols = [label, width share], rows = [[cells...], cueWord, {hl, trapCol}]
 function gTable(ctx, s, k, box, cols, rows, o = {}) {
+  const after = o.after ?? (o.inWindow ? null : s.after), pa = after != null ? appear(s.t, after, 0.5) : 1; if (pa <= 0) return;
+  ctx.save(); ctx.globalAlpha *= pa; ctx.translate((1 - pa) * 90, 0); gTableBody(ctx, s, k, box, cols, rows, o, after); ctx.restore();
+}
+function gTableBody(ctx, s, k, box, cols, rows, o, after) {
   const c = GK.cat[GK.order[k]], [x, y, w, h] = box, hh = 56, rh = Math.min(o.rowH || 104, (h - hh - 10) / rows.length);
   ctx.save(); rr(ctx, x, y, w, h, 14); ctx.fillStyle = '#1C2027'; ctx.fill(); ctx.strokeStyle = tint(c.col, 0.55); ctx.lineWidth = 2; ctx.stroke(); ctx.restore();
   ctx.save(); rr(ctx, x, y, w, hh, 14); ctx.clip(); ctx.fillStyle = c.col; ctx.fillRect(x, y, w, hh); ctx.restore();
@@ -394,7 +403,8 @@ function gTable(ctx, s, k, box, cols, rows, o = {}) {
   cols.forEach(([lab], i) => text(ctx, lab.toUpperCase(), xs[i], y + 37, { font: F.ui(24, 800), color: c.ink }));
   const trapAt = rows.some(r => r[2] && r[2].trapCol != null) ? s.w('prelims trap') - 0.3 : Infinity;
   rows.forEach(([cells, cw, op = {}], r) => {
-    const a = appear(s.t, (cw ? s.w(cw) : s.d * (0.12 + 0.55 * r / rows.length)) - 0.3, 0.4), yy = y + hh + r * rh;
+    const t0 = (cw ? s.w(cw) : s.d * (0.12 + 0.55 * r / rows.length)) - 0.3;
+    const a = appear(s.t, after != null ? Math.max(t0, after + 0.25 + 0.12 * r) : t0, 0.4), yy = y + hh + r * rh;
     if (a <= 0) return;
     const rc = op.acc || ACC[(r + (o.shift || 0)) % ACC.length];
     ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = tint(op.hl ? c.col : rc, op.hl ? 0.30 : 0.09); ctx.fillRect(x + 4, yy + 3, w - 8, rh - 6);
@@ -451,6 +461,79 @@ function glimpseBase(ctx, k) {        // slate with two soft colour glows: the c
   g = ctx.createRadialGradient(1750, 1000, 20, 1750, 1000, 1000); g.addColorStop(0, tint(col === C.blue ? C.teal : C.blue, 0.22)); g.addColorStop(1, tint(C.blue, 0)); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
 }
 
+// ---------- v4 cinematic Glimpse (prototype) ----------
+// Research (retention guides; Vox / Johnny Harris practice): show the visual evidence first, change the picture every
+// 3–5 s, and give a payoff. So each item now plays in two acts:
+//   act 1  the visual fills the whole frame (map flight, satellite, big chart) while big fact cards and hand-drawn ink
+//          marks land on their words;
+//   act 2  ~2 s before "Prelims Trap" the frame shrinks into the notes window, and the notes and trap assemble: the copy-ready
+//          payoff. cine() sets s.after so gNotes/gTable wait for the settle.
+function cine(ctx, s, k, o) {
+  const st = o.settle ?? Math.max(3, s.w('prelims trap') - 2.2), e = ease(span(s.t, st, st + 1.0)), c = GK.cat[GK.order[k]];
+  s.after = st + 0.5; s.settle = st; s.e = e;
+  glimpseBase(ctx, k);
+  const box = [0, 0, W, H].map((v, i) => lerp(v, GZ.win[i], e));
+  gWindow(ctx, s, (g, b) => o.draw(g, b, e), { box, push: false, r: lerp(0, 14, e) });
+  if (e < 1) {                                   // act 1 title, lower left, over a soft gradient
+    const a = (1 - e) * appear(s.t, 0.5, 0.5), m = ease(span(s.t, o.shrink ?? 3.6, (o.shrink ?? 3.6) + 0.8));   // m: 0 big (bottom) → 1 compact (top)
+    ctx.save(); ctx.globalAlpha *= a;
+    const gr = ctx.createLinearGradient(0, H - 420, 0, H); gr.addColorStop(0, 'rgba(8,10,14,0)'); gr.addColorStop(1, 'rgba(8,10,14,0.88)');
+    ctx.save(); ctx.globalAlpha *= 1 - m; ctx.fillStyle = gr; ctx.fillRect(0, H - 420, W, 420); ctx.restore();
+    const tg = ctx.createLinearGradient(0, 0, 0, 260); tg.addColorStop(0, 'rgba(8,10,14,0.8)'); tg.addColorStop(1, 'rgba(8,10,14,0)');
+    ctx.save(); ctx.globalAlpha *= m; ctx.fillStyle = tg; ctx.fillRect(0, 0, W, 260); ctx.restore();
+    const z = lerp(fitFont(ctx, o.title, 1500, 84, 52), fitFont(ctx, o.title, 1050, 52, 40), m), ty = lerp(H - 150, 140, m);
+    pill(ctx, `${c.name}  ${String(k + 1).padStart(2, '0')}/${GK.order.length}`, 96, lerp(H - 268, 50, m), { fill: c.col, color: c.ink, font: F.ui(26, 800), h: 46 });
+    text(ctx, o.title, 96, ty, { font: F.head(Math.round(z)), shadow: 12 });
+    if (o.kicker) text(ctx, o.kicker, 98, ty + lerp(56, 46, m), { font: F.ui(Math.round(lerp(32, 26, m)), 700), color: '#E6EAEE', shadow: 8 });
+    ctx.restore();
+  }
+  if (e > 0) { ctx.save(); ctx.globalAlpha *= e; gHeader(ctx, s, k, o.title, o.sub); ctx.restore(); }
+  return e;
+}
+// a big fact card for act 1: pops in at `at`, fades out as the frame settles
+function bigFact(ctx, s, x, y, label, value, at, o = {}) {
+  const k = pop(s.t, at), a = clamp(k) * (1 - (s.e ?? 0)); if (a <= 0) return;
+  const col = o.col || C.yellow;
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(0.8 + 0.2 * k, 0.8 + 0.2 * k);
+  ctx.font = F.head(o.size || 64); const vw = ctx.measureText(value).width; ctx.font = F.ui(26, 800); const lw = ctx.measureText(label).width;
+  const w = Math.max(vw, lw + 40) + 64, h = (o.size || 64) + 96;
+  ctx.translate(Math.min(0, W - 72 - x - w), 0);          // never past the right edge
+  card(ctx, 0, 0, w, h, { fill: 'rgba(16,19,24,0.9)', stroke: col, lw: 3, r: 16 });
+  pill(ctx, label, 28, 22, { fill: col, color: C.slate, font: F.ui(24, 800), h: 36 });
+  text(ctx, value, 32, h - 30, { font: F.head(o.size || 64), color: C.white });
+  ctx.restore();
+}
+// hand-drawn ink marks (the "someone is showing you" look): a rough ellipse and a curved arrow, drawn on over time
+function inkEllipse(ctx, x, y, rx, ry, p, o = {}) {
+  if (p <= 0) return; const n = 80, end = 2 * Math.PI * 1.1 * easeOut(p), sd = o.seed || 1;
+  ctx.save(); ctx.globalAlpha *= o.alpha ?? 1; ctx.strokeStyle = o.color || C.yellow; ctx.lineWidth = o.lw || 6; ctx.lineCap = 'round';
+  ctx.shadowColor = 'rgba(0,0,0,0.6)'; ctx.shadowBlur = 8; ctx.beginPath();
+  for (let i = 0; i <= n; i++) { const a = -2.2 + end * i / n, j = 1 + 0.05 * Math.sin(a * 3 + sd) + 0.03 * Math.sin(a * 7 + 2 * sd) + 0.04 * i / n;
+    const px = x + rx * j * Math.cos(a), py = y + ry * j * Math.sin(a); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
+  ctx.stroke(); ctx.restore();
+}
+function inkArrow(ctx, x0, y0, x1, y1, p, o = {}) {
+  if (p <= 0) return; const bx = (x0 + x1) / 2 + (y1 - y0) * (o.bend ?? 0.25), by = (y0 + y1) / 2 - (x1 - x0) * (o.bend ?? 0.25), e = easeOut(p);
+  const q = t => [(1 - t) * (1 - t) * x0 + 2 * (1 - t) * t * bx + t * t * x1, (1 - t) * (1 - t) * y0 + 2 * (1 - t) * t * by + t * t * y1];
+  ctx.save(); ctx.globalAlpha *= o.alpha ?? 1; ctx.strokeStyle = o.color || C.yellow; ctx.lineWidth = o.lw || 6; ctx.lineCap = ctx.lineJoin = 'round';
+  ctx.shadowColor = 'rgba(0,0,0,0.6)'; ctx.shadowBlur = 8; ctx.beginPath();
+  for (let i = 0; i <= 30; i++) { const [px, py] = q(e * i / 30); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke();
+  if (p >= 0.98) { const [ax, ay] = q(1), [bx2, by2] = q(0.9), ang = Math.atan2(ay - by2, ax - bx2);
+    ctx.translate(ax, ay); ctx.rotate(ang); ctx.beginPath(); ctx.moveTo(-22, -12); ctx.lineTo(0, 0); ctx.lineTo(-22, 12); ctx.stroke(); }
+  ctx.restore();
+}
+// a camera flight between lon/lat boxes: keys = [[t, [w, s, e, n]], ...]; centre moves linearly, span zooms log-linearly
+function boundsAt(t, keys) {
+  if (t <= keys[0][0]) return keys[0][1];
+  for (let i = 1; i < keys.length; i++) if (t < keys[i][0]) {
+    const u = ease(span(t, keys[i - 1][0], keys[i][0])), [a, b] = [keys[i - 1][1], keys[i][1]];
+    const cx = lerp((a[0] + a[2]) / 2, (b[0] + b[2]) / 2, u), cy = lerp((a[1] + a[3]) / 2, (b[1] + b[3]) / 2, u);
+    const sx = Math.exp(lerp(Math.log(a[2] - a[0]), Math.log(b[2] - b[0]), u)) / 2, sy = Math.exp(lerp(Math.log(a[3] - a[1]), Math.log(b[3] - b[1]), u)) / 2;
+    return [cx - sx, cy - sy, cx + sx, cy + sy];
+  }
+  return keys[keys.length - 1][1];
+}
+
 // ---------- map helpers ----------
 function terrainMap(ctx, proj, local, o = {}) {
   ctx.fillStyle = '#12283A'; ctx.fillRect(0, 0, W, H);
@@ -459,7 +542,7 @@ function terrainMap(ctx, proj, local, o = {}) {
   // colour: a blue wash for the sea, then land tints over it (other countries green, India warm sand) so relief still shows
   ctx.save(); ctx.globalCompositeOperation = 'multiply'; ctx.fillStyle = '#6FAEE0'; ctx.fillRect(0, 0, W, H); ctx.restore();
   ctx.fillStyle = 'rgba(40,120,195,0.22)'; ctx.fillRect(0, 0, W, H);
-  countries(ctx, proj, { wide: true, fill: o.landFill ?? 'rgba(112,196,118,0.40)', stroke: 'rgba(255,255,255,0.55)', lw: 1.5, highlight: o.highlight, indiaStroke: C.yellow, indiaLw: 2.4, indiaFill: o.indiaFill ?? 'rgba(255,200,110,0.40)' });
+  countries(ctx, proj, { wide: true, fill: o.landFill ?? 'rgba(96,200,116,0.42)', stroke: 'rgba(255,255,255,0.55)', lw: 1.5, highlight: o.highlight, indiaStroke: C.yellow, indiaLw: 2.4, indiaFill: o.indiaFill ?? 'rgba(250,170,60,0.62)' });
   for (const l of A.geo.lakes) geo(ctx, proj, l.geom, { fill: 'rgba(91,184,240,0.8)' });
   if (o.states) indiaStates(ctx, proj, o.states);
 }
@@ -498,6 +581,7 @@ function lowerThird(ctx, s, a = 1) {
   ctx.fillStyle = C.white; ctx.textBaseline = 'middle'; ctx.fillText(s, 110, 933); ctx.restore();
 }
 function brand(ctx) {
+  if (window.EX_LOGO) return;              // exam-format scenes show the round channel emblem instead
   ctx.save(); ctx.globalAlpha = 0.85; pill(ctx, 'DECODE UPSC', 1650, 40, { font: F.ui(24, 800), h: 42 }); ctx.restore();
 }
 function chapterBanner(ctx, title, k) {    // top-centre, inside the title-safe area, 40 px title, held about 4 s

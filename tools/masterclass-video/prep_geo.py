@@ -86,6 +86,11 @@ for f in load("ne_10m_admin_1_states_provinces.geojson"):
             continue
         c = g.representative_point()
         bundle["india_states"].append({"name": p["name"], "label": [round(c.x, 2), round(c.y, 2)], "geom": rnd(line.simplify(0.01), 3)})
+        # filled state shapes for flat colour maps, clipped inside the DataMeet outline (J&K, Ladakh and
+        # Arunachal Pradesh are left to the plain India fill, so no non-SoI line is ever drawn)
+        poly = g.intersection(india)
+        if not poly.is_empty and poly.geom_type in ("Polygon", "MultiPolygon"):
+            bundle.setdefault("india_state_polys", []).append({"name": p["name"], "geom": rnd(poly.simplify(0.01), 3)})
 
 want = {"Kherson", "Zaporizhzhya", "Donets'k", "Luhans'k", "Crimea", "Sevastopol", "Mykolayiv", "Dnipropetrovs'k", "Odessa"}
 for f in load("ne_10m_admin_1_states_provinces.geojson"):
