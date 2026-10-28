@@ -62,3 +62,15 @@ Based on `reports/Weekly video length and format.md`.
 | 19 (amended again) | Runtime | Sunday hub **26–30 min, default about 28; 35 min ceiling** (owner override only). Cascade above 30 min. Revisit after the 8-week length test. Replaces 28–38. |
 | 21 (amended) | Decode Extended | **0–1 a week**, only when a story has 3+ min of genuine `[EXT]` material; 10–15 min; finished before the Sunday edit lock. |
 | 24 | Review fixes | Apply all fixes from the independent review: docs, Oleshky script and brief, and a re-render (hub cut and Extended cut). |
+
+## After the exam-value reviews (28 Oct 2026)
+
+Five independent reviews (`docs/research/reviews/2026-W44-exam-value/`) found the Oleshky sample low-yield for exam study. The root cause was story selection, not production.
+
+| # | Topic | Decision |
+|---|---|---|
+| 25 | Weekly hub shape | **Breadth-first.** A Prelims Grid of about 21 items, including a fixed AP–TG Desk until 24 Jan 2027, plus 2 Deep Dives. Runtime limits are unchanged (26–30 min, 35 ceiling). The exact wording is in the draft (decision 28) and goes into `CLAUDE.md` §4.1 with it. |
+| 26 | Oleshky sample | **Archived.** Kept only as an internal craft reference. For exam use it is a 45-second Update plus a Black Sea map card (`weeks/2026-W44/sample-oleshky/02d-update-45s.md`). |
+| 27 | Next sample | Chosen by the owner from a **real W44 triage table** with exam-yield scores, not picked in advance. |
+| 28 | Selection rules | **Draft for owner review:** the exam-yield score (EYS 0–10), a mandatory ranked triage table, tier thresholds, arc fatigue, and the teaching and screen rules (`docs/research/drafts/2026-10-selection-and-format-draft.md`). Not in force until approved. |
+
