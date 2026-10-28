@@ -82,3 +82,10 @@ Five independent reviews (`docs/research/reviews/2026-W44-exam-value/`) found th
 | 29 | Changes to the draft | **Up to 3 Deep Dives** in a heavy week (the 3rd needs EYS ≥ 8, otherwise it goes to Decode Extended). **Update Desk is optional** (skip it when nothing important moved). **Consensus check is a flag, not a bar.** **AP–TG Desk: 3 min, weekly, until 24 Jan 2027** (then review). |
 | 30 | W44 rundown (owner pick) | Deep Dive 1: **NSAP → Pradhan Mantri Samajik Sahayata Yojana** (EYS 9). Deep Dive 2: **Election Commission before the Supreme Court** (EYS 8, facts still to be verified). Cyclone Arnab moves to the Prelims Grid / AP–TG Desk. The next sample video is built on Deep Dive 1. |
 
+
+## Breadth-segment look (28 Oct 2026)
+
+| # | Topic | Decision |
+|---|---|---|
+| 31 | Glimpse frames | After "not up to the mark: only script and satellite images", every Grid and Desk card ends on a **notes-ready frame**: a labelled visual, a "write this down" table with the whole look-alike set, and the trap bar. The Grid ends with a two-page revision sheet and the Desk with a one-page sheet. Previews are delivered at 1080p. |
+| 32 | Colour ("give colourful") | **Colourful frames:** category-tinted backgrounds, solid category-coloured table headers, a rotating bright accent per row (yellow, sky blue, teal, orange, violet, green), coloured label pills, a teal panel behind the trap's correct fact, and maps with blue sea, green neighbours and sand-coloured India. **Red stays reserved for the Prelims Trap** (§6.5). The accents are data colours, not new brand colours. |

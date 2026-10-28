@@ -19,13 +19,13 @@ function mapWin(ctx, s, west, south, east, north, draw, o = {}) {
     const proj = zoomProj(windowCamera(box, west, south, east, north), box, 1 + 0.04 * s.p);
     terrainMap(g, proj, o.local, o);
     if (o.sat) raster(g, proj, A[o.sat], A[o.sat + '_meta'], { feather: 60 });
-    if (o.rivers) rivers(g, proj, o.rivers, { color: 'rgba(110,170,220,0.95)', lw: 4 });
+    if (o.rivers) rivers(g, proj, o.rivers, { color: 'rgba(120,205,255,0.98)', lw: 4 });
     draw(g, proj, box);
   }, { push: false });
 }
 // a chart drawn in the visual window on slate
 function chartWin(ctx, s, draw) { gWindow(ctx, s, (g, box) => { g.fillStyle = '#1E2228'; g.fillRect(...box); draw(g, box); }, { push: false }); }
-function item(ctx, s, k, title, sub) { glimpseBase(ctx); gHeader(ctx, s, k, title, sub); }
+function item(ctx, s, k, title, sub) { glimpseBase(ctx, k); gHeader(ctx, s, k, title, sub); }
 const ID = (p) => p;   // identity "projection" for labelPill on charts
 
 // ---------------- G.0 the board ----------------
@@ -300,14 +300,15 @@ const SHEET = [
   ['16', 'Days', '27 Infantry · 30 Savings (India) · 31 Ekta Diwas (Statue of Unity, 182 m)'],
 ];
 function sheet(ctx, s, part) {
-  glimpseBase(ctx);
+  glimpseBase(ctx, part * 8);
   text(ctx, `REVISION SHEET · PRELIMS GRID W44 · ${part + 1}/2`, 96, 110, { font: F.ui(30, 800), color: C.yellow });
   text(ctx, 'Pause and copy · this is page 1 of the PDF', 96, 156, { font: F.ui(26, 600), color: C.dim });
   SHEET.slice(part * 8, part * 8 + 8).forEach(([n, it, fact], i) => {
     const y = 200 + i * 100, c = CAT[ORDER[part * 8 + i]], a = appear(s.t, 0.2 + i * 0.12, 0.35);
-    ctx.save(); ctx.globalAlpha = a; rr(ctx, 96, y, 1728, 88, 10); ctx.fillStyle = i % 2 ? '#1E2228' : '#22272E'; ctx.fill(); ctx.fillStyle = c.col; ctx.fillRect(96, y, 6, 88); ctx.restore();
-    text(ctx, n, 130, y + 56, { font: F.ui(28, 800), color: c.col, alpha: a });
-    text(ctx, it, 200, y + 56, { font: F.ui(30, 800), alpha: a });
+    ctx.save(); ctx.globalAlpha = a; rr(ctx, 96, y, 1728, 88, 10); ctx.fillStyle = tint(c.col, i % 2 ? 0.10 : 0.16); ctx.fill(); ctx.restore();
+    ctx.save(); ctx.globalAlpha = a; rr(ctx, 110, y + 18, 60, 52, 10); ctx.fillStyle = c.col; ctx.fill(); ctx.restore();
+    text(ctx, n, 140, y + 56, { font: F.ui(28, 800), color: c.ink, align: 'center', alpha: a });
+    text(ctx, it, 200, y + 56, { font: F.ui(30, 800), color: c.col === '#E8ECF1' ? C.white : c.col, alpha: a });
     text(ctx, fact, 560, y + 56, { font: F.ui(28, 600), color: '#E3E7EC', alpha: a });
   });
 }

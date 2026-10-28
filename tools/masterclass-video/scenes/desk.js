@@ -5,7 +5,7 @@ window.NO_PUSH = true;
 const ORDER = ['L', 'L', 'L', 'L', 'L', 'L', 'L'];
 GK = { order: ORDER, cat: { L: { name: 'LOCAL · TELUGU STATES', col: C.teal, ink: C.slate } } };
 const WIN = GZ.win, NOTES = GZ.notes, ID = (p) => p;   // ID: identity "projection" for labelPill on charts
-const RIVER = 'rgba(110,170,220,0.95)', CR = TERRAIN_CREDIT + ' · Rivers: Natural Earth';
+const RIVER = 'rgba(120,205,255,0.98)', CR = TERRAIN_CREDIT + ' · Rivers: Natural Earth';
 
 function mapWin(ctx, s, west, south, east, north, draw, o = {}) {
   gWindow(ctx, s, (g, box) => {
@@ -17,7 +17,7 @@ function mapWin(ctx, s, west, south, east, north, draw, o = {}) {
   }, { push: false });
 }
 function chartWin(ctx, s, draw) { gWindow(ctx, s, (g, box) => { g.fillStyle = '#1E2228'; g.fillRect(...box); draw(g, box); }, { push: false }); }
-function item(ctx, s, k, title, sub) { glimpseBase(ctx); gHeader(ctx, s, k, title, sub); }
+function item(ctx, s, k, title, sub) { glimpseBase(ctx, k); gHeader(ctx, s, k, title, sub); }
 function riverLabel(g, proj, ll, s, a = 1) { mapLabel(g, proj, ll, s, { font: 'italic ' + F.ui(26, 800), color: '#BFE0FA', alpha: a }); }
 function line(g, proj, pts, o = {}) {    // a schematic river course (lon/lat points), drawn in the river colour
   g.save(); g.globalAlpha *= o.alpha ?? 1; g.strokeStyle = o.color || RIVER; g.lineWidth = o.lw || 5; g.lineCap = g.lineJoin = 'round';
@@ -190,14 +190,16 @@ const SHEET = [
   ['07', 'Kolleru', 'Freshwater, between the deltas · Ramsar 2002 · Chilika, Pulicat brackish'],
 ];
 SCENES.S11 = (ctx, s) => {
-  glimpseBase(ctx);
+  glimpseBase(ctx, 0);
   text(ctx, 'TELUGU STATES SHEET · AP–TG DESK W44', 96, 110, { font: F.ui(30, 800), color: C.teal });
   text(ctx, 'Pause and copy · the question that follows tests it', 96, 156, { font: F.ui(26, 600), color: C.dim });
   SHEET.forEach(([n, it, fact], i) => {
     const y = 200 + i * 112, a = appear(s.t, 0.2 + i * 0.12, 0.35);
-    ctx.save(); ctx.globalAlpha = a; rr(ctx, 96, y, 1728, 98, 10); ctx.fillStyle = i % 2 ? '#1E2228' : '#22272E'; ctx.fill(); ctx.fillStyle = C.teal; ctx.fillRect(96, y, 6, 98); ctx.restore();
-    text(ctx, n, 130, y + 61, { font: F.ui(28, 800), color: C.teal, alpha: a });
-    text(ctx, it, 200, y + 61, { font: F.ui(30, 800), alpha: a });
+    const rc = ACC[i % ACC.length];
+    ctx.save(); ctx.globalAlpha = a; rr(ctx, 96, y, 1728, 98, 10); ctx.fillStyle = tint(rc, 0.13); ctx.fill(); ctx.fillStyle = rc; ctx.fillRect(96, y, 8, 98); ctx.restore();
+    ctx.save(); ctx.globalAlpha = a; rr(ctx, 116, y + 23, 60, 52, 10); ctx.fillStyle = rc; ctx.fill(); ctx.restore();
+    text(ctx, n, 146, y + 61, { font: F.ui(28, 800), color: C.slate, align: 'center', alpha: a });
+    text(ctx, it, 200, y + 61, { font: F.ui(30, 800), color: rc, alpha: a });
     text(ctx, fact, 520, y + 61, { font: F.ui(28, 600), color: '#E3E7EC', alpha: a });
   });
 };

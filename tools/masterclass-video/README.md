@@ -57,6 +57,11 @@ First used for `weeks/2026-W44/sample-oleshky/`. `scenes/nsap.js` and `scenes/ec
   - `indiaStates` draws interior state lines.
 - **Scene files** set `GK = { order, cat }` and `window.NO_PUSH = true`. `render.html` then skips the whole-frame push and the film grain, so text never zooms or crawls.
 - **Revision sheets:** the Grid ends with a two-page sheet and the Desk with a one-page sheet (one line per item). Each page is also the matching PDF page.
+- **Colour (v3.1, owner: "give colourful"):**
+  - `glimpseBase(ctx, k)` lays two soft glows on the slate: the category colour and a cool accent.
+  - `ACC` is a rotating bright accent set (never red or pink). It colours each notes row's label pill and tint, each table row's bar and first cell, and each revision-sheet row. `tint(hex, a)` adds the alpha.
+  - Table headers are solid category colour, and the trap's correct fact sits on a teal panel.
+  - `terrainMap` washes the sea blue, tints other countries green and India warm sand (override with `landFill` / `indiaFill`), and draws lakes and rivers in bright sky blue.
 - **Text:** every label is at least 24 px. Holds come from `HOLD n s` in the script's visual cell (2 s per notes frame, 6–8 s per sheet).
 - **Geometry fix:** `geo()` fills through `wound()`, which reverses any polygon d3 would read as covering the rest of the globe. Clipping can flip a few countries' winding (Russia did, and turned a BRICS map yellow).
 
