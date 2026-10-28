@@ -581,6 +581,7 @@ function lowerThird(ctx, s, a = 1) {
   ctx.fillStyle = C.white; ctx.textBaseline = 'middle'; ctx.fillText(s, 110, 933); ctx.restore();
 }
 function brand(ctx) {
+  if (window.EX_LOGO) return;              // exam-format scenes show the round channel emblem instead
   ctx.save(); ctx.globalAlpha = 0.85; pill(ctx, 'DECODE UPSC', 1650, 40, { font: F.ui(24, 800), h: 42 }); ctx.restore();
 }
 function chapterBanner(ctx, title, k) {    // top-centre, inside the title-safe area, 40 px title, held about 4 s
