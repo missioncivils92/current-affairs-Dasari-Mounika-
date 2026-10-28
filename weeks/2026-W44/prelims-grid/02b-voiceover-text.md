@@ -1,9 +1,9 @@
-# Voiceover Text — 2026-W44 (Prelims Grid: National · International · Misc) · v7
+# Voiceover Text — 2026-W44 (Prelims Grid: National · International · Misc) · v8
 
 **Release:** Sunday 1 Nov 2026, 6:00 PM IST, as its own video (owner decision 33, 28 Oct 2026)
 **Coverage:** Mon 26 Oct – Sat 31 Oct 2026, plus 8–25 Oct items W43 did not cover (marked in the brief)
 **Format:** voice-only. Everything below is recorded on the microphone; there is no on-camera recording.
-**Total:** 3657 words · about 27.1 min at 135 wpm (26.1–28.1 min at 140–130 wpm)
+**Total:** 3680 words · about 27.3 min at 135 wpm (26.3–28.3 min at 140–130 wpm)
 
 Visual directions for the editor are in `02-master-script.md`.
 
@@ -25,7 +25,7 @@ Visual directions for the editor are in `02-master-script.md`.
 
 | Segment | Words | Min |
 |---|---|---|
-| PRELIMS GRID — Prelims Grid: sixteen topics, exam format | 3657 | 27.1 |
+| PRELIMS GRID — Prelims Grid: sixteen topics, exam format | 3680 | 27.3 |
 
 ---
 
@@ -35,15 +35,17 @@ Save as: `prelims-grid_VO_grid.wav`
 
 **🎙️ NARRATION — *warm, bright.***
 
-Decode U-P-S-C: unlock your potential, decode your future. This is your Prelims Grid for week forty-four, the one video that turns a whole week of news into the questions UPSC could actually ask you.
+Decode U-P-S-C: unlock your potential, decode your future. This is your Prelims Grid for week forty-four: U-P-S-C current affairs from the twenty-sixth of October to the first of November, for Prelims 2027 and Group-1, turned into the questions the examiner could actually ask you.
+
+**🎙️ NARRATION**
+
+But first, a warm-up question. Consider three places: Yanam, Karaikal and Mahe. How many of them are part of Andhra Pradesh? Lock in your answer, because our very first station settles it.
 
 **🎙️ NARRATION — *brisk, warm.***
 
 Sixteen topics, and we will travel through them like a train journey, from the Andhra coast, where a cyclone has just come ashore, to the Statue of Unity. At every station you get the news, the static facts the examiner marks, the trap, and a question you answer before I do. Keep a score, one tick for every right answer, and stay till the end, because there I will show you the three tricks the examiner used across all sixteen topics.
 
 **🎙️ NARRATION**
-
-But first, a warm-up question. Consider three places: Yanam, Karaikal and Mahe. How many of them are part of Andhra Pradesh? Lock in your answer, because our very first station settles it.
 
 First station, and it is a stormy one. Topic one: Cyclone Arnab, from Geography and Disaster Management.
 
@@ -277,6 +279,6 @@ Now, the moment I promised. Look back over all sixteen traps, and you will see t
 
 Pause here: this is your whole week on one page, and it is also page one of the PDF. Now count your ticks. If you have many, wonderful. If you have fewer, that is useful too, because every mistake you found today is one less surprise in the exam hall.
 
-And here is the second half of the sheet. Sixteen topics in one sitting: that is real work, and you did it. Preparation does not grow in one heroic night; it grows one honest week at a time. If this hour helped you, subscribe, so that next Sunday's masterclass finds you at six in the evening, and share your score with the whole desk under the pinned comment, where the PDF and this week's MCQ challenge are waiting. See you next Sunday.
+And here is the second half of the sheet. Sixteen topics in one sitting: that is real work, and you did it. Preparation does not grow in one heroic night; it grows one honest week at a time, and it grows faster with company. So if this hour helped you, subscribe, so that next Sunday's masterclass finds you at six in the evening; send it to one friend who is preparing with you; and share your score under the pinned comment, where the PDF and this week's MCQ challenge are waiting. See you next Sunday.
 
-*Words: 3657 · about 27.1 min*
+*Words: 3680 · about 27.3 min*

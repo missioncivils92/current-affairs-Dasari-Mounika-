@@ -21,19 +21,19 @@ The video opens on the channel emblem and a board of the 16 topics. It ends with
 | File | What it is |
 |---|---|
 | `01-research-brief.md` | Selection with reasons, items dropped, the verification log and exam tags |
-| `02-master-script.md` | Two-column script v7 (opening question, connected narration, the examiner's three tricks; decision 36): 120 rows, 3,657 words, about 30 min with the holds |
-| `02b-voiceover-text.md` | Recording file: `python3 tools/make_voiceover.py weeks/2026-W44/prelims-grid v7` |
+| `02-master-script.md` | Two-column script v8 (decisions 36–37: opening question at 0:19, connected narration, the examiner's three tricks, reach CTA): 120 rows, 3,680 words, about 30.5 min with the holds |
+| `02b-voiceover-text.md` | Recording file: `python3 tools/make_voiceover.py weeks/2026-W44/prelims-grid v8` |
 
 ## Review render
-`w44-prelims-grid-exam-1080p.mp4` was sent in chat; videos are gitignored. It is a silent review render at 1080p, timed at 135 wpm, with the music bed only.
+`w44-grid-v8-1080p.mp4` (v8) was sent in chat; videos are gitignored. It is a silent review render at 1080p, timed at 135 wpm, with the music bed only.
 
 To rebuild it, run from `tools/masterclass-video` with `$A` as the asset folder:
 
 ```bash
 python3 -I prep_geo.py $A/ne $A/geo.json
-python3 -I timeline.py ../../weeks/2026-W44/prelims-grid/02-master-script.md $A/grid5.json
-python3 -I sound_bed.py $A/grid5.json $A/grid5_bed.wav --pulse
-node render.js $A $A/grid5.json scenes/grid.js $A/grid.mp4 --review --strict --fps 24   # then mux grid5_bed.wav
+python3 -I timeline.py ../../weeks/2026-W44/prelims-grid/02-master-script.md $A/grid8.json
+python3 -I sound_bed.py $A/grid8.json $A/grid8_bed.wav --pulse
+node render.js $A $A/grid8.json scenes/grid.js $A/grid.mp4 --review --strict --fps 24   # then mux grid8_bed.wav
 ```
 
 ## Before the Saturday edit lock

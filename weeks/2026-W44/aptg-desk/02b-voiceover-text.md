@@ -1,9 +1,9 @@
-# Voiceover Text — 2026-W44 (AP–TG Desk: Local · Telugu States) · v7
+# Voiceover Text — 2026-W44 (AP–TG Desk: Local · Telugu States) · v8
 
 **Release:** Sunday 1 Nov 2026, 6:00 PM IST, as its own video (owner decision 33)
 **Coverage:** Mon 26 Oct – Sat 31 Oct 2026, plus 1–25 Oct items W43 did not cover
 **Format:** voice-only. Everything below is recorded on the microphone; there is no on-camera recording.
-**Total:** 2005 words · about 14.9 min at 135 wpm (14.3–15.4 min at 140–130 wpm)
+**Total:** 2024 words · about 15.0 min at 135 wpm (14.5–15.6 min at 140–130 wpm)
 
 Visual directions for the editor are in `02-master-script.md`.
 
@@ -25,7 +25,7 @@ Visual directions for the editor are in `02-master-script.md`.
 
 | Segment | Words | Min |
 |---|---|---|
-| AP–TG DESK — AP–TG Desk: seven Telugu States topics, exam format | 2005 | 14.9 |
+| AP–TG DESK — AP–TG Desk: seven Telugu States topics, exam format | 2024 | 15.0 |
 
 ---
 
@@ -35,13 +35,13 @@ Save as: `aptg-desk_VO_aptg.wav`
 
 **🎙️ NARRATION — *warm, bright.***
 
-Decode U-P-S-C: unlock your potential, decode your future. Namaskaram, and welcome! This is your Andhra Pradesh and Telangana Desk for week forty-four, where the news from our two States becomes the questions Group-1 and UPSC can ask you.
+Decode U-P-S-C: unlock your potential, decode your future. Namaskaram, and welcome! This is your Andhra Pradesh and Telangana Desk for week forty-four: A-P and Telangana current affairs for A-P-P-S-C and T-G-P-S-C Group-1, and for U-P-S-C, turned into the questions the examiner can ask you.
 
 **🎙️ NARRATION**
 
-Here is our desk for today: seven topics, from a courtroom in Amaravati to a lake full of birds near Eluru. One question runs through all seven, so keep it in mind: who holds the pen? Who decides, the State or the Centre, the court or the commission? For every topic you get the news, the static facts, the trap, and a Group-1 style question you answer before I do. Keep a score of your ticks, and stay till the end for the examiner's three tricks.
-
 Let us warm up with a question that we will settle only at our very last stop. Consider three lakes: Kolleru, Chilika and Pulicat. How many of them are freshwater lakes? Note your answer, and hold on to it.
+
+Here is our desk for today: seven topics, from a courtroom in Amaravati to a lake full of birds near Eluru. One question runs through all seven, so keep it in mind: who holds the pen? Who decides, the State or the Centre, the court or the commission? For every topic you get the news, the static facts, the trap, and a Group-1 style question you answer before I do. Keep a score of your ticks, and stay till the end for the examiner's three tricks.
 
 Topic one, from Polity, and it starts in your own village panchayat: the Backward Classes quota in Andhra Pradesh's local bodies.
 
@@ -143,6 +143,6 @@ Your last notes card for today. Copy it, and your Telugu States page for this we
 
 Now, the moment I promised. Look back at all seven traps, and you will see that the examiner used just three tricks. First, who holds the pen? The President, rather than the Chief Justice of India; the Chief Minister, rather than the Governor; Rural Development, rather than Social Justice. Second, allows or requires, manages or decides? Article two-four-three D, clause six, enables a quota without requiring one, and river boards manage while tribunals decide. And third, main stream or tributary, fresh or brackish? The barrage is on the Pranahita, and Kolleru is freshwater. Learn to see these three tricks, and every Group-1 paper starts to look familiar. That is what this desk is for: finding the question hiding inside the news.
 
-Pause here: this is the Telugu States sheet, and it is also a page of this week's PDF. Now count your ticks. Seven topics, seven traps and seven questions; that is real work, and you did it. Preparation grows one honest week at a time, and you do not have to do it alone: every Sunday, this desk is here with you. If this helped, subscribe so that next week's desk finds you, and share your score under the pinned comment, where the PDF and the MCQ challenge are waiting. See you next Sunday.
+Pause here: this is the Telugu States sheet, and it is also a page of this week's PDF. Now count your ticks. Seven topics, seven traps and seven questions; that is real work, and you did it. Preparation grows one honest week at a time, and you do not have to do it alone: every Sunday, this desk is here with you. So if this helped, subscribe so that next week's desk finds you; send it to one friend who is preparing for Group-1 with you; and share your score under the pinned comment, where the PDF and the MCQ challenge are waiting. See you next Sunday.
 
-*Words: 2005 · about 14.9 min*
+*Words: 2024 · about 15.0 min*

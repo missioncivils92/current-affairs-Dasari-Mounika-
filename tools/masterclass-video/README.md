@@ -101,6 +101,10 @@ First used for `weeks/2026-W44/sample-oleshky/`. `scenes/nsap.js` and `scenes/ec
 - `exLogo` puts the emblem in the corner of every slide.
 - Scene files set `window.EX_LOGO = true`, which makes `brand()` skip the old pill.
 
+**Opening question and payoff:** `exMcq(ctx, s, null, {label, typeCue, …})` draws a pre-question with no topic strip. `exTricks(ctx, s, title, [[trick, examples, cue], …])` draws the closing slide of the examiner's three tricks.
+
+**Thumbnails:** `scenes/thumbs.js` draws the week's thumbnails (CLAUDE.md §7). Render them as stills from a short dummy timeline, then scale to 1280×720 (see `weeks/2026-W44/packaging/`).
+
 **QA:**
 - `--stills t1,t2,…` takes a list of times, for example each row's end time minus 0.3 s. A bare `--stills` renders nothing useful.
 - Run `--strict` before every full render.
