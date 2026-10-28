@@ -515,6 +515,9 @@ Generate **3 distinct title + thumbnail concepts** per masterclass.
 | Parivar Labh | [Pa-ri-vaar Laabh] |
 | Annapurna | [Un-na-poor-naa] |
 | Bharosa | [Bha-ROH-saa] |
+| Surya Kant | [SOOR-ya Kaant] |
+| Seshan | [SHAY-shun] |
+| Anoop Baranwal | [A-noop Ba-RAAN-wal] |
 
 ## 9. Compliance and ethics guardrails
 
