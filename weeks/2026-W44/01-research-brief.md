@@ -2,7 +2,7 @@
 
 **Coverage:** Mon 26 – Sat 31 Oct 2026 (swept to Wed 28 Oct), plus 12–25 Oct items W43 did not cover
 **Release:** Sun 1 Nov 2026, 6:00 PM IST
-**Status:** §1 TRIAGE, waiting for Mounika's pick. No Deep Dive is named until she approves.
+**Status:** rundown PICKED by Mounika (28 Oct, decision 30): **Deep Dive 1 = NSAP → PM Samajik Sahayata Yojana**, **Deep Dive 2 = Election Commission before the Supreme Court** (verify facts first). Cyclone Arnab moves to the Prelims Grid / AP–TG Desk. The next sample is built on Deep Dive 1.
 **Scoring:** exam-yield score (EYS 0–10 = P·M·I·D·S) from the **draft** rules (`docs/research/drafts/2026-10-selection-and-format-draft.md` §A). The breadth-first running order is owner-approved (decision 25).
 
 ## How this sweep was done, and its limits

@@ -7,15 +7,16 @@
 
 ---
 
-## 1. Deep-sweep story log (Mon–Sat; no cap on entries)
+## 1. Triage table (at least 25 candidates, sorted by EYS; no Deep Dive is named before this exists)
 
 **Scope:** Local: Telugu States / National / International / Misc.
 **Subject:** Polity · Economy · Environment · Geography & Disasters · S&T · Security · Society · IR · History & Culture · Ethics.
-**Tier:** Deep Dive / Focus / Glimpse / Update / Drop.
+**Tier (by rule, `CLAUDE.md` §3.1):** Deep Dive (EYS ≥ 7, I ≥ 1, D ≥ 1, P ≥ 2) / Focus (5–6) / Glimpse (3–4, P ≥ 1) / Update (score the change only) / Drop (< 3).
+**EYS** = P (0–3, arising facts only) · M (0–2) · I (0–2) · D (0–2) · S (0–1). Consensus flag: Hindu/IE · PIB · 2+ digests.
 
-| # | Date | Story (1 line) | Primary source link | Scope | Subject(s) | Continuity (tracker ID or "new") | GS paper | Static anchor | Selection test (syllabus / anchor / strategic interest / exam habit / Telugu) | Proposed tier | Exam tags |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | | | | | | | | | ☐ ☐ ☐ ☐ ☐ | | |
+| # | Date | Story (1 line) | Primary source link | Scope | Subject(s) | Continuity (tracker ID or "new") | GS paper | Static anchor (arising / borrowed) | EYS (P·M·I·D·S = total), one-line reason | Consensus flag | Proposed tier | Exam tags |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | | | | | | | | | | ☐ ☐ ☐ | | |
 
 **Dropped but notable** (with the reason, so Mounika can overrule):
 
@@ -25,12 +26,14 @@
 
 | Order | Segment | Tier | Scope · subject | Continuity / callback | GS paper(s) | Exam tags | Est. time |
 |---|---|---|---|---|---|---|---|
-| 0 | Cold open | — | | | | | |
-| 1 | Update Desk: <story> | Update | | Week __ (tracker ID) | | | |
-| 2 | <Deep Dive 1> | Deep Dive | | | | | |
-| 3 | <Focus 1> | Focus | | | | | |
-| 4 | News Grid: Local / National / International / Misc | Glimpses | | | | | |
-| 5 | Trap Vault · Desk Note? · Verdict | — | | | | | |
+| 0 | Cold open (pre-question from the Grid, UPSC format) | — | | | | | 0:45 |
+| 1 | Update Desk (optional): <story> | Update | | Week __ (tracker ID) | | | 0–1:30 |
+| 2 | Prelims Grid: National / International / Misc (14–16 items) | Glimpses | | | | | 8:00 |
+| 3 | <Deep Dive 1> (I = 2) | Deep Dive | | | | | 6:15 |
+| 4 | AP–TG Desk (6–7 items) | Glimpses | Local: Telugu States | | | | 3:00 |
+| 5 | <Deep Dive 2> (<Deep Dive 3>, heavy week only, EYS ≥ 8) | Deep Dive | | | | | 5:15 |
+| 6 | <Focus> (0–1) | Focus | | | | | 0–1:30 |
+| 7 | Trap Vault (10 items) · Desk Note? · Verdict | — | | | | | 2:45 |
 
 GS coverage check (Deep Dives + Focus need ≥3): GS-1 ☐ GS-2 ☐ GS-3 ☐ GS-4 ☐
 

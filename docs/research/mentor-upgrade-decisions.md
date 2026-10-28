@@ -74,3 +74,11 @@ Five independent reviews (`docs/research/reviews/2026-W44-exam-value/`) found th
 | 27 | Next sample | Chosen by the owner from a **real W44 triage table** with exam-yield scores, not picked in advance. |
 | 28 | Selection rules | **Draft for owner review:** the exam-yield score (EYS 0–10), a mandatory ranked triage table, tier thresholds, arc fatigue, and the teaching and screen rules (`docs/research/drafts/2026-10-selection-and-format-draft.md`). Not in force until approved. |
 
+## Rules approved with changes (28 Oct 2026)
+
+| # | Topic | Decision |
+|---|---|---|
+| 28 (approved) | Selection rules | Approved and moved into `CLAUDE.md` §3, §3.1, §4.1, §4.2, §6.2, §6.3 and §7, and `PLAYBOOK.md` steps 3–6 and QC. Covers: exam-yield score (EYS); mandatory triage table; Deep Dive threshold **EYS ≥ 7** with I ≥ 1, D ≥ 1, P ≥ 2; arc fatigue; UPSC-format questions with the answer stated; final-value numbers; fact maps. |
+| 29 | Changes to the draft | **Up to 3 Deep Dives** in a heavy week (the 3rd needs EYS ≥ 8, otherwise it goes to Decode Extended). **Update Desk is optional** (skip it when nothing important moved). **Consensus check is a flag, not a bar.** **AP–TG Desk: 3 min, weekly, until 24 Jan 2027** (then review). |
+| 30 | W44 rundown (owner pick) | Deep Dive 1: **NSAP → Pradhan Mantri Samajik Sahayata Yojana** (EYS 9). Deep Dive 2: **Election Commission before the Supreme Court** (EYS 8, facts still to be verified). Cyclone Arnab moves to the Prelims Grid / AP–TG Desk. The next sample video is built on Deep Dive 1. |
+
