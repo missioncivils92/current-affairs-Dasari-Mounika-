@@ -1,9 +1,9 @@
-# Voiceover Text — 2026-W44 (Prelims Grid: National · International · Misc) · v1
+# Voiceover Text — 2026-W44 (Prelims Grid: National · International · Misc) · v3
 
 **Release:** Sunday 1 Nov 2026, 6:00 PM IST
 **Coverage:** Mon 26 Oct – Sat 31 Oct 2026, plus 8–25 Oct items W43 did not cover (marked in the brief)
 **Format:** voice-only. Everything below is recorded on the microphone; there is no on-camera recording.
-**Total:** 1075 words · about 8.0 min at 135 wpm (7.7–8.3 min at 140–130 wpm)
+**Total:** 1131 words · about 8.4 min at 135 wpm (8.1–8.7 min at 140–130 wpm)
 
 Visual directions for the editor are in `02-master-script.md`.
 
@@ -25,7 +25,7 @@ Visual directions for the editor are in `02-master-script.md`.
 
 | Segment | Words | Min |
 |---|---|---|
-| PRELIMS GRID — Prelims Grid: this week's static facts | 1075 | 8.0 |
+| PRELIMS GRID — Prelims Grid: this week's static facts | 1131 | 8.4 |
 
 ---
 
@@ -39,19 +39,21 @@ Now the Prelims Grid: sixteen items from this week, and for each one, the static
 
 **🎙️ NARRATION**
 
-Cyclone Arnab crossed the Andhra Pradesh and Yanam coasts near Kakinada in the early hours of the twenty-eighth, as a very severe cyclonic storm.
+Cyclone Arnab crossed the Andhra Pradesh and Yanam coast in the Godavari delta in the early hours of the twenty-eighth, as a very severe cyclonic storm.
 
-Its name came from Bangladesh's list, and the names are assigned by the regional centre in New Delhi run by the I-M-D.
+A name is given only when a system reaches cyclonic-storm strength, which is why September's deep depression was never called Arnab; the name comes from Bangladesh's list.
 
-**Prelims Trap.** Yanam sits inside Andhra Pradesh but belongs to the Union Territory of Puducherry.
+**Prelims Trap.** Yanam sits inside Andhra Pradesh but belongs to the Union Territory of Puducherry, with Karaikal and Mahe.
 
 On the fourteenth of October, the Cabinet Committee on Economic Affairs approved selling sixty point seven two per cent of IDBI Bank, the Government's and L-I-C's shares together, to a Fairfax company for about fifty-two thousand eight hundred crore rupees, subject to the R-B-I's approval.
 
 **Prelims Trap.** IDBI is not a public sector bank: the R-B-I has classed it as a private sector bank since 2019, after L-I-C took majority control.
 
-On the tenth of October, the R-B-I made banks keep a Foreign Exchange Risk Reserve of twenty per cent on forex derivative contracts involving the rupee, and cut the threshold for unhedged-exposure deals from one hundred million dollars to five million.
+On the tenth of October, the R-B-I made banks keep a twenty per cent reserve, in cash with the R-B-I and earning no interest, on specified rupee forex derivative contracts above two million dollars.
 
-**Prelims Trap.** These circulars come under the Foreign Exchange Management Act of 1999, a civil law, not the older Foreign Exchange Regulation Act it replaced, under which violations were criminal offences.
+It also cut, from one hundred million to five million dollars, the limit up to which users can deal without proving an underlying exposure.
+
+**Prelims Trap.** These rules come under the Foreign Exchange Management Act of 1999, a civil law, not the older Foreign Exchange Regulation Act, under which violations were criminal offences.
 
 On the twenty-first of October, Delhi's air slipped into the poor band, and Stage One of the Graded Response Action Plan was invoked across the National Capital Region.
 
@@ -73,7 +75,7 @@ The Global Hunger Index 2026 ranks India one hundredth of one hundred and twenty
 
 It combines four indicators, and three of them measure children: stunting, wasting and mortality.
 
-**Prelims Trap.** It is published by European aid organisations led by Welthungerhilfe and Concern Worldwide, not by U-N agencies like the F-A-O or the W-F-P.
+**Prelims Trap.** It is published by aid organisations led by Welthungerhilfe, not by U-N agencies like the F-A-O or the W-F-P, whose hunger report is a different one.
 
 Poland's Prime Minister visited India from the twenty-first to the twenty-third of October, and the two sides set a target to double trade by 2030, while Poland announced it will join the C-D-R-I.
 
@@ -113,4 +115,8 @@ Three days to note: Infantry Day on the twenty-seventh marks the 1947 airlanding
 
 **Prelims Trap.** Most of the world marks Savings Day on the thirty-first, but India moved it to the thirtieth.
 
-*Words: 1075 · about 8.0 min*
+Pause here: this is your week on one page, and it is also page one of the PDF.
+
+And here is the second half of the sheet.
+
+*Words: 1131 · about 8.4 min*

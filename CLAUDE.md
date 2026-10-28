@@ -521,6 +521,10 @@ Generate **3 distinct title + thumbnail concepts** per masterclass.
 | Yerevan | [Ye-re-VAAN] |
 | Sauj Jheel | [Saunj Jheel] |
 | Mohanthal | [MOHAN-thaal] |
+| Sam Koshy | [Sam KO-shee] |
+| Tummidihatti | [Tum-mi-di-HUT-ti] |
+| Pranahita | [Praa-na-HEE-ta] |
+| Kolleru | [Kol-LAY-ru] |
 
 ## 9. Compliance and ethics guardrails
 

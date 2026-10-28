@@ -52,6 +52,7 @@ function sceneState(row, t) {
 }
 // "Living hold": every row gets a slow, constant push-in across its length, so no frame is ever frozen.
 function holdScale(row, p) {
+  if (window.NO_PUSH) return 1;      // Glimpse scenes: text never zooms; the push lives inside the visual window
   const kind = (row.visual.match(/`\[(VOICE ANCHOR|GIS MAP|MIND MAP|REAL FOOTAGE|DATA CHART|KINETIC TEXT)\]`/) || [])[1];
   if (!kind) return 1;
   // constant speed (not eased), so the first and last seconds of a row never sit still; maps get a gentler push
@@ -77,7 +78,7 @@ window.renderAt = (t) => {
     drawRow(bufA, rows[i - 1], rows[i - 1].end - 0.001);
     ctx.drawImage(bufA, 0, 0); ctx.globalAlpha = ease(into / XF); ctx.drawImage(bufB, 0, 0); ctx.globalAlpha = 1;
   } else ctx.drawImage(bufB, 0, 0);
-  grain(ctx, t);
+  if (!window.NO_PUSH) grain(ctx, t);   // grain over text costs bitrate and sharpness
   // chrome
   brand(ctx);
   const ch = TL.chapters.filter(c => c.start <= t).pop();

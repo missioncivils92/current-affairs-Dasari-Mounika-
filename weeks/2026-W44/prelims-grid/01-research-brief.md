@@ -58,17 +58,18 @@ Government sites cannot be fetched from this cloud session. Every item was check
 
 | Item | Claim on screen | Sources found | Status |
 |---|---|---|---|
-| N1 | VSCS; landfall began early 28 Oct near Kakinada on the AP–Yanam coast | All India Radio (newsonair); AP7AM | ☑ (exact landfall date per IMD bulletin ☐) |
+| N1 | VSCS; crossed the AP–Yanam coast in the Godavari delta early on 28 Oct, **between Narsapur and Yanam** (IMD position as quoted: about 20 km ENE of Narsapur, 40 km SW of Yanam, 60 km SW of Kakinada) | All India Radio (newsonair); DT Next (IMD position); AP7AM | ☑ v3 fix C1: the v2 "near Kakinada" was 60 km off. IMD bulletin ☐ before the lock |
+| N1 | A name is given only at cyclonic-storm strength (≥ 62 km/h); September's system stayed a deep depression, so it was never "Arnab" | IMD classification; coaching items of late Sep 2026 (the confusion) | ☑ v3 fix C3 |
 | N1 | "Arnab" is from Bangladesh's list (2020 list released by IMD) | The Daily Star; India TV; IMD list via indiamausam | ☑ |
 | N1 | Yanam is part of Puducherry UT | Standard reference | ☑ |
 | N2 | CCEA 14 Oct; 60.72%; Fairfax unit (10955230 Canada Inc.); ≈ ₹52,878 cr; RBI approval pending | Telangana Today, The Federal, Business Today (DIPAM Secretary), Outlook Business | ☑ (the figure is given as ≈, because sources differ by about ₹1 cr) |
 | N2 | IDBI classed by the RBI as a private sector bank since 2019 | Standard reference (RBI recategorisation, Jan 2019) | ☑ (date ☐ on rbi.org.in) |
-| N3 | FERR 20% on rupee forex derivatives (A.P. (DIR) No. 26, 10 Oct); threshold $100 mn → $5 mn | Moneylife, Free Press Journal, Telangana Today, Kotak Neo | ☑ (one outlier says $2 mn; the majority says $5 mn) |
+| N3 | FERR: 20%, held in cash with the RBI, no interest, on specified rupee FX derivative contracts **above $2 mn** (A.P. (DIR) No. 26, 10 Oct; No. 27, 12 Oct; FAQs 15 Oct). Separately, the limit for dealing **without proving an underlying exposure** is cut from $100 mn to $5 mn | Moneylife, The Hans India, Free Press Journal, Telangana Today, RBI release excerpts | ☑ v3 fix C5: $2 mn and $5 mn are two different tests, not an outlier |
 | N4 | CAQM invoked GRAP Stage I on 21 Oct; Delhi AQI 244; stage bands | Business Today, AIR, The Wire | ☑ |
 | N5 | 26 Oct – 1 Nov; "Probity for Prosperity" | CVC circular copies (StaffNews), CAG and IIFT circulars | ☑ |
 | I1 | Accession approved mid-Oct (sources give 14 and 15 Oct, so no date on air); CNCP since 2022; Rome 2006; non-tuna | Manorama Yearbook, GKToday, Onmanorama, Shankar IAS | ☑ |
-| I2 | 100/122, 24.1, "serious", wasting 19.0% | Careers360, Free Press Journal, The South First | ☑ (publisher list differs: worded "led by Welthungerhilfe and Concern Worldwide") |
-| I3 | Visit 21–23 Oct; trade to double by 2030; Poland to join the CDRI | IBEF, Manorama Yearbook, Cavalier | ☑ (MEA joint statement ☐) |
+| I2 | 100/122, 24.1, "serious", wasting 19.0%; stunting 29.3%, undernourishment 9.8% (as reported) | Careers360, Free Press Journal, The South First | ☑. v3 fix C4: publisher worded "aid organisations led by Welthungerhilfe" (2026 partners reported as Welthungerhilfe, IFHV and Helvetas; Concern co-published until 2025). Masthead on globalhungerindex.org ☐ |
+| I3 | Visit 21–23 Oct; trade to double by 2030; Poland **announced** it will join the CDRI (no joining date and no member count on screen) | IBEF, Manorama Yearbook, Cavalier | ☑ (MEA joint statement ☐) |
 | I4 | 12th forum; Samvidhan Sadan; 26–27 Oct; Speaker chairs | AIR, ThePrint, Free Press Journal | ☑ (the theme is reported in two wordings, so it is not on screen; no declaration claims) |
 | I5 | COP17, Yerevan, 19–30 Oct; first global review of the KMGBF | Heinrich Böll Stiftung, Armenpress, UNCCD events | ☑ |
 | I6 | ≈ 2.8 °C under current policies; ≈ 2.6 °C with full NDCs; 21 Oct | PBL (co-modeller) page; digests | ☑ (UNEP page ☐) |
@@ -78,12 +79,16 @@ Government sites cannot be fetched from this cloud session. Every item was check
 | M2 | GI granted (most reports: 8 Oct) | Manorama Yearbook, GKToday, Adda247 | ⚠ The IP India search entry for application 1228 shows "Pre Examination". **Worded "reportedly" on air; confirm on the GI Journal before the edit lock, or drop M2.** |
 | M3 | India 38th of 139; Switzerland, Sweden, US top; 1st among lower-middle-income | Utkarsh, Dhyeya, ClarityUPSC, Sanskriti | ☑ (WIPO page ☐) |
 | M4 | Infantry Day 27 Oct (1947); World Savings Day in India 30 Oct; Rashtriya Ekta Diwas 31 Oct | Standard reference | ☑ |
+| v3 tables | The look-alike sets on the notes frames: IMD classes (62–88 · 89–117 · 118–166 · 167–221 · ≥ 222 km/h); FERA 1973 (criminal) vs FEMA 1999 (civil, in force 1 Jun 2000); AQI bands and GRAP stages (GRAP first notified 2017, now CAQM under the 2021 Act); CVC/Lokpal/CBI/CAG; SIOFA/IOTC/CCAMLR seats; BRICS joining years; CBD, Cartagena, Nagoya, KMGBF, COP11 Hyderabad 2012; report publishers; FRLD/GCF/GEF/Adaptation Fund; Ramsar (1971, India 1982, first sites 1981, Montreux Record); GI Act 1999 (in force 2003, 10-year renewable term, Chennai registry); India's GII ranks 2015–2026 (81 → 38); the three days | Standard references; WIPO GII editions | ☑ (standard static facts; re-check any figure a reviewer questions) |
 
 ## 4. Runtime and the hub budget
 
-- The Grid is 1,075 words, **about 7:33**: 0:27 under its 8:00 slot.
-- Glimpses run 21–35 s. Three short ones (M1–M3) each gained one real static fact, not padding; M3 (21 s) is short because the index has one testable set.
-- With Deep Dive 1 (6:28) and Deep Dive 2 (6:14) running about 1:12 over their slots, the Grid's shortfall offsets about half of that. The hub projects to about 29:45 with the Focus kept, which is under 30. Decide at the rundown lock whether to keep the Focus or apply cascade step 3.
+- **v3:** the Grid is 1,131 words, **about 8:46** with its holds: 2 s on each notes frame and 8 s on each of the two revision-sheet pages. That is 46 s over its 8:00 slot.
+- Why: the owner asked for frames an aspirant can pause and copy (28 Oct review). The holds are the copy time; the narration grew by only about 56 words (the C1, C3 and C5 fixes).
+- Hub effect: with Deep Dive 1 (6:28), Deep Dive 2 (6:14) and the AP–TG Desk (3:34, also over by 34 s), the hub projects past 30 min. Apply the cascade (§4.1), in this order:
+  1. shorten the Update Desk to 30 s per change;
+  2. drop the Focus;
+  3. if it is still over, cut the revision sheet to one 8 s page and leave page 2 to the PDF.
 - If M2 is dropped, the Grid falls to 15 items, which is still at the floor (§4.1).
 
 ## 5. Creative idea of the week (Grid)

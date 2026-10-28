@@ -13,7 +13,7 @@ Usage: python3 -I prep_geo.py <ne_dir> <out.json>
 """
 import json, sys
 from pathlib import Path
-from shapely.geometry import shape, mapping, box
+from shapely.geometry import shape, mapping, box, MultiLineString
 from shapely.ops import unary_union
 
 ne, out = Path(sys.argv[1]), Path(sys.argv[2])
@@ -25,7 +25,7 @@ def rnd(geom, nd=3):
     g = mapping(geom)
     return {"type": g["type"], "coordinates": r(g["coordinates"])}
 
-WIDE = box(-30, -45, 150, 78)        # India ↔ Black Sea flights (clip edges stay off-screen)
+WIDE = box(-90, -56, 160, 80)        # India ↔ Black Sea flights, and world maps out to Brazil (clip edges stay off-screen)
 DETAIL = box(0, 25, 70, 70)          # Black Sea, Ukraine, Turkish Straits, Valdai Hills (clip edges off-screen)
 RIVERS = box(20, 36, 46, 58.5)
 bundle = {"countries_wide": [], "countries": [], "rivers": [], "lakes": [], "admin1": [], "india": None}
@@ -55,11 +55,37 @@ for fn in ("ne_10m_rivers_europe.geojson", "ne_10m_rivers_lake_centerlines.geojs
         if nm in keep_rivers or rank <= 6:
             bundle["rivers"].append({"name": nm, "rank": rank, "geom": rnd(g.intersection(RIVERS).simplify(0.002), 3)})
 
+# Peninsular Indian rivers (Telugu States lens, Prelims Grid maps); Natural Earth spells some with diacritics
+INDIA_RIVERS = box(68, 6, 98, 37)
+india_names = {"Godävari": "Godavari", "Krishna": "Krishna", "Bhima": "Bhima", "Tungabhadra": "Tungabhadra", "Wainganga": "Wainganga",
+               "Indravati": "Indravati", "Penner": "Penner", "Mahäna Nadï": "Mahanadi", "Narmada": "Narmada", "Tapi": "Tapi"}
+for f in load("ne_10m_rivers_lake_centerlines.geojson"):
+    p, g = f["properties"], shape(f["geometry"])
+    nm = p.get("name") or ""
+    if nm in india_names and g.intersects(INDIA_RIVERS):
+        bundle["rivers"].append({"name": india_names[nm], "rank": p.get("scalerank", 10), "geom": rnd(g.intersection(INDIA_RIVERS).simplify(0.01), 3)})
+
 for fn in ("ne_10m_lakes_europe.geojson", "ne_10m_lakes.geojson"):
     for f in load(fn):
         g = shape(f["geometry"])
         if g.intersects(RIVERS) and g.area > 0.002:
             bundle["lakes"].append({"name": f["properties"].get("name") or "", "geom": rnd(g.intersection(RIVERS).simplify(0.002), 3)})
+
+# Indian state boundaries, interior lines only: each state's outline is clipped to the inside of the
+# DataMeet (Survey of India) outline, so the country's external boundary always comes from DataMeet.
+inner = india.buffer(-0.06)
+bundle["india_states"] = []
+for f in load("ne_10m_admin_1_states_provinces.geojson"):
+    p = f["properties"]
+    if p.get("adm0_a3") == "IND" and p.get("name") not in ("Jammu and Kashmir", "Ladakh", "Arunachal Pradesh"):
+        g = shape(f["geometry"])
+        line = g.boundary.intersection(inner)
+        if line.geom_type == "GeometryCollection":          # keep only the line parts
+            line = MultiLineString([l for l in getattr(line, "geoms", []) if l.geom_type == "LineString"])
+        if line.is_empty:
+            continue
+        c = g.representative_point()
+        bundle["india_states"].append({"name": p["name"], "label": [round(c.x, 2), round(c.y, 2)], "geom": rnd(line.simplify(0.01), 3)})
 
 want = {"Kherson", "Zaporizhzhya", "Donets'k", "Luhans'k", "Crimea", "Sevastopol", "Mykolayiv", "Dnipropetrovs'k", "Odessa"}
 for f in load("ne_10m_admin_1_states_provinces.geojson"):
