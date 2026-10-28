@@ -166,6 +166,13 @@ SCENES.S0 = (ctx, s) => {
     kt(ctx, t, x + 40, y + 128, { font: F.ui(30, 800), color: c.ink, alpha: a, maxW: 290 });
   });
 };
+// the opening pre-question (answered in topic 7's trap) and the closing slide of the examiner's tricks
+SCENES.S01 = (ctx, s) => exEnter(ctx, s, () => exMcq(ctx, s, null, { label: 'OPENING QUESTION · GROUP-1 STYLE', stem: 'Consider the following lakes:', qs: ['Kolleru', 'Chilika', 'Pulicat'], ok: [true, false, false],
+  ask: 'How many of the above are freshwater lakes?', typeCue: 'freshwater' }, false));
+SCENES.S98 = (ctx, s) => exEnter(ctx, s, () => exTricks(ctx, s, "THE EXAMINER'S THREE TRICKS · AP–TG DESK", [
+  ['Who holds the pen?', 'Acting Chief Justice: the President, not the CJI · SDMA: the Chief Minister, not the Governor · NSAP: Rural Development, not Social Justice', 'pen'],
+  ['Allows, or requires? Manages, or decides?', 'Article 243D(6) enables a BC quota; it does not require one · river boards manage, tribunals decide', 'allows'],
+  ['Main stream or tributary? Fresh or brackish?', 'Tummidihatti is on the Pranahita, a tributary · Kolleru is freshwater; Chilika and Pulicat are brackish', 'stream']]));
 const SHEET = [['01', 'BC quota', 'AP HC 1 Oct, SC 9 Oct · Art 243D(6) enabling · triple test (Gawali 2021) · ≤ 50%'], ['02', 'Telangana HC', 'Acting CJ Justice P. Sam Koshy · appointed by the President, Art 223'],
   ['03', 'NTR Bharosa', '₹4,000/month · Centre ₹200 (IGNOAPS) · NSAP is MoRD'], ['04', 'KRMB · GRMB', 'APRA 2014 boards (s.85) · tribunals: 1956 Act, Art 262'],
   ['05', 'Tummidihatti', 'Pranahita = Wardha + Wainganga · FRL 152 m sought vs 148 m (2016)'], ['06', 'DM Act 2005', 'NDMA PM (s.3) · SDMA CM (s.14) · DDMA Collector (s.25) · NDRF s.44'],

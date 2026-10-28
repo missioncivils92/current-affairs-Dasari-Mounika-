@@ -21,8 +21,8 @@ The video opens on the channel emblem and a board of the 16 topics. It ends with
 | File | What it is |
 |---|---|
 | `01-research-brief.md` | Selection with reasons, items dropped, the verification log and exam tags |
-| `02-master-script.md` | Two-column script v6 (lively, connected narration): 118 rows, 3,466 words, about 28–29 min with the holds |
-| `02b-voiceover-text.md` | Recording file: `python3 tools/make_voiceover.py weeks/2026-W44/prelims-grid v6` |
+| `02-master-script.md` | Two-column script v7 (opening question, connected narration, the examiner's three tricks; decision 36): 120 rows, 3,657 words, about 30 min with the holds |
+| `02b-voiceover-text.md` | Recording file: `python3 tools/make_voiceover.py weeks/2026-W44/prelims-grid v7` |
 
 ## Review render
 `w44-prelims-grid-exam-1080p.mp4` was sent in chat; videos are gitignored. It is a silent review render at 1080p, timed at 135 wpm, with the music bed only.

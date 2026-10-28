@@ -348,6 +348,13 @@ SCENES.S0 = (ctx, s) => {
   });
   [['NATIONAL', 'N'], ['INTERNATIONAL', 'I'], ['MISC', 'M']].forEach(([l, k], i) => exChip(ctx, l, 640 + i * 230, 990, BCOL[k], '#FFFFFF', 24, eia(s, 1.5)));
 };
+// the opening pre-question (answered in topic 1's trap) and the closing slide of the examiner's tricks
+SCENES.S01 = (ctx, s) => exEnter(ctx, s, () => exMcq(ctx, s, null, { label: 'OPENING QUESTION · UPSC FORMAT', stem: 'Consider the following places:', qs: ['Yanam', 'Karaikal', 'Mahe'], ok: [false, false, false],
+  ask: 'How many of the above are part of Andhra Pradesh?', typeCue: 'andhra' }, false));
+SCENES.S97 = (ctx, s) => exEnter(ctx, s, () => exTricks(ctx, s, "THE EXAMINER'S THREE TRICKS · WEEK 44", [
+  ['Swap the body or the ministry', 'DIPAM "in Commerce" · GRAP "by the CPCB" · GII "by the WEF" · Emissions Gap "by the IPCC" · GI "under Culture"', 'swap'],
+  ['Move the place or the date', 'Yanam "in Andhra Pradesh" · CDRI "in Gurugram" · Savings Day "on 31 October" · the first loss-and-damage money "to Bangladesh"', 'move'],
+  ['Stretch the set or the number', '30 by 30 "combined" · Saudi Arabia "in BRICS" · Chilika "still on the Montreux Record" · and the fear of "all three" and "none"', 'stretch']]));
 const SHEET = [['01', 'Cyclone Arnab', 'VSCS 118–166 km/h · named at ≥ 62 km/h (169 names, 2020) · Yanam is in Puducherry UT'], ['02', 'IDBI Bank', '60.72% to Fairfax · DIPAM → CCEA → RBI · private sector bank since 2019'],
   ['03', 'RBI FERR', '20% cash reserve, no interest · FX derivatives > $2 mn · FEMA 1999 (civil)'], ['04', 'GRAP', 'Stage I = poor (201–300) · CAQM (2021 Act) invokes · CPCB publishes AQI'],
   ['05', 'CVC', 'Statutory (2003) · 1964 Santhanam · CAG is the constitutional one (Art 148)'], ['06', 'SIOFA', 'Non-tuna high seas · Réunion · tuna = IOTC (Seychelles)'],

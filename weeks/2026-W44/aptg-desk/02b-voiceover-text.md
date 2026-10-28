@@ -1,9 +1,9 @@
-# Voiceover Text — 2026-W44 (AP–TG Desk: Local · Telugu States) · v6
+# Voiceover Text — 2026-W44 (AP–TG Desk: Local · Telugu States) · v7
 
 **Release:** Sunday 1 Nov 2026, 6:00 PM IST, as its own video (owner decision 33)
 **Coverage:** Mon 26 Oct – Sat 31 Oct 2026, plus 1–25 Oct items W43 did not cover
 **Format:** voice-only. Everything below is recorded on the microphone; there is no on-camera recording.
-**Total:** 1820 words · about 13.5 min at 135 wpm (13.0–14.0 min at 140–130 wpm)
+**Total:** 2005 words · about 14.9 min at 135 wpm (14.3–15.4 min at 140–130 wpm)
 
 Visual directions for the editor are in `02-master-script.md`.
 
@@ -25,7 +25,7 @@ Visual directions for the editor are in `02-master-script.md`.
 
 | Segment | Words | Min |
 |---|---|---|
-| AP–TG DESK — AP–TG Desk: seven Telugu States topics, exam format | 1820 | 13.5 |
+| AP–TG DESK — AP–TG Desk: seven Telugu States topics, exam format | 2005 | 14.9 |
 
 ---
 
@@ -35,11 +35,13 @@ Save as: `aptg-desk_VO_aptg.wav`
 
 **🎙️ NARRATION — *warm, bright.***
 
-Decode U-P-S-C: unlock your potential, decode your future. Namaskaram, and welcome! This is your Andhra Pradesh and Telangana Desk for week forty-four. I am so glad you are here, because this week our two States have given the examiner a lot to work with.
+Decode U-P-S-C: unlock your potential, decode your future. Namaskaram, and welcome! This is your Andhra Pradesh and Telangana Desk for week forty-four, where the news from our two States becomes the questions Group-1 and UPSC can ask you.
 
 **🎙️ NARRATION**
 
-Here is our desk for today: seven topics, from a courtroom in Amaravati to a lake full of birds near Eluru. And one question runs through all seven, so keep it in your mind as we go: who holds the pen? Who decides, the State or the Centre, the court or the commission? For every topic you get the news, the static facts, the trap, and a question in the Group-1 style. So open your notebook, keep a score of your ticks, and let us begin.
+Here is our desk for today: seven topics, from a courtroom in Amaravati to a lake full of birds near Eluru. One question runs through all seven, so keep it in mind: who holds the pen? Who decides, the State or the Centre, the court or the commission? For every topic you get the news, the static facts, the trap, and a Group-1 style question you answer before I do. Keep a score of your ticks, and stay till the end for the examiner's three tricks.
+
+Let us warm up with a question that we will settle only at our very last stop. Consider three lakes: Kolleru, Chilika and Pulicat. How many of them are freshwater lakes? Note your answer, and hold on to it.
 
 Topic one, from Polity, and it starts in your own village panchayat: the Backward Classes quota in Andhra Pradesh's local bodies.
 
@@ -131,7 +133,7 @@ Why in news: Andhra Pradesh has asked the Supreme Court's Central Empowered Comm
 
 Now meet the lakes that UPSC likes to line up side by side. Kolleru is a freshwater lake between the Krishna and Godavari deltas, a Ramsar site since 2002; Chilika and Pulicat are brackish lagoons; Sambhar is saline; and Loktak is freshwater, with floating phumdis.
 
-Prelims Trap. Kolleru is not a brackish lagoon like Chilika; it is a freshwater lake.
+Prelims Trap, and it settles our warm-up question too. Kolleru is not a brackish lagoon like Chilika; it is a freshwater lake. Chilika and Pulicat are brackish, so the answer to our warm-up is only one: Kolleru.
 
 Last question of the desk. Make it count: how many of these three statements are correct?
 
@@ -139,6 +141,8 @@ The answer is only two: statements two and three, because Kolleru is freshwater,
 
 Your last notes card for today. Copy it, and your Telugu States page for this week is complete.
 
-Pause here: this is the Telugu States sheet, and it is also a page of this week's PDF. Now count your ticks. Seven topics, seven traps and seven questions in about ten minutes; that is real work, and you did it. Preparation does not grow in one heroic night; it grows one honest week at a time, and this was a good week. The PDF and this week's MCQ challenge are waiting for you in the pinned comment. See you next week at the Desk.
+Now, the moment I promised. Look back at all seven traps, and you will see that the examiner used just three tricks. First, who holds the pen? The President, rather than the Chief Justice of India; the Chief Minister, rather than the Governor; Rural Development, rather than Social Justice. Second, allows or requires, manages or decides? Article two-four-three D, clause six, enables a quota without requiring one, and river boards manage while tribunals decide. And third, main stream or tributary, fresh or brackish? The barrage is on the Pranahita, and Kolleru is freshwater. Learn to see these three tricks, and every Group-1 paper starts to look familiar. That is what this desk is for: finding the question hiding inside the news.
 
-*Words: 1820 · about 13.5 min*
+Pause here: this is the Telugu States sheet, and it is also a page of this week's PDF. Now count your ticks. Seven topics, seven traps and seven questions; that is real work, and you did it. Preparation grows one honest week at a time, and you do not have to do it alone: every Sunday, this desk is here with you. If this helped, subscribe so that next week's desk finds you, and share your score under the pinned comment, where the PDF and the MCQ challenge are waiting. See you next Sunday.
+
+*Words: 2005 · about 14.9 min*
