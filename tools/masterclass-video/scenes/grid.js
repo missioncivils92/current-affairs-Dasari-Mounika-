@@ -35,7 +35,7 @@ SCENES.S00 = (ctx, s) => {
 // ---------------- National ----------------
 SCENES.S01 = (ctx, s) => {    // Cyclone Arnab: Sentinel-2, Godavari delta coast
   const into = span(s.t, 2.0, 4.0);
-  const cam = camLerp({ lon: 82.6, lat: 17.0, zoom: 7.4 }, { lon: 82.3, lat: 16.84, zoom: 11.2 }, ease(into));
+  const cam = camLerp({ lon: 82.6, lat: 17.0, zoom: 7.4 }, { lon: 82.3, lat: 16.80, zoom: 11.2 }, ease(into));
   const proj = camera(cam.lon, cam.lat, lerp(cam.zoom, cam.zoom + 0.25, s.p));
   terrainMap(ctx, proj, 'apcoast');
   raster(ctx, proj, A.godavari_coast, A.godavari_coast_meta, { feather: 140, alpha: ease(span(s.t, 1.6, 3.2)) });
