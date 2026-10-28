@@ -161,14 +161,21 @@ SCENES.S07 = (ctx, s) => {
 };
 
 // ---------------- D.7 Kolleru · lakes look-alike set ----------------
-SCENES.S08 = (ctx, s) => {
-  item(ctx, s, 6, 'Kolleru: a sanctuary\'s limits', 'AP asks the SC\'s Central Empowered Committee to exclude ≈ 20,000 acres (as reported)');
-  mapWin(ctx, s, 80.85, 16.2, 81.8, 16.95, (g, proj) => {
-    labelPill(g, proj, [81.22, 16.63], 'KOLLERU · freshwater', { fill: 'rgba(43,179,163,0.95)', color: C.slate, alpha: appear(s.t, s.w('kolleru') - 0.3) });
-    labelPill(g, proj, [81.0, 16.3], 'Krishna delta side', { font: F.ui(24, 800), alpha: appear(s.t, s.w('deltas') - 0.3) });
-    labelPill(g, proj, [81.6, 16.85], 'Godavari delta side', { font: F.ui(24, 800), alpha: appear(s.t, s.w('deltas') - 0.3) });
-    pin(g, proj, [81.1, 16.71], null, { r: 8, color: C.white }); labelPill(g, proj, [81.1, 16.71], 'Eluru', { off: [-60, -30], font: F.ui(24, 800) });
-  }, { sat: 'kolleru_wide' });
+SCENES.S08 = (ctx, s) => {    // Kolleru · v4: fly in from the State to the lake, then the lakes set
+  const keys = [[0.4, [76.5, 12.5, 85, 20]], [4.5, [80.85, 16.2, 81.8, 16.95]]];
+  cine(ctx, s, 6, { title: 'Kolleru: a sanctuary\'s limits', kicker: 'AP asks the SC\'s Central Empowered Committee to exclude land', sub: 'AP asks the SC\'s Central Empowered Committee to exclude ≈ 20,000 acres (as reported)',
+    draw: (g, box) => {
+      const proj = windowCamera(box, ...boundsAt(s.t, keys));
+      terrainMap(g, proj, 'telugu', { states: { labels: s.t < 4 ? { 'Andhra Pradesh': [79.3, 15.0], 'Telangana': [78.9, 18.0] } : {} } });
+      raster(g, proj, A.kolleru_wide, A.kolleru_wide_meta, { feather: 50, alpha: span(s.t, 2.6, 4.6) });
+      const [lx, ly] = proj([81.22, 16.62]), kc = s.w('kolleru');
+      inkEllipse(g, lx, ly, 150 * box[2] / 1080, 110 * box[3] / 600, span(s.t, kc - 0.1, kc + 0.9), { seed: 2, color: C.teal });
+      labelPill(g, proj, [81.22, 16.63], 'KOLLERU · freshwater', { fill: 'rgba(43,179,163,0.95)', color: C.slate, alpha: appear(s.t, kc) });
+      labelPill(g, proj, [81.0, 16.3], 'Krishna delta side', { font: F.ui(24, 800), alpha: appear(s.t, s.w('deltas') - 0.3) });
+      labelPill(g, proj, [81.6, 16.85], 'Godavari delta side', { font: F.ui(24, 800), alpha: appear(s.t, s.w('deltas') - 0.3) });
+    } });
+  bigFact(ctx, s, 1240, 260, 'AP SEEKS TO EXCLUDE', '≈ 20,000 acres', s.w('twenty') - 0.2, { col: C.teal });
+  bigFact(ctx, s, 1240, 470, 'BEFORE', 'SC\'s Central Empowered Committee', s.w('central') - 0.2, { col: ACC[1], size: 44 });
   gTable(ctx, s, 6, NOTES, [['Lake', 0.3], ['Type · State · Ramsar', 0.7]],
     [[['Kolleru', 'Freshwater · AP · 2002'], 'freshwater', { hl: true }],
      [['Chilika', 'Brackish lagoon · Odisha · 1981'], 'chilika', { trapCol: 1 }],

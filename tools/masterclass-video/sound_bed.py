@@ -4,7 +4,11 @@ for the Update Desk (CLAUDE.md §6.6). Everything is synthesised here, so there 
 The pad sits low under the narration (ducked about 10 dB wherever the voice is active) and rises in the silent holds
 and under the end screen, so a pause never sounds like dead air.
 
-Usage: python3 -I sound_bed.py <timeline.json> <out.wav> [--voice final_audio.wav]
+With --pulse (breadth segments: Prelims Grid, AP–TG Desk) it adds a light rhythmic music bed (92 bpm: soft kick, hat,
+a plucked A-minor progression), a whoosh on every card change, a low impact where the card settles into its notes
+frame (about 2 s before "Prelims Trap") and a soft two-note chime on the trap itself.
+
+Usage: python3 -I sound_bed.py <timeline.json> <out.wav> [--voice final_audio.wav] [--pulse]
   With --voice, the output is the finished mix (voice + bed, loudness-normalised to about -14 LUFS).
   Without it, the output is the bed alone (for silent review previews).
 """
@@ -54,10 +58,59 @@ for r in tl["rows"]:
 lvl[-2 * SR:] *= np.linspace(1, 0, 2 * SR)                                 # fade out
 bed = pad * smooth(lvl, SR // 4) + sfx
 
+if "--pulse" in sys.argv:
+    def env_add(buf, at, sig, g):
+        i = max(0, int(at * SR)); n = min(len(sig), N - i)
+        if n > 0: buf[i:i + n] += g * sig[:n]
+    music = np.zeros(N); beat = 60 / 92
+    kick = (lambda x: np.sin(2 * np.pi * (50 * x + 35 * (1 - np.exp(-x * 30)) / 30)) * np.exp(-x * 9))(np.arange(int(0.35 * SR)) / SR)
+    hat = np.diff(rng.standard_normal(int(0.05 * SR) + 1)) * np.exp(-np.arange(int(0.05 * SR)) / SR * 90)
+    def pluck(fs, dur=1.6):
+        x = np.arange(int(dur * SR)) / SR
+        return sum(np.sign(np.sin(2 * np.pi * f * x)) * 0.25 * np.exp(-x * 3.2) * (1 - np.exp(-x * 400)) for f in fs) / len(fs)
+    chords = [[220, 261.63, 329.63], [174.61, 220, 261.63], [261.63, 329.63, 392], [196, 246.94, 293.66]]   # Am F C G
+    bass = [55, 43.65, 65.41, 49]
+    k = 0; tb = 0.0
+    while tb < tl["duration"]:
+        env_add(music, tb, kick, 0.55 if k % 2 == 0 else 0.0)
+        env_add(music, tb + beat / 2, hat, 0.10)
+        env_add(music, tb, hat, 0.06)
+        if k % 4 == 0:
+            bar = (k // 4) % 4
+            env_add(music, tb, pluck(chords[bar]), 0.16)
+            xb = np.arange(int(4 * beat * SR)) / SR
+            env_add(music, tb, np.sin(2 * np.pi * bass[bar] * xb) * np.exp(-xb * 0.8), 0.22)
+        k += 1; tb += beat
+    lo = np.convolve(music, np.ones(6) / 6, mode="same")                    # soften the top end
+    fade = np.clip(np.minimum(t / 2.0, (tl["duration"] - t) / 2.0), 0, 1)
+    bed += 10 ** (-17 / 20) * lo / (np.max(np.abs(lo)) + 1e-9) * fade
+
+    def whoosh(at, g=0.12):
+        n = int(0.7 * SR); x = np.arange(n) / SR
+        w = np.convolve(rng.standard_normal(n), np.ones(30) / 30, mode="same") * np.sin(np.pi * x / x[-1]) ** 2
+        env_add(sfx2, at - 0.2, w * (0.4 + 0.6 * x / x[-1]), g)
+    def impact(at):
+        x = np.arange(int(0.9 * SR)) / SR
+        env_add(sfx2, at, np.sin(2 * np.pi * 58 * x) * np.exp(-x * 5) + 0.3 * np.sin(2 * np.pi * 116 * x) * np.exp(-x * 9), 0.30)
+    def chime(at):
+        x = np.arange(int(1.2 * SR)) / SR
+        for dt, f in [(0, 659.25), (0.14, 987.77)]:
+            env_add(sfx2, at + dt, np.sin(2 * np.pi * f * x) * np.exp(-x * 5) * (1 - np.exp(-x * 300)), 0.07)
+    sfx2 = np.zeros(N)
+    for r in tl["rows"]:
+        whoosh(r["start"])
+        words = [w for w, _ in r.get("wt", [])]
+        for i in range(len(words) - 1):
+            if words[i] == "prelims" and words[i + 1].startswith("trap"):
+                pt = r["start"] + r["wt"][i][1]
+                impact(max(r["start"] + 3.0, pt - 2.2)); chime(pt)
+                break
+    bed += sfx2
+
 def write(y, path, norm):
     raw = path + ".raw.wav"
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "f32le", "-ar", str(SR), "-ac", "1", "-i", "-", raw], input=y.astype(np.float32).tobytes(), check=True)
-    af = "loudnorm=I=-14:TP=-1.5:LRA=11" if norm else "anull"
+    af = {True: "loudnorm=I=-14:TP=-1.5:LRA=11", "preview": "loudnorm=I=-20:TP=-3:LRA=11"}.get(norm, "anull")
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", raw, "-af", af, "-ar", str(SR), "-ac", "2", path], check=True)
     os.remove(raw)
 
@@ -68,5 +121,5 @@ if voice:
     duck = 1 - 0.68 * np.clip(env / (np.percentile(env, 90) + 1e-9), 0, 1)       # about -10 dB under speech
     write(v + bed * duck, out, True)
 else:
-    write(bed, out, False)
+    write(bed, out, "preview" if "--pulse" in sys.argv else False)        # a music bed alone is lifted to a listenable level
 print(out, f"{tl['duration']:.1f}s", "mix" if voice else "bed only")

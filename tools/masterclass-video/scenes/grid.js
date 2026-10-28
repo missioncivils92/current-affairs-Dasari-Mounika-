@@ -28,66 +28,109 @@ function chartWin(ctx, s, draw) { gWindow(ctx, s, (g, box) => { g.fillStyle = '#
 function item(ctx, s, k, title, sub) { glimpseBase(ctx, k); gHeader(ctx, s, k, title, sub); }
 const ID = (p) => p;   // identity "projection" for labelPill on charts
 
-// ---------------- G.0 the board ----------------
-SCENES.S00 = (ctx, s) => {
+// ---------------- G.0 the hook and the board ----------------
+SCENES.S00 = (ctx, s) => {    // the hook: a 4-shot preview of what is coming, then the board of sixteen
   glimpseBase(ctx);
+  const shots = [['Cyclone Arnab', 'arnab_coast', [81.58, 16.3, 82.52, 17.1]], ['BRICS', null, [-75, -38, 140, 68]], ['Kolleru · AP–TG Desk', 'kolleru_wide', [80.85, 16.2, 81.8, 16.95]], ['Ramsar 103 · Sukhna', 'sukhna', null]];
+  const sh = Math.floor(s.t / 0.9);
+  if (sh < shots.length) {
+    const [lab, img, b] = shots[sh], u = (s.t % 0.9) / 0.9;
+    gWindow(ctx, s, (g, box) => {
+      const proj = zoomProj(windowCamera(box, ...(b || A[img + '_meta'].bounds)), box, 1 + 0.08 * u);
+      terrainMap(g, proj, img === 'sukhna' ? 'northindia' : 'apcoast', { world: sh === 1, highlight: sh === 1 ? Object.fromEntries(['BRA', 'RUS', 'CHN', 'ZAF', 'EGY', 'ETH', 'IRN', 'ARE', 'IDN'].map(a => [a, 'rgba(245,211,0,0.55)'])) : null, indiaFill: sh === 1 ? 'rgba(245,211,0,0.55)' : undefined });
+      if (img && A[img + '_meta']) raster(g, proj, A[img], A[img + '_meta'], { feather: 40 });
+    }, { box: [0, 0, W, H], push: false, r: 0 });
+    ctx.save(); ctx.fillStyle = 'rgba(8,10,14,0.35)'; ctx.fillRect(0, 0, W, H); ctx.restore();
+    text(ctx, lab.toUpperCase(), 96, H - 110, { font: F.head(96), shadow: 14 });
+    text(ctx, 'THIS WEEK ON DECODE', 100, H - 210, { font: F.ui(30, 800), color: C.yellow, shadow: 8 });
+    return;
+  }
   text(ctx, 'PRELIMS GRID', 960, 150, { font: F.ui(34, 800), align: 'center', color: C.yellow });
   text(ctx, 'Week 44 · 26 Oct – 1 Nov 2026', 960, 200, { font: F.ui(28, 600), align: 'center', color: C.dim });
-  const flip = s.w('sixteen') - 0.4, labels = ['Cyclone Arnab', 'IDBI sale', 'RBI · FERR', 'GRAP', 'CVC week', 'SIOFA', 'Hunger Index', 'Poland · CDRI', 'BRICS MPs', 'CBD COP17', 'Emissions Gap', 'Loss & Damage', 'Ramsar 103', 'GI tag', 'Innovation Index', 'Days'];
+  const flip = Math.max(s.w('sixteen') - 0.4, 3.7), labels = ['Cyclone Arnab', 'IDBI sale', 'RBI · FERR', 'GRAP', 'CVC week', 'SIOFA', 'Hunger Index', 'Poland · CDRI', 'BRICS MPs', 'CBD COP17', 'Emissions Gap', 'Loss & Damage', 'Ramsar 103', 'GI tag', 'Innovation Index', 'Days'];
   ORDER.forEach((c, i) => {
     const col = i % 4, row = Math.floor(i / 4), x = 420 + col * 280, y = 250 + row * 170;
     const k = ease(span(s.t, flip + i * 0.07, flip + i * 0.07 + 0.45)), st = CAT[c];
     ctx.save(); ctx.translate(x + 125, y + 70); ctx.scale(Math.max(0.02, Math.abs(Math.cos(Math.PI * k))), 1); ctx.translate(-(x + 125), -(y + 70));
     if (k < 0.5) card(ctx, x, y, 250, 140, { fill: '#2B3139', stroke: 'rgba(255,255,255,0.12)' });
-    else { card(ctx, x, y, 250, 140, { fill: '#262B33', accent: st.col, bar: 10 }); text(ctx, labels[i], x + 30, y + 82, { font: F.ui(28, 800), maxW: 200, lh: 32 }); }
+    else { card(ctx, x, y, 250, 140, { fill: tint(st.col, 0.22), accent: st.col, bar: 10 }); text(ctx, labels[i], x + 30, y + 82, { font: F.ui(28, 800), maxW: 200, lh: 32 }); }
     ctx.restore();
   });
-  text(ctx, 'what happened  →  the static set to copy  →  the trap', 960, 970, { font: F.hand(50), align: 'center', color: C.yellow, alpha: appear(s.t, s.w('static') - 0.3) });
-  text(ctx, 'Pause on any card to copy it · the full sheet is at the end and in the PDF', 960, 1030, { font: F.ui(26, 700), align: 'center', color: C.dim, alpha: appear(s.t, 2) });
+  text(ctx, 'what happened  →  the static set to copy  →  the trap', 960, 970, { font: F.hand(50), align: 'center', color: C.yellow, alpha: appear(s.t, Math.max(s.w('static') - 0.3, 4.5)) });
 };
 
+
 // ---------------- National ----------------
-SCENES.S01 = (ctx, s) => {    // Cyclone Arnab · map-led
-  item(ctx, s, 0, 'Cyclone Arnab crosses the coast', '28 Oct · Godavari delta, AP–Yanam coast · Very Severe Cyclonic Storm');
-  mapWin(ctx, s, 81.58, 16.3, 82.52, 17.1, (g, proj) => {
-    // IMD (as reported): crossed about 20 km ENE of Narsapur, i.e. between Narsapur and Yanam, not at Kakinada
-    arrow(g, [proj([82.6, 16.3]), proj([82.2, 16.38]), proj([81.89, 16.5])], span(s.t, 0.8, 3.0), { color: C.white, lw: 6, dash: [16, 10] });
-    labelPill(g, proj, [82.18, 16.38], 'Crossed between Narsapur and Yanam', { font: F.ui(24, 800), alpha: appear(s.t, 2.4) });
-    pin(g, proj, [82.247, 16.989], null, { color: C.white, r: 8 }); labelPill(g, proj, [82.247, 16.989], 'Kakinada', { off: [70, -40] });
-    pin(g, proj, [82.214, 16.733], null, { r: 9 }); labelPill(g, proj, [82.214, 16.733], 'YANAM · Puducherry UT', { off: [-30, -70], fill: 'rgba(245,211,0,0.92)', color: C.slate });
-    pin(g, proj, [81.70, 16.43], null, { color: C.white, r: 8 }); labelPill(g, proj, [81.70, 16.43], 'Narsapur', { off: [-40, -40] });
-    labelPill(g, proj, [82.48, 16.55], 'BAY OF BENGAL', { fill: 'rgba(18,40,58,0.8)', color: '#9CC8EA', font: F.ui(24, 800) });
-  }, { local: 'apcoast', sat: 'arnab_coast' });
-  if (s.t < 2.8) locatorInset(ctx, 116, 252, 400, 340, [82.2, 16.8], 1 - span(s.t, 2.2, 2.8));
+function puduInset(g, x, y, w, h, a) {      // the four enclaves of the UT of Puducherry
+  if (a <= 0) return; g.save(); g.globalAlpha *= a;
+  card(g, x, y, w, h, { fill: 'rgba(16,19,24,0.93)', stroke: C.yellow, lw: 2 });
+  const proj = d3.geoMercator().fitExtent([[x + 20, y + 50], [x + w - 20, y + h - 14]], { type: 'MultiPoint', coordinates: [[74, 8], [84, 19]] });
+  geo(g, proj, A.geo.india, { fill: 'rgba(255,200,110,0.35)', stroke: 'rgba(255,255,255,0.6)', lw: 1.2 });
+  text(g, 'PUDUCHERRY UT · 4 enclaves', x + 18, y + 34, { font: F.ui(24, 800), color: C.yellow });
+  [['Puducherry', [79.83, 11.93], [12, 6]], ['Karaikal', [79.84, 10.92], [12, 8]], ['Mahe', [75.53, 11.70], [-74, 6]], ['Yanam', [82.21, 16.73], [12, 6]]].forEach(([n, ll, [dx, dy]]) => {
+    const [px, py] = proj(ll); g.beginPath(); g.arc(px, py, 6, 0, 7); g.fillStyle = C.yellow; g.fill();
+    text(g, n, px + dx, py + dy, { font: F.ui(24, 800), shadow: 6 });
+  });
+  g.restore();
+}
+SCENES.S01 = (ctx, s) => {    // Cyclone Arnab · v4: flight from India to the delta, then the notes frame
+  const keys = [[0.6, [64, 5, 100, 38]], [3.6, [78, 11.5, 89, 21]], [7.0, [81.58, 16.3, 82.52, 17.1]]];
+  cine(ctx, s, 0, { title: 'Cyclone Arnab crosses the coast', kicker: '28 Oct · Very Severe Cyclonic Storm · AP–Yanam coast', sub: '28 Oct · Godavari delta, AP–Yanam coast · Very Severe Cyclonic Storm',
+    draw: (g, box) => {
+      const proj = windowCamera(box, ...boundsAt(s.t, keys));
+      terrainMap(g, proj, 'apcoast', {});
+      raster(g, proj, A.arnab_coast, A.arnab_coast_meta, { feather: 50, alpha: span(s.t, 4.8, 6.8) });
+      arrow(g, [proj([86.8, 12.6]), proj([84.6, 14.7]), proj([82.6, 16.1]), proj([81.89, 16.5])], span(s.t, 1.8, 6.6), { color: C.white, lw: 6, dash: [16, 10] });
+      const pa = appear(s.t, 6.6);
+      pin(g, proj, [82.247, 16.989], null, { color: C.white, r: 8, alpha: pa }); labelPill(g, proj, [82.247, 16.989], 'Kakinada', { off: [0, -46], alpha: pa });
+      pin(g, proj, [81.70, 16.43], null, { color: C.white, r: 8, alpha: pa }); labelPill(g, proj, [81.70, 16.43], 'Narsapur', { off: [-40, -44], alpha: pa });
+      pin(g, proj, [82.214, 16.733], null, { r: 9, alpha: pa }); labelPill(g, proj, [82.214, 16.733], 'YANAM · Puducherry UT', { off: [-30, -70], fill: 'rgba(245,211,0,0.92)', color: C.slate, alpha: pa });
+      labelPill(g, proj, [82.18, 16.38], 'Crossed between Narsapur and Yanam', { font: F.ui(24, 800), alpha: appear(s.t, 7.2) });
+      const [yx, yy] = proj([82.214, 16.733]), yc = s.w('yanam', 1);
+      inkEllipse(g, yx, yy, 64, 44, span(s.t, yc - 0.1, yc + 0.8), { seed: 3 });
+      puduInset(g, box[0] + 20, box[1] + box[3] - 300, 330, 280, appear(s.t, s.w('puducherry') - 0.2));
+    } });
+  bigFact(ctx, s, 1240, 250, 'IMD CLASS', 'Very Severe · 118–166 km/h', s.w('very severe') - 0.2, { size: 50 });
+  bigFact(ctx, s, 1240, 420, 'NAMED ONLY AT', '≥ 62 km/h', s.w('name') - 0.2, { col: ACC[1] });
+  bigFact(ctx, s, 1240, 590, 'SEPTEMBER SYSTEM', 'Deep depression · no name', s.w('september') - 0.2, { col: ACC[3], size: 50 });
+  bigFact(ctx, s, 1240, 760, 'THE NAME CAME FROM', 'Bangladesh\'s list', s.w('bangladesh') - 0.2, { col: ACC[2], size: 50 });
   gTable(ctx, s, 0, [NOTES[0], NOTES[1], NOTES[2], 420], [['IMD class', 0.66], ['km/h', 0.34]],
     [[['Cyclonic Storm', '62–88']], [['Severe Cyclonic Storm', '89–117']], [['Very Severe CS · Arnab', '118–166'], null, { hl: true }], [['Extremely Severe CS', '167–221']], [['Super Cyclonic Storm', '≥ 222']]], { size: 26, rowH: 72 });
   gNotes(ctx, s, 0, [['Naming', 'Only at ≥ 62 km/h · WMO/ESCAP Panel (13 countries)', 'name']], { box: [NOTES[0], 668, NOTES[2], 164], title: 'ALSO NOTE', size: 26 });
   gTrap(ctx, s, 'Yanam is part of Andhra Pradesh', 'Puducherry UT = Puducherry · Karaikal · Mahe · Yanam');
   finish(ctx, s, 0, CR.sat);
 };
-SCENES.S02 = (ctx, s) => {    // IDBI · data-led
-  item(ctx, s, 1, 'IDBI Bank: 60.72% to Fairfax', '14 Oct · CCEA approves strategic sale · ≈ ₹52,878 crore · RBI approval pending');
-  chartWin(ctx, s, (g, [x, y, w, h]) => {
-    text(g, 'Who owns IDBI Bank: before and after the sale', x + 40, y + 60, { font: F.ui(30, 800) });
-    const bars = [['Before', [['GoI', 45.48, '#E8B931'], ['LIC', 49.24, '#4A90C2'], ['', 5.28, '#5A616B']]],
-                  ['Sold now', [['GoI 30.48', 30.48, '#E8B931'], ['LIC 30.24', 30.24, '#4A90C2']]],
-                  ['After', [['Fairfax 60.72', 60.72, '#2BB3A3'], ['GoI + LIC ≈ 34', 34.0, '#8A939E'], ['', 5.28, '#5A616B']]]];
-    const bx = x + 200, bw = w - 260;
-    bars.forEach(([lab, segs], i) => {
-      const yy = y + 130 + i * 140, a = appear(s.t, 0.6 + i * 0.6);
-      text(g, lab, x + 40, yy + 50, { font: F.ui(28, 800), alpha: a });
-      let cx = bx; segs.forEach(([l, v, col]) => {
-        const ww = bw * v / 100; g.save(); g.globalAlpha = a; g.fillStyle = col; g.fillRect(cx, yy + 10, ww - 3, 64); g.restore();
-        if (l) text(g, l, cx + 12, yy + 52, { font: F.ui(24, 800), color: col === '#E8B931' || col === '#2BB3A3' ? C.slate : C.white, alpha: a }); cx += ww;
+SCENES.S02 = (ctx, s) => {    // IDBI · v4: the ownership chart fills the frame, then settles
+  cine(ctx, s, 1, { title: 'IDBI Bank: 60.72% to Fairfax', kicker: '14 Oct · Cabinet approves the strategic sale', sub: '14 Oct · CCEA approves strategic sale · ≈ ₹52,878 crore · RBI approval pending',
+    draw: (g, [x, y, w, h], e) => {
+      g.fillStyle = '#1E2228'; g.fillRect(x, y, w, h);
+      text(g, 'Who owns IDBI Bank: before and after the sale', x + 40, y + lerp(300, 60, e), { font: F.ui(lerp(40, 30, e), 800) });
+      const bars = [['Before', [['GoI 45.48', 45.48, '#E8B931'], ['LIC 49.24', 49.24, '#4A90C2'], ['', 5.28, '#5A616B']]],
+                    ['Sold now', [['GoI 30.48', 30.48, '#E8B931'], ['LIC 30.24', 30.24, '#4A90C2']]],
+                    ['After', [['Fairfax 60.72', 60.72, '#2BB3A3'], ['GoI + LIC ≈ 34', 34.0, '#8A939E'], ['', 5.28, '#5A616B']]]];
+      const bx = x + lerp(260, 200, e), bw = lerp(w * 0.62 - 260, w - 260, e), bh = lerp(110, 64, e), fz = Math.round(lerp(34, 24, e));
+      bars.forEach(([lab, segs], i) => {
+        const yy = y + h * (lerp(0.38, 0.24, e) + lerp(0.19, 0.24, e) * i), a = appear(s.t, [0.8, s.w('sixty') - 0.3, s.w('fairfax') - 0.3][i]);
+        text(g, lab, x + 40, yy + bh * 0.62, { font: F.ui(lerp(36, 28, e), 800), alpha: a });
+        let cx = bx; segs.forEach(([l, v, col]) => {
+          const ww = bw * v / 100 * easeOut(span(s.t, [0.8, s.w('sixty') - 0.3, s.w('fairfax') - 0.3][i], [0.8, s.w('sixty') - 0.3, s.w('fairfax') - 0.3][i] + 0.8));
+          g.save(); g.globalAlpha = a; g.fillStyle = col; g.fillRect(cx, yy, Math.max(0, ww - 3), bh); g.restore();
+          if (l && ww > 60) text(g, l, cx + 12, yy + bh * 0.62, { font: F.ui(fz, 800), color: col === '#E8B931' || col === '#2BB3A3' ? C.slate : C.white, alpha: a }); cx += bw * v / 100;
+        });
       });
-    });
-    text(g, 'Shares in %, as reported · grey = public shareholders', x + 40, y + h - 30, { font: F.ui(24, 600), color: C.dim });
-  });
+      const fy = y + h * (lerp(0.38, 0.24, e) + 2 * lerp(0.19, 0.24, e)), fa = s.w('fairfax');
+      inkEllipse(g, bx + bw * 0.3, fy + bh / 2, bw * 0.34, bh * 0.85, span(s.t, fa, fa + 0.9), { seed: 5 });
+      text(g, 'Shares in %, as reported · grey = public shareholders', x + 40, y + h - 30, { font: F.ui(24, 600), color: C.dim });
+    } });
+  bigFact(ctx, s, 1290, 260, 'SOLD TO A FAIRFAX UNIT', '60.72%', s.w('sixty') - 0.2, { size: 80 });
+  bigFact(ctx, s, 1290, 490, 'PRICE (ABOUT)', '₹52,878 crore', s.w('fifty-two') - 0.2, { col: ACC[1] });
+  bigFact(ctx, s, 1290, 680, 'STILL NEEDED', 'RBI approval', s.w('approval') - 0.2, { col: ACC[3] });
   gNotes(ctx, s, 1, [['Origin', '1964, IDBI Act (RBI subsidiary) → 1976 to GoI → 2004 IDBI Bank'], ['RBI category', 'Private sector bank since Jan 2019 (LIC majority)', null, { hl: true }],
     ['Process', 'Strategic disinvestment · DIPAM (Finance) · CCEA approval'], ['Next', 'RBI "fit and proper" approval of the buyer']]);
   gTrap(ctx, s, 'IDBI is a public sector bank', 'RBI: a private sector bank since 2019');
   finish(ctx, s, 1, 'Sources: CCEA decision, 14 Oct 2026; DIPAM (as reported)');
 };
+
 SCENES.S03 = (ctx, s) => {    // RBI FERR · comparison-led
   item(ctx, s, 2, 'RBI: a 20% Foreign Exchange Risk Reserve', '10 Oct · A.P. (DIR Series) Circular 26 · follow-ups 12 Oct (No. 27) and FAQs 15 Oct');
   gTable(ctx, s, 2, WIN, [['', 0.26], ['FERA', 0.37], ['FEMA', 0.37]],
@@ -180,22 +223,31 @@ SCENES.S08 = (ctx, s) => {    // Poland · CDRI · comparison-led
   gTrap(ctx, s, 'The CDRI is headquartered in Gurugram', 'CDRI: New Delhi · ISA: Gurugram');
   finish(ctx, s, 7, 'Source: India–Poland joint statement, 22 Oct 2026 (as reported)');
 };
-SCENES.S09 = (ctx, s) => {    // BRICS · map-led
-  item(ctx, s, 8, '12th BRICS Parliamentary Forum, New Delhi', '26–27 Oct · Samvidhan Sadan · Lok Sabha Speaker chairs · India chairs BRICS in 2026');
+SCENES.S09 = (ctx, s) => {    // BRICS · v4: fly to New Delhi for the forum, then members light up one by one
   const M = { BRA: [-52, -10], RUS: [95, 62], IND: [79, 22], CHN: [104, 35], ZAF: [24, -29], EGY: [30, 26], ETH: [40, 8], IRN: [54, 32], ARE: [54.3, 23.6], IDN: [117, -2] };
   const names = { BRA: 'Brazil', RUS: 'Russia', IND: 'India', CHN: 'China', ZAF: 'South Africa', EGY: 'Egypt', ETH: 'Ethiopia', IRN: 'Iran', ARE: 'UAE', IDN: 'Indonesia' };
-  const hl = {}; Object.keys(M).forEach(m => { hl[m] = 'rgba(245,211,0,0.5)'; });
-  mapWin(ctx, s, -75, -38, 140, 68, (g, proj) => {
-    const sau = A.geo.countries_wide.find(c => c.a3 === 'SAU'); if (sau) geo(g, proj, sau.geom, { stroke: C.white, lw: 2.5, dash: [6, 5] });
-    Object.entries(M).forEach(([a3, ll], i) => labelPill(g, proj, ll, names[a3], { font: F.ui(24, 800), alpha: appear(s.t, s.w('ten full') - 0.4 + i * 0.15) }));
-    labelPill(g, proj, [45, 22], 'Saudi Arabia: not a member', { off: [-60, 110], font: F.ui(24, 800), fill: 'rgba(255,255,255,0.92)', color: C.slate, alpha: appear(s.t, s.w('saudi') - 0.3) });
-  }, { world: true, highlight: hl, indiaFill: 'rgba(245,211,0,0.5)' });
+  const cue = { BRA: 'original', RUS: 'original', IND: 'original', CHN: 'original', ZAF: 'original', EGY: 'egypt', ETH: 'ethiopia', IRN: 'iran', ARE: 'u-a-e', IDN: 'indonesia' };
+  const keys = [[0.4, [-75, -38, 140, 68]], [4.0, [60, 8, 100, 36]], [9.0, [60, 8, 100, 36]], [10.5, [-75, -38, 140, 68]]];
+  cine(ctx, s, 8, { title: '12th BRICS Parliamentary Forum, New Delhi', kicker: '26–27 Oct · Samvidhan Sadan · India chairs BRICS in 2026', sub: '26–27 Oct · Samvidhan Sadan · Lok Sabha Speaker chairs · India chairs BRICS in 2026',
+    draw: (g, box) => {
+      const proj = windowCamera(box, ...boundsAt(s.t, keys)), hl = {};
+      Object.keys(M).forEach((m, i) => { const a = appear(s.t, s.w(cue[m]) - 0.3 + (cue[m] === 'original' ? i * 0.25 : 0)); if (a > 0) hl[m] = `rgba(245,211,0,${(0.6 * a).toFixed(2)})`; });
+      terrainMap(g, proj, null, { world: true, highlight: hl, indiaFill: hl.IND });
+      const da = appear(s.t, 2.5) * (1 - span(s.t, 9, 10));
+      pin(g, proj, [77.21, 28.61], null, { r: 10, pulse: (s.t / 1.6) % 1, alpha: da }); labelPill(g, proj, [77.21, 28.61], 'New Delhi · Samvidhan Sadan', { off: [0, -56], alpha: da });
+      Object.entries(M).forEach(([a3, ll]) => labelPill(g, proj, ll, names[a3], { font: F.ui(24, 800), alpha: appear(s.t, s.w(cue[a3]) - 0.1) }));
+      const sau = A.geo.countries_wide.find(c => c.a3 === 'SAU'), sa = appear(s.t, s.w('saudi') - 0.3);
+      if (sau && sa > 0) { geo(g, proj, sau.geom, { stroke: C.white, lw: 3, dash: [6, 5], alpha: sa }); labelPill(g, proj, [45, 22], 'Saudi Arabia: not a member', { off: [-60, 110], fill: 'rgba(255,255,255,0.94)', color: C.slate, alpha: sa }); }
+    } });
+  bigFact(ctx, s, 1240, 250, 'HOST', 'New Delhi · Samvidhan Sadan', s.w('samvidhan') - 0.2, { size: 50 });
+  bigFact(ctx, s, 1240, 440, 'CHAIRED BY', 'Lok Sabha Speaker', s.w('chaired') - 0.2, { col: ACC[1], size: 50 });
+  bigFact(ctx, s, 1240, 630, 'BRICS CHAIR 2026', 'India', s.w('chair') - 0.2, { col: ACC[2] });
   gTable(ctx, s, 8, NOTES, [['Joined', 0.3], ['Members', 0.7]],
-    [[['2009', 'Brazil · Russia · India · China (BRIC)']], [['2010', 'South Africa']], [['2024', 'Egypt · Ethiopia · Iran · UAE']], [['2025', 'Indonesia'], null, { hl: true }], [['Not', 'Saudi Arabia (invited, not confirmed)'], 'saudi']], { size: 24, rowH: 92 });
-  text(ctx, 'NDB HQ: Shanghai · partner countries since 2025', NOTES[0] + 24, NOTES[1] + 570, { font: F.ui(24, 800), color: C.blue });
+    [[['2009', 'Brazil · Russia · India · China (BRIC)'], 'original'], [['2010', 'South Africa'], 'original'], [['2024', 'Egypt · Ethiopia · Iran · UAE'], 'egypt'], [['2025', 'Indonesia'], 'indonesia', { hl: true }], [['Not', 'Saudi Arabia (invited, not confirmed)'], 'saudi']], { size: 24, rowH: 92 });
   gTrap(ctx, s, 'Saudi Arabia is a full BRICS member', '10 members; Saudi Arabia is not one');
   finish(ctx, s, 8, CR.map);
 };
+
 SCENES.S10 = (ctx, s) => {    // CBD COP17 · map + table
   item(ctx, s, 9, 'CBD COP17 in Yerevan', '19–30 Oct · first global review of the Kunming–Montreal Framework');
   mapWin(ctx, s, 33, 33.5, 54, 44.5, (g, proj) => {
