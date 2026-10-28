@@ -1,7 +1,9 @@
 # Sample Deep Dive — The Oleshky Truce (2026-W44)
 
 **Coverage:** Mon 26 – Sat 31 Oct 2026 (event: Tue 27 Oct 2026)
-**Status:** INTERNAL quality reference only (owner decision 22). It is never uploaded to any platform, so it has no upload checklist.
+**Status:** ARCHIVED (owner decision 26, 28 Oct 2026). INTERNAL craft reference only (motion, maps, timing): never uploaded, so no upload checklist.
+
+> **Why archived:** five exam-value reviews (`docs/research/reviews/2026-W44-exam-value/`) found the story itself low-yield, at EYS 2/10. India is a bystander, the event is episodic, and the static anchors are borrowed. The craft carries forward; the topic does not. For exam purposes this story is now a **45-second Update plus a Black Sea map card**: `02d-update-45s.md`. The Deep Dive and Extended cuts below are kept only to show how the renderer works.
 **Version:** v2, applying both independent reviews (facts and teaching; motion and pacing after watching the cut).
 
 One modular script gives two cuts (`CLAUDE.md` §2, §3.1):
@@ -18,6 +20,7 @@ One modular script gives two cuts (`CLAUDE.md` §2, §3.1):
 | `02b-voiceover-text.md` | Recording file: every row once, with its cut tag |
 | `02c-elevenlabs-blocks.md` | Seven blocks under 4,000 characters for this sample's synthetic reference narration |
 | `03-visual-handoff.md` | Motion grammar, shot list with start times for both cuts, asset and licence log |
+| `02d-update-45s.md` | **What the story is actually worth:** a 45-second Update, a Statement-format trap and the Black Sea map card |
 
 Renders (not committed; built in the session scratchpad with the commands in `tools/masterclass-video/README.md`):
 - `oleshky_v2_hub_review.mp4` and `oleshky_v2_ext_review.mp4`: silent-voice review previews at 135 wpm with review captions and the sound bed.
