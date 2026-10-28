@@ -37,6 +37,21 @@ First used for `weeks/2026-W44/sample-oleshky/`; `scenes/nsap.js` builds `weeks/
    - Use `--stills 10,40,95 <out_dir>` for QA frames.
    - For speed, render ranges in parallel and join them with `ffmpeg -f concat`.
 
+## Glimpse kit (Prelims Grid and AP–TG Desk)
+
+`engine.js` carries a shared kit for the breadth segments. It was rebuilt in W44 after the owner's review of the first Grid preview: "looks like slides", "looks cheap", "too dense". Every Glimpse is three beats:
+
+1. **Hero:** a full-frame visual under a short headline (`headline`). Use, in this order of preference:
+   - Copernicus Sentinel-2 imagery (`satHero`);
+   - a terrain map with vector rivers (`terrainMap`);
+   - a data graphic on a soft category glow (`typeHero`).
+2. **Facts:** one or two big facts slide in on their cue words (`facts`).
+3. **Trap:** a ✗ wrong / ✓ right split lands on "Prelims Trap" and holds to the end of the item (`trap`).
+
+`finish` adds the progress strip, the category sting and the credit line. A scene file sets `GK = { order, cat }` (`scenes/grid.js`, `scenes/desk.js`). Keep on-screen text to a headline, two facts and one trap line per item.
+
+`prep_geo.py` also bundles the peninsular rivers (Godavari, Krishna, Bhima, Tungabhadra, Wainganga, Indravati, Penner, Mahanadi, Narmada, Tapi) from Natural Earth, so the Telugu States maps can draw them.
+
 ## Sound
 
 `sound_bed.py <timeline.json> <out.wav> [--voice final_audio.wav]` synthesises the bed: a low ambient pad (ducked about 10 dB under the voice, rising in holds and under the end screen), a muted bell per countdown and a page turn for the Decode Archive. It is all own work, so there is nothing to license. Without `--voice` it writes the bed alone for silent previews.

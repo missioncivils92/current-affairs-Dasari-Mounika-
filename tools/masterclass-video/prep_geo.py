@@ -55,6 +55,16 @@ for fn in ("ne_10m_rivers_europe.geojson", "ne_10m_rivers_lake_centerlines.geojs
         if nm in keep_rivers or rank <= 6:
             bundle["rivers"].append({"name": nm, "rank": rank, "geom": rnd(g.intersection(RIVERS).simplify(0.002), 3)})
 
+# Peninsular Indian rivers (Telugu States lens, Prelims Grid maps); Natural Earth spells some with diacritics
+INDIA_RIVERS = box(68, 6, 98, 37)
+india_names = {"Godävari": "Godavari", "Krishna": "Krishna", "Bhima": "Bhima", "Tungabhadra": "Tungabhadra", "Wainganga": "Wainganga",
+               "Indravati": "Indravati", "Penner": "Penner", "Mahäna Nadï": "Mahanadi", "Narmada": "Narmada", "Tapi": "Tapi"}
+for f in load("ne_10m_rivers_lake_centerlines.geojson"):
+    p, g = f["properties"], shape(f["geometry"])
+    nm = p.get("name") or ""
+    if nm in india_names and g.intersects(INDIA_RIVERS):
+        bundle["rivers"].append({"name": india_names[nm], "rank": p.get("scalerank", 10), "geom": rnd(g.intersection(INDIA_RIVERS).simplify(0.01), 3)})
+
 for fn in ("ne_10m_lakes_europe.geojson", "ne_10m_lakes.geojson"):
     for f in load(fn):
         g = shape(f["geometry"])

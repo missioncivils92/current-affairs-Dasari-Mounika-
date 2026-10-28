@@ -299,6 +299,106 @@ function desk(ctx, t, o = {}) {
   vignette(ctx, 0.6);
 }
 
+
+// ---------- Glimpse kit (Prelims Grid and AP–TG Desk) ----------
+// Three beats per item: a full-frame HERO under a short headline → big FACTS on their cue words → a ✗/✓ TRAP split
+// on "Prelims Trap". A scene file sets GK = { order: ['N', 'I', ...], cat: { N: {name, col, ink}, ... } } before use.
+let GK = { order: [], cat: {} };
+const SENT_CREDIT = 'Contains modified Copernicus Sentinel data 2026 · processed by Decode UPSC';
+const TERRAIN_CREDIT = 'Elevation: Terrain Tiles (Mapzen/AWS) · Boundaries: Natural Earth; India: Survey of India outline (DataMeet)';
+function topShade(ctx, h = 420, k = 0.85) {
+  const g = ctx.createLinearGradient(0, 0, 0, h); g.addColorStop(0, `rgba(10,12,16,${k})`); g.addColorStop(1, 'rgba(10,12,16,0)');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, h);
+}
+function sideShade(ctx, x0 = 1000, k = 0.82) {
+  const g = ctx.createLinearGradient(x0, 0, W, 0); g.addColorStop(0, 'rgba(10,12,16,0)'); g.addColorStop(0.35, `rgba(10,12,16,${k})`); g.addColorStop(1, `rgba(10,12,16,${k})`);
+  ctx.fillStyle = g; ctx.fillRect(x0, 0, W - x0, H);
+}
+// headline block, top-left: category chip + n/16, a short serif headline, a quiet date line
+function headline(ctx, s, k, title, sub) {
+  const c = GK.cat[GK.order[k]], a = appear(s.t, 0.35, 0.7);
+  ctx.save(); ctx.globalAlpha = a; ctx.font = F.ui(26, 800);
+  const chip = `${c.name}  ${String(k + 1).padStart(2, '0')}/${GK.order.length}`, cw = ctx.measureText(chip).width + 40;
+  rr(ctx, 90, 92, cw, 50, 25); ctx.fillStyle = c.col; ctx.fill(); ctx.fillStyle = c.ink; ctx.textBaseline = 'middle'; ctx.fillText(chip, 110, 118);
+  ctx.restore();
+  text(ctx, title, 90 + (1 - a) * 40, 222, { font: F.head(68), maxW: 1000, lh: 80, alpha: a, shadow: 18 });
+  if (sub) text(ctx, sub, 92, 222 + (title.length > 26 ? 132 : 62), { font: F.ui(30, 600), color: '#D5DAE0', alpha: a, shadow: 10 });
+}
+// right-hand fact plate: each fact lands on its cue word; earlier facts stay, smaller
+function facts(ctx, s, k, list, o = {}) {
+  const c = GK.cat[GK.order[k]], x = o.x ?? 1230, w = o.w ?? 600;
+  let y = o.y ?? 300;
+  list.forEach(([label, value, cw, size]) => {
+    const at = s.w(cw) - 0.35, a = appear(s.t, at, 0.55); if (a <= 0) { y += (size || 64) + 110; return; }
+    const dx = (1 - a) * 80;
+    ctx.save(); ctx.globalAlpha = a;
+    ctx.fillStyle = 'rgba(12,14,18,0.82)'; rr(ctx, x - 30 + dx, y - 56, w + 60, (size || 64) * (o.lines || 1) + 110, 14); ctx.fill();
+    ctx.fillStyle = c.col; ctx.fillRect(x - 30 + dx, y - 56, 6, (size || 64) * (o.lines || 1) + 110);
+    ctx.restore();
+    text(ctx, label, x + dx, y, { font: F.ui(24, 800), color: c.col, alpha: a });
+    const h = text(ctx, value, x + dx, y + 30 + (size || 64), { font: F.head(size || 64), alpha: a, maxW: w, lh: (size || 64) * 1.12 });
+    y += (typeof h === 'number' && h > (size || 64) * 1.2 ? h : (size || 64)) + 120;
+  });
+}
+// the trap: a ✗ / ✓ split across the bottom third, from "Prelims Trap" to the end of the item
+function trap(ctx, s, wrong, right) {
+  const at = s.w('prelims trap') - 0.3, a = appear(s.t, at, 0.5); if (a <= 0) return;
+  const y = 790 + (1 - a) * 60;
+  ctx.save(); ctx.globalAlpha = a;
+  const g = ctx.createLinearGradient(0, y - 80, 0, H); g.addColorStop(0, 'rgba(10,12,16,0)'); g.addColorStop(0.25, 'rgba(10,12,16,0.9)'); g.addColorStop(1, 'rgba(10,12,16,0.96)');
+  ctx.fillStyle = g; ctx.fillRect(0, y - 80, W, H - y + 80);
+  ctx.restore();
+  pill(ctx, 'PRELIMS TRAP', 90, y - 30, { fill: C.red, color: C.white, font: F.ui(26, 800), h: 50, alpha: a });
+  const sw = span(s.t, at + 0.9, at + 1.5), ra = appear(s.t, at + 1.3, 0.5);
+  text(ctx, '✗', 90, y + 92, { font: F.ui(54, 800), color: C.red, alpha: a });
+  const ww = text(ctx, wrong, 160, y + 88, { font: F.ui(38, 700), color: '#C9CFD6', alpha: a });
+  strike(ctx, 155, 165 + Math.min(ww, 760), y + 74, sw);
+  text(ctx, '✓', 1000, y + 92, { font: F.ui(54, 800), color: C.teal, alpha: ra });
+  text(ctx, right, 1070, y + 88, { font: F.ui(40, 800), alpha: ra, maxW: 800, lh: 48 });
+}
+function strike(ctx, x0, x1, y, p, col = C.red) {
+  if (p <= 0) return; ctx.save(); ctx.strokeStyle = col; ctx.lineWidth = 5; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.moveTo(x0, y); ctx.lineTo(lerp(x0, x1, easeOut(p)), y); ctx.stroke(); ctx.restore();
+}
+// category sting: a coloured panel with the item number sweeps across in the first 0.8 s
+function sting(ctx, s, k) {
+  const p = span(s.t, 0, 0.85); if (p >= 1) return;
+  const c = GK.cat[GK.order[k]], x = lerp(0, -W - 300, ease(p));
+  ctx.save(); ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x + W + 200, 0); ctx.lineTo(x + W, H); ctx.lineTo(x - 200, H); ctx.closePath();
+  ctx.fillStyle = c.col; ctx.fill();
+  ctx.font = F.head(220, 800); ctx.fillStyle = c.ink; ctx.globalAlpha = 0.9; ctx.textAlign = 'center';
+  ctx.fillText(String(k + 1).padStart(2, '0'), x + W / 2, 620); ctx.restore();
+}
+function progress(ctx, k) {
+  const w = 26, g = 7, x0 = 90, y = 1046;
+  GK.order.forEach((c, i) => { ctx.save(); ctx.globalAlpha = i === k ? 1 : 0.4; rr(ctx, x0 + i * (w + g), y - (i === k ? 5 : 0), w, i === k ? 16 : 10, 3); ctx.fillStyle = GK.cat[c].col; ctx.fill(); ctx.restore(); });
+}
+function finish(ctx, s, k, credit) { progress(ctx, k); sting(ctx, s, k); if (credit) s.credit = credit; }
+
+// ---------- heroes ----------
+function terrainMap(ctx, proj, local, o = {}) {
+  bg(ctx, { inner: '#1A1F26', outer: '#0F1216' });
+  for (const t of ['world', 'wide'].filter(n => A[n] && (o.world || n === 'wide'))) raster(ctx, proj, A[t], A[t + '_meta'], { filter: 'brightness(0.95)' });
+  if (local && A[local]) raster(ctx, proj, A[local], A[local + '_meta'], { feather: 160 });
+  countries(ctx, proj, { wide: true, stroke: 'rgba(255,255,255,0.26)', lw: 1.1, highlight: o.highlight, indiaStroke: C.yellow, indiaLw: 2.4, indiaFill: o.indiaFill });
+  for (const l of A.geo.lakes) geo(ctx, proj, l.geom, { fill: 'rgba(74,144,194,0.55)' });
+}
+function satHero(ctx, s, name, from, to, o = {}) {
+  const cam = camLerp(from, to, o.p ?? s.p);
+  const proj = camera(cam.lon, cam.lat, cam.zoom);
+  bg(ctx, { inner: '#1A1F26', outer: '#0F1216' });
+  if (o.base) raster(ctx, proj, A[o.base], A[o.base + '_meta']);
+  raster(ctx, proj, A[name], A[name + '_meta'], { feather: o.feather ?? 120, filter: o.filter || 'saturate(1.05) contrast(1.05)' });
+  return proj;
+}
+// a big typographic hero for items with no place: soft category glow + a faint oversized numeral
+function typeHero(ctx, k, big) {
+  bg(ctx, { inner: '#20252D', outer: '#0D1014' });
+  const c = GK.cat[GK.order[k]], g = ctx.createRadialGradient(560, 640, 40, 560, 640, 900);
+  g.addColorStop(0, c.col + '33'); g.addColorStop(1, 'rgba(0,0,0,0)'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  if (big) text(ctx, big, 560, 860, { font: F.head(420, 800), align: 'center', color: 'rgba(255,255,255,0.05)' });
+}
+
 // ---------- chrome: lower third, brand, chapter, credits, review caption ----------
 function lowerThird(ctx, s, a = 1) {
   if (a <= 0) return; ctx.save(); ctx.globalAlpha *= a;
