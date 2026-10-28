@@ -18,7 +18,7 @@ This is the first sample written under the new selection and format rules (decis
 Clear every ☐ in the brief's §5 against the official Cabinet release (PIB / PMIndia) and the RPwD Act text on India Code. Those government sites were blocked by this cloud session's network policy, so the figures were checked against several independent reports instead. Also add the NTR Bharosa GO number to card A.1.
 
 ## Review preview
-`preview/nsap-dd1-hub-review-720p.mp4` is a silent review render (sound bed only, about 7:07). It runs Deep Dive 1 (6:27) plus the AP–TG Desk rows A.0 and A.1. The timing is estimated at 135 wpm; the final cut re-times to Mounika's recording.
+`preview/nsap-dd1-hub-review-720p.mp4` (sent in chat; videos are gitignored, so it is not in the repo) is a silent review render (sound bed only, about 7:07). It runs Deep Dive 1 (6:27) plus the AP–TG Desk rows A.0 and A.1. The timing is estimated at 135 wpm; the final cut re-times to Mounika's recording.
 - The yellow caption strip is for checking sync only. It never ships.
 - Figures still marked ☐ in the brief appear on screen as they stand.
 
