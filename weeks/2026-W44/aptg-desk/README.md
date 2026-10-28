@@ -27,8 +27,8 @@ The video opens on the channel emblem (decisions 34–35) and ends with a one-pa
 | File | What it is |
 |---|---|
 | `01-research-brief.md` | Sources, verification log and exam tags. The running order is unchanged; the v5 format is described here and in the script |
-| `02-master-script.md` | Two-column script v5: 52 rows, 1,161 words, about 10 min with the holds |
-| `02b-voiceover-text.md` | Recording file: `python3 tools/make_voiceover.py weeks/2026-W44/aptg-desk v5` |
+| `02-master-script.md` | Two-column script v6 (lively, connected narration): 52 rows, 1,820 words, about 14–15 min with the holds |
+| `02b-voiceover-text.md` | Recording file: `python3 tools/make_voiceover.py weeks/2026-W44/aptg-desk v6` |
 
 ## Review render
 `w44-aptg-desk-exam-1080p.mp4` was sent in chat; videos are gitignored. It is a silent review render at 1080p, timed at 135 wpm, with the music bed only. Mounika's recording replaces the timing (see the tool README, "Syncing to a finished narration").
