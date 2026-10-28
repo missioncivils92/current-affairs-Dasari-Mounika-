@@ -3,7 +3,7 @@
 **Release:** Sunday 1 Nov 2026, 6:00 PM IST
 **Coverage:** Mon 26 Oct – Sat 31 Oct 2026, plus 8–25 Oct items W43 did not cover (marked in the brief)
 **Format:** voice-only. Everything below is recorded on the microphone; there is no on-camera recording.
-**Total:** 991 words · about 7.3 min at 135 wpm (7.1–7.6 min at 140–130 wpm)
+**Total:** 1075 words · about 8.0 min at 135 wpm (7.7–8.3 min at 140–130 wpm)
 
 Visual directions for the editor are in `02-master-script.md`.
 
@@ -25,7 +25,7 @@ Visual directions for the editor are in `02-master-script.md`.
 
 | Segment | Words | Min |
 |---|---|---|
-| PRELIMS GRID — Prelims Grid: this week's static facts | 991 | 7.3 |
+| PRELIMS GRID — Prelims Grid: this week's static facts | 1075 | 8.0 |
 
 ---
 
@@ -35,7 +35,7 @@ Save as: `prelims-grid_VO_grid.wav`
 
 **🎙️ NARRATION — *brisk, warm.***
 
-Now the Prelims Grid: fifteen items from this week, and for each one, the static fact the examiner will actually mark, and the trap that comes with it.
+Now the Prelims Grid: sixteen items from this week, and for each one, the static fact the examiner will actually mark, and the trap that comes with it.
 
 **🎙️ NARRATION**
 
@@ -91,6 +91,12 @@ The U-N Environment Programme's Emissions Gap Report 2026 projects about two poi
 
 **Prelims Trap.** The Emissions Gap Report is published by the U-N Environment Programme, not by the I-P-C-C and not by the climate convention's secretariat.
 
+The U-N's Fund for responding to Loss and Damage made its first-ever allocation on the twenty-second of October: a provisional twenty million dollars for Nepal's flood recovery.
+
+The fund was agreed at COP27 in Sharm el-Sheikh in 2022, made operational at COP28 in Dubai, and is hosted by the World Bank, with its Board based in the Philippines.
+
+**Prelims Trap.** It is not the Green Climate Fund, which sits in Songdo, South Korea, and pays for mitigation and adaptation, not for loss and damage.
+
 India's Ramsar sites now number one hundred and three, after Sukhna Wetland in Chandigarh and Sauj Jheel [Saunj Jheel] in Mainpuri, Uttar Pradesh, were added on the fifteenth of October; India joined the 1971 convention in 1982.
 
 **Prelims Trap.** The Montreux Record lists sites under threat, and India's two on it are Keoladeo and Loktak; Chilika was on it once but was removed in 2002.
@@ -107,4 +113,4 @@ Three days to note: Infantry Day on the twenty-seventh marks the 1947 airlanding
 
 **Prelims Trap.** Most of the world marks Savings Day on the thirty-first, but India moved it to the thirtieth.
 
-*Words: 991 · about 7.3 min*
+*Words: 1075 · about 8.0 min*

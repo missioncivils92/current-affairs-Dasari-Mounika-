@@ -6,10 +6,11 @@ const CAT = {
   I: { name: 'INTERNATIONAL', fill: C.blue, ink: C.white, edge: C.blue },
   M: { name: 'MISC', fill: 'rgba(0,0,0,0)', ink: C.white, edge: C.white },
 };
-const ORDER = ['N', 'N', 'N', 'N', 'N', 'I', 'I', 'I', 'I', 'I', 'I', 'M', 'M', 'M', 'M'];
+const ORDER = ['N', 'N', 'N', 'N', 'N', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'M', 'M', 'M', 'M'];
+const NI = ORDER.length;
 const TERRAIN = 'Elevation: Terrain Tiles (Mapzen/AWS) · Boundaries: Natural Earth; India: Survey of India outline (DataMeet)';
 
-// progress strip: fifteen squares, the current one lit
+// progress strip: one square per item, the current one lit
 function gridStrip(ctx, k, a = 1) {
   const w = 30, g = 8, x0 = 60, y = 1036;
   ORDER.forEach((c, i) => {
@@ -23,7 +24,7 @@ function gridStrip(ctx, k, a = 1) {
 function catPill(ctx, c, k, x, y, a = 1) {
   const st = CAT[c];
   ctx.save(); ctx.globalAlpha *= a; ctx.font = F.ui(28, 800);
-  const label = `${st.name} · ${k + 1}/15`, w = ctx.measureText(label).width + 40;
+  const label = `${st.name} · ${k + 1}/${NI}`, w = ctx.measureText(label).width + 40;
   rr(ctx, x, y, w, 52, 26); if (c === 'M') { ctx.strokeStyle = C.white; ctx.lineWidth = 2.5; ctx.stroke(); } else { ctx.fillStyle = st.fill; ctx.fill(); }
   ctx.fillStyle = st.ink; ctx.textBaseline = 'middle'; ctx.fillText(label, x + 20, y + 27); ctx.restore();
 }
@@ -75,16 +76,16 @@ function mapCard(ctx, s, k, title, lines, x = 1180, y = 140, w = 640) {
 SCENES.S00 = (ctx, s) => {
   bg(ctx);
   text(ctx, 'PRELIMS GRID · W44', 960, 170, { font: F.ui(40, 800), align: 'center', color: C.yellow });
-  const flip = s.w('fifteen') - 0.4;
+  const flip = s.w('sixteen') - 0.4;
   ORDER.forEach((c, i) => {
-    const col = i % 5, row = Math.floor(i / 5), x = 360 + col * 250, y = 260 + row * 230;
+    const col = i % 4, row = Math.floor(i / 4), x = 470 + col * 250, y = 220 + row * 185;
     const k = ease(span(s.t, flip + i * 0.08, flip + i * 0.08 + 0.4)), st = CAT[c];
-    ctx.save(); ctx.translate(x + 105, y + 90); ctx.scale(Math.abs(Math.cos(Math.PI * k)) || 0.02, 1); ctx.translate(-(x + 105), -(y + 90));
-    if (k < 0.5) card(ctx, x, y, 210, 180, { fill: '#2B3139', stroke: 'rgba(255,255,255,0.15)' });
-    else { card(ctx, x, y, 210, 180, { fill: c === 'M' ? '#262B33' : st.fill, stroke: st.edge, lw: 3 }); text(ctx, st.name.slice(0, 5) === 'INTER' ? 'INTL' : st.name, x + 105, y + 100, { font: F.ui(26, 800), align: 'center', color: st.ink }); }
+    ctx.save(); ctx.translate(x + 105, y + 80); ctx.scale(Math.abs(Math.cos(Math.PI * k)) || 0.02, 1); ctx.translate(-(x + 105), -(y + 80));
+    if (k < 0.5) card(ctx, x, y, 210, 160, { fill: '#2B3139', stroke: 'rgba(255,255,255,0.15)' });
+    else { card(ctx, x, y, 210, 160, { fill: c === 'M' ? '#262B33' : st.fill, stroke: st.edge, lw: 3 }); text(ctx, st.name.slice(0, 5) === 'INTER' ? 'INTL' : st.name, x + 105, y + 90, { font: F.ui(26, 800), align: 'center', color: st.ink }); }
     ctx.restore();
   });
-  text(ctx, 'what happened → the static fact → the trap', 960, 1000, { font: F.hand(50), align: 'center', color: C.dim, alpha: appear(s.t, s.w('static') - 0.3) });
+  text(ctx, 'what happened → the static fact → the trap', 960, 990, { font: F.hand(50), align: 'center', color: C.dim, alpha: appear(s.t, s.w('static') - 0.3) });
 };
 // ---------------- National ----------------
 SCENES.S01 = (ctx, s) => {    // Cyclone Arnab
@@ -185,18 +186,21 @@ SCENES.S12 = (ctx, s) => {    // Ramsar 103
   terrainMap(ctx, proj, 'northindia');
   pin(ctx, proj, [76.818, 30.742], 'Sukhna Wetland', { sub: 'Chandigarh UT', alpha: appear(s.t, s.w('sukhna') - 0.3), color: C.teal, dx: -20, dy: -20, font: F.ui(32, 800) });
   pin(ctx, proj, [79.02, 27.23], 'Sauj Jheel', { sub: 'Mainpuri, UP', alpha: appear(s.t, s.w('sauj') - 0.3), color: C.teal, font: F.ui(32, 800) });
-  const cb = mapCard(ctx, s, 11, 'Ramsar sites: 103', [['Added 15 Oct 2026 · India joined in 1982', 'fifteenth'], ['Montreux Record (India): Keoladeo · Loktak', 'montreux'], ['Chilika: removed from it in 2002', 'chilika']], 1180, 120, 660);
+  const cb = mapCard(ctx, s, 12, 'Ramsar sites: 103', [['Added 15 Oct 2026 · India joined in 1982', 'fifteenth'], ['Montreux Record (India): Keoladeo · Loktak', 'montreux'], ['Chilika: removed from it in 2002', 'chilika']], 1180, 120, 660);
   const tr = appear(s.t, s.w('prelims trap') - 0.3);
   card(ctx, 1180, cb + 24, 660, 140, { fill: 'rgba(229,72,77,0.2)', stroke: C.red, lw: 3, alpha: tr });
   text(ctx, 'TRAP: Chilika is no longer on the Montreux Record', 1210, cb + 84, { font: F.ui(32, 800), maxW: 600, lh: 40, alpha: tr });
-  gridStrip(ctx, 11); s.credit = TERRAIN; vignette(ctx, 0.35);
+  gridStrip(ctx, 12); s.credit = TERRAIN; vignette(ctx, 0.35);
 };
-SCENES.S13 = (ctx, s) => glimpse(ctx, s, { k: 12, title: 'GI tag (reported): Ambaji Mohanthal Prasad, Gujarat',
+SCENES.S13 = (ctx, s) => glimpse(ctx, s, { k: 13, title: 'GI tag (reported): Ambaji Mohanthal Prasad, Gujarat',
   lines: [['Look-alike: Tirupati Laddu (Andhra Pradesh) · GI 2009', 'tirupati'], ['Registry: Chennai · first GI: Darjeeling tea', 'chennai'], ['GI Act 1999 · registration lasts 10 years', 'ten years']],
   trap: 'Renewable every 10 years, again and again: not a one-time grant', credit: 'Source: Geographical Indications Registry (as reported)' });
-SCENES.S14 = (ctx, s) => glimpse(ctx, s, { k: 13, title: 'Global Innovation Index 2026: India 38th of 139',
+SCENES.S14 = (ctx, s) => glimpse(ctx, s, { k: 14, title: 'Global Innovation Index 2026: India 38th of 139',
   lines: [['Top three: Switzerland · Sweden · United States', 'switzerland'], ['India: 1st among lower-middle-income economies', 'lower-middle', C.yellow]],
   trap: 'Published by WIPO, not the WEF or UNCTAD', credit: 'Source: WIPO, Global Innovation Index 2026 (as reported)' });
-SCENES.S15 = (ctx, s) => glimpse(ctx, s, { k: 14, title: 'Three days to note',
+SCENES.S15 = (ctx, s) => glimpse(ctx, s, { k: 15, title: 'Three days to note',
   lines: [['27 Oct · Infantry Day · 1947 airlanding at Srinagar', 'infantry'], ['30 Oct · World Savings Day (India)', 'savings'], ['31 Oct · Rashtriya Ekta Diwas · Sardar Patel', 'ekta']],
   trap: 'India marks Savings Day on 30 Oct; most countries on 31 Oct' });
+SCENES.S16 = (ctx, s) => glimpse(ctx, s, { k: 11, title: 'Loss and Damage Fund: first-ever allocation, Nepal', titleSize: 54,
+  lines: [['$20 mn (provisional) for flood recovery · Board, 22 Oct', 'twenty million'], ['Agreed COP27 (2022) · operational COP28 (2023)', 'sharm'], ['Hosted by the World Bank · Board based in the Philippines', 'world bank']],
+  trap: 'Not the Green Climate Fund (Songdo, South Korea)', credit: 'Source: FRLD Board decision, 22 Oct 2026 (as reported)' });

@@ -6,7 +6,7 @@
 
 ---
 
-## 1. Selection: 15 Glimpses
+## 1. Selection: 16 Glimpses
 
 | # | Item | Scope | Triage EYS | Why it is in the Grid |
 |---|---|---|---|---|
@@ -21,6 +21,7 @@
 | I4 | 12th BRICS Parliamentary Forum, New Delhi, 26–27 Oct | International | 7 | The full ten-member list as the trap. **No outcome claims:** the declaration was not found |
 | I5 | CBD COP17, Yerevan, 19–30 Oct | International | 7 | KMGBF 23 targets and 30x30. Outcome due 30 Oct: refresh before the edit lock |
 | I6 | UNEP Emissions Gap Report 2026 ⟲ | International | 6 | The publisher trap (UNEP vs IPCC vs UNFCCC) |
+| I7 | Loss and Damage Fund: first-ever allocation, Nepal $20 mn (provisional), Board 22 Oct ⟲ | International | 7 (from a reviewer's late triage, 27 Oct) | A "first-ever" fact plus an institutional set (COP27 → COP28, World Bank FIF, Board in the Philippines); the GCF look-alike trap. Added after the first draft, once confirmed |
 | M1 | Ramsar sites reach 103 ⟲ | Misc | 7 | The Montreux Record set |
 | M2 | GI tag for Ambaji Mohanthal Prasad (reported) ⟲ | Misc | 6 | The GI Act set, with the Tirupati laddu as the AP link. Worded "reportedly", because the IP India record shows an application status (§3) |
 | M3 | Global Innovation Index 2026 ⟲ | Misc | 6 | The publisher trap (WIPO) |
@@ -29,6 +30,7 @@
 **Dropped from the Grid this week, with the reason:**
 - **DAC AoNs of about ₹2.12 lakh crore (26 Oct):** no report of that meeting could be found. The nearest is a March 2026 meeting at ₹2.38 lakh crore. Not used.
 - **The "crude shock" (Houthi strike on Ras Tanura, Brent above $117):** every result found was about the March 2021 attack. Not used; only the RBI FERR part survives as N3.
+- **Houthi strikes on Saudi oil sites (Oct):** the attacks are reported, but none of the India-specific facts (an Indian killed, an MEA advisory, Umrah pilgrims returning) could be confirmed. No Glimpse without an Indian link; it stays on the watch list.
 - **Next UN Secretary-General straw poll:** no October poll was confirmed (the last found was in late July). Kept on the watch list.
 - **News publishers' DPDP challenge:** digest-only. Kept on the watch list (ST-003).
 - **Collegium HC Chief Justices:** goes to the AP–TG Desk (Telangana HC), to avoid a duplicate.
@@ -70,6 +72,7 @@ Government sites cannot be fetched from this cloud session. Every item was check
 | I4 | 12th forum; Samvidhan Sadan; 26–27 Oct; Speaker chairs | AIR, ThePrint, Free Press Journal | ☑ (the theme is reported in two wordings, so it is not on screen; no declaration claims) |
 | I5 | COP17, Yerevan, 19–30 Oct; first global review of the KMGBF | Heinrich Böll Stiftung, Armenpress, UNCCD events | ☑ |
 | I6 | ≈ 2.8 °C under current policies; ≈ 2.6 °C with full NDCs; 21 Oct | PBL (co-modeller) page; digests | ☑ (UNEP page ☐) |
+| I7 | First FRLD allocation: Nepal, $20 mn provisional (+$1.6 mn fees), Board 22 Oct; COP27/COP28; World Bank-hosted; Board in the Philippines | Kathmandu Post, Climate Home News, ThePrint, Khaleej Times | ☑ (the funds are released only after Nepal's proposal is approved: worded "provisional") |
 | M1 | 103 sites; Sukhna (Chandigarh), Sauj Jheel (Mainpuri, UP); 15 Oct | Free Press Journal, Onmanorama, Swarajya, Manorama Yearbook | ☑ (ramsar.org ☐) |
 | M1 | Montreux Record (India): Keoladeo, Loktak; Chilika removed 2002 | Standard reference | ☑ |
 | M2 | GI granted (most reports: 8 Oct) | Manorama Yearbook, GKToday, Adda247 | ⚠ The IP India search entry for application 1228 shows "Pre Examination". **Worded "reportedly" on air; confirm on the GI Journal before the edit lock, or drop M2.** |
@@ -78,15 +81,15 @@ Government sites cannot be fetched from this cloud session. Every item was check
 
 ## 4. Runtime and the hub budget
 
-- The Grid is 991 words, **about 6:58**: 1:02 under its 8:00 slot.
-- Every Glimpse is now 25–34 s. Three short ones (M1–M3) each gained one real static fact, not padding.
-- With Deep Dive 1 (6:28) and Deep Dive 2 (6:14) running about 1:12 over their slots, the Grid's shortfall almost exactly offsets them. So the hub stays near 28–29 min **with the Focus kept**, which supersedes the cascade note in `sample-eci/01-research-brief.md` §6.
-- If M2 is dropped, the Grid falls to 14 items. That is below the 15-item floor (§4.1), so it would need a replacement from the watch list (the DPDP challenge, once confirmed).
+- The Grid is 1,075 words, **about 7:33**: 0:27 under its 8:00 slot.
+- Glimpses run 21–35 s. Three short ones (M1–M3) each gained one real static fact, not padding; M3 (21 s) is short because the index has one testable set.
+- With Deep Dive 1 (6:28) and Deep Dive 2 (6:14) running about 1:12 over their slots, the Grid's shortfall offsets about half of that. The hub projects to about 29:45 with the Focus kept, which is under 30. Decide at the rundown lock whether to keep the Focus or apply cascade step 3.
+- If M2 is dropped, the Grid falls to 15 items, which is still at the floor (§4.1).
 
 ## 5. Creative idea of the week (Grid)
 
-- **The fifteen-card board.** The Grid opens with fifteen face-down cards in three colour bands that flip on "fifteen".
-- **The progress strip.** A slim strip along the bottom then shows where the viewer is (1/15 … 15/15). Viewers know how much is left, which helps retention through an eight-minute run.
+- **The sixteen-card board.** The Grid opens with sixteen face-down cards in three colour bands that flip on "sixteen".
+- **The progress strip.** A slim strip along the bottom then shows where the viewer is (1/16 … 16/16). Viewers know how much is left, which helps retention through an eight-minute run.
 - Log how it performs on Monday (the retention curve across 2:30–10:30).
 
 ## 6. Pronunciation additions
