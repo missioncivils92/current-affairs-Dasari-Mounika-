@@ -1,9 +1,9 @@
-# Voiceover Text — 2026-W44 (AP–TG Desk: Local · Telugu States) · v1
+# Voiceover Text — 2026-W44 (AP–TG Desk: Local · Telugu States) · v3
 
 **Release:** Sunday 1 Nov 2026, 6:00 PM IST
 **Coverage:** Mon 26 Oct – Sat 31 Oct 2026, plus 1–25 Oct items W43 did not cover
 **Format:** voice-only. Everything below is recorded on the microphone; there is no on-camera recording.
-**Total:** 408 words · about 3.0 min at 135 wpm (2.9–3.1 min at 140–130 wpm)
+**Total:** 435 words · about 3.2 min at 135 wpm (3.1–3.3 min at 140–130 wpm)
 
 Visual directions for the editor are in `02-master-script.md`.
 
@@ -25,7 +25,7 @@ Visual directions for the editor are in `02-master-script.md`.
 
 | Segment | Words | Min |
 |---|---|---|
-| AP–TG DESK — AP–TG Desk: this week in the Telugu States | 408 | 3.0 |
+| AP–TG DESK — AP–TG Desk: this week in the Telugu States | 435 | 3.2 |
 
 ---
 
@@ -39,11 +39,11 @@ The answer to our checkpoint is the 2016 Act, because it is a statute that court
 
 **🎙️ NARRATION**
 
-On the first of October, the Andhra Pradesh High Court set aside the orders giving Backward Classes thirty-four per cent of local-body seats, and on the ninth the Supreme Court dismissed the State's appeal.
+On the first of October, the Andhra Pradesh High Court set aside the orders giving Backward Classes thirty-four per cent of seats in rural local bodies, and on the ninth the Supreme Court dismissed the State's appeal.
 
-**Prelims Trap.** A local-body B-C quota must pass the triple test: a dedicated commission, a body-wise share, and the fifty per cent ceiling.
+**Prelims Trap.** Article 243D(6) only enables a B-C quota in panchayats; the triple test then demands a dedicated commission, a body-wise share, and a fifty per cent ceiling.
 
-After Telangana's Chief Justice was elevated to the Supreme Court, Justice P. Sam Koshy [Sam KO-shee] became the acting Chief Justice of the Telangana High Court.
+Justice P. Sam Koshy [Sam KO-shee] is now the acting Chief Justice of the Telangana High Court.
 
 **Prelims Trap.** An acting Chief Justice is appointed by the President under Article 223, not by the Chief Justice of India.
 
@@ -55,20 +55,22 @@ The Krishna and Godavari river management boards were scheduled to meet on the t
 
 **Prelims Trap.** These boards come from the Andhra Pradesh Reorganisation Act, 2014; they are not tribunals under Article 262.
 
-On the twenty-sixth, Telangana's Chief Minister went to Mumbai to seek Maharashtra's consent for the Tummidihatti [Tum-mi-di-HUT-ti] barrage, where Telangana wants a full reservoir level of one hundred and fifty-two metres, against the one hundred and forty-eight it says Maharashtra had accepted.
+On the twenty-sixth, Telangana's Chief Minister met Maharashtra's in Mumbai over the Tummidihatti [Tum-mi-di-HUT-ti] barrage, where Telangana wants a full reservoir level of one hundred and fifty-two metres against the one hundred and forty-eight agreed in 2016, and the two States agreed to a joint committee of officials.
 
 **Prelims Trap.** The barrage is on the Pranahita [Praa-na-HEE-ta], formed by the Wardha and the Wainganga.
 
-Before Cyclone Arnab reached the coast near Kakinada, Andhra Pradesh moved about eighty-nine thousand people to relief camps, as reported.
+As Cyclone Arnab came ashore on the Godavari delta coast, Andhra Pradesh's response ran through its State Disaster Management Authority.
 
-**Prelims Trap.** The State Disaster Management Authority that runs this response is chaired by the Chief Minister, not the Governor, under the 2005 Act.
+**Prelims Trap.** Under the 2005 Act, the national authority is chaired by the Prime Minister, the State authority by the Chief Minister, and the district authority by the Collector.
 
 Andhra Pradesh has asked the Supreme Court's Central Empowered Committee to exclude about twenty thousand acres from the Kolleru [Kol-LAY-ru] Wildlife Sanctuary, as reported.
 
 **Prelims Trap.** Kolleru is a freshwater lake between the Krishna and Godavari deltas, unlike the brackish lagoons of Chilika and Pulicat.
 
+Pause here and copy the Telugu States sheet; the question that follows tests it.
+
 Now a Group-1 style question: count how many of these three statements are correct.
 
-The answer is only two, the first and the third, because Kolleru is a freshwater lake, not a brackish lagoon.
+The answer is only two, the first and the third, because the State authority is chaired by the Chief Minister, not the Governor.
 
-*Words: 408 · about 3.0 min*
+*Words: 435 · about 3.2 min*

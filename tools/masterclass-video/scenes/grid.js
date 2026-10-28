@@ -1,23 +1,36 @@
-// Scenes for the W44 Prelims Grid (weeks/2026-W44/prelims-grid), v2.
-// v2 answers the owner's review of v1 ("looks like slides", "looks cheap", "too dense"):
-// every Glimpse is three beats instead of one dense card:
-//   1. HERO: a full-frame visual (Copernicus satellite, terrain map or a data graphic) under a short headline;
-//   2. FACTS: one or two big facts slide in on their spoken word;
-//   3. TRAP: a ✗ / ✓ split lands on "Prelims Trap" and holds to the end of the item.
-// A category-coloured sting opens each item. Numbers appear at their final value only (CLAUDE.md §6.2).
+// Scenes for the W44 Prelims Grid (weeks/2026-W44/prelims-grid), v3.
+// v3 answers three reviews of v2 (content, visual clarity, benchmark): every item ends on a NOTES-READY frame:
+// a labelled, undarkened visual on the left, a "write this down" table on the right with the whole look-alike set,
+// and a PRELIMS TRAP bar. The frame holds still for 2 s (HOLD 2 s in the script). Text never zooms.
+window.NO_PUSH = true;
 const CAT = {
   N: { name: 'NATIONAL', col: C.yellow, ink: C.slate },
   I: { name: 'INTERNATIONAL', col: C.blue, ink: C.white },
   M: { name: 'MISC', col: '#E8ECF1', ink: C.slate },
 };
 const ORDER = ['N', 'N', 'N', 'N', 'N', 'I', 'I', 'I', 'I', 'I', 'I', 'I', 'M', 'M', 'M', 'M'];
-const NI = ORDER.length;
 GK = { order: ORDER, cat: CAT };
-const TERRAIN = TERRAIN_CREDIT, SENT = SENT_CREDIT;
+const WIN = GZ.win, NOTES = GZ.notes;
+const CR = { sat: SENT_CREDIT + ' · ' + TERRAIN_CREDIT, map: TERRAIN_CREDIT };
+
+// a map inside the visual window: frame a lon/lat box, push in slowly on the projection (labels stay crisp)
+function mapWin(ctx, s, west, south, east, north, draw, o = {}) {
+  gWindow(ctx, s, (g, box) => {
+    const proj = zoomProj(windowCamera(box, west, south, east, north), box, 1 + 0.04 * s.p);
+    terrainMap(g, proj, o.local, o);
+    if (o.sat) raster(g, proj, A[o.sat], A[o.sat + '_meta'], { feather: 60 });
+    if (o.rivers) rivers(g, proj, o.rivers, { color: 'rgba(110,170,220,0.95)', lw: 4 });
+    draw(g, proj, box);
+  }, { push: false });
+}
+// a chart drawn in the visual window on slate
+function chartWin(ctx, s, draw) { gWindow(ctx, s, (g, box) => { g.fillStyle = '#1E2228'; g.fillRect(...box); draw(g, box); }, { push: false }); }
+function item(ctx, s, k, title, sub) { glimpseBase(ctx); gHeader(ctx, s, k, title, sub); }
+const ID = (p) => p;   // identity "projection" for labelPill on charts
 
 // ---------------- G.0 the board ----------------
 SCENES.S00 = (ctx, s) => {
-  bg(ctx, { inner: '#20252D', outer: '#0D1014' });
+  glimpseBase(ctx);
   text(ctx, 'PRELIMS GRID', 960, 150, { font: F.ui(34, 800), align: 'center', color: C.yellow });
   text(ctx, 'Week 44 · 26 Oct – 1 Nov 2026', 960, 200, { font: F.ui(28, 600), align: 'center', color: C.dim });
   const flip = s.w('sixteen') - 0.4, labels = ['Cyclone Arnab', 'IDBI sale', 'RBI · FERR', 'GRAP', 'CVC week', 'SIOFA', 'Hunger Index', 'Poland · CDRI', 'BRICS MPs', 'CBD COP17', 'Emissions Gap', 'Loss & Damage', 'Ramsar 103', 'GI tag', 'Innovation Index', 'Days'];
@@ -29,239 +42,274 @@ SCENES.S00 = (ctx, s) => {
     else { card(ctx, x, y, 250, 140, { fill: '#262B33', accent: st.col, bar: 10 }); text(ctx, labels[i], x + 30, y + 82, { font: F.ui(28, 800), maxW: 200, lh: 32 }); }
     ctx.restore();
   });
-  text(ctx, 'what happened  →  the static fact  →  the trap', 960, 1000, { font: F.hand(52), align: 'center', color: C.yellow, alpha: appear(s.t, s.w('static') - 0.3) });
+  text(ctx, 'what happened  →  the static set to copy  →  the trap', 960, 970, { font: F.hand(50), align: 'center', color: C.yellow, alpha: appear(s.t, s.w('static') - 0.3) });
+  text(ctx, 'Pause on any card to copy it · the full sheet is at the end and in the PDF', 960, 1030, { font: F.ui(26, 700), align: 'center', color: C.dim, alpha: appear(s.t, 2) });
 };
 
 // ---------------- National ----------------
-SCENES.S01 = (ctx, s) => {    // Cyclone Arnab: Sentinel-2, Godavari delta coast
-  const into = span(s.t, 2.0, 4.0);
-  const cam = camLerp({ lon: 82.6, lat: 17.0, zoom: 7.4 }, { lon: 82.3, lat: 16.80, zoom: 11.2 }, ease(into));
-  const proj = camera(cam.lon, cam.lat, lerp(cam.zoom, cam.zoom + 0.25, s.p));
-  terrainMap(ctx, proj, 'apcoast');
-  raster(ctx, proj, A.godavari_coast, A.godavari_coast_meta, { feather: 140, alpha: ease(span(s.t, 1.6, 3.2)) });
-  arrow(ctx, [proj([84.8, 15.2]), proj([83.6, 16.0]), proj([82.75, 16.65]), proj([82.30, 16.93])], span(s.t, 0.9, 3.6), { color: C.red, lw: 8, dash: [18, 12] });
-  pin(ctx, proj, [82.247, 16.989], 'Kakinada', { alpha: appear(s.t, s.w('kakinada') - 0.3), color: C.white, dx: 20, dy: -18, font: F.ui(34, 800) });
-  pin(ctx, proj, [82.214, 16.733], 'YANAM', { alpha: appear(s.t, s.w('yanam') - 0.3), sub: 'Puducherry UT', dx: -22, dy: 44, font: F.ui(38, 800) });
-  topShade(ctx); sideShade(ctx, 1050);
-  if (s.t < 2.6) locatorInset(ctx, 1240, 300, 560, 470, [82.2, 16.8], 1 - span(s.t, 2.0, 2.6));
-  headline(ctx, s, 0, 'Cyclone Arnab makes landfall', '28 Oct · AP–Yanam coast near Kakinada');
-  facts(ctx, s, 0, [['IMD CATEGORY', 'Very Severe Cyclonic Storm', 'very severe', 52], ['NAME FROM', 'Bangladesh\'s list', 'bangladesh', 56]], { y: 330, lines: 2 });
-  trap(ctx, s, 'Yanam is part of Andhra Pradesh', 'Yanam belongs to Puducherry UT');
-  finish(ctx, s, 0, SENT + ' · ' + TERRAIN);
+SCENES.S01 = (ctx, s) => {    // Cyclone Arnab · map-led
+  item(ctx, s, 0, 'Cyclone Arnab crosses the coast', '28 Oct · Godavari delta, AP–Yanam coast · Very Severe Cyclonic Storm');
+  mapWin(ctx, s, 81.58, 16.3, 82.52, 17.1, (g, proj) => {
+    // IMD (as reported): crossed about 20 km ENE of Narsapur, i.e. between Narsapur and Yanam, not at Kakinada
+    arrow(g, [proj([82.6, 16.3]), proj([82.2, 16.38]), proj([81.89, 16.5])], span(s.t, 0.8, 3.0), { color: C.white, lw: 6, dash: [16, 10] });
+    labelPill(g, proj, [82.18, 16.38], 'Crossed between Narsapur and Yanam', { font: F.ui(24, 800), alpha: appear(s.t, 2.4) });
+    pin(g, proj, [82.247, 16.989], null, { color: C.white, r: 8 }); labelPill(g, proj, [82.247, 16.989], 'Kakinada', { off: [70, -40] });
+    pin(g, proj, [82.214, 16.733], null, { r: 9 }); labelPill(g, proj, [82.214, 16.733], 'YANAM · Puducherry UT', { off: [-30, -70], fill: 'rgba(245,211,0,0.92)', color: C.slate });
+    pin(g, proj, [81.70, 16.43], null, { color: C.white, r: 8 }); labelPill(g, proj, [81.70, 16.43], 'Narsapur', { off: [-40, -40] });
+    labelPill(g, proj, [82.48, 16.55], 'BAY OF BENGAL', { fill: 'rgba(18,40,58,0.8)', color: '#9CC8EA', font: F.ui(24, 800) });
+  }, { local: 'apcoast', sat: 'arnab_coast' });
+  if (s.t < 2.8) locatorInset(ctx, 116, 252, 400, 340, [82.2, 16.8], 1 - span(s.t, 2.2, 2.8));
+  gTable(ctx, s, 0, [NOTES[0], NOTES[1], NOTES[2], 420], [['IMD class', 0.66], ['km/h', 0.34]],
+    [[['Cyclonic Storm', '62–88']], [['Severe Cyclonic Storm', '89–117']], [['Very Severe CS · Arnab', '118–166'], null, { hl: true }], [['Extremely Severe CS', '167–221']], [['Super Cyclonic Storm', '≥ 222']]], { size: 26, rowH: 72 });
+  gNotes(ctx, s, 0, [['Naming', 'Only at ≥ 62 km/h · WMO/ESCAP Panel (13 countries)', 'name']], { box: [NOTES[0], 668, NOTES[2], 164], title: 'ALSO NOTE', size: 26 });
+  gTrap(ctx, s, 'Yanam is part of Andhra Pradesh', 'Puducherry UT = Puducherry · Karaikal · Mahe · Yanam');
+  finish(ctx, s, 0, CR.sat);
 };
-SCENES.S02 = (ctx, s) => {    // IDBI: ownership donut
-  typeHero(ctx, 1, '%');
-  const cx = 520, cy = 500, R = 200, sold = 60.72, at = s.w('sixty point') - 0.4, a = appear(s.t, 0.4);
-  ctx.save(); ctx.globalAlpha = a; ctx.lineWidth = 70; ctx.strokeStyle = 'rgba(255,255,255,0.1)'; ctx.beginPath(); ctx.arc(cx, cy, R, 0, 7); ctx.stroke();
-  ctx.strokeStyle = C.yellow; ctx.beginPath(); ctx.arc(cx, cy, R, -Math.PI / 2, -Math.PI / 2 + 2 * Math.PI * sold / 100 * ease(span(s.t, at, at + 1.0))); ctx.stroke(); ctx.restore();
-  text(ctx, s.t > at + 1.0 ? '60.72%' : '', cx, cy + 20, { font: F.head(72), align: 'center', color: C.yellow });
-  text(ctx, 'Government + LIC stake sold', cx, cy + 70, { font: F.ui(30, 700), align: 'center', alpha: appear(s.t, at + 1.0) });
-  topShade(ctx, 360, 0.6);
-  headline(ctx, s, 1, 'IDBI Bank: the stake sale', 'CCEA approval · 14 Oct · RBI approval pending');
-  facts(ctx, s, 1, [['BUYER', 'A Fairfax company (Canada)', 'fairfax', 50], ['PRICE', '≈ ₹52,878 crore', 'fifty-two', 60]], { y: 340, lines: 2 });
-  trap(ctx, s, 'IDBI is a public sector bank', 'RBI: private sector bank since 2019');
-  finish(ctx, s, 1, 'Source: CCEA decision, 14 Oct 2026 (as reported)');
-};
-SCENES.S03 = (ctx, s) => {    // RBI FERR: threshold bars
-  typeHero(ctx, 2, '20%');
-  const t1 = s.w('one hundred million') - 0.3, t2 = s.w('five million') - 0.3;
-  const a1 = appear(s.t, t1), a2 = appear(s.t, t2);
-  text(ctx, 'Unhedged-exposure threshold', 140, 470, { font: F.ui(30, 800), color: C.dim, alpha: a1 });
-  ctx.save(); ctx.globalAlpha = a1; ctx.fillStyle = 'rgba(255,255,255,0.22)'; rr(ctx, 140, 500, 900, 70, 10); ctx.fill(); ctx.restore();
-  text(ctx, 'before: $100 mn', 160, 548, { font: F.ui(32, 800), alpha: a1 });
-  ctx.save(); ctx.globalAlpha = a2; ctx.fillStyle = C.yellow; rr(ctx, 140, 600, 900 * 5 / 100 * 4, 70, 10); ctx.fill(); ctx.restore();
-  text(ctx, 'now: $5 mn', 340, 648, { font: F.ui(32, 800), color: C.yellow, alpha: a2 });
-  text(ctx, '(bar not to scale)', 140, 712, { font: F.ui(24, 600), color: C.dim, alpha: a2 });
-  topShade(ctx, 360, 0.6);
-  headline(ctx, s, 2, 'RBI tightens rupee derivatives', '10 Oct · Foreign Exchange Risk Reserve (FERR)');
-  facts(ctx, s, 2, [['NEW RESERVE ON RUPEE FX DERIVATIVES', '20%', 'twenty per cent', 96]], { y: 340 });
-  trap(ctx, s, 'Issued under FERA', 'Under FEMA 1999 (a civil law)');
-  finish(ctx, s, 2, 'Source: RBI A.P. (DIR Series) Circular No. 26, 10 Oct 2026 (as reported)');
-};
-SCENES.S04 = (ctx, s) => {    // GRAP: Delhi from Sentinel-2, 22–25 Oct
-  satHero(ctx, s, 'delhi_oct', { lon: 77.22, lat: 28.64, zoom: 11.75 }, { lon: 77.2, lat: 28.63, zoom: 12.05 }, { base: 'northindia', filter: 'saturate(0.9) contrast(1.02)' });
-  text(ctx, 'Delhi from orbit · 22–25 Oct 2026', 960, 700, { font: F.ui(28, 700), align: 'center', color: '#E3E7EC', shadow: 10, alpha: appear(s.t, 1.2) });
-  topShade(ctx); sideShade(ctx, 1050);
-  headline(ctx, s, 3, 'Delhi\'s air turns "poor"', '21 Oct · GRAP Stage I across NCR');
-  const L = [['I', 'Poor', '201–300', '#E8B931'], ['II', 'Very Poor', '301–400', '#E0802F'], ['III', 'Severe', '401–450', '#D9534F'], ['IV', 'Severe +', '> 450', '#8E2C48']];
-  const t0 = s.w('four stages') - 0.4;
-  L.forEach(([n, b, r, col], i) => {
-    const a = i === 0 ? appear(s.t, s.w('stage one') - 0.3) : appear(s.t, t0 + i * 0.25), y = 300 + i * 110;
-    ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = 'rgba(12,14,18,0.85)'; rr(ctx, 1200, y, 640, 92, 12); ctx.fill(); ctx.fillStyle = col; ctx.fillRect(1200, y, 12, 92); ctx.restore();
-    text(ctx, 'Stage ' + n, 1236, y + 58, { font: F.ui(32, 800), color: col, alpha: a }); text(ctx, b, 1420, y + 58, { font: F.head(38), alpha: a }); text(ctx, r, 1820, y + 58, { font: F.ui(30, 700), align: 'right', alpha: a });
+SCENES.S02 = (ctx, s) => {    // IDBI · data-led
+  item(ctx, s, 1, 'IDBI Bank: 60.72% to Fairfax', '14 Oct · CCEA approves strategic sale · ≈ ₹52,878 crore · RBI approval pending');
+  chartWin(ctx, s, (g, [x, y, w, h]) => {
+    text(g, 'Who owns IDBI Bank: before and after the sale', x + 40, y + 60, { font: F.ui(30, 800) });
+    const bars = [['Before', [['GoI', 45.48, '#E8B931'], ['LIC', 49.24, '#4A90C2'], ['', 5.28, '#5A616B']]],
+                  ['Sold now', [['GoI 30.48', 30.48, '#E8B931'], ['LIC 30.24', 30.24, '#4A90C2']]],
+                  ['After', [['Fairfax 60.72', 60.72, '#2BB3A3'], ['GoI + LIC ≈ 34', 34.0, '#8A939E'], ['', 5.28, '#5A616B']]]];
+    const bx = x + 200, bw = w - 260;
+    bars.forEach(([lab, segs], i) => {
+      const yy = y + 130 + i * 140, a = appear(s.t, 0.6 + i * 0.6);
+      text(g, lab, x + 40, yy + 50, { font: F.ui(28, 800), alpha: a });
+      let cx = bx; segs.forEach(([l, v, col]) => {
+        const ww = bw * v / 100; g.save(); g.globalAlpha = a; g.fillStyle = col; g.fillRect(cx, yy + 10, ww - 3, 64); g.restore();
+        if (l) text(g, l, cx + 12, yy + 52, { font: F.ui(24, 800), color: col === '#E8B931' || col === '#2BB3A3' ? C.slate : C.white, alpha: a }); cx += ww;
+      });
+    });
+    text(g, 'Shares in %, as reported · grey = public shareholders', x + 40, y + h - 30, { font: F.ui(24, 600), color: C.dim });
   });
-  trap(ctx, s, 'CPCB invokes GRAP', 'CAQM invokes it (2021 Act)');
-  finish(ctx, s, 3, SENT + ' · Source: CAQM order, 21 Oct 2026');
+  gNotes(ctx, s, 1, [['Origin', '1964, IDBI Act (RBI subsidiary) → 1976 to GoI → 2004 IDBI Bank'], ['RBI category', 'Private sector bank since Jan 2019 (LIC majority)', null, { hl: true }],
+    ['Process', 'Strategic disinvestment · DIPAM (Finance) · CCEA approval'], ['Next', 'RBI "fit and proper" approval of the buyer']]);
+  gTrap(ctx, s, 'IDBI is a public sector bank', 'RBI: a private sector bank since 2019');
+  finish(ctx, s, 1, 'Sources: CCEA decision, 14 Oct 2026; DIPAM (as reported)');
 };
-SCENES.S05 = (ctx, s) => {    // CVC: a 1964 → 2003 line
-  typeHero(ctx, 4, 'CVC');
-  const a = appear(s.t, s.w('santhanam') - 0.3), b = appear(s.t, s.w('2003') - 0.3);
-  arrow(ctx, [[180, 620], [980, 620]], span(s.t, s.w('santhanam') - 0.3, s.w('2003')), { color: C.yellow, lw: 6 });
-  text(ctx, '1964', 180, 580, { font: F.head(80), color: C.yellow, alpha: a }); text(ctx, 'executive resolution', 180, 680, { font: F.ui(30, 700), alpha: a }); text(ctx, 'Santhanam Committee', 180, 720, { font: F.ui(30, 700), color: C.dim, alpha: a });
-  text(ctx, '2003', 980, 580, { font: F.head(80), color: C.yellow, align: 'right', alpha: b }); text(ctx, 'CVC Act → statutory', 980, 680, { font: F.ui(30, 700), align: 'right', alpha: b });
-  topShade(ctx, 360, 0.6);
-  headline(ctx, s, 4, 'Vigilance Awareness Week', '26 Oct – 1 Nov · Sardar Patel\'s birth anniversary week');
-  facts(ctx, s, 4, [['THEME 2026', 'Probity for Prosperity', 'probity', 58]], { y: 340, lines: 2 });
-  trap(ctx, s, 'The CVC is a constitutional body', 'Statutory: CVC Act 2003');
+SCENES.S03 = (ctx, s) => {    // RBI FERR · comparison-led
+  item(ctx, s, 2, 'RBI: a 20% Foreign Exchange Risk Reserve', '10 Oct · A.P. (DIR Series) Circular 26 · follow-ups 12 Oct (No. 27) and FAQs 15 Oct');
+  gTable(ctx, s, 2, WIN, [['', 0.26], ['FERA', 0.37], ['FEMA', 0.37]],
+    [[['Year', '1973', '1999 · in force 1 Jun 2000']], [['Nature', 'Criminal offences', 'Civil: penalties, compounding'], null, { hl: true }],
+     [['Enforced by', 'Enforcement Directorate', 'Enforcement Directorate']], [['Aim', 'Conserve scarce forex', 'Facilitate trade · orderly forex market']]], { size: 30, rowH: 128 });
+  gNotes(ctx, s, 2, [['FERR', '20% reserve, in cash with the RBI, no interest', 'twenty per cent', { hl: true }], ['Applies to', 'Specified rupee FX derivative contracts above $2 mn', 'two million'],
+    ['Also', 'Limit to deal without proving an underlying exposure: $100 mn → $5 mn', 'five million'], ['Why', 'Curb speculation on the rupee']]);
+  gTrap(ctx, s, 'These rules are issued under FERA', 'FEMA 1999: a civil law');
+  finish(ctx, s, 2, 'Source: RBI circulars of 10 and 12 Oct 2026, FAQs 15 Oct (as reported)');
+};
+SCENES.S04 = (ctx, s) => {    // GRAP · data-led AQI ladder
+  item(ctx, s, 3, 'Delhi: GRAP Stage I invoked', '21 Oct · AQI 244 ("poor") · Delhi-NCR');
+  chartWin(ctx, s, (g, [x, y, w, h]) => {
+    text(g, 'The AQI scale, and where GRAP begins', x + 40, y + 60, { font: F.ui(30, 800) });
+    const B = [['Good', '0–50', '#3BAA5C', ''], ['Satisfactory', '51–100', '#9BC53D', ''], ['Moderate', '101–200', '#E8D23A', ''], ['Poor', '201–300', '#E8A13A', 'Stage I'], ['Very Poor', '301–400', '#E0612F', 'Stage II'], ['Severe', '401–450', '#C0392B', 'Stage III'], ['Severe +', '> 450', '#7A1F3D', 'Stage IV']];
+    const bw = (w - 80) / B.length;
+    B.forEach(([n, r, col, st], i) => {
+      const xx = x + 40 + i * bw, a = appear(s.t, 0.5 + i * 0.12), hh = 120 + i * 40;
+      g.save(); g.globalAlpha = a; g.fillStyle = col; g.fillRect(xx + 4, y + h - 90 - hh, bw - 8, hh); g.restore();
+      text(g, n, xx + bw / 2, y + h - 50, { font: F.ui(24, 800), align: 'center', alpha: a });
+      text(g, r, xx + bw / 2, y + h - 20, { font: F.ui(24, 600), align: 'center', color: C.dim, alpha: a });
+      if (st) text(g, st, xx + bw / 2, y + h - 100 - hh, { font: F.ui(24, 800), align: 'center', color: C.yellow, alpha: appear(s.t, s.w('four stages') - 0.3 + i * 0.1) });
+    });
+    const mx = x + 40 + 3 * bw + bw * 0.43, ma = appear(s.t, s.w('poor') - 0.3);
+    g.save(); g.globalAlpha = ma; g.strokeStyle = C.white; g.lineWidth = 3; g.beginPath(); g.moveTo(mx, y + 120); g.lineTo(mx, y + h - 100); g.stroke(); g.restore();
+    labelPill(g, ID, [mx, y + 110], 'Delhi · 244 · 21 Oct', { alpha: ma, fill: 'rgba(245,211,0,0.95)', color: C.slate });
+  });
+  gNotes(ctx, s, 3, [['AQI', 'Launched 2014 · CPCB · 8 pollutants: PM10, PM2.5, NO₂, SO₂, CO, O₃, NH₃, Pb'], ['GRAP', 'First notified 2017 (EPCA) → now run by CAQM', null, { hl: true }],
+    ['CAQM', 'Statutory: CAQM in NCR and Adjoining Areas Act, 2021'], ['This week', 'Stage I across NCR from 21 Oct']]);
+  gTrap(ctx, s, 'CPCB invokes GRAP', 'CAQM invokes it; CPCB publishes the AQI');
+  finish(ctx, s, 3, 'Sources: CAQM order, 21 Oct 2026; CPCB AQI bands');
+};
+SCENES.S05 = (ctx, s) => {    // CVC · comparison-led
+  item(ctx, s, 4, 'Vigilance Awareness Week: "Probity for Prosperity"', '26 Oct – 1 Nov · the week of Sardar Patel\'s birth anniversary');
+  gTable(ctx, s, 4, WIN, [['Body', 0.2], ['Legal basis', 0.33], ['Selection / term', 0.47]],
+    [[['CVC', 'CVC Act 2003 · statutory (1964 by resolution)', 'CVC + up to 2 VCs · PM, Home Minister, LoP · 4 yrs / 65'], 'santhanam', { hl: true }],
+     [['Lokpal', 'Lokpal & Lokayuktas Act 2013', 'Chair + up to 8 (half judicial) · PM, Speaker, LoP, CJI, jurist']],
+     [['CBI', 'DSPE Act 1946 · executive', 'Director: PM, LoP, CJI committee']],
+     [['CAG', 'Constitution · Art 148', 'President · 6 yrs / 65']]], { size: 26, rowH: 132 });
+  gNotes(ctx, s, 4, [['Theme 2026', 'Probity for Prosperity', 'probity', { big: true }], ['Origin', '1964 · Santhanam Committee · executive resolution', 'santhanam'], ['Statutory', 'CVC Act, 2003', '2003', { hl: true }]]);
+  gTrap(ctx, s, 'The CVC is a constitutional body', 'Statutory: CVC Act 2003');
   finish(ctx, s, 4, 'Source: CVC circular, Sep 2026');
 };
 
 // ---------------- International ----------------
-SCENES.S06 = (ctx, s) => {    // SIOFA: Indian Ocean bathymetry
-  const cam = camLerp({ lon: 78, lat: 12, zoom: 3.6 }, { lon: 66, lat: -22, zoom: 3.3 }, ease(span(s.t, 1.0, 6.0)));
-  const proj = camera(cam.lon, cam.lat, cam.zoom);
-  terrainMap(ctx, proj, 'indianocean', { indiaFill: 'rgba(245,211,0,0.25)' });
-  mapLabel(ctx, proj, [70, -36], 'SOUTHERN INDIAN OCEAN · HIGH SEAS', { font: F.ui(34, 800), color: '#9CC8EA', alpha: appear(s.t, s.w('southern') - 0.3) });
-  mapLabel(ctx, proj, [70, -40.5], 'toothfish · alfonsino', { font: F.hand(46), color: '#E3E7EC', alpha: appear(s.t, s.w('toothfish') - 0.3) });
-  topShade(ctx); sideShade(ctx, 1050);
-  headline(ctx, s, 5, 'India to join SIOFA', 'Southern Indian Ocean Fisheries Agreement · Rome, 2006');
-  facts(ctx, s, 5, [['STATUS', 'Cooperating non-party → full party', 'four years', 48], ['COVERS', 'High-seas fish, not tuna', 'toothfish', 52]], { y: 330, lines: 2 });
-  trap(ctx, s, 'SIOFA manages tuna', 'Tuna → Indian Ocean Tuna Commission');
-  finish(ctx, s, 5, TERRAIN);
+SCENES.S06 = (ctx, s) => {    // SIOFA · map + table
+  item(ctx, s, 5, 'India to join SIOFA as a full party', 'Southern Indian Ocean Fisheries Agreement · approved mid-Oct');
+  mapWin(ctx, s, 25, -50, 115, 28, (g, proj) => {
+    g.save(); g.fillStyle = 'rgba(74,144,194,0.18)'; g.strokeStyle = 'rgba(156,200,234,0.9)'; g.lineWidth = 2; g.setLineDash([10, 8]);
+    const pts = [[30, -10], [80, -10], [80, -45], [30, -45]].map(p => proj(p)); g.beginPath(); pts.forEach((p, i) => i ? g.lineTo(...p) : g.moveTo(...p)); g.closePath(); g.fill(); g.stroke(); g.restore();
+    labelPill(g, proj, [55, -32], 'Southern Indian Ocean high seas (schematic)', { font: F.ui(24, 800) });
+    pin(g, proj, [55.45, -21.1], null, { r: 8, color: C.white }); labelPill(g, proj, [55.45, -21.1], 'Réunion · SIOFA secretariat', { off: [140, -40], font: F.ui(24, 800) });
+    pin(g, proj, [55.45, -4.62], null, { r: 8, color: C.white }); labelPill(g, proj, [55.45, -4.62], 'Seychelles · IOTC', { off: [-140, -30], font: F.ui(24, 800) });
+  }, { local: 'indianocean', indiaFill: 'rgba(245,211,0,0.3)' });
+  gTable(ctx, s, 5, NOTES, [['Body', 0.3], ['Covers', 0.38], ['Seat', 0.32]],
+    [[['SIOFA', 'Non-tuna high-seas fish', 'Réunion · 2006 / 2012'], 'four years', { hl: true }], [['IOTC', 'Tuna (FAO body, 1993)', 'Seychelles']], [['CCAMLR', 'Antarctic marine life', 'Hobart']]], { size: 24, rowH: 120 });
+  text(ctx, 'India: cooperating non-party since 2022 → full party', NOTES[0] + 24, NOTES[1] + 520, { font: F.ui(24, 800), color: C.blue, maxW: 580 });
+  gTrap(ctx, s, 'SIOFA manages tuna', 'Tuna → Indian Ocean Tuna Commission');
+  finish(ctx, s, 5, CR.map + ' · SIOFA area schematic');
 };
-SCENES.S07 = (ctx, s) => {    // GHI: rank scale
-  typeHero(ctx, 6);
-  const at = s.w('hundredth') - 0.3, a = appear(s.t, at), x0 = 140, x1 = 1040, X = r => lerp(x0, x1, (r - 1) / 121);
-  ctx.save(); ctx.globalAlpha = appear(s.t, 0.5); ctx.fillStyle = 'rgba(255,255,255,0.12)'; rr(ctx, x0, 480, x1 - x0, 16, 8); ctx.fill(); ctx.restore();
-  text(ctx, '1st', x0, 540, { font: F.ui(26, 700), color: C.dim }); text(ctx, '122nd', x1, 540, { font: F.ui(26, 700), color: C.dim, align: 'right' });
-  ctx.save(); ctx.globalAlpha = a; ctx.beginPath(); ctx.arc(X(100), 488, 22, 0, 7); ctx.fillStyle = C.blue; ctx.fill(); ctx.restore();
-  text(ctx, 'India · 100th', X(100), 440, { font: F.ui(34, 800), align: 'center', alpha: a });
-  const chips = [['Undernourishment', 0], ['Child stunting', 1], ['Child wasting 19.0%', 1], ['Child mortality', 1]], ca = appear(s.t, s.w('four indicators') - 0.3);
-  let x = 140; chips.forEach(([l, kid]) => { x += 16 + pill(ctx, l, x, 590, { fill: kid ? C.blue : 'rgba(255,255,255,0.15)', color: C.white, font: F.ui(26, 800), h: 50, alpha: ca }); });
-  text(ctx, '3 of 4 indicators measure children', 140, 700, { font: F.hand(46), color: C.yellow, alpha: appear(s.t, s.w('three of them') - 0.3) * (1 - appear(s.t, s.w('prelims trap') - 0.3)) });
-  topShade(ctx, 360, 0.6);
-  headline(ctx, s, 6, 'Global Hunger Index 2026', 'India: score 24.1 · "serious" · GoI disputes the method');
-  facts(ctx, s, 6, [['INDIA', '100th of 122', 'hundredth', 72]], { y: 340 });
-  trap(ctx, s, 'Published by the FAO or WFP', 'NGOs: Welthungerhilfe, Concern Worldwide');
+SCENES.S07 = (ctx, s) => {    // GHI · data-led
+  item(ctx, s, 6, 'Global Hunger Index 2026: India 100th of 122', 'Score 24.1 · "serious" · released 14 Oct · GoI disputes the method');
+  chartWin(ctx, s, (g, [x, y, w, h]) => {
+    text(g, 'Severity scale', x + 40, y + 56, { font: F.ui(26, 800) });
+    const S = [[0, 10, 'Low', '#3BAA5C'], [10, 20, 'Moderate', '#E8D23A'], [20, 35, 'Serious', '#E8A13A'], [35, 50, 'Alarming', '#E0612F'], [50, 60, 'Extremely alarming', '#7A1F3D']];
+    const X = v => x + 40 + (w - 80) * v / 60;
+    S.forEach(([a0, a1, l, col]) => { g.fillStyle = col; g.fillRect(X(a0), y + 90, X(a1) - X(a0) - 2, 44); text(g, l, (X(a0) + X(a1)) / 2, y + 160, { font: F.ui(24, 800), align: 'center' }); });
+    const ix = X(24.1); g.fillStyle = C.white; g.beginPath(); g.moveTo(ix, y + 86); g.lineTo(ix - 12, y + 66); g.lineTo(ix + 12, y + 66); g.fill();
+    text(g, 'India 24.1', ix + 20, y + 74, { font: F.ui(24, 800), color: C.yellow });
+    text(g, 'Four indicators and their weights', x + 40, y + 226, { font: F.ui(26, 800) });
+    const I = [['Undernourishment', '1/3', '9.8%'], ['Child mortality (under-5)', '1/3', 'n/a'], ['Child stunting', '1/6', '29.3%'], ['Child wasting', '1/6', '19.0%']];
+    I.forEach(([l, wt, v], i) => {
+      const yy = y + 256 + i * 72, a = appear(s.t, s.w('four indicators') - 0.3 + i * 0.15), bw = wt === '1/3' ? 340 : 170;
+      g.save(); g.globalAlpha = a; g.fillStyle = i ? C.blue : '#8A939E'; g.fillRect(x + 40, yy, bw, 50); g.restore();
+      text(g, wt, x + 54, yy + 35, { font: F.ui(24, 800), alpha: a }); text(g, l, x + 400, yy + 35, { font: F.ui(26, 700), alpha: a });
+      if (v !== 'n/a') text(g, 'India ' + v, x + w - 40, yy + 35, { font: F.ui(24, 800), align: 'right', color: C.yellow, alpha: a });
+    });
+    text(g, 'India values as reported for GHI 2026', x + 40, y + h - 22, { font: F.ui(24, 600), color: C.dim });
+  });
+  gNotes(ctx, s, 6, [['Publisher', 'Welthungerhilfe-led group of aid organisations', 'published', { hl: true }], ['Not to confuse', 'SOFI report = FAO · IFAD · UNICEF · WFP · WHO'], ['Global', 'World score 18.1 · Somalia worst'], ['India', 'Child wasting 19.0%: among the highest']]);
+  gTrap(ctx, s, 'The GHI is published by the FAO or WFP', 'Welthungerhilfe-led NGOs · FAO publishes SOFI');
   finish(ctx, s, 6, 'Source: Global Hunger Index 2026 (as reported)');
 };
-SCENES.S08 = (ctx, s) => {    // Poland → India arc
-  const proj = camera(lerp(52, 50, s.p), 40, 3.35);
-  terrainMap(ctx, proj, null, { highlight: { POL: 'rgba(74,144,194,0.45)' } });
-  const w = proj([21.01, 52.23]), d = proj([77.21, 28.61]), p = span(s.t, 0.8, 3.0);
-  ctx.save(); ctx.strokeStyle = C.yellow; ctx.lineWidth = 5; ctx.setLineDash([14, 10]); ctx.beginPath(); ctx.moveTo(...w);
-  for (let i = 1; i <= 40; i++) { const t = i / 40 * p; ctx.lineTo(lerp(w[0], d[0], t), lerp(w[1], d[1], t) - Math.sin(Math.PI * t) * 160); } ctx.stroke(); ctx.restore();
-  pin(ctx, proj, [21.01, 52.23], 'Warsaw', { color: C.blue, dx: -20, dy: -16, font: F.ui(32, 800) }); pin(ctx, proj, [77.21, 28.61], 'New Delhi', { alpha: appear(s.t, 2.6), dx: 18, dy: 34, font: F.ui(32, 800) });
-  topShade(ctx); sideShade(ctx, 1050);
-  headline(ctx, s, 7, 'Poland\'s PM in New Delhi', '21–23 Oct · India–Poland strategic partnership');
-  facts(ctx, s, 7, [['TARGET', 'Double trade by 2030', 'double', 54], ['POLAND JOINS', 'CDRI', 'c-d-r-i', 72]], { y: 330 });
-  trap(ctx, s, 'CDRI is headquartered in Gurugram', 'CDRI: New Delhi · ISA: Gurugram');
-  finish(ctx, s, 7, TERRAIN);
+SCENES.S08 = (ctx, s) => {    // Poland · CDRI · comparison-led
+  item(ctx, s, 7, 'Poland\'s PM in India; Poland joins the CDRI', '21–23 Oct · India–Poland strategic partnership (Aug 2024)');
+  gTable(ctx, s, 7, WIN, [['India-led body', 0.36], ['Launched', 0.36], ['Seat', 0.28]],
+    [[['International Solar Alliance', '2015 · COP21 Paris (with France) · treaty-based', 'Gurugram']], [['CDRI', '2019 · UN Climate Action Summit, New York', 'New Delhi'], 'c-d-r-i', { hl: true, trapCol: 2 }],
+     [['Global Biofuels Alliance', '2023 · G20, New Delhi', 'India-led']], [['International Big Cat Alliance', '2023 · Project Tiger at 50', 'India']]], { size: 26, rowH: 124 });
+  gNotes(ctx, s, 7, [['Target', 'Double bilateral trade by 2030', 'double'], ['Announced', 'Poland will join the CDRI', 'c-d-r-i', { hl: true }], ['History', 'WWII: Polish children sheltered at Jamnagar (Nawanagar) and Valivade (Kolhapur)'], ['Partnership', 'Strategic, since Aug 2024']]);
+  gTrap(ctx, s, 'The CDRI is headquartered in Gurugram', 'CDRI: New Delhi · ISA: Gurugram');
+  finish(ctx, s, 7, 'Source: India–Poland joint statement, 22 Oct 2026 (as reported)');
 };
-SCENES.S09 = (ctx, s) => {    // BRICS members on a world map
-  const mem = ['BRA', 'RUS', 'IND', 'CHN', 'ZAF', 'EGY', 'ETH', 'IRN', 'ARE', 'IDN'], t0 = s.w('ten full') - 0.4, hl = {};
-  mem.forEach((m, i) => { if (s.t > t0 + i * 0.22 || (i < 5 && s.t > 1.0)) hl[m] = i < 5 ? 'rgba(74,144,194,0.55)' : 'rgba(43,179,163,0.6)'; });
-  const proj = camera(lerp(40, 46, s.p), 12, 1.95);
-  terrainMap(ctx, proj, null, { world: true, highlight: hl, indiaFill: 'rgba(74,144,194,0.55)' });
-  const sau = A.geo.countries_wide.find(c => c.a3 === 'SAU'), sa = appear(s.t, s.w('saudi') - 0.3);
-  if (sau && sa > 0) geo(ctx, proj, sau.geom, { stroke: C.red, lw: 3, dash: [8, 6], alpha: sa });
-  if (sa > 0) mapLabel(ctx, proj, [45, 21], 'not a member', { font: F.ui(28, 800), color: C.red, alpha: sa });
-  topShade(ctx); sideShade(ctx, 1150);
-  headline(ctx, s, 8, '12th BRICS Parliamentary Forum', 'Samvidhan Sadan, New Delhi · 26–27 Oct');
-  facts(ctx, s, 8, [['CHAIRED BY', 'Lok Sabha Speaker', 'chaired', 52], ['FULL MEMBERS', '10', 'ten full', 96]], { y: 330, x: 1300, w: 520 });
-  trap(ctx, s, 'Saudi Arabia is a full member', '10 members: Saudi Arabia is not one');
-  finish(ctx, s, 8, TERRAIN);
+SCENES.S09 = (ctx, s) => {    // BRICS · map-led
+  item(ctx, s, 8, '12th BRICS Parliamentary Forum, New Delhi', '26–27 Oct · Samvidhan Sadan · Lok Sabha Speaker chairs · India chairs BRICS in 2026');
+  const M = { BRA: [-52, -10], RUS: [95, 62], IND: [79, 22], CHN: [104, 35], ZAF: [24, -29], EGY: [30, 26], ETH: [40, 8], IRN: [54, 32], ARE: [54.3, 23.6], IDN: [117, -2] };
+  const names = { BRA: 'Brazil', RUS: 'Russia', IND: 'India', CHN: 'China', ZAF: 'South Africa', EGY: 'Egypt', ETH: 'Ethiopia', IRN: 'Iran', ARE: 'UAE', IDN: 'Indonesia' };
+  const hl = {}; Object.keys(M).forEach(m => { hl[m] = 'rgba(245,211,0,0.5)'; });
+  mapWin(ctx, s, -75, -38, 140, 68, (g, proj) => {
+    const sau = A.geo.countries_wide.find(c => c.a3 === 'SAU'); if (sau) geo(g, proj, sau.geom, { stroke: C.white, lw: 2.5, dash: [6, 5] });
+    Object.entries(M).forEach(([a3, ll], i) => labelPill(g, proj, ll, names[a3], { font: F.ui(24, 800), alpha: appear(s.t, s.w('ten full') - 0.4 + i * 0.15) }));
+    labelPill(g, proj, [45, 22], 'Saudi Arabia: not a member', { off: [-60, 110], font: F.ui(24, 800), fill: 'rgba(255,255,255,0.92)', color: C.slate, alpha: appear(s.t, s.w('saudi') - 0.3) });
+  }, { world: true, highlight: hl, indiaFill: 'rgba(245,211,0,0.5)' });
+  gTable(ctx, s, 8, NOTES, [['Joined', 0.3], ['Members', 0.7]],
+    [[['2009', 'Brazil · Russia · India · China (BRIC)']], [['2010', 'South Africa']], [['2024', 'Egypt · Ethiopia · Iran · UAE']], [['2025', 'Indonesia'], null, { hl: true }], [['Not', 'Saudi Arabia (invited, not confirmed)'], 'saudi']], { size: 24, rowH: 92 });
+  text(ctx, 'NDB HQ: Shanghai · partner countries since 2025', NOTES[0] + 24, NOTES[1] + 570, { font: F.ui(24, 800), color: C.blue });
+  gTrap(ctx, s, 'Saudi Arabia is a full BRICS member', '10 members; Saudi Arabia is not one');
+  finish(ctx, s, 8, CR.map);
 };
-SCENES.S10 = (ctx, s) => {    // CBD COP17, Yerevan
-  const cam = camLerp({ lon: 62, lat: 30, zoom: 3.7 }, { lon: 45.6, lat: 40.0, zoom: 5.6 }, ease(span(s.t, 0.8, 4.5)));
-  const proj = camera(cam.lon, cam.lat, cam.zoom);
-  terrainMap(ctx, proj);
-  pin(ctx, proj, [44.51, 40.18], 'YEREVAN', { sub: 'Armenia', font: F.ui(38, 800), pulse: (s.t / 2) % 1, dx: -22, dy: -22 });
-  topShade(ctx); sideShade(ctx, 1050);
-  headline(ctx, s, 9, 'CBD COP17 in Yerevan', '19–30 Oct · Convention on Biological Diversity');
-  facts(ctx, s, 9, [['FIRST', 'Global review of the Kunming–Montreal Framework', 'review', 42], ['THE FRAMEWORK', '23 targets · 30×30', 'twenty-three', 56]], { y: 330, lines: 2 });
-  trap(ctx, s, '30×30 = 30% of land and sea combined', '30% of land AND 30% of sea');
-  finish(ctx, s, 9, TERRAIN);
+SCENES.S10 = (ctx, s) => {    // CBD COP17 · map + table
+  item(ctx, s, 9, 'CBD COP17 in Yerevan', '19–30 Oct · first global review of the Kunming–Montreal Framework');
+  mapWin(ctx, s, 33, 33.5, 54, 44.5, (g, proj) => {
+    [['ARMENIA', [45.4, 39.75]], ['GEORGIA', [43.5, 42.2]], ['AZERBAIJAN', [47.8, 40.4]], ['IRAN', [50.5, 36.0]], ['TÜRKIYE', [37.5, 39.2]], ['Black Sea', [36.5, 43.2]], ['Caspian Sea', [51.0, 41.8]]].forEach(([n, ll], i) =>
+      labelPill(g, proj, ll, n, { font: F.ui(i < 5 ? 22 : 20, 800), fill: i < 5 ? 'rgba(20,23,28,0.82)' : 'rgba(18,40,58,0.8)', color: i < 5 ? C.white : '#9CC8EA' }));
+    pin(g, proj, [44.51, 40.18], null, { r: 10, pulse: (s.t / 2) % 1 }); labelPill(g, proj, [44.51, 40.18], 'Yerevan', { off: [-10, 52], fill: 'rgba(245,211,0,0.92)', color: C.slate });
+  }, {});
+  gTable(ctx, s, 9, NOTES, [['Instrument', 0.4], ['Fact', 0.6]],
+    [[['CBD', 'Rio 1992 · Montreal · USA not a party']], [['Cartagena', '2000 · biosafety (LMOs)']], [['Nagoya', '2010 · access & benefit-sharing']], [['KMGBF', '2022 · 23 targets · 30×30'], 'twenty-three', { hl: true }], [['COP11', 'Hyderabad, 2012']]], { size: 24, rowH: 100 });
+  gTrap(ctx, s, '30×30 = 30% of land and sea combined', '30% of land AND 30% of sea');
+  finish(ctx, s, 9, CR.map);
 };
-SCENES.S11 = (ctx, s) => {    // UNEP: a warming scale
-  typeHero(ctx, 10, '°C');
-  const x0 = 160, x1 = 1060, X = v => lerp(x0, x1, (v - 1.0) / 2.2), y = 620;
-  const g = ctx.createLinearGradient(x0, 0, x1, 0); g.addColorStop(0, '#E8B931'); g.addColorStop(0.55, '#E0802F'); g.addColorStop(1, '#C0392B');
-  ctx.save(); ctx.globalAlpha = appear(s.t, 0.5); ctx.fillStyle = g; rr(ctx, x0, y, x1 - x0, 26, 13); ctx.fill(); ctx.restore();
-  [[1.5, 'Paris 1.5'], [2.0, '2.0']].forEach(([v, l]) => { text(ctx, l, X(v), y + 70, { font: F.ui(26, 700), color: C.dim, align: 'center', alpha: appear(s.t, 0.5) }); });
-  [[2.6, 'all pledges', 'two point six'], [2.8, 'current policies', 'two point eight']].forEach(([v, l, cw], i) => {
-    const a = appear(s.t, s.w(cw) - 0.3), xx = X(v);
-    ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = C.white; ctx.beginPath(); ctx.moveTo(xx, y - 6); ctx.lineTo(xx - 14, y - 34); ctx.lineTo(xx + 14, y - 34); ctx.fill(); ctx.restore();
-    const al = i ? 'left' : 'right', ox = i ? 24 : -24;
-    text(ctx, `≈ ${v} °C`, xx + ox, y - 70, { font: F.head(52), align: al, alpha: a }); text(ctx, l, xx + ox, y - 40, { font: F.ui(26, 700), align: al, color: C.dim, alpha: a });
-  });
-  topShade(ctx, 360, 0.6);
-  headline(ctx, s, 10, 'Emissions Gap Report 2026', '21 Oct · warming projected this century');
-  facts(ctx, s, 10, [['CURRENT POLICIES', '≈ 2.8 °C', 'two point eight', 72], ['IF EVERY PLEDGE IS MET', '≈ 2.6 °C', 'two point six', 72]], { y: 340 });
-  trap(ctx, s, 'It is an IPCC report', 'Published by UNEP');
+SCENES.S11 = (ctx, s) => {    // UNEP · comparison-led
+  item(ctx, s, 10, 'UNEP Emissions Gap Report 2026', '21 Oct · ≈ 2.8 °C under current policies · ≈ 2.6 °C if every pledge is met');
+  gTable(ctx, s, 10, WIN, [['Report', 0.52], ['Published by', 0.48]],
+    [[['Emissions Gap · Adaptation Gap', 'UNEP'], 'environment programme', { hl: true }], [['Assessment Reports (AR6, 2021–23)', 'IPCC (WMO + UNEP, 1988)']], [['State of the Global Climate', 'WMO']], [['NDC Synthesis Report', 'UNFCCC Secretariat']], [['Climate Change Performance Index', 'Germanwatch · NewClimate · CAN']]], { size: 26, rowH: 104 });
+  gNotes(ctx, s, 10, [['Current policies', '≈ 2.8 °C', 'two point eight', { big: true }], ['All pledges met', '≈ 2.6 °C', 'two point six', { big: true }], ['India\'s NDC (2022)', '−45% emissions intensity vs 2005 by 2030 · 50% non-fossil power capacity · net zero 2070']]);
+  gTrap(ctx, s, 'The Emissions Gap Report is the IPCC\'s', 'Published by UNEP');
   finish(ctx, s, 10, 'Source: UNEP Emissions Gap Report 2026 (as reported)');
 };
-SCENES.S16 = (ctx, s) => {    // Loss and Damage Fund → Nepal
-  const cam = camLerp({ lon: 82, lat: 25, zoom: 4.8 }, { lon: 85.0, lat: 28.0, zoom: 7.0 }, ease(span(s.t, 0.8, 4.0)));
-  const proj = camera(cam.lon, cam.lat, cam.zoom);
-  terrainMap(ctx, proj, 'nepal', { highlight: { NPL: 'rgba(43,179,163,0.28)' } });
-  pin(ctx, proj, [85.32, 27.71], 'Kathmandu', { color: C.white, dx: -20, dy: 40, font: F.ui(30, 800), alpha: appear(s.t, 2.5) });
-  pin(ctx, proj, [85.6, 28.0], 'Bhotekoshi–Trishuli floods', { color: C.blue, dx: -20, dy: -24, font: F.ui(30, 800), alpha: appear(s.t, s.w('flood') - 0.3) });
-  topShade(ctx); sideShade(ctx, 1050);
-  headline(ctx, s, 11, 'Loss and Damage Fund: first allocation', 'Board decision · 22 Oct');
-  facts(ctx, s, 11, [['NEPAL', '$20 mn (provisional)', 'twenty million', 60], ['ORIGIN', 'COP27 (2022) → COP28 (2023)', 'sharm', 46]], { y: 380, lines: 2 });
-  trap(ctx, s, 'Paid by the Green Climate Fund', 'A separate fund · GCF is in Songdo');
-  finish(ctx, s, 11, TERRAIN);
+SCENES.S16 = (ctx, s) => {    // Loss and Damage · comparison-led
+  item(ctx, s, 11, 'Loss and Damage Fund: first allocation, to Nepal', 'Board decision 22 Oct · $20 mn provisional for flood recovery');
+  gTable(ctx, s, 11, WIN, [['Fund', 0.3], ['Origin', 0.38], ['Seat / host', 0.32]],
+    [[['Loss & Damage (FRLD)', 'COP27 2022 → operational COP28 2023', 'World Bank-hosted · Board in the Philippines'], 'sharm', { hl: true }],
+     [['Green Climate Fund', 'COP16 Cancún, 2010', 'Songdo, South Korea'], 'green climate', { trapCol: 0 }], [['GEF', '1991', 'Washington DC']], [['Adaptation Fund', 'Kyoto Protocol', 'World Bank as trustee']]], { size: 26, rowH: 124 });
+  gNotes(ctx, s, 11, [['Nepal', '$20 mn (provisional) · floods of 26 Aug, Bhotekoshi–Trishuli', 'twenty million', { hl: true }], ['Scale', 'Recovery need estimated ≈ $4.7 bn (as reported)'], ['Next', 'Funds flow after Nepal\'s proposal is approved']]);
+  gTrap(ctx, s, 'The GCF pays for loss and damage', 'A separate fund: FRLD');
+  finish(ctx, s, 11, 'Source: FRLD Board decision, 22 Oct 2026 (as reported)');
 };
 
 // ---------------- Misc ----------------
-SCENES.S12 = (ctx, s) => {    // Ramsar: Sukhna Lake from Sentinel-2, then the India map
-  const sw = s.w('sauj') - 0.4, m = ease(span(s.t, sw, sw + 1.2));
-  if (m < 1) {
-    satHero(ctx, s, 'sukhna', { lon: 76.83, lat: 30.743, zoom: 14.3 }, { lon: 76.822, lat: 30.743, zoom: 14.6 }, { base: 'northindia' });
-    text(ctx, 'Sukhna Wetland · Chandigarh', 640, 640, { font: F.ui(34, 800), shadow: 12, alpha: appear(s.t, s.w('sukhna') - 0.3) * (1 - m) });
-  }
-  if (m > 0) {
-    ctx.save(); ctx.globalAlpha = m;
-    const proj = camera(78.6, 28.8, 6.2); terrainMap(ctx, proj, 'northindia');
-    pin(ctx, proj, [76.818, 30.742], 'Sukhna Wetland', { sub: 'Chandigarh UT', color: C.teal, dx: -20, dy: -20, font: F.ui(32, 800) });
-    pin(ctx, proj, [79.02, 27.23], 'Sauj Jheel', { sub: 'Mainpuri, UP', color: C.teal, font: F.ui(32, 800) });
-    ctx.restore();
-  }
-  topShade(ctx); sideShade(ctx, 1050);
-  headline(ctx, s, 12, 'Ramsar sites reach 103', 'Added 15 Oct · India joined the convention in 1982');
-  facts(ctx, s, 12, [['INDIA\'S RAMSAR SITES', '103', 'one hundred and three', 110], ['MONTREUX RECORD (INDIA)', 'Keoladeo · Loktak', 'montreux', 54]], { y: 330 });
-  trap(ctx, s, 'Chilika is on the Montreux Record', 'Chilika was removed in 2002');
-  finish(ctx, s, 12, SENT + ' · ' + TERRAIN);
+SCENES.S12 = (ctx, s) => {    // Ramsar · map-led
+  item(ctx, s, 12, 'Ramsar sites reach 103', '15 Oct · Sukhna Wetland (Chandigarh) and Sauj Jheel (Mainpuri, UP)');
+  mapWin(ctx, s, 72.5, 25.5, 81.5, 32.2, (g, proj) => {
+    [['Sukhna Wetland · Chandigarh', [76.818, 30.742], [120, -20], 'sukhna'], ['Sauj Jheel · Mainpuri', [79.02, 27.23], [40, -50], 'sauj'], ['Keoladeo · Montreux Record', [77.52, 27.17], [-60, 60], 'montreux']].forEach(([n, ll, off, cw], i) => {
+      const a = appear(s.t, s.w(cw) - 0.3); pin(g, proj, ll, null, { r: 9, color: i < 2 ? C.teal : C.yellow, alpha: a }); labelPill(g, proj, ll, n, { off, font: F.ui(24, 800), alpha: a });
+    });
+  }, { local: 'northindia', states: { labels: { 'Uttar Pradesh': [80.4, 26.4], 'Haryana': [76.2, 29.3], 'Rajasthan': [74.3, 27.6], 'Punjab': [75.0, 30.4] } } });
+  gNotes(ctx, s, 12, [['Convention', 'Ramsar, Iran · 2 Feb 1971 · India joined 1 Feb 1982'], ['India\'s first', 'Chilika and Keoladeo, 1981'], ['Montreux Record', 'Keoladeo (1990) · Loktak (1993) · Chilika removed 2002', 'montreux', { hl: true }], ['Largest', 'Sundarbans, West Bengal']]);
+  gTrap(ctx, s, 'Chilika is on the Montreux Record', 'Removed in 2002 · Keoladeo, Loktak remain');
+  finish(ctx, s, 12, CR.map);
 };
-SCENES.S13 = (ctx, s) => {    // GI: Ambaji and Tirupati
-  const proj = camera(lerp(76.5, 76.0, s.p), 19.2, 5.4);
-  terrainMap(ctx, proj, 'westindia');
-  pin(ctx, proj, [72.85, 24.33], 'Ambaji', { sub: 'Gujarat', dx: -20, dy: -18, font: F.ui(34, 800), alpha: appear(s.t, 0.8) });
-  pin(ctx, proj, [79.42, 13.63], 'Tirupati', { sub: 'Andhra Pradesh · GI 2009', color: C.teal, dx: 20, dy: -18, font: F.ui(34, 800), alpha: appear(s.t, s.w('tirupati') - 0.3) });
-  topShade(ctx); sideShade(ctx, 1050);
-  headline(ctx, s, 13, 'GI tag for Ambaji Mohanthal', 'Reported · Gujarat temple prasad');
-  facts(ctx, s, 13, [['REGISTRY', 'Chennai', 'chennai', 64], ['INDIA\'S FIRST GI', 'Darjeeling tea', 'darjeeling', 58]], { y: 330 });
-  trap(ctx, s, 'A GI is a permanent, one-time grant', '10 years · renewable again and again');
-  finish(ctx, s, 13, TERRAIN + ' · GI: Geographical Indications Registry (as reported)');
+SCENES.S13 = (ctx, s) => {    // GI · map-led
+  item(ctx, s, 13, 'GI tag for Ambaji Mohanthal (reported)', 'Gujarat temple prasad · and the Telugu States\' own GI set');
+  mapWin(ctx, s, 69, 12.2, 85.5, 25.6, (g, proj) => {
+    [['Ambaji Mohanthal (reported)', [72.85, 24.33], [190, 10]], ['Tirupati Laddu · 2009', [79.42, 13.63], [-60, 40]], ['Pochampally Ikat', [78.82, 17.35], [-120, 30]], ['Araku Valley coffee', [82.87, 18.33], [-30, -50]], ['Banganapalle mango', [78.23, 15.32], [-110, 10]]].forEach(([n, ll, off], i) => {
+      const a = appear(s.t, 0.6 + i * 0.4); pin(g, proj, ll, null, { r: 9, color: i ? C.teal : C.yellow, alpha: a }); labelPill(g, proj, ll, n, { off, font: F.ui(24, 800), alpha: a });
+    });
+  }, { local: 'westindia', states: { labels: { 'Andhra Pradesh': [79.6, 15.6], 'Telangana': [79.0, 18.2], 'Gujarat': [71.5, 22.6] } } });
+  gNotes(ctx, s, 13, [['Law', 'GI of Goods Act 1999 · in force 2003'], ['Administered by', 'CGPDTM · DPIIT · Ministry of Commerce · Registry: Chennai', 'chennai'], ['International', 'WTO TRIPS, Arts 22–24'], ['Term', '10 years · renewable again and again', null, { hl: true }], ['India\'s first GI', 'Darjeeling tea', 'darjeeling']]);
+  gTrap(ctx, s, 'A GI tag is a permanent, one-time grant', '10 years · renewable indefinitely');
+  finish(ctx, s, 13, CR.map + ' · GI: Geographical Indications Registry');
 };
-SCENES.S14 = (ctx, s) => {    // GII: a rank ladder
-  typeHero(ctx, 14);
-  const R = [['1', 'Switzerland'], ['2', 'Sweden'], ['3', 'United States']], a = appear(s.t, s.w('switzerland') - 0.3);
-  R.forEach(([n, c], i) => { text(ctx, n, 160, 430 + i * 64, { font: F.head(48), color: C.dim, alpha: a }); text(ctx, c, 240, 430 + i * 64, { font: F.ui(38, 700), alpha: a }); });
-  text(ctx, '⋮', 175, 620, { font: F.ui(40, 800), color: C.dim, alpha: a });
-  const b = appear(s.t, s.w('thirty-eighth') - 0.3);
-  text(ctx, '38', 160, 700, { font: F.head(56), color: C.yellow, alpha: b }); text(ctx, 'India', 240, 700, { font: F.ui(42, 800), color: C.yellow, alpha: b });
-  topShade(ctx, 360, 0.6);
-  headline(ctx, s, 14, 'Global Innovation Index 2026', 'India: 38th of 139 economies');
-  facts(ctx, s, 14, [['INDIA', '1st among lower-middle-income economies', 'lower-middle', 46]], { y: 360, lines: 2 });
-  trap(ctx, s, 'Published by the WEF', 'Published by WIPO');
-  finish(ctx, s, 14, 'Source: WIPO, Global Innovation Index 2026 (as reported)');
-};
-SCENES.S15 = (ctx, s) => {    // Days: three calendar tiles
-  bg(ctx, { inner: '#20252D', outer: '#0D1014' });
-  const D = [['27', 'Infantry Day', '1947 airlanding at Srinagar', 'infantry'], ['30', 'World Savings Day', 'India\'s date', 'savings'], ['31', 'Rashtriya Ekta Diwas', 'Sardar Patel', 'ekta']];
-  D.forEach(([d, t, sub, cw], i) => {
-    const a = appear(s.t, s.w(cw) - 0.3), x = 140 + i * 560, y = 300 + (1 - a) * 40;
-    card(ctx, x, y, 500, 420, { fill: '#262B33', alpha: a, r: 16 });
-    ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = C.red; rr(ctx, x, y, 500, 70, 16); ctx.fill(); ctx.fillRect(x, y + 40, 500, 30); ctx.restore();
-    text(ctx, 'OCTOBER', x + 250, y + 48, { font: F.ui(28, 800), align: 'center', alpha: a });
-    text(ctx, d, x + 250, y + 220, { font: F.head(140), align: 'center', alpha: a });
-    text(ctx, t, x + 250, y + 310, { font: F.ui(34, 800), align: 'center', alpha: a, color: C.yellow });
-    text(ctx, sub, x + 250, y + 360, { font: F.ui(28, 600), align: 'center', alpha: a, color: '#C9CFD6' });
+SCENES.S14 = (ctx, s) => {    // GII · data-led
+  item(ctx, s, 14, 'Global Innovation Index 2026: India 38th of 139', 'Top three: Switzerland · Sweden · United States');
+  chartWin(ctx, s, (g, [x, y, w, h]) => {
+    text(g, 'India\'s GII rank, 2015–2026 (lower is better)', x + 40, y + 56, { font: F.ui(28, 800) });
+    const D = [[2015, 81], [2016, 66], [2017, 60], [2018, 57], [2019, 52], [2020, 48], [2021, 46], [2022, 40], [2023, 40], [2024, 39], [2025, 38], [2026, 38]];
+    const X = yr => x + 80 + (w - 160) * (yr - 2015) / 11, Y = r => y + 110 + (h - 200) * (r - 30) / 55;
+    g.strokeStyle = 'rgba(255,255,255,0.12)'; g.lineWidth = 1; [40, 60, 80].forEach(r => { g.beginPath(); g.moveTo(x + 60, Y(r)); g.lineTo(x + w - 40, Y(r)); g.stroke(); text(g, String(r), x + 50, Y(r) + 8, { font: F.ui(24, 600), align: 'right', color: C.dim }); });
+    const p = span(s.t, 0.6, 3.5); g.strokeStyle = C.yellow; g.lineWidth = 5; g.beginPath();
+    D.forEach(([yr, r], i) => { if (i / (D.length - 1) <= p) { i ? g.lineTo(X(yr), Y(r)) : g.moveTo(X(yr), Y(r)); } }); g.stroke();
+    D.forEach(([yr, r], i) => { if (i / (D.length - 1) > p) return; g.fillStyle = C.yellow; g.beginPath(); g.arc(X(yr), Y(r), 7, 0, 7); g.fill(); if ([0, 4, 7, 11].includes(i)) text(g, String(r), X(yr), Y(r) - 16, { font: F.ui(24, 800), align: 'center' }); text(g, '’' + String(yr).slice(2), X(yr), y + h - 40, { font: F.ui(24, 600), align: 'center', color: C.dim }); });
   });
-  topShade(ctx, 260, 0.5);
-  headline(ctx, s, 15, 'Three days to note', '');
-  trap(ctx, s, 'India marks Savings Day on 31 Oct', 'India: 30 Oct (most countries: 31)');
+  gNotes(ctx, s, 14, [['Publisher', 'WIPO (Geneva), with Portulans Institute', 'intellectual', { hl: true }], ['India', '38th · 1st among lower-middle-income economies', 'lower-middle'], ['Look-alikes', 'World Investment Report: UNCTAD · Gender Gap: WEF · HDI: UNDP · B-READY: World Bank']]);
+  gTrap(ctx, s, 'The GII is published by the WEF', 'Published by WIPO');
+  finish(ctx, s, 14, 'Source: WIPO, Global Innovation Index (editions 2015–2026)');
+};
+SCENES.S15 = (ctx, s) => {    // Days · calendar
+  item(ctx, s, 15, 'Three days to note', '27 · 30 · 31 October');
+  chartWin(ctx, s, (g, [x, y, w, h]) => {
+    [['27', 'Infantry Day', 'infantry'], ['30', 'World Savings Day (India)', 'savings'], ['31', 'Rashtriya Ekta Diwas', 'ekta']].forEach(([d, t, cw], i) => {
+      const a = appear(s.t, s.w(cw) - 0.3), xx = x + 40 + i * 340, yy = y + 90;
+      g.save(); g.globalAlpha = a; rr(g, xx, yy, 300, 380, 16); g.fillStyle = '#262B33'; g.fill(); rr(g, xx, yy, 300, 64, 16); g.fillStyle = '#3A414B'; g.fill(); g.restore();
+      text(g, 'OCTOBER', xx + 150, yy + 44, { font: F.ui(24, 800), align: 'center', color: C.yellow, alpha: a });
+      text(g, d, xx + 150, yy + 230, { font: F.head(140), align: 'center', alpha: a });
+      text(g, t, xx + 150, yy + 320, { font: F.ui(26, 800), align: 'center', alpha: a, maxW: 270, lh: 32 });
+    });
+  });
+  gNotes(ctx, s, 15, [['27 Oct', '1947: 1 Sikh air-landed at Srinagar', 'infantry'], ['30 Oct', 'Savings Day: origin Milan 1924 (31 Oct) · India uses 30 Oct since 1984', 'savings', { hl: true }], ['31 Oct', 'Patel\'s birth anniversary (since 2014) · Statue of Unity, 182 m, Ekta Nagar, on the Narmada', 'ekta']]);
+  gTrap(ctx, s, 'India marks Savings Day on 31 Oct', 'India: 30 Oct (most countries: 31)');
   finish(ctx, s, 15);
 };
+
+// ---------------- Revision Sheet ----------------
+const SHEET = [
+  ['01', 'Cyclone Arnab', 'VSCS 118–166 km/h · named at ≥ 62 km/h · Yanam is in Puducherry UT'],
+  ['02', 'IDBI Bank', '60.72% (GoI 30.48 + LIC 30.24) to Fairfax · private sector bank since 2019'],
+  ['03', 'RBI FERR', '20% cash reserve with RBI on rupee FX derivatives > $2 mn · FEMA 1999 (civil)'],
+  ['04', 'GRAP', 'Stage I = AQI 201–300 · CAQM (2021 Act) invokes · CPCB publishes AQI'],
+  ['05', 'CVC', 'Statutory (CVC Act 2003) · 1964 Santhanam · CVC + 2 VCs · 4 yrs / 65'],
+  ['06', 'SIOFA', 'Non-tuna high-seas fish · secretariat Réunion · tuna = IOTC (Seychelles)'],
+  ['07', 'Hunger Index', 'India 100/122, 24.1 serious · Welthungerhilfe-led · SOFI = FAO & UN partners'],
+  ['08', 'CDRI', 'India-led 2019, New Delhi · ISA 2015, Gurugram · Poland announced it will join'],
+  ['09', 'BRICS', '10 members · Indonesia 2025 · Saudi Arabia not a member · NDB Shanghai'],
+  ['10', 'CBD COP17', 'Yerevan · KMGBF 2022: 23 targets, 30% land AND 30% sea · COP11 Hyderabad 2012'],
+  ['11', 'Emissions Gap', 'UNEP · 2.8 °C current policies, 2.6 °C all pledges · IPCC = assessment reports'],
+  ['12', 'Loss & Damage', 'First allocation Nepal $20 mn · COP27 → COP28 · ≠ GCF (Songdo)'],
+  ['13', 'Ramsar', '103 sites · India joined 1982 · Montreux: Keoladeo, Loktak (Chilika out 2002)'],
+  ['14', 'GI tag', 'Act 1999 · Registry Chennai · 10 years, renewable · first: Darjeeling tea'],
+  ['15', 'Innovation Index', 'WIPO · India 38th of 139 · 1st among lower-middle-income'],
+  ['16', 'Days', '27 Infantry · 30 Savings (India) · 31 Ekta Diwas (Statue of Unity, 182 m)'],
+];
+function sheet(ctx, s, part) {
+  glimpseBase(ctx);
+  text(ctx, `REVISION SHEET · PRELIMS GRID W44 · ${part + 1}/2`, 96, 110, { font: F.ui(30, 800), color: C.yellow });
+  text(ctx, 'Pause and copy · this is page 1 of the PDF', 96, 156, { font: F.ui(26, 600), color: C.dim });
+  SHEET.slice(part * 8, part * 8 + 8).forEach(([n, it, fact], i) => {
+    const y = 200 + i * 100, c = CAT[ORDER[part * 8 + i]], a = appear(s.t, 0.2 + i * 0.12, 0.35);
+    ctx.save(); ctx.globalAlpha = a; rr(ctx, 96, y, 1728, 88, 10); ctx.fillStyle = i % 2 ? '#1E2228' : '#22272E'; ctx.fill(); ctx.fillStyle = c.col; ctx.fillRect(96, y, 6, 88); ctx.restore();
+    text(ctx, n, 130, y + 56, { font: F.ui(28, 800), color: c.col, alpha: a });
+    text(ctx, it, 200, y + 56, { font: F.ui(30, 800), alpha: a });
+    text(ctx, fact, 560, y + 56, { font: F.ui(28, 600), color: '#E3E7EC', alpha: a });
+  });
+}
+SCENES.S17 = (ctx, s) => sheet(ctx, s, 0);
+SCENES.S18 = (ctx, s) => sheet(ctx, s, 1);

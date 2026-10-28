@@ -154,7 +154,18 @@ function raster(ctx, proj, img, meta, o = {}) {
   g.fillStyle = gv; g.fillRect(0, 0, W, H); g.restore();
   ctx.save(); ctx.globalAlpha *= (o.alpha ?? 1); ctx.drawImage(RTMP, 0, 0); ctx.restore();
 }
+// d3 reads ring winding spherically: a polygon wound the "wrong" way covers the rest of the globe (clipping can flip
+// a few, e.g. Russia). Fills use a copy with any such polygon's rings reversed.
+const WIND = new WeakMap();
+function wound(geom) {
+  if (!geom || !/Polygon/.test(geom.type)) return geom;
+  if (WIND.has(geom)) return WIND.get(geom);
+  const fix = rings => d3.geoArea({ type: 'Polygon', coordinates: rings }) > 2 * Math.PI ? rings.map(r => r.slice().reverse()) : rings;
+  const out = geom.type === 'Polygon' ? { type: 'Polygon', coordinates: fix(geom.coordinates) } : { type: 'MultiPolygon', coordinates: geom.coordinates.map(fix) };
+  WIND.set(geom, out); return out;
+}
 function geo(ctx, proj, geom, o = {}) {
+  if (o.fill) geom = wound(geom);
   const path = d3.geoPath(proj, ctx); ctx.save(); ctx.globalAlpha *= (o.alpha ?? 1);
   ctx.beginPath(); path(geom);
   if (o.fill) { ctx.fillStyle = o.fill; ctx.fill(); }
@@ -300,69 +311,118 @@ function desk(ctx, t, o = {}) {
 }
 
 
-// ---------- Glimpse kit (Prelims Grid and AP–TG Desk) ----------
-// Three beats per item: a full-frame HERO under a short headline → big FACTS on their cue words → a ✗/✓ TRAP split
-// on "Prelims Trap". A scene file sets GK = { order: ['N', 'I', ...], cat: { N: {name, col, ink}, ... } } before use.
+// ---------- Glimpse kit v3 (Prelims Grid and AP–TG Desk) ----------
+// Rebuilt after three W44 reviews (content, visual, benchmark): every item settles into a NOTES-READY frame an
+// aspirant can pause and copy. Fixed zones (1920x1080, title-safe 96 px):
+//   header 96,56 · 1728x160    chip + one-line headline (measured) + sub-line
+//   window 96,232 · 1080x600   the visual: map, satellite, chart or table; never darkened, push-in lives only here
+//   notes  1200,232 · 624x600  "WRITE THIS DOWN": 3–6 rows, each landing on its cue word
+//   trap   96,852 · 1728x132   PRELIMS TRAP: "UPSC may write" (myth) | the fact; red appears nowhere else
+//   footer 96,1004             progress dots + one-line credit; never scaled
+// A scene file sets GK = { order: [...], cat: { X: { name, col, ink } } }. Text never zooms (render.html: NO_PUSH).
 let GK = { order: [], cat: {} };
-const SENT_CREDIT = 'Contains modified Copernicus Sentinel data 2026 · processed by Decode UPSC';
-const TERRAIN_CREDIT = 'Elevation: Terrain Tiles (Mapzen/AWS) · Boundaries: Natural Earth; India: Survey of India outline (DataMeet)';
-function topShade(ctx, h = 420, k = 0.85) {
-  const g = ctx.createLinearGradient(0, 0, 0, h); g.addColorStop(0, `rgba(10,12,16,${k})`); g.addColorStop(1, 'rgba(10,12,16,0)');
-  ctx.fillStyle = g; ctx.fillRect(0, 0, W, h);
+const SENT_CREDIT = 'Contains modified Copernicus Sentinel data 2026';
+const TERRAIN_CREDIT = 'Terrain: Mapzen/AWS · Boundaries: Natural Earth; India: Survey of India outline (DataMeet)';
+const GZ = { win: [96, 232, 1080, 600], notes: [1200, 232, 624, 600], trap: [96, 852, 1728, 132] };
+function fitFont(ctx, s, maxW, size, min, fam = F.head) {   // largest size ≤ size (down to min) that fits on one line
+  for (let z = size; z >= min; z -= 2) { ctx.font = fam(z); if (ctx.measureText(s).width <= maxW) return z; }
+  return min;
 }
-function sideShade(ctx, x0 = 1000, k = 0.82) {
-  const g = ctx.createLinearGradient(x0, 0, W, 0); g.addColorStop(0, 'rgba(10,12,16,0)'); g.addColorStop(0.35, `rgba(10,12,16,${k})`); g.addColorStop(1, `rgba(10,12,16,${k})`);
-  ctx.fillStyle = g; ctx.fillRect(x0, 0, W - x0, H);
-}
-// headline block, top-left: category chip + n/16, a short serif headline, a quiet date line
-function headline(ctx, s, k, title, sub) {
-  const c = GK.cat[GK.order[k]], a = appear(s.t, 0.35, 0.7);
-  ctx.save(); ctx.globalAlpha = a; ctx.font = F.ui(26, 800);
-  const chip = `${c.name}  ${String(k + 1).padStart(2, '0')}/${GK.order.length}`, cw = ctx.measureText(chip).width + 40;
-  rr(ctx, 90, 92, cw, 50, 25); ctx.fillStyle = c.col; ctx.fill(); ctx.fillStyle = c.ink; ctx.textBaseline = 'middle'; ctx.fillText(chip, 110, 118);
+function gHeader(ctx, s, k, title, sub) {
+  const c = GK.cat[GK.order[k]], a = appear(s.t, 0.3, 0.6);
+  ctx.save(); ctx.globalAlpha = a; ctx.font = F.ui(24, 800);
+  const chip = `${c.name}  ${String(k + 1).padStart(2, '0')}/${GK.order.length}`, cw = ctx.measureText(chip).width + 36;
+  rr(ctx, 96, 52, cw, 44, 22); ctx.fillStyle = c.col; ctx.fill(); ctx.fillStyle = c.ink; ctx.textBaseline = 'middle'; ctx.fillText(chip, 114, 75);
+  const z = fitFont(ctx, title, 1500, 60, 44);
+  ctx.font = F.head(z); ctx.fillStyle = C.white; ctx.textBaseline = 'alphabetic'; ctx.fillText(title, 96, 160);
+  if (sub) { ctx.font = F.ui(28, 600); ctx.fillStyle = '#D5DAE0'; ctx.fillText(sub, 98, 206); }
   ctx.restore();
-  text(ctx, title, 90 + (1 - a) * 40, 222, { font: F.head(68), maxW: 1000, lh: 80, alpha: a, shadow: 18 });
-  if (sub) text(ctx, sub, 92, 222 + (title.length > 26 ? 132 : 62), { font: F.ui(30, 600), color: '#D5DAE0', alpha: a, shadow: 10 });
 }
-// right-hand fact plate: each fact lands on its cue word; earlier facts stay, smaller
-function facts(ctx, s, k, list, o = {}) {
-  const c = GK.cat[GK.order[k]], x = o.x ?? 1230, w = o.w ?? 600;
-  let y = o.y ?? 300;
-  list.forEach(([label, value, cw, size]) => {
-    const at = s.w(cw) - 0.35, a = appear(s.t, at, 0.55); if (a <= 0) { y += (size || 64) + 110; return; }
-    const dx = (1 - a) * 80;
-    ctx.save(); ctx.globalAlpha = a;
-    ctx.fillStyle = 'rgba(12,14,18,0.82)'; rr(ctx, x - 30 + dx, y - 56, w + 60, (size || 64) * (o.lines || 1) + 110, 14); ctx.fill();
-    ctx.fillStyle = c.col; ctx.fillRect(x - 30 + dx, y - 56, 6, (size || 64) * (o.lines || 1) + 110);
+// the visual window: clipped, undarkened; fn(ctx, box) draws inside. A slow push-in lives only here.
+function gWindow(ctx, s, fn, o = {}) {
+  const [x, y, w, h] = o.box || GZ.win;
+  ctx.save(); rr(ctx, x, y, w, h, 14); ctx.clip();
+  ctx.fillStyle = '#12283A'; ctx.fillRect(x, y, w, h);
+  if (o.push !== false) { const k = 1 + 0.035 * s.p, cx = x + w / 2, cy = y + h / 2; ctx.translate(cx, cy); ctx.scale(k, k); ctx.translate(-cx, -cy); }
+  fn(ctx, [x, y, w, h]);
+  ctx.restore();
+  ctx.save(); rr(ctx, x, y, w, h, 14); ctx.strokeStyle = 'rgba(255,255,255,0.14)'; ctx.lineWidth = 2; ctx.stroke(); ctx.restore();
+}
+// the notes panel: rows = [[label, value, cueWord, {big, hl}] ...]; values wrap and shrink to fit the panel
+function gNotes(ctx, s, k, rows, o = {}) {
+  const c = GK.cat[GK.order[k]], [x, y, w, h] = o.box || GZ.notes, pad = 26, iw = w - 2 * pad;
+  ctx.save(); rr(ctx, x, y, w, h, 14); ctx.fillStyle = 'rgba(30,34,40,0.96)'; ctx.fill(); ctx.fillStyle = c.col; ctx.fillRect(x, y + 14, 5, h - 28); ctx.restore();
+  text(ctx, o.title || 'WRITE THIS DOWN', x + pad, y + 44, { font: F.ui(24, 800), color: c.col });
+  // measure at a starting size, shrink until it fits
+  let vz = o.size || 34, lay;
+  for (; vz >= 24; vz -= 2) {
+    lay = []; let yy = y + 70;
+    ctx.save();
+    for (const [lab, val, cw, op = {}] of rows) {
+      const big = op.big, f = big ? F.head(vz + 18) : F.ui(vz, 700), lh = (big ? vz + 18 : vz) * 1.18;
+      ctx.font = f; const lines = wrap(ctx, val, iw - 8);
+      const rh = (lab ? 34 : 6) + lines.length * lh + 18;
+      lay.push({ lab, lines, f, lh, yy, rh, cw, op }); yy += rh;
+    }
     ctx.restore();
-    text(ctx, label, x + dx, y, { font: F.ui(24, 800), color: c.col, alpha: a });
-    const h = text(ctx, value, x + dx, y + 30 + (size || 64), { font: F.head(size || 64), alpha: a, maxW: w, lh: (size || 64) * 1.12 });
-    y += (typeof h === 'number' && h > (size || 64) * 1.2 ? h : (size || 64)) + 120;
+    if (yy <= y + h - 12) break;
+  }
+  lay.forEach((r, i) => {
+    const a = r.cw === null ? 1 : appear(s.t, (r.cw ? s.w(r.cw) : s.d * (0.15 + 0.6 * i / lay.length)) - 0.3, 0.45);
+    if (a <= 0) return;
+    const dx = (1 - a) * 24;
+    if (r.op.hl) { ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = c.col + '2E'; ctx.fillRect(x + 12, r.yy - 4, w - 24, r.rh - 6); ctx.restore(); }
+    if (r.lab) text(ctx, r.lab.toUpperCase(), x + pad + dx, r.yy + 24, { font: F.ui(24, 800), color: c.col, alpha: a });
+    r.lines.forEach((l, j) => text(ctx, l, x + pad + dx, r.yy + (r.lab ? 34 : 6) + (j + 0.82) * r.lh, { font: r.f, color: r.op.col || C.white, alpha: a }));
+    if (i < lay.length - 1) { ctx.save(); ctx.globalAlpha = 0.12 * a; ctx.fillStyle = '#fff'; ctx.fillRect(x + pad, r.yy + r.rh - 8, iw, 1); ctx.restore(); }
   });
 }
-// the trap: a ✗ / ✓ split across the bottom third, from "Prelims Trap" to the end of the item
-function trap(ctx, s, wrong, right) {
-  const at = s.w('prelims trap') - 0.3, a = appear(s.t, at, 0.5); if (a <= 0) return;
-  const y = 790 + (1 - a) * 60;
-  ctx.save(); ctx.globalAlpha = a;
-  const g = ctx.createLinearGradient(0, y - 80, 0, H); g.addColorStop(0, 'rgba(10,12,16,0)'); g.addColorStop(0.25, 'rgba(10,12,16,0.9)'); g.addColorStop(1, 'rgba(10,12,16,0.96)');
-  ctx.fillStyle = g; ctx.fillRect(0, y - 80, W, H - y + 80);
-  ctx.restore();
-  pill(ctx, 'PRELIMS TRAP', 90, y - 30, { fill: C.red, color: C.white, font: F.ui(26, 800), h: 50, alpha: a });
-  const sw = span(s.t, at + 0.9, at + 1.5), ra = appear(s.t, at + 1.3, 0.5);
-  text(ctx, '✗', 90, y + 92, { font: F.ui(54, 800), color: C.red, alpha: a });
-  const ww = text(ctx, wrong, 160, y + 88, { font: F.ui(38, 700), color: '#C9CFD6', alpha: a });
-  strike(ctx, 155, 165 + Math.min(ww, 760), y + 74, sw);
-  text(ctx, '✓', 1000, y + 92, { font: F.ui(54, 800), color: C.teal, alpha: ra });
-  text(ctx, right, 1070, y + 88, { font: F.ui(40, 800), alpha: ra, maxW: 800, lh: 48 });
+// a comparison table inside a box: cols = [label, width share], rows = [[cells...], cueWord, {hl, trapCol}]
+function gTable(ctx, s, k, box, cols, rows, o = {}) {
+  const c = GK.cat[GK.order[k]], [x, y, w, h] = box, hh = 56, rh = Math.min(o.rowH || 104, (h - hh - 10) / rows.length);
+  ctx.save(); rr(ctx, x, y, w, h, 14); ctx.fillStyle = '#1E2228'; ctx.fill(); ctx.restore();
+  ctx.save(); rr(ctx, x, y, w, hh, 14); ctx.clip(); ctx.fillStyle = '#262B33'; ctx.fillRect(x, y, w, hh); ctx.restore();
+  let cx = x + 22; const xs = cols.map(([, sh]) => { const v = cx; cx += (w - 44) * sh; return v; });
+  cols.forEach(([lab], i) => text(ctx, lab.toUpperCase(), xs[i], y + 36, { font: F.ui(24, 800), color: c.col }));
+  const trapAt = rows.some(r => r[2] && r[2].trapCol != null) ? s.w('prelims trap') - 0.3 : Infinity;
+  rows.forEach(([cells, cw, op = {}], r) => {
+    const a = appear(s.t, (cw ? s.w(cw) : s.d * (0.12 + 0.55 * r / rows.length)) - 0.3, 0.4), yy = y + hh + r * rh;
+    if (a <= 0) return;
+    if (op.hl) { ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = c.col + '2E'; ctx.fillRect(x + 4, yy + 2, w - 8, rh - 4); ctx.fillStyle = c.col; ctx.fillRect(x + 4, yy + 2, 4, rh - 4); ctx.restore(); }
+    cells.forEach((cell, i) => {
+      const cw2 = (i < cols.length - 1 ? xs[i + 1] : x + w - 22) - xs[i] - 14;
+      ctx.save(); ctx.font = F.ui(o.size || 28, i === 0 ? 800 : 600); const lines = wrap(ctx, cell, cw2); ctx.restore();
+      const lh = (o.size || 28) * 1.18, top = yy + (rh - lines.length * lh) / 2 + lh * 0.8;
+      lines.forEach((l, j) => text(ctx, l, xs[i], top + j * lh, { font: F.ui(o.size || 28, i === 0 ? 800 : 600), color: i === 0 ? C.white : '#E3E7EC', alpha: a }));
+      if (op.trapCol === i && s.t > trapAt) { ctx.save(); ctx.strokeStyle = C.red; ctx.lineWidth = 3; ctx.globalAlpha = appear(s.t, trapAt); rr(ctx, xs[i] - 8, yy + 8, cw2 + 12, rh - 16, 8); ctx.stroke(); ctx.restore(); }
+    });
+    if (r < rows.length - 1) { ctx.save(); ctx.globalAlpha = 0.1 * a; ctx.fillStyle = '#fff'; ctx.fillRect(x + 16, yy + rh - 1, w - 32, 1); ctx.restore(); }
+  });
+}
+// PRELIMS TRAP bar: the myth sits in a box headed "UPSC MAY WRITE"; the fact in white on the right
+function gTrap(ctx, s, myth, truth) {
+  const at = s.w('prelims trap') - 0.3, a = appear(s.t, at, 0.4); if (a <= 0) return;
+  const [x, y0, w, h] = GZ.trap, y = y0 + (1 - a) * 40;
+  ctx.save(); ctx.globalAlpha = a; rr(ctx, x, y, w, h, 14); ctx.fillStyle = 'rgba(20,23,28,0.97)'; ctx.fill(); ctx.restore();
+  pill(ctx, 'PRELIMS TRAP', x, y - 20, { fill: C.red, color: C.white, font: F.ui(24, 800), h: 40, alpha: a });
+  ctx.save(); ctx.globalAlpha = a; rr(ctx, x + 18, y + 22, 800, h - 40, 10); ctx.strokeStyle = 'rgba(229,72,77,0.8)'; ctx.lineWidth = 2; ctx.stroke(); ctx.restore();
+  text(ctx, 'UPSC MAY WRITE', x + 38, y + 50, { font: F.ui(24, 800), color: '#F08A8D', alpha: a });
+  ctx.save(); ctx.font = F.ui(32, 700); const mw = Math.min(ctx.measureText(myth).width, 760); ctx.restore();
+  text(ctx, myth, x + 38, y + 94, { font: F.ui(32, 700), color: 'rgba(255,255,255,0.85)', alpha: a, maxW: 760 });
+  const sp = span(s.t, at + 0.8, at + 1.2);
+  if (sp > 0) { ctx.save(); ctx.globalAlpha = 0.6 * a; ctx.strokeStyle = C.red; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x + 36, y + 84); ctx.lineTo(x + 36 + (mw + 6) * easeOut(sp), y + 84); ctx.stroke(); ctx.restore(); }
+  const ra = appear(s.t, at + 1.1, 0.4);
+  text(ctx, '✓', x + 850, y + 86, { font: F.ui(44, 800), color: C.teal, alpha: ra });
+  ctx.save(); ctx.font = F.ui(36, 800); const tz = fitFont(ctx, truth, 820, 36, 26, (z) => F.ui(z, 800)); ctx.restore();
+  text(ctx, truth, x + 900, y + 84, { font: F.ui(tz, 800), alpha: ra });
 }
 function strike(ctx, x0, x1, y, p, col = C.red) {
-  if (p <= 0) return; ctx.save(); ctx.strokeStyle = col; ctx.lineWidth = 5; ctx.lineCap = 'round';
+  if (p <= 0) return; ctx.save(); ctx.strokeStyle = col; ctx.lineWidth = 3; ctx.globalAlpha *= 0.7; ctx.lineCap = 'round';
   ctx.beginPath(); ctx.moveTo(x0, y); ctx.lineTo(lerp(x0, x1, easeOut(p)), y); ctx.stroke(); ctx.restore();
 }
 // category sting: a coloured panel with the item number sweeps across in the first 0.8 s
 function sting(ctx, s, k) {
-  const p = span(s.t, 0, 0.85); if (p >= 1) return;
+  const p = span(s.t, 0, 0.8); if (p >= 1) return;
   const c = GK.cat[GK.order[k]], x = lerp(0, -W - 300, ease(p));
   ctx.save(); ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x + W + 200, 0); ctx.lineTo(x + W, H); ctx.lineTo(x - 200, H); ctx.closePath();
   ctx.fillStyle = c.col; ctx.fill();
@@ -370,33 +430,46 @@ function sting(ctx, s, k) {
   ctx.fillText(String(k + 1).padStart(2, '0'), x + W / 2, 620); ctx.restore();
 }
 function progress(ctx, k) {
-  const w = 26, g = 7, x0 = 90, y = 1046;
-  GK.order.forEach((c, i) => { ctx.save(); ctx.globalAlpha = i === k ? 1 : 0.4; rr(ctx, x0 + i * (w + g), y - (i === k ? 5 : 0), w, i === k ? 16 : 10, 3); ctx.fillStyle = GK.cat[c].col; ctx.fill(); ctx.restore(); });
+  const w = 24, g = 6, x0 = 96, y = 1030;
+  GK.order.forEach((c, i) => { ctx.save(); ctx.globalAlpha = i === k ? 1 : 0.35; rr(ctx, x0 + i * (w + g), y - (i === k ? 4 : 0), w, i === k ? 14 : 8, 3); ctx.fillStyle = GK.cat[c].col; ctx.fill(); ctx.restore(); });
 }
-function finish(ctx, s, k, credit) { progress(ctx, k); sting(ctx, s, k); if (credit) s.credit = credit; }
+function finish(ctx, s, k, credit) { progress(ctx, k); sting(ctx, s, k); s.credit = credit || null; }
+function glimpseBase(ctx) { ctx.fillStyle = '#171A1F'; ctx.fillRect(0, 0, W, H); }
 
-// ---------- heroes ----------
+// ---------- map helpers ----------
 function terrainMap(ctx, proj, local, o = {}) {
-  bg(ctx, { inner: '#1A1F26', outer: '#0F1216' });
-  for (const t of ['world', 'wide'].filter(n => A[n] && (o.world || n === 'wide'))) raster(ctx, proj, A[t], A[t + '_meta'], { filter: 'brightness(0.95)' });
-  if (local && A[local]) raster(ctx, proj, A[local], A[local + '_meta'], { feather: 160 });
-  countries(ctx, proj, { wide: true, stroke: 'rgba(255,255,255,0.26)', lw: 1.1, highlight: o.highlight, indiaStroke: C.yellow, indiaLw: 2.4, indiaFill: o.indiaFill });
-  for (const l of A.geo.lakes) geo(ctx, proj, l.geom, { fill: 'rgba(74,144,194,0.55)' });
+  ctx.fillStyle = '#12283A'; ctx.fillRect(0, 0, W, H);
+  for (const t of ['world', 'wide'].filter(n => A[n] && (o.world || n === 'wide'))) raster(ctx, proj, A[t], A[t + '_meta'], { filter: 'brightness(1.25) contrast(1.15)', feather: 200 });
+  if (local && A[local]) raster(ctx, proj, A[local], A[local + '_meta'], { feather: 160, filter: 'brightness(1.25) contrast(1.15)' });
+  countries(ctx, proj, { wide: true, stroke: 'rgba(255,255,255,0.45)', lw: 1.5, highlight: o.highlight, indiaStroke: C.yellow, indiaLw: 2.4, indiaFill: o.indiaFill });
+  for (const l of A.geo.lakes) geo(ctx, proj, l.geom, { fill: 'rgba(74,144,194,0.7)' });
+  if (o.states) indiaStates(ctx, proj, o.states);
 }
-function satHero(ctx, s, name, from, to, o = {}) {
-  const cam = camLerp(from, to, o.p ?? s.p);
-  const proj = camera(cam.lon, cam.lat, cam.zoom);
-  bg(ctx, { inner: '#1A1F26', outer: '#0F1216' });
-  if (o.base) raster(ctx, proj, A[o.base], A[o.base + '_meta']);
-  raster(ctx, proj, A[name], A[name + '_meta'], { feather: o.feather ?? 120, filter: o.filter || 'saturate(1.05) contrast(1.05)' });
-  return proj;
+// interior state lines (external boundary always from DataMeet); labels: { 'Andhra Pradesh': [lon, lat] or true }
+function indiaStates(ctx, proj, o = {}) {
+  for (const st of A.geo.india_states || []) geo(ctx, proj, st.geom, { stroke: 'rgba(255,255,255,0.5)', lw: 1.6, dash: [6, 5] });
+  for (const [name, at] of Object.entries(o.labels || {})) {
+    const st = (A.geo.india_states || []).find(x => x.name === name); const ll = Array.isArray(at) ? at : st && st.label; if (!ll) continue;
+    mapLabel(ctx, proj, ll, name.toUpperCase(), { font: F.ui(26, 800), color: 'rgba(255,255,255,0.8)' });
+  }
 }
-// a big typographic hero for items with no place: soft category glow + a faint oversized numeral
-function typeHero(ctx, k, big) {
-  bg(ctx, { inner: '#20252D', outer: '#0D1014' });
-  const c = GK.cat[GK.order[k]], g = ctx.createRadialGradient(560, 640, 40, 560, 640, 900);
-  g.addColorStop(0, c.col + '33'); g.addColorStop(1, 'rgba(0,0,0,0)'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
-  if (big) text(ctx, big, 560, 860, { font: F.head(420, 800), align: 'center', color: 'rgba(255,255,255,0.05)' });
+function labelPill(ctx, proj, lonlat, s, o = {}) {      // a readable map label: halo + slate pill, optional leader line
+  const [px, py] = proj(lonlat), [dx, dy] = o.off || [0, 0], x = px + dx, y = py + dy;
+  ctx.save(); ctx.globalAlpha *= o.alpha ?? 1; ctx.font = o.font || F.ui(28, 800);
+  const w = ctx.measureText(s).width + 24;
+  if (dx || dy) { ctx.strokeStyle = 'rgba(255,255,255,0.7)'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(x, y); ctx.stroke(); }
+  rr(ctx, x - (o.align === 'left' ? 0 : w / 2), y - 22, w, 40, 8); ctx.fillStyle = o.fill || 'rgba(20,23,28,0.82)'; ctx.fill();
+  ctx.fillStyle = o.color || C.white; ctx.textBaseline = 'middle'; ctx.textAlign = o.align === 'left' ? 'left' : 'center'; ctx.fillText(s, o.align === 'left' ? x + 12 : x, y - 1);
+  ctx.restore();
+}
+// a camera that frames a lon/lat box inside the visual window
+function windowCamera(box, west, south, east, north) {
+  const [x, y, w, h] = box;
+  return d3.geoMercator().fitExtent([[x, y], [x + w, y + h]], { type: 'MultiPoint', coordinates: [[west, south], [east, north]] });
+}
+function zoomProj(proj, box, k) {          // a slow push toward the window centre, on the projection (labels stay crisp)
+  const [x, y, w, h] = box, cx = x + w / 2, cy = y + h / 2, t = proj.translate(), sc = proj.scale();
+  return proj.scale(sc * k).translate([cx + (t[0] - cx) * k, cy + (t[1] - cy) * k]);
 }
 
 // ---------- chrome: lower third, brand, chapter, credits, review caption ----------
@@ -417,9 +490,9 @@ function chapterBanner(ctx, title, k) {    // top-centre, inside the title-safe 
   ctx.textBaseline = 'middle'; ctx.fillStyle = C.yellow; ctx.fillText('CHAPTER', x + 34, y + 37);
   ctx.font = F.ui(40, 800); ctx.fillStyle = C.white; ctx.fillText(title, x + 56 + cw, y + 37); ctx.restore();
 }
-function credit(ctx, s, a = 1) {      // bottom-right; long credit lines break at " · " onto a second line
+function credit(ctx, s, a = 1) {      // bottom-right; long lines break at " · " onto a second line, clear of the progress dots
   if (!s) return; ctx.save(); ctx.font = F.ui(24, 500); let lines = [s];
-  if (ctx.measureText(s).width > W - 120) { const p = s.split(' · '), h = Math.ceil(p.length / 2); lines = [p.slice(0, h).join(' · '), p.slice(h).join(' · ')]; }
+  if (ctx.measureText(s).width > 1240) { const p = s.split(' · '), h = Math.ceil(p.length / 2); lines = [p.slice(0, h).join(' · '), p.slice(h).join(' · ')]; }
   ctx.restore(); lines.forEach((l, i) => text(ctx, l, W - 40, H - 24 - (lines.length - 1 - i) * 30, { font: F.ui(24, 500), color: 'rgba(255,255,255,0.75)', align: 'right', alpha: a, shadow: 6 }));
 }
 function reviewCaption(ctx, s) {

@@ -52,7 +52,7 @@ const stills = arg('--stills', null), audio = arg('--audio', null);
   const t0 = +arg('--from', 0), t1 = +arg('--to', tl.duration);
   const ffArgs = ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(fps), '-c:v', 'mjpeg', '-i', '-'];
   if (audio) ffArgs.push('-ss', String(t0), '-i', audio, '-map', '0:v', '-map', '1:a', '-c:a', 'aac', '-b:a', '192k', '-shortest');
-  ffArgs.push('-c:v', 'libx264', '-preset', 'slow', '-crf', '16', '-tune', 'animation', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out);   // crisp text at 1080p
+  ffArgs.push('-c:v', 'libx264', '-preset', 'slow', '-crf', '16', '-tune', 'animation', '-pix_fmt', 'yuv420p', '-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-movflags', '+faststart', out);   // crisp text at 1080p; BT.709 tags keep the yellow true on YouTube
   const ff = spawn('ffmpeg', ffArgs, { stdio: ['pipe', 'inherit', 'inherit'] });
   const n0 = Math.round(t0 * fps), n1 = Math.round(t1 * fps), started = Date.now();
   for (let n = n0; n < n1; n++) {

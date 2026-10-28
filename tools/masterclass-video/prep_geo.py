@@ -13,7 +13,7 @@ Usage: python3 -I prep_geo.py <ne_dir> <out.json>
 """
 import json, sys
 from pathlib import Path
-from shapely.geometry import shape, mapping, box
+from shapely.geometry import shape, mapping, box, MultiLineString
 from shapely.ops import unary_union
 
 ne, out = Path(sys.argv[1]), Path(sys.argv[2])
@@ -25,7 +25,7 @@ def rnd(geom, nd=3):
     g = mapping(geom)
     return {"type": g["type"], "coordinates": r(g["coordinates"])}
 
-WIDE = box(-30, -45, 150, 78)        # India ↔ Black Sea flights (clip edges stay off-screen)
+WIDE = box(-90, -56, 160, 80)        # India ↔ Black Sea flights, and world maps out to Brazil (clip edges stay off-screen)
 DETAIL = box(0, 25, 70, 70)          # Black Sea, Ukraine, Turkish Straits, Valdai Hills (clip edges off-screen)
 RIVERS = box(20, 36, 46, 58.5)
 bundle = {"countries_wide": [], "countries": [], "rivers": [], "lakes": [], "admin1": [], "india": None}
@@ -70,6 +70,22 @@ for fn in ("ne_10m_lakes_europe.geojson", "ne_10m_lakes.geojson"):
         g = shape(f["geometry"])
         if g.intersects(RIVERS) and g.area > 0.002:
             bundle["lakes"].append({"name": f["properties"].get("name") or "", "geom": rnd(g.intersection(RIVERS).simplify(0.002), 3)})
+
+# Indian state boundaries, interior lines only: each state's outline is clipped to the inside of the
+# DataMeet (Survey of India) outline, so the country's external boundary always comes from DataMeet.
+inner = india.buffer(-0.06)
+bundle["india_states"] = []
+for f in load("ne_10m_admin_1_states_provinces.geojson"):
+    p = f["properties"]
+    if p.get("adm0_a3") == "IND" and p.get("name") not in ("Jammu and Kashmir", "Ladakh", "Arunachal Pradesh"):
+        g = shape(f["geometry"])
+        line = g.boundary.intersection(inner)
+        if line.geom_type == "GeometryCollection":          # keep only the line parts
+            line = MultiLineString([l for l in getattr(line, "geoms", []) if l.geom_type == "LineString"])
+        if line.is_empty:
+            continue
+        c = g.representative_point()
+        bundle["india_states"].append({"name": p["name"], "label": [round(c.x, 2), round(c.y, 2)], "geom": rnd(line.simplify(0.01), 3)})
 
 want = {"Kherson", "Zaporizhzhya", "Donets'k", "Luhans'k", "Crimea", "Sevastopol", "Mykolayiv", "Dnipropetrovs'k", "Odessa"}
 for f in load("ne_10m_admin_1_states_provinces.geojson"):

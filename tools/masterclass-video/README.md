@@ -2,7 +2,7 @@
 
 Turns a two-column master script into a finished video. Everything on screen is drawn by code: real satellite imagery, terrain maps, India-compliant boundaries, progressive mind maps, data charts, kinetic cards and the Decode Desk. There is no clip art, no AI imagery and no karaoke captions (`CLAUDE.md` §6).
 
-First used for `weeks/2026-W44/sample-oleshky/`; `scenes/nsap.js` builds `weeks/2026-W44/sample-nsap/`.
+First used for `weeks/2026-W44/sample-oleshky/`. `scenes/nsap.js` and `scenes/eci.js` build the W44 Deep Dive samples, and `scenes/grid.js` and `scenes/desk.js` build the Prelims Grid and the AP–TG Desk.
 
 ## Pipeline
 
@@ -37,20 +37,36 @@ First used for `weeks/2026-W44/sample-oleshky/`; `scenes/nsap.js` builds `weeks/
    - Use `--stills 10,40,95 <out_dir>` for QA frames.
    - For speed, render ranges in parallel and join them with `ffmpeg -f concat`.
 
-## Glimpse kit (Prelims Grid and AP–TG Desk)
+## Glimpse kit v3 (Prelims Grid and AP–TG Desk)
 
-`engine.js` carries a shared kit for the breadth segments. It was rebuilt in W44 after the owner's review of the first Grid preview: "looks like slides", "looks cheap", "too dense". Every Glimpse is three beats:
+`engine.js` carries a shared kit for the breadth segments. v3 (28 Oct 2026) came from the owner's second review ("only script and satellite images… I need clearer images and data as per aspirants' requirement") and three independent reviews. The v2 review measured a mean frame brightness of 42/255, 58% empty frame, grain and zoom over text, and 720p delivery.
 
-1. **Hero:** a full-frame visual under a short headline (`headline`). Use, in this order of preference:
-   - Copernicus Sentinel-2 imagery (`satHero`);
-   - a terrain map with vector rivers (`terrainMap`);
-   - a data graphic on a soft category glow (`typeHero`).
-2. **Facts:** one or two big facts slide in on their cue words (`facts`).
-3. **Trap:** a ✗ wrong / ✓ right split lands on "Prelims Trap" and holds to the end of the item (`trap`).
+**Every Glimpse ends on a NOTES-READY frame** an aspirant can pause and copy. It uses fixed zones at 1920×1080:
 
-`finish` adds the progress strip, the category sting and the credit line. A scene file sets `GK = { order, cat }` (`scenes/grid.js`, `scenes/desk.js`). Keep on-screen text to a headline, two facts and one trap line per item.
+| Zone | Box | Helper | What goes there |
+|---|---|---|---|
+| Header | 96,52 · 1728×160 | `gHeader` | Category chip `NATIONAL 01/16`, a one-line headline (`fitFont` shrinks it to fit), and a sub-line with the date and status |
+| Window | 96,232 · 1080×600 | `gWindow` | The visual: a map with labelled pins (`labelPill`), a satellite image, a chart or a table. It is never darkened; any push-in lives only here |
+| Notes | 1200,232 · 624×600 | `gNotes`, `gTable` | "WRITE THIS DOWN": 3–6 rows, each landing on its cue word, or a look-alike table with the answer row highlighted |
+| Trap | 96,852 · 1728×132 | `gTrap` | PRELIMS TRAP: "UPSC may write" (the myth, struck through) → ✓ the fact. Red appears nowhere else |
+| Footer | 96,1004 | `finish` | Progress dots, the category sting and the credit line (it wraps to two lines so it never touches the dots) |
 
-`prep_geo.py` also bundles the peninsular rivers (Godavari, Krishna, Bhima, Tungabhadra, Wainganga, Indravati, Penner, Mahanadi, Narmada, Tapi) from Natural Earth, so the Telugu States maps can draw them.
+- **Map helpers:**
+  - `windowCamera(box, w, s, e, n)` frames a lon/lat box inside the window, and `zoomProj` pushes in on the projection, so labels stay crisp.
+  - `terrainMap(ctx, proj, local, {world, highlight, indiaFill, states})` draws a brighter terrain base.
+  - `indiaStates` draws interior state lines.
+- **Scene files** set `GK = { order, cat }` and `window.NO_PUSH = true`. `render.html` then skips the whole-frame push and the film grain, so text never zooms or crawls.
+- **Revision sheets:** the Grid ends with a two-page sheet and the Desk with a one-page sheet (one line per item). Each page is also the matching PDF page.
+- **Text:** every label is at least 24 px. Holds come from `HOLD n s` in the script's visual cell (2 s per notes frame, 6–8 s per sheet).
+- **Geometry fix:** `geo()` fills through `wound()`, which reverses any polygon d3 would read as covering the rest of the globe. Clipping can flip a few countries' winding (Russia did, and turned a BRICS map yellow).
+
+**Imagery and data:**
+- `sentinel.py` passes every new mosaic through `sat_enhance.py`: one global percentile stretch (keeps colour true), a touch of saturation and an unsharp mask. Run `sat_enhance.py <png> --sharpen-only` where the haze is the information (smog over Delhi). The original is kept as `<name>.orig.png`.
+- `prep_geo.py` bundles:
+  - the peninsular rivers (Godavari, Krishna, Bhima, Tungabhadra, Wainganga, Indravati, Penner, Mahanadi, Narmada, Tapi);
+  - `india_states`, the interior state lines from Natural Earth, clipped inside the DataMeet outline. None are drawn for J&K, Ladakh or Arunachal Pradesh; the external boundary is always DataMeet.
+  - `countries_wide`, which now runs from 90° W to 160° E, so world maps reach Brazil.
+- **Encoding:** `render.js` uses x264 `slow`, CRF 16, `tune animation`, BT.709 tags and JPEG-97 frames. Deliver previews at 1080p; a 720p downscale blurs the tables.
 
 ## Sound
 
