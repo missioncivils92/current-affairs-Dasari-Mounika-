@@ -332,11 +332,12 @@ function exTricks(ctx, s, title, items) {
   const c = EP.violet; exSlide(ctx, c);
   exChip(ctx, title, 72, 40, '#FFFFFF', c.ink, 28, eia(s, 0.1));
   items.forEach(([h, ex, cw], i) => {
-    const y = 140 + i * 300, a = eia(s, ecue(s, cw, 0.5 + i * 1.5));
-    exBox(ctx, 72, y, 1776, 270, { alpha: a, bar: '#E63946' });
-    ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.arc(170, y + 135, 58, 0, 7); ctx.fillStyle = c.main; ctx.fill(); ctx.restore();
-    kt(ctx, String(i + 1), 170, y + 158, { font: F.head(64), color: '#FFFFFF', align: 'center', alpha: a });
-    kt(ctx, h, 270, y + 105, { font: F.head(46), color: c.ink, alpha: a, maxW: 1520 });
+    // the three cards land at once (dimmed) so the slide is never empty; each lights up, with its examples, on its cue word
+    const y = 140 + i * 300, a0 = eia(s, 0.3 + i * 0.25), a = eia(s, ecue(s, cw, 0.5 + i * 1.5)), on = 0.45 + 0.55 * a;
+    exBox(ctx, 72, y, 1776, 270, { alpha: a0, bar: '#E63946' });
+    ctx.save(); ctx.globalAlpha *= a0 * on; ctx.beginPath(); ctx.arc(170, y + 135, 58, 0, 7); ctx.fillStyle = c.main; ctx.fill(); ctx.restore();
+    kt(ctx, String(i + 1), 170, y + 158, { font: F.head(64), color: '#FFFFFF', align: 'center', alpha: a0 * on });
+    kt(ctx, h, 270, y + 105, { font: F.head(46), color: c.ink, alpha: a0 * on, maxW: 1520 });
     kt(ctx, ex, 270, y + 175, { font: F.ui(30, 700), color: c.ink, alpha: a * 0.85, maxW: 1520, lh: 40 });
   });
 }
