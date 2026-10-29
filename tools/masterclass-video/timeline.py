@@ -136,7 +136,8 @@ else:
         a = A[id(r)]; k = all_rows.index(r)
         prev_end = arows[k - 1]["end"] if k else 0.0
         next_start = arows[k + 1]["start"] if k + 1 < len(arows) else al["duration"]
-        s0 = 0.0 if k == 0 else max(prev_end, a["start"] - 0.25)
+        prev_e0 = min(a["start"], prev_end + 0.35)        # where the previous row's audio span stopped (no overlap, no stutter)
+        s0 = max(0.0, a["start"] - 0.4) if k == 0 else max(prev_e0, a["start"] - 0.25)     # no dead air before the first word
         e0 = al["duration"] if k + 1 == len(arows) else min(next_start, a["end"] + 0.35)
         # token start/end times: each script token maps to the aligned words its normalised form produces
         aw, wi, tok_t = a["words"], 0, []
@@ -155,6 +156,8 @@ else:
         span = e0 - s0 + sum(d for _, d in ins)
         if "End-screen" in r["visual"] and span < END_MIN:
             tail = END_MIN - span
+        if ins and e0 - ins[-1][0] < 0.3:      # a hold at the very end of the row still needs a breath after it
+            tail = max(tail, 0.3 - (e0 - ins[-1][0]))
         t0 = t
         mp = lambda x: t0 + (x - s0) + sum(d for at, d in ins if at <= x)
         last = s0

@@ -1,7 +1,7 @@
 """Self-made sound design for a timeline: an ambient pad, a muted bell per "Pause and answer" hold, a page turn
 for the Update Desk (CLAUDE.md §6.6). Everything is synthesised here, so there is nothing to license.
 
-The pad sits low under the narration (ducked about 10 dB wherever the voice is active) and rises in the silent holds
+The pad sits low under the narration (6 dB down overall, ducked about 14 dB more wherever the voice is active) and rises in the silent holds
 and under the end screen, so a pause never sounds like dead air.
 
 With --pulse (breadth segments: Prelims Grid, AP–TG Desk) it adds a light rhythmic music bed (92 bpm: soft kick, hat,
@@ -118,8 +118,10 @@ if voice:
     pcm = subprocess.run(["ffmpeg", "-loglevel", "error", "-i", voice, "-ac", "1", "-ar", str(SR), "-f", "f32le", "-"], capture_output=True, check=True).stdout
     v = np.frombuffer(pcm, np.float32)[:N]; v = np.pad(v, (0, N - len(v)))
     env = np.sqrt(np.maximum(smooth(v.astype(np.float64) ** 2, SR // 5), 0))
-    duck = 1 - 0.68 * np.clip(env / (np.percentile(env, 90) + 1e-9), 0, 1)       # about -10 dB under speech
-    write(v + bed * duck, out, True)
+    # owner, 29 Oct 2026: "lower background music". The bed sits 6 dB lower overall and ducks about 14 dB under speech,
+    # so it is roughly 20 dB below the voice while she talks and only comes up in the countdown holds.
+    duck = 1 - 0.80 * np.clip(env / (np.percentile(env, 90) + 1e-9), 0, 1)
+    write(v + 0.5 * bed * duck, out, True)
 else:
     write(bed, out, "preview" if "--pulse" in sys.argv else False)        # a music bed alone is lifted to a listenable level
 print(out, f"{tl['duration']:.1f}s", "mix" if voice else "bed only")

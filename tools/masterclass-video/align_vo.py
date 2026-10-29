@@ -29,6 +29,20 @@ OOV = {
     "crimea's": "K R AY M IY AH Z", "delhi": "D EH L IY", "hyderabad": "HH AY D ER AH B AE D", "geneva": "JH AH N IY V AH",
     "fertiliser": "F ER T AH L AY Z ER", "shallowest": "SH AE L OW AH S T", "upsc": "Y UW P IY EH S S IY", "yana": "Y AA N AH",
     "marks": "M AA R K S", "aspirants": "AE S P ER AH N T S", "fifteen-marker": "F IH F T IY N M AA R K ER",
+    # W44 Prelims Grid and AP–TG Desk
+    "ambaji's": "AE M B AA JH IY Z", "andhra": "AA N D R AH", "anticlockwise": "AE N T IY K L AA K W AY Z", "arnab": "AA R N AA B",
+    "biofuels": "B AY OW F Y UW AH L Z", "brics": "B R IH K S", "canc": "K AE N K", "ccamlr": "K AE M L AH R",
+    "chandigarh": "CH AH N D IY G AA R", "chilika": "CH IH L IH K AH", "condenses": "K AH N D EH N S IH Z", "coriolis": "K AO R IY OW L IH S",
+    "crore": "K R AO R", "cyclonic": "S AY K L AA N IH K", "dipam": "D IY P AH M", "diwas": "D IH V AH S", "ekta": "EH K T AH",
+    "escap": "EH S K AE P", "godavari": "G OW D AA V ER IY", "gurugram": "G UH R UW G R AE M", "idbi": "AY D IY B IY AY",
+    "karaikal": "K AE R AY K AA L", "keoladeo": "K EY OW L AH D EY OW", "kunming": "K UH N M IH NG", "lokpal": "L OW K P AA L",
+    "loktak": "L OW K T AE K", "mainpuri": "M EY N P UH R IY", "masterclass": "M AE S T ER K L AE S", "mohanthal": "M OW HH AH N T AA L",
+    "nagar": "N AH G ER", "narmada": "N ER M AH D AH", "nepal's": "N AH P AO L Z", "offences": "AH F EH N S IH Z", "patel's": "P AH T EH L Z",
+    "puducherry": "P UH D UH CH EH R IY", "ramsar": "R AE M S AA R", "rashtriya": "R AA SH T R IY AH", "sabha": "S AH B AH",
+    "sadan": "S AH D AH N", "samvidhan": "S AH M V IH D AA N", "santhanam": "S AH N T AH N AH M", "sardar": "S ER D AA R",
+    "sauj": "S AW JH", "siofa": "S IY OW F AH", "sofi": "S OW F IY", "songdo": "S AO NG D OW", "stunting": "S T AH N T IH NG",
+    "sukhna": "S UH K N AH", "sundarbans": "S UH N D ER B AH N Z", "undernourishment": "AH N D ER N ER IH SH M AH N T",
+    "uttar": "UH T ER", "welthungerhilfe": "V EH L T HH UH NG ER HH IH L F AH", "yanam": "Y AA N AH M",
 }
 # --- rows from the script (same parsing as timeline.py)
 body = re.split(r"^## (?:PACKAGING|RUNTIME SUMMARY)", script.read_text(), flags=re.M)[0]
