@@ -8,7 +8,7 @@
 Why each choice was made is in `docs/research/2026-10-reaching-more-aspirants.md`.
 
 > **Before you paste anything**
-> - **Chapters:** the timestamps below are estimates from the v8 script at 135 wpm. After Mounika records, regenerate them from the final timeline (`timeline.py` with the recorded audio) and paste those instead.
+> - **Chapters:** the Prelims Grid chapters below come from Mounika's recording (29 Oct). The AP–TG Desk chapters are still estimates until its recording arrives.
 > - **Working tags:** nothing tagged `[VERIFY]` goes into a title, a thumbnail or a description.
 
 ---
@@ -41,24 +41,24 @@ One weekly masterclass, alongside one newspaper and instead of daily videos: we 
 
 ⏱ Chapters
 00:00 Warm-up: are Yanam, Karaikal and Mahe in Andhra Pradesh?
-01:14 Cyclone Arnab: how a cyclone forms and gets its name
-04:05 IDBI Bank sale: who runs a strategic disinvestment?
-05:55 RBI's new forex reserve: FERA vs FEMA
-07:51 Delhi's air: who invokes GRAP?
-09:36 CVC, Lokpal, CBI, CAG: which one is constitutional?
-11:17 India joins SIOFA: who manages tuna?
-12:46 Global Hunger Index 2026: who publishes it?
-14:18 Poland joins CDRI: New Delhi or Gurugram?
-15:49 BRICS: is Saudi Arabia a member?
-17:30 CBD COP17 in Yerevan: what does 30 by 30 mean?
-19:19 Emissions Gap Report: UNEP or IPCC?
-20:53 Loss and Damage Fund: the first money goes to Nepal
-22:23 103 Ramsar sites: which are on the Montreux Record?
-23:54 GI tags: how long does a tag last?
-25:18 Global Innovation Index: who publishes which report?
-26:36 Infantry Day, Savings Day, Ekta Diwas: the dates UPSC tests
-28:16 The examiner's three tricks this week
-29:13 Your one-page revision sheet (PDF page 1)
+01:13 Cyclone Arnab: how a cyclone forms and gets its name
+04:15 IDBI Bank sale: who runs a strategic disinvestment?
+06:08 RBI's new forex reserve: FERA vs FEMA
+08:11 Delhi's air: who invokes GRAP?
+09:51 CVC, Lokpal, CBI, CAG: which one is constitutional?
+11:37 India joins SIOFA: who manages tuna?
+13:10 Global Hunger Index 2026: who publishes it?
+14:41 Poland joins CDRI: New Delhi or Gurugram?
+16:12 BRICS: is Saudi Arabia a member?
+17:43 CBD COP17 in Yerevan: what does 30 by 30 mean?
+19:31 Emissions Gap Report: UNEP or IPCC?
+21:08 Loss and Damage Fund: the first money goes to Nepal
+22:41 103 Ramsar sites: which are on the Montreux Record?
+24:13 GI tags: how long does a tag last?
+25:32 Global Innovation Index: who publishes which report?
+26:55 Infantry Day, Savings Day, Ekta Diwas: the dates UPSC tests
+28:24 The examiner's three tricks this week
+29:17 Your one-page revision sheet (PDF page 1)
 
 📘 This week's PDF notes + MCQ challenge: see the pinned comment
 📲 Telegram (PDF only): <link>
@@ -88,7 +88,7 @@ Answer: (b) Only two. Statement 2 is wrong: the CVC is statutory (CVC Act 2003).
   - "Subscribe" element;
   - "Best for viewer" video;
   - the AP–TG Desk W44 video.
-- **Card** at 28:16 (the tricks slide): the AP–TG Desk W44 video, titled "The same three tricks, for Group-1".
+- **Card** at 28:24 (the tricks slide): the AP–TG Desk W44 video, titled "The same three tricks, for Group-1".
 - **Playlists:**
   - "UPSC Weekly Current Affairs 2026–27 (Prelims Grid)";
   - "Prelims Traps: the examiner's tricks" (a running playlist of the tricks slides, once Shorts exist).
