@@ -279,7 +279,7 @@ Each Deep Dive answers **one central question** that is stated aloud near the st
    - Test every sentence: Mounika must be able to say it in one breath.
    - Prefer active voice. Put no bracketed asides in the spoken text, apart from phonetic markers.
    - Use conversational transitions that carry logic. "Now, to understand why this matters to New Delhi, we need to take a step back." "Here is the subtle distinction UPSC loves to test." "Notice how this feeds straight into our energy-security equation." "So the real question is not whether... but why..."
-   - Spell out numbers the way they are spoken ("one point eight million barrels a day"), with the figure on screen.
+   - Spell out numbers the way they are spoken ("one point eight million barrels a day"), with the figure on screen. The **recording file** (`02b-voiceover-text.md`) shows them as digits for easier reading (owner, decision 38); `tools/make_voiceover.py` converts them, and the master script keeps the words because the renderer's cues match on them.
 6. **Tone:** authoritative, calm, warm and intellectually rigorous, like a senior faculty mentor who enjoys the subject.
    - Talk to one aspirant ("you"). Use "we" when thinking through a problem together.
    - No hype words ("shocking", "must watch"), no fear-mongering, no partisan framing. Present each government or opposition position as that side's stated argument and attribute it.

@@ -2,11 +2,17 @@
 
 Reads the two-column script table (| # | Visual cue | Narration |) and the older tag + "> " block format.
 
-Usage: python3 tools/make_voiceover.py weeks/2026-W44 "v1"
+Usage: python3 tools/make_voiceover.py weeks/2026-W44 "v1" [--words]
+
+Numbers are shown as digits for easier reading (owner request, 29 Oct 2026; tools/vo_numbers.py).
+The word count still uses the spoken words. --words keeps the numbers spelled out.
 """
 import re, sys, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from vo_numbers import to_digits
 
-week_dir = pathlib.Path(sys.argv[1]); version = sys.argv[2] if len(sys.argv) > 2 else ""
+args = [a for a in sys.argv[1:] if not a.startswith("--")]; words_only = "--words" in sys.argv
+week_dir = pathlib.Path(args[0]); version = args[1] if len(args) > 1 else ""
 week = week_dir.name
 src = (week_dir / "02-master-script.md").read_text()
 title = src.splitlines()[0].replace("# Master Script — ", "")
@@ -44,7 +50,7 @@ def say(t):
     if pending and pending != shown:
         out.append(f"**{pending}**\n"); shown = pending
     w = len(re.sub(r"\[[^\]]*\]|\*\*", "", t).split()); segw += w; total += w
-    out.append(t + "\n")
+    out.append((t if words_only else to_digits(t)) + "\n")
 
 for line in body.splitlines():
     if line.startswith("## "):
@@ -88,6 +94,7 @@ Visual directions for the editor are in `02-master-script.md`.
 - **💬 TALK TO THE VIEWER** — speaking directly to one aspirant. Viewers can't see you, so put the expression into the voice and follow the voice direction next to each block.
 
 **Reading marks:** — short beat · ... deliberate pause · **bold** = stress · [brackets] = pronunciation guide, not read aloud.
+**Numbers** are shown as digits; read them the natural way (243D = "two-four-three D", 60.72% = "sixty point seven two per cent", 28th = "twenty-eighth").
 
 **Recording tips**
 - Quiet, soft room, with fans and AC off.
