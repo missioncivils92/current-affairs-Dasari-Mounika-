@@ -1,6 +1,26 @@
 // Scenes for the W44 Prelims Grid (weeks/2026-W44/prelims-grid), v5: the exam format (exam-kit.js).
 // Sixteen topics; topic n's slides are S{n}01, S{n}02… in the master script. One colour per slide, purple first.
 window.NO_PUSH = true; window.EX_LOGO = true;
+// "Why in news" clippings (exPaper): [dateline, source line] per topic, from the research brief's verification log
+window.EX_PAPER = {
+  1: ['28 October 2026', 'All India Radio; DT Next (IMD position, as reported)'],
+  2: ['14 October 2026', 'Business Today (DIPAM Secretary); Telangana Today; The Federal'],
+  3: ['10 October 2026', 'RBI circulars A.P. (DIR) Nos. 26 and 27, as reported by Moneylife and The Hans India'],
+  4: ['21 October 2026', 'Business Today; All India Radio'],
+  5: ['26 October 2026', 'Central Vigilance Commission circular'],
+  6: ['Mid-October 2026', 'Onmanorama; Manorama Yearbook'],
+  7: ['October 2026', 'Free Press Journal; The South First'],
+  8: ['21–23 October 2026', 'IBEF; Manorama Yearbook'],
+  9: ['26–27 October 2026', 'All India Radio; ThePrint'],
+  10: ['19–30 October 2026', 'Armenpress; Heinrich Böll Stiftung'],
+  11: ['21 October 2026', 'UNEP Emissions Gap Report 2026, as summarised by PBL'],
+  12: ['22 October 2026', 'The Kathmandu Post; Climate Home News'],
+  13: ['15 October 2026', 'Free Press Journal; Swarajya'],
+  14: ['8 October 2026 (reported)', 'Manorama Yearbook; GKToday (reported; GI Journal to be confirmed)'],
+  15: ['October 2026', 'WIPO Global Innovation Index 2026, as reported'],
+  16: ['27–31 October 2026', 'Standard reference'],
+};
+
 EX.series = 'PRELIMS GRID'; EX.total = 16;
 const WORLD = [-75, -38, 140, 68];
 const mcq = (qs, ok, o = {}) => [{ type: 'mcq', qs, ok, ...o }, { type: 'answer', qs, ok, ...o }];

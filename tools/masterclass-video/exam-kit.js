@@ -209,6 +209,8 @@ const EX_TYPES = {
   },
   news(ctx, s, T, d) {
     const c = EP[d.col || 'orange']; exSlide(ctx, c, T, 'NEWS');
+    const pp = (window.EX_PAPER || {})[T.n];
+    if (pp) { exPaper(ctx, s, T, d, c, pp); exPanel(ctx, s, [912, 150, 936, 860], c, d.side); return; }
     exBox(ctx, 72, 150, 800, 860);
     exChip(ctx, 'WHY IN NEWS', 112, 186, c.main, '#FFFFFF', 30);
     const hz = d.hz || 50; revealWords(ctx, d.headline, 112, 330, span(s.t, 0.3, 2.2), { font: F.head(hz), color: c.ink, maxW: 720, lh: hz * 1.27 });
@@ -327,6 +329,56 @@ function exIntro(ctx, s, chip, line) {
   ctx.save(); ctx.font = F.ui(30, 800); const cwid = ctx.measureText(chip).width + 39; ctx.restore(); exChip(ctx, chip, 960 - cwid / 2, 900, '#FFFFFF', c.ink, 30, ta);
   kt(ctx, line, 960, 1010, { font: F.ui(30, 700), color: c.t[1], align: 'center', alpha: eia(s, s.w('week') - 0.2) });
 };
+// "Why in news" as a newspaper clipping in our own design (owner, 30 Oct 2026). The masthead is ours (THE DECODE
+// DESK), the words are ours, and the source line names who reported it: no real newspaper page is reproduced (§6.4).
+// pp = [dateline, source line]
+function exPaper(ctx, s, T, d, c, pp) {
+  const x = 72, y = 150, w = 800, h = 860, a = eia(s, 0.05), drop = 1 - easeOut(span(s.t, 0, 0.8));
+  ctx.save(); ctx.globalAlpha *= a;
+  ctx.translate(x + w / 2, y + h / 2 - 60 * drop); ctx.rotate(-0.018 - 0.05 * drop); ctx.translate(-(x + w / 2), -(y + h / 2));
+  // paper with torn top and bottom edges
+  const edge = (yy, dir) => { const pts = []; for (let i = 0; i <= 40; i++) pts.push([x + i * w / 40, yy + dir * (((i * 37) % 11) / 11) * 9]); return pts; };
+  const top = edge(y, 1), bot = edge(y + h, -1).reverse();
+  ctx.save(); ctx.shadowColor = 'rgba(0,0,0,0.35)'; ctx.shadowBlur = 34; ctx.shadowOffsetY = 14;
+  ctx.beginPath(); [...top, ...bot].forEach(([px, py], i) => i ? ctx.lineTo(px, py) : ctx.moveTo(px, py)); ctx.closePath();
+  ctx.fillStyle = '#FBF6EA'; ctx.fill(); ctx.restore();
+  ctx.save(); ctx.clip(); for (let i = 0; i < 700; i++) {          // newsprint grain (seeded, so frames are stable)
+    ctx.fillStyle = `rgba(90,70,40,${0.025 + 0.03 * ((i * 13) % 7) / 7})`; ctx.fillRect(x + (i * 211.7) % w, y + (i * 97.3) % h, 2, 2); } ctx.restore();
+  ctx.save(); ctx.globalAlpha *= 0.55; ctx.translate(x + w / 2, y - 4); ctx.rotate(0.03); ctx.fillStyle = '#F3E7B8'; ctx.fillRect(-90, -16, 180, 40); ctx.restore();   // tape
+  const ink = '#1B1B1B', L = x + 40, R = x + w - 40;
+  // masthead
+  exLogo(ctx, L + 34, y + 70, 34);
+  kt(ctx, 'THE DECODE DESK', L + 84, y + 86, { font: F.head(46, 900), color: ink });
+  ctx.fillStyle = ink; ctx.fillRect(L, y + 118, R - L, 4); ctx.fillRect(L, y + 126, R - L, 1.5);
+  kt(ctx, `${T.cat} · ${pp[0]}`, L, y + 160, { font: F.ui(24, 700), color: '#5A4A32' });
+  kt(ctx, 'Week 44 edition', R, y + 160, { font: F.ui(24, 700), color: '#5A4A32', align: 'right' });
+  ctx.fillStyle = ink; ctx.fillRect(L, y + 178, R - L, 1.5);
+  // headline with a highlighter sweep
+  // fit: shrink the headline, then the fact type, until everything sits above the source line
+  let hz = d.hz ? d.hz + 4 : 54, fz = 32;
+  const need = (hz2, fz2) => { ctx.save(); ctx.font = F.head(hz2); let hh = 250 + wrap(ctx, d.headline, R - L).length * hz2 * 1.18 + 76;
+    ctx.font = F.head(fz2, 600); d.facts.forEach(([, v]) => { hh += 40 + Math.max(wrap(ctx, v, R - L).length * fz2 * 1.25, 40) + 22; }); ctx.restore(); return hh; };
+  while (need(hz, fz) > h - 100 && (hz > 40 || fz > 26)) { if (hz > 40) hz -= 2; else fz -= 2; }
+  const hp = span(s.t, 0.4, 2.2);
+  ctx.save(); ctx.font = F.head(hz); const lines = wrap(ctx, d.headline, R - L);
+  const hl = span(s.t, 2.4, 3.4); lines.forEach((ln, i) => { const lw = ctx.measureText(ln).width; ctx.fillStyle = 'rgba(255,214,10,0.55)'; ctx.fillRect(L - 6, y + 230 + i * hz * 1.18 + hz * 0.12, (lw + 12) * clamp(hl * lines.length - i), hz * 0.42); });
+  ctx.restore();
+  revealWords(ctx, d.headline, L, y + 236 + hz * 0.78, hp, { font: F.head(hz), color: ink, maxW: R - L, lh: hz * 1.18 });
+  const by = y + 250 + lines.length * hz * 1.18 + 10;
+  kt(ctx, 'By the Decode Desk · our summary of the reports', L, by, { font: F.ui(24, 600), color: '#6B5B42' });
+  ctx.fillStyle = 'rgba(27,27,27,0.5)'; ctx.fillRect(L, by + 18, R - L, 1);
+  // the facts, set as a newspaper column: a bold run-in, then the fact; each lands on its cue word
+  let yy = by + 66; d.facts.forEach(([lab, v, cw], i) => {
+    const fa = eia(s, ecue(s, cw, 1 + i * 0.6));
+    kt(ctx, lab + ' —', L, yy, { font: F.ui(26, 900), color: c.main, alpha: fa });
+    const hh = kt(ctx, v, L, yy + 40, { font: F.head(fz, 600), color: ink, alpha: fa, maxW: R - L, lh: fz * 1.25 });
+    yy += 40 + Math.max(hh, 40) + 22;
+  });
+  // source line at the foot
+  ctx.fillStyle = ink; ctx.fillRect(L, y + h - 92, R - L, 1.5);
+  kt(ctx, 'Source: ' + pp[1], L, y + h - 52, { font: F.ui(24, 600), color: '#5A4A32', maxW: R - L });
+  ctx.restore();
+}
 // the examiner's tricks: a closing slide that names the trap patterns of the week; items = [[trick, examples, cue]]
 function exTricks(ctx, s, title, items) {
   const c = EP.violet; exSlide(ctx, c);
