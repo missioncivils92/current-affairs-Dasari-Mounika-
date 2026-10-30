@@ -2,6 +2,17 @@
 // Telugu States topics; topic n's slides are S{n}01, S{n}02… in the master script. One colour per slide, purple first;
 // why-in-news slides are teal (Local: Telugu States).
 window.NO_PUSH = true; window.EX_LOGO = true;
+// "Why in news" clippings (exPaper): [dateline, source line] per topic, from the research brief's verification log
+window.EX_PAPER = {
+  1: ['1 and 9 October 2026', 'Telangana Today; The News Minute; The South First'],
+  2: ['October 2026', 'LiveLaw; Bar & Bench'],
+  3: ['October 2026', 'Govt of AP (NTR Bharosa); NSAP guidelines (MoRD)'],
+  4: ['26 and 30 October 2026', 'Telangana Today; Deccan Chronicle'],
+  5: ['26 October 2026', 'ThePrint (PTI); Deccan Chronicle'],
+  6: ['28 October 2026', 'All India Radio; APSDMA'],
+  7: ['October 2026 (as reported)', 'Deccan Chronicle; The South First'],
+};
+
 EX.series = 'AP–TG DESK'; EX.total = 7;
 const mcq = (qs, ok, o = {}) => [{ type: 'mcq', qs, ok, ...o }, { type: 'answer', qs, ok, ...o }];
 const CODES = { ask: 'Which of the statements given above are correct?' };
