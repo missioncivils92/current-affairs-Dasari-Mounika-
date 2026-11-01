@@ -11,7 +11,8 @@ const { chromium } = require('playwright');
 const { spawn } = require('child_process');
 const fs = require('fs'), path = require('path');
 
-const [assets, tlFile, sceneFile, out] = process.argv.slice(2, 6).map(p => path.resolve(p));
+const [assets, tlFile, , out] = process.argv.slice(2, 6).map(p => path.resolve(p)), sceneArg = process.argv[4];
+const sceneFiles = sceneArg.split(',').map(p => path.resolve(p));   // a shared kit can come first: scenes/short_kit.js,scenes/short_x.js
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
 const fps = +arg('--fps', 30), review = process.argv.includes('--review');
 const [VW, VH] = arg('--size', '1920x1080').split('x').map(Number);   // --size 1080x1920 renders a vertical Short
@@ -34,7 +35,7 @@ const stills = arg('--stills', null), audio = arg('--audio', null);
   await page.goto('file://' + path.join(__dirname, 'render.html'));
   const info = await page.evaluate(cfg => window.boot(cfg), {
     fontCss: 'file://' + path.join(assets, 'fonts', 'local.css'), review, images, data, timeline: tl,
-    scripts: ['file://' + path.join(assets, 'd3.min.js'), 'file://' + path.join(__dirname, 'engine.js'), 'file://' + path.join(__dirname, 'exam-kit.js'), 'file://' + sceneFile],
+    scripts: ['file://' + path.join(assets, 'd3.min.js'), 'file://' + path.join(__dirname, 'engine.js'), 'file://' + path.join(__dirname, 'exam-kit.js'), ...sceneFiles.map(f => 'file://' + f)],
   });
   if (pageErrors.length) { console.error('Scene or engine code failed to load; not rendering.'); await browser.close(); process.exit(1); }
   console.log('booted', { rows: info.rows, duration: info.duration });
