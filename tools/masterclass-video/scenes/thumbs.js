@@ -120,3 +120,31 @@ function proCyclone(ctx) {
 SCENES.S7 = (ctx, s) => { proBase(ctx, 'rgba(124,58,237,0.75)'); proTag(ctx, 'WEEK 44 · UPSC'); proWord(ctx, '16', 80, 480, 330, '#FFD60A'); proWord(ctx, 'TRAPS', 84, 680, 190, '#FFFFFF'); proOMR(ctx); proBrand(ctx); };
 SCENES.S8 = (ctx, s) => { proBase(ctx, 'rgba(6,214,160,0.45)'); proTag(ctx, 'WEEK 44 · UPSC'); proWord(ctx, 'SCORE', 84, 360, 170, '#FFFFFF'); proWord(ctx, '16/16?', 80, 610, 250, '#FFD60A'); proScore(ctx); proBrand(ctx); };
 SCENES.S9 = (ctx, s) => { proBase(ctx, 'rgba(14,165,233,0.55)'); proTag(ctx, 'WEEK 44 · UPSC'); proWord(ctx, 'ARNAB', 80, 400, 230, '#FFD60A'); proWord(ctx, '+15 MORE', 84, 590, 150, '#FFFFFF'); proCyclone(ctx); proBrand(ctx); };
+
+// ---------- topic-grid thumbnail (owner, 1 Nov 2026: "all topics in the thumbnail, neatly"): the 16 topics as
+// colour-coded tiles (National yellow, International steel blue, Misc white, as in §3.2), a bold header, the emblem
+// top-left, and the bottom-right corner kept clear for the duration badge.
+const GRID16 = [['Cyclone Arnab', 'N'], ['IDBI Bank Sale', 'N'], ['RBI Forex Reserve', 'N'], ['GRAP · Delhi Air', 'N'],
+  ['Vigilance Week', 'N'], ['India Joins SIOFA', 'I'], ['Hunger Index', 'I'], ['Poland · CDRI', 'I'],
+  ['BRICS Forum', 'I'], ['COP17 Yerevan', 'I'], ['Emissions Gap', 'I'], ['Loss & Damage', 'I'],
+  ['Ramsar Sites 103', 'M'], ['New GI Tag', 'M'], ['Innovation Index', 'M'], ['Days to Note', 'M']];
+function topicGrid(ctx, items, head, exams, dates) {
+  proBase(ctx, 'rgba(124,58,237,0.55)');
+  exLogo(ctx, 124, 128, 86);
+  proWord(ctx, head, 236, 172, 150, '#FFD60A');
+  ctx.save(); ctx.font = F.ui(150, 900); const hw = ctx.measureText(head).width; ctx.restore();
+  exChip(ctx, exams, 236 + hw + 40, 62, '#7C3AED', '#FFFFFF', 34);
+  exChip(ctx, dates, 236 + hw + 40, 128, '#FFFFFF', '#0B0820', 34);
+  const cols = 4, x0 = 60, y0 = 250, gw = 1800, gap = 18, tw = (gw - gap * (cols - 1)) / cols, rows = Math.ceil(items.length / cols), th = (955 - y0 - gap * (rows - 1)) / rows;
+  const fill = { N: '#FFD60A', I: '#4A90C2', M: '#FFFFFF', L: '#2BB3A3' }, ink = { N: '#1A1300', I: '#FFFFFF', M: '#1A1300', L: '#03201D' };
+  const fz = Math.min(...items.map(([t]) => fitFont(ctx, t, tw - 130, 46, 28, z => F.ui(z, 900))));   // one size for every tile
+  items.forEach(([t, k], i) => {
+    const x = x0 + (i % cols) * (tw + gap), y = y0 + Math.floor(i / cols) * (th + gap);
+    ctx.save(); ctx.shadowColor = 'rgba(0,0,0,0.45)'; ctx.shadowBlur = 18; ctx.shadowOffsetY = 6; rr(ctx, x, y, tw, th, 22); ctx.fillStyle = fill[k]; ctx.fill(); ctx.restore();
+    ctx.save(); ctx.beginPath(); ctx.arc(x + 58, y + th / 2, 36, 0, 7); ctx.fillStyle = 'rgba(11,8,32,0.88)'; ctx.fill(); ctx.restore();
+    kt(ctx, String(i + 1), x + 58, y + th / 2 + 15, { font: F.ui(40, 900), color: '#FFD60A', align: 'center' });
+    kt(ctx, t, x + 110, y + th / 2 + fz * 0.36, { font: F.ui(fz, 900), color: ink[k] });
+  });
+  kt(ctx, 'News · static facts · traps · a practice MCQ for every topic', 60, 1028, { font: F.ui(34, 800), color: '#FFFFFF' });
+}
+SCENES.S10 = (ctx, s) => topicGrid(ctx, GRID16, '16 TOPICS', 'UPSC · APPSC · TGPSC', 'WEEK 44 · 26 OCT – 1 NOV 2026');
