@@ -1,9 +1,9 @@
-# Voiceover Text — 2026-W45 Short: UAPA bail, the exam question behind an award · v1
+# Voiceover Text — 2026-W45 Short: UAPA bail, the exam question behind an award · v2
 
-**Release:** a YouTube Short (vertical 9:16), about 60 s (owner request), on camera (decision 41)
-**Coverage:** news of 8 Oct 2026 (Front Line Defenders Award), with the bail record to 1 Nov 2026
+**Release:** a YouTube Short (vertical 9:16), about 85–90 s, on camera (decision 41).
+**Coverage:** the news of 8 Oct 2026 (Front Line Defenders Award), with the bail record to 1 Nov 2026.
 **Format:** voice-only. Everything below is recorded on the microphone; there is no on-camera recording.
-**Total:** 148 words · about 1.1 min at 135 wpm (1.1–1.1 min at 140–130 wpm)
+**Total:** 217 words · about 1.6 min at 135 wpm (1.6–1.7 min at 140–130 wpm)
 
 Visual directions for the editor are in `02-master-script.md`.
 
@@ -26,7 +26,7 @@ Visual directions for the editor are in `02-master-script.md`.
 
 | Segment | Words | Min |
 |---|---|---|
-| SHORT — UAPA bail | 148 | 1.1 |
+| SHORT — UAPA bail | 217 | 1.6 |
 
 ---
 
@@ -34,26 +34,32 @@ Visual directions for the editor are in `02-master-script.md`.
 
 Save as: `short-uapa-bail_VO_short.wav`
 
-**🎙️ NARRATION — *calm, curious.***
+**🎙️ NARRATION — *bright, curious, smile.***
 
-An undertrial has won a global human rights award, but the exam question is the law that decides his bail.
+A man in jail since 2020 just won a global human rights award. So, can an award get you bail? Let's decode it.
 
 **🎙️ NARRATION**
 
-In October, Dublin-based Front Line Defenders named Umar Khalid its Asia-Pacific laureate; he has been in custody since 2020 under UAPA in the Delhi riots conspiracy case, and denies the charges.
+First, the award. Front Line Defenders, an Irish NGO in Dublin, has honoured human rights defenders at risk every year since 2005, one from each world region.
+
+This October, its Asia-Pacific award went to Umar Khalid, held in the Delhi riots conspiracy case, which he denies.
+
+And the law holding him is UAPA, the Unlawful Activities Prevention Act of 1967. It was toughened after the Mumbai attacks of 2008, and since 2019, even an individual can be declared a terrorist.
 
 **🎙️ NARRATION — *slower.***
 
-Section 43D, clause 5, of UAPA bars bail if the accusation looks prima facie true, and the Watali case of 2019 said courts need not weigh the evidence in detail.
+Its bail clause, Section 43D five, says no bail if the charge looks prima facie true, and Watali, 2019, said judges need not weigh the evidence in detail.
 
 **🎙️ NARRATION**
 
-But K.A. Najeeb, 2021, held that long custody without trial can justify bail under Article 21; in January 2026, the Supreme Court still found a prima facie case and denied him bail.
+But here's the twist: Najeeb, 2021, said long jail without trial can justify bail under Article 21. Still, in January 2026, the Supreme Court found a prima facie case and denied him bail.
 
-Prelims trap: Front Line Defenders is an Irish NGO, not a UN body, and the 1998 UN Declaration on Human Rights Defenders is not a binding treaty.
+**🎙️ NARRATION — *slower.***
+
+Prelims trap: Front Line Defenders is an Irish NGO, not a UN body, and the 1998 UN Declaration on defenders is not binding.
 
 **🎙️ NARRATION — *warm, smile.***
 
-Follow for one exam trap every day.
+Mains line: liberty versus security, with speedy trial as the bridge. Follow for one exam trap every day!
 
-*Words: 148 · about 1.1 min*
+*Words: 217 · about 1.6 min*

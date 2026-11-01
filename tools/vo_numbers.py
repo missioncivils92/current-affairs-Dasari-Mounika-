@@ -91,7 +91,20 @@ def fmt(n):
 TOKEN = re.compile(r"[A-Za-z]+(?:-[A-Za-z]+)*")
 
 
+YEAR = re.compile(r"\b(nineteen|twenty|Nineteen|Twenty) (ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|"
+                  r"twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)(?:-(one|two|three|four|five|six|seven|eight|nine))?\b")
+
+
+def years(text):
+    """Spoken years: 'twenty twenty-six' -> 2026, 'nineteen sixty-seven' -> 1967."""
+    def rep(m):
+        tail = SIMPLE[m.group(2)] + (UNITS[m.group(3)] if m.group(3) else 0)
+        return str(SIMPLE[m.group(1).lower()] * 100 + tail)
+    return YEAR.sub(rep, text)
+
+
 def to_digits(text):
+    text = years(text)
     toks = list(TOKEN.finditer(text))
     out, last, i = [], 0, 0
     while i < len(toks):
@@ -134,7 +147,9 @@ def to_digits(text):
             label = re.search(LABEL_BEFORE + r"(?: [a-z]+,)*(?: [a-z]+ (?:and|or))? $", before)   # "statements one and three"
             if not (date or unit or label):
                 i = j + 1; continue
-        s = fmt(n) + (suffix(n) if ordinal else "") + (f".{decimal}" if decimal else "")
+        year = 2000 <= n <= 2099 and parts(core[0])[0] == "two" and decimal is None and not ordinal \
+            and not re.match(r" " + UNIT_AFTER, after)                  # "two thousand eight" is a year, not 2,008
+        s = (str(n) if year else fmt(n)) + (suffix(n) if ordinal else "") + (f".{decimal}" if decimal else "")
         out.append(text[last:start]); out.append(s); last = end; i = j + 1
     out.append(text[last:])
     res = "".join(out)
@@ -171,6 +186,12 @@ if __name__ == "__main__":
         "four thousand rupees a month": "4,000 rupees a month",
         "Four alliances, four years, two cities": "Four alliances, four years, two cities",
         "three days to note": "three days to note",
+        "in jail since twenty twenty just": "in jail since 2020 just",
+        "the Act of nineteen sixty-seven. It": "the Act of 1967. It",
+        "since two thousand five, one": "since 2005, one",
+        "in January twenty twenty-six, the": "in January 2026, the",
+        "the nineteen ninety-eight UN Declaration": "the 1998 UN Declaration",
+        "two thousand rupees": "2,000 rupees",
     }
     bad = 0
     for k, v in tests.items():
