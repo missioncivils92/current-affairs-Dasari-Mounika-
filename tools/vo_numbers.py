@@ -25,7 +25,7 @@ ORD = {"first": 1, "second": 2, "third": 3, "fourth": 4, "fifth": 5, "sixth": 6,
 SIMPLE = {**UNITS, **TEENS, **TENS}
 NUMWORD = set(SIMPLE) | {"hundred", "thousand"} | set(ORD)     # "million" stays a word: 100 million
 UNIT_AFTER = r"(?:per cent|percent|degrees?|metres?|kilometres?|kilograms?|million|crore|lakh|rupees|dollars|acres)"     # measurements only; "three days" stays in words
-LABEL_BEFORE = r"(?:Article|Articles|article|section|sections|clause|Clause|Stage|stage|Topic|topic|week|Week|COP|Schedule|Part|statement|statements|Paper|paper)"
+LABEL_BEFORE = r"(?:Article|Articles|article|section|sections|clause|Clause|Stage|stage|Topic|topic|week|Week|COP|Schedule|Part|statement|statements|Paper|paper|Zone|zone|Zones|zones)"
 MONTHS = r"(?:January|February|March|April|May|June|July|August|September|October|November|December)"
 
 

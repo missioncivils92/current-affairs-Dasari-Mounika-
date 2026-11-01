@@ -11,12 +11,17 @@ same plan, so the picture stays in sync with the voice, then overlays it whereve
 
 During an inserted silence the camera shows a freeze of its last frame, so a hold never cuts to black.
 
-Usage: python3 -I compose_face.py <aligned timeline.json> <camera video> <rendered slides.mp4> <mix.wav> <out.mp4>
+Vertical Shorts (--vertical, 1080×1920): FACE fills the top 1080×1500 (the scene keeps a keyword band below it),
+TOP fills the top 1080×760 above the visual.
+
+Usage: python3 -I compose_face.py <aligned timeline.json> <camera video> <rendered slides.mp4> <mix.wav> <out.mp4> [--vertical]
 """
 import json, subprocess, sys, tempfile
 from pathlib import Path
 
 tl_path, cam, slides, mix, out = sys.argv[1:6]
+VERT = '--vertical' in sys.argv
+FW, FH = (1080, 1920) if VERT else (1920, 1080)
 tl = json.load(open(tl_path))
 assert "audio_plan" in tl, "timeline has no audio_plan: build it with timeline.py --align"
 tmp = Path(tempfile.mkdtemp())
@@ -31,12 +36,12 @@ for op in tl["audio_plan"]:
         if e - s < 0.04:
             continue
         cmd = ["ffmpeg", "-loglevel", "error", "-y", "-ss", f"{s:.3f}", "-i", cam, "-t", f"{e - s:.3f}", "-an",
-               "-vf", f"scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,fps={FPS},setsar=1",
+               "-vf", f"scale={FW}:{FH}:force_original_aspect_ratio=increase,crop={FW}:{FH},fps={FPS},setsar=1",
                "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", str(p)]
     else:                                                       # a hold: freeze the last kept camera frame
         prev = parts[-1] if parts else None
         if prev is None:
-            cmd = ["ffmpeg", "-loglevel", "error", "-y", "-f", "lavfi", "-i", f"color=c=black:s=1920x1080:r={FPS}", "-t", f"{op[1]:.3f}",
+            cmd = ["ffmpeg", "-loglevel", "error", "-y", "-f", "lavfi", "-i", f"color=c=black:s={FW}x{FH}:r={FPS}", "-t", f"{op[1]:.3f}",
                    "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p", str(p)]
         else:
             cmd = ["ffmpeg", "-loglevel", "error", "-y", "-sseof", "-0.1", "-i", str(prev), "-frames:v", "1", "-update", "1", str(tmp / "last.png")]
@@ -59,6 +64,11 @@ def ranges(kind):
     return "+".join(f"between(t,{a:.3f},{b:.3f})" for a, b in rs) or "0"
 
 fc = (
+    f"[1:v]split=2[cf][ct];"
+    f"[cf]crop=1080:1500:0:120[face];[ct]crop=1080:760:0:420[top];"                # vertical: face area, top panel
+    f"[0:v][face]overlay=0:0:enable='{ranges('FACE')}'[v1];"
+    f"[v1][top]overlay=0:0:enable='{ranges('TOP')}'[v]"
+) if VERT else (
     f"[1:v]split=3[cf][cs][cc];"
     f"[cf]crop=1920:900:0:90[face];"                                              # FACE: top 900 px of the frame
     f"[cs]crop=607:1080:656:0,scale=680:1020:force_original_aspect_ratio=increase,crop=680:1020[split];"   # SPLIT: centre strip
@@ -71,4 +81,4 @@ subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", slides, "-i", str(ca
                 "-filter_complex", fc, "-map", "[v]", "-map", "3:a", "-c:v", "libx264", "-preset", "medium", "-crf", "18",
                 "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "256k", "-shortest", "-movflags", "+faststart", out], check=True)
 print(f"{out}: camera laid in on "
-      f"{sum(1 for r in tl['rows'] if r.get('layout') in ('FACE', 'SPLIT', 'CORNER'))} of {len(tl['rows'])} rows")
+      f"{sum(1 for r in tl['rows'] if r.get('layout') in ('FACE', 'SPLIT', 'CORNER', 'TOP'))} of {len(tl['rows'])} rows")

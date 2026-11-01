@@ -1,6 +1,6 @@
 // Decode UPSC masterclass renderer — drawing engine (brand system, text, cards, maps, mind maps, Decode Desk).
 // Loaded by render.html; scenes live in scenes/<name>.js and register themselves in SCENES.
-const W = 1920, H = 1080;
+const W = (window.SIZE || [1920, 1080])[0], H = (window.SIZE || [1920, 1080])[1];   // render.js --size 1080x1920 for Shorts
 const C = {
   slate: '#1E2228', slate2: '#262B33', slate3: '#30363F', line: '#3A414B',
   yellow: '#F5D300', white: '#FFFFFF', red: '#E5484D', teal: '#2BB3A3', blue: '#4A90C2',

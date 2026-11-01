@@ -36,7 +36,7 @@ def layout_of(visual):
     """Presenter layout for a row (owner decision 41): `[FACE]` Mounika full screen with a lower-third,
     `[SPLIT]` her camera on the left and the slide on the right, `[CORNER]` a small round camera in the slide's
     corner. Rows with none of these are voice-only over the full slide."""
-    m = re.search(r"`?\[(FACE|SPLIT|CORNER)\]`?", visual)
+    m = re.search(r"`?\[(FACE|SPLIT|CORNER|TOP)\]`?", visual)     # TOP: vertical Shorts, camera above the visual
     return m.group(1) if m else "VOICE"
 
 def spoken(t):

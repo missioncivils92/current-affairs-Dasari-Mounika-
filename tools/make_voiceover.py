@@ -19,12 +19,12 @@ title = src.splitlines()[0].replace("# Master Script — ", "")
 meta = {k: re.search(rf"\*\*{k}:\*\* (.*)", src).group(1) for k in ("Release", "Coverage")}
 start = src.find("## COLD OPEN")                # a single-segment sample may start at its first segment
 if start < 0:
-    start = re.search(r"^## (?:DEEP DIVE|FOCUS|PRELIMS GRID|AP–TG DESK|UPDATE DESK|PILLAR)", src, flags=re.M).start()
+    start = re.search(r"^## (?:DEEP DIVE|FOCUS|PRELIMS GRID|AP–TG DESK|UPDATE DESK|PILLAR|SHORT)", src, flags=re.M).start()
 body = re.split(r"^## (?:RUNTIME SUMMARY|PACKAGING)", src[start:], flags=re.M)[0]
 codes = {"COLD OPEN": "open", "PILLAR 1": "P1", "PILLAR 2": "P2", "PILLAR 3": "P3", "PILLAR 4": "P4",
          "PILLAR 5": "P5", "TRANSITION": "transition", "TRAP VAULT": "traps", "DESK NOTE": "desknote",
          "VERDICT": "verdict", "UPDATE DESK": "updates", "NEWS GRID": "grid",
-         "PRELIMS GRID": "grid", "AP–TG DESK": "aptg"}
+         "PRELIMS GRID": "grid", "AP–TG DESK": "aptg", "SHORT": "short"}
 codes.update({f"DEEP DIVE {i}": f"D{i}" for i in range(1, 10)})
 codes.update({f"FOCUS {i}": f"F{i}" for i in range(1, 10)})
 tags = r"VOICE ANCHOR|HYPERFRAME PROMPT|KINETIC MOTION GRAPHIC|KINETIC TEXT|GEOSPATIAL MAP|GIS MAP|MIND MAP|REAL FOOTAGE|DATA CHART"
