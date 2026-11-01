@@ -27,3 +27,22 @@
 - [AIR: SC refuses bail (5 Jan 2026)](https://www.newsonair.gov.in/sc-refuses-to-grant-bail-to-activistis-umar-khalid-sharjeel-imam-under-uapa-in-2020-delhi-riots-consipiracy-matter/)
 - [SC Observer: bail under UAPA](https://www.scobserver.in/journal/bail-under-uapa-court-in-review/)
 - [LiveLaw: between Najeeb and Gulfisha](https://www.livelaw.in/articles/between-najeeb-gulfisha-uapa-bail-dilemma-khalid-imam-555215)
+
+## v2 additions (owner: introduce the award, expand UAPA, livelier)
+
+| Fact | Source | Status |
+|---|---|---|
+| Front Line Defenders: an Irish NGO, founded in Dublin in 2001 | frontlinedefenders.org; Wikipedia (Front Line Defenders) | Verified |
+| The Front Line Defenders Award for Human Rights Defenders at Risk has been annual since 2005 (first laureate: Mudawi Ibrahim Adam, Sudan) | frontlinedefenders.org/en/front-line-defenders-award | Verified |
+| The 2026 award has five regional laureates (Africa: Angola; Americas: Brazil; Asia-Pacific: Umar Khalid; plus laureates from Iran and Serbia) | The Wire; Outlook (Oct 2026) | Reported |
+| UAPA = Unlawful Activities (Prevention) Act, 1967 | India Code | Verified |
+| 2004 amendment: a terrorism chapter added (after POTA was repealed) | PRS; secondary summaries | Not used on air |
+| Section 43D(5) was inserted by Act 35 of 2008, w.e.f. 31 Dec 2008, after the 26/11 Mumbai attacks | NIA v. Zahoor Ahmad Shah Watali (2019), SC judgment text | Verified |
+| The 2019 amendment lets the Centre designate individuals as terrorists (Fourth Schedule) | UAPA Amendment Act 2019; assent 8 Aug 2019 | Verified |
+| Vernon Gonsalves v. State of Maharashtra (July 2023) required a surface-level look at the evidence under 43D(5) | SC Observer | Not used on air; candidate for a later Short |
+
+**Reach notes** (third-party benchmarks; no official YouTube data was found):
+- The hook question is on screen in frame 1 and is answered in the first 3 s.
+- The title is a question.
+- The pinned "how many" MCQ is there to drive comments.
+- The runtime is about 90 s. Guides favour shorter Shorts for retention, so check the retention graph in Studio after 48 h. If it drops sharply after 60 s, cut the next reel to about 60 s.
