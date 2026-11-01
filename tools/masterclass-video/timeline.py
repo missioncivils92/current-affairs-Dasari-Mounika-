@@ -32,6 +32,13 @@ cut, align_file = opt("--cut"), opt("--align")
 WPM, HOLD_Q, HOLD_RECAP, END_MIN = 135, 7.0, 3.0, 18.0
 assert cut in (None, "hub", "ext"), "--cut must be hub or ext"
 
+def layout_of(visual):
+    """Presenter layout for a row (owner decision 41): `[FACE]` Mounika full screen with a lower-third,
+    `[SPLIT]` her camera on the left and the slide on the right, `[CORNER]` a small round camera in the slide's
+    corner. Rows with none of these are voice-only over the full slide."""
+    m = re.search(r"`?\[(FACE|SPLIT|CORNER)\]`?", visual)
+    return m.group(1) if m else "VOICE"
+
 def spoken(t):
     t = re.sub(r"\[[^\]]*\]", "", t).replace("**", "")
     return re.sub(r"\s+", " ", re.sub(r"<br\s*/?>", " ", t)).strip()
@@ -67,7 +74,7 @@ for line in body.splitlines():
     text = spoken(cells[2])
     rows.append({"row": re.sub(r"\s*\[.*\]", "", cells[0]), "cut": tag.group(1) if tag else None, "scene": m.group(1),
                  "segment": seg, "chapter": chapter, "visual": cells[1], "text": text, "tokens": text.split(),
-                 "sents": sentences(text)})
+                 "sents": sentences(text), "layout": layout_of(cells[1])})
 all_rows = rows
 rows = [r for r in rows if in_cut(r["cut"])]
 

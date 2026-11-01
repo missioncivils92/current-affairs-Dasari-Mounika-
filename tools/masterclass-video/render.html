@@ -60,11 +60,40 @@ function holdScale(row, p) {
   const k = { 'VOICE ANCHOR': 0.03, 'GIS MAP': 0.035, 'REAL FOOTAGE': 0.02 }[kind] ?? 0.05;
   return 1 + k * p;
 }
-function drawRow(c, row, t) {
-  const g = c.getContext('2d'); g.save(); g.clearRect(0, 0, W, H);
-  const s = sceneState(row, t); const fn = SCENES[row.scene];
+// presenter layouts (owner decision 41). The camera itself is laid in later by compose_face.py; here the slide makes
+// room for it. FACE: a branded backdrop with a lower-third (the camera fills the area above it). SPLIT: the slide,
+// scaled, on the right; the camera panel on the left. CORNER: the slide scaled from the top-left so the round
+// camera at the bottom-right covers nothing.
+const LAYOUT = { SPLIT: { x: 740, y: 210, k: (1920 - 740 - 30) / 1920 }, CORNER: { x: 24, y: 24, k: 0.8 } };
+let bufS;
+function drawScene(g, row, s) {
+  const fn = SCENES[row.scene];
   const k = holdScale(row, s.p); if (k !== 1) { g.translate(W / 2, H / 2); g.scale(k, k); g.translate(-W / 2, -H / 2); }
   if (fn) fn(g, s); else { bg(g); text(g, 'Missing scene ' + row.scene, 960, 540, { align: 'center', font: F.ui(60, 800), color: C.red }); }
+}
+function presenterBackdrop(g, row, t) {
+  const gr = g.createLinearGradient(0, 0, W, H); gr.addColorStop(0, '#2A0E5C'); gr.addColorStop(1, '#5B21B6'); g.fillStyle = gr; g.fillRect(0, 0, W, H);
+  if (row.layout === 'FACE') {                                     // lower-third: name + the row's syllabus tag
+    g.fillStyle = 'rgba(11,8,32,0.92)'; g.fillRect(0, 900, W, 180); g.fillStyle = '#FFD60A'; g.fillRect(0, 900, W, 6);
+    text(g, 'Mounika', 80, 975, { font: F.head(52, 900), color: '#FFFFFF' });
+    text(g, 'Decode UPSC · ' + (row.segment || '').replace(/^.*— /, ''), 80, 1035, { font: F.ui(32, 700), color: '#FFD60A' });
+  }
+  if (row.layout === 'SPLIT') {                                    // a frame for the camera panel on the left
+    g.fillStyle = 'rgba(11,8,32,0.55)'; rr(g, 30, 30, 680, 1020, 28); g.fill();
+  }
+}
+function drawRow(c, row, t) {
+  const g = c.getContext('2d'); g.save(); g.clearRect(0, 0, W, H);
+  const s = sceneState(row, t); const L = LAYOUT[row.layout];
+  if (row.layout === 'FACE') presenterBackdrop(g, row, t);
+  else if (L) {
+    if (!bufS) { bufS = document.createElement('canvas'); bufS.width = W; bufS.height = H; }
+    const sg = bufS.getContext('2d'); sg.save(); sg.clearRect(0, 0, W, H); drawScene(sg, row, s); sg.restore();
+    presenterBackdrop(g, row, t);
+    const sx = L.x, sy = row.layout === 'SPLIT' ? (H - H * L.k) / 2 : L.y, sw = W * L.k, sh = H * L.k;   // the slide as a rounded card
+    g.save(); g.shadowColor = 'rgba(0,0,0,0.45)'; g.shadowBlur = 40; g.shadowOffsetY = 12; rr(g, sx, sy, sw, sh, 22); g.fillStyle = '#000'; g.fill(); g.restore();
+    g.save(); rr(g, sx, sy, sw, sh, 22); g.clip(); g.drawImage(bufS, sx, sy, sw, sh); g.restore();
+  } else drawScene(g, row, s);
   g.restore(); return s;
 }
 window.renderAt = (t) => {

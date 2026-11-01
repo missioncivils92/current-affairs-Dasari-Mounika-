@@ -4,7 +4,7 @@ Each week runs from Monday triage to the Sunday 6:00 PM IST upload. `CLAUDE.md` 
 
 **Owners:**
 - **C** = Claude (research, scripts, packaging)
-- **M** = Mounika (review, voiceover recording; voice-only, never on camera)
+- **M** = Mounika (review; records the narration on camera, decision 41; her face appears only on rows tagged `[FACE]`, `[SPLIT]` or `[CORNER]`)
 - **E** = editor (visuals, cut, upload)
 
 **Week folder:** `weeks/YYYY-Www/`. Create it on Monday by copying the five weekly templates from `templates/`.
@@ -209,7 +209,7 @@ Run this end to end, without self-imposed limits on searches, sources or depth (
   - [ ] Every image passes the **information test**.
   - [ ] Every map is a GIS map (satellite or terrain), has a locator inset on the first map of each map sequence, and follows **official Survey of India boundaries**.
   - [ ] Every pillar has a progressive mind map, a skeleton with blanks and a reveal.
-  - [ ] No on-camera rows. Direct-address rows use `[VOICE ANCHOR]` with a voice direction. No faces, hands, AI avatars or synthetic voices (sole exception: a logged internal, never-published sample, `CLAUDE.md` §1).
+  - [ ] On-camera rows carry `[FACE]`, `[SPLIT]` or `[CORNER]`, and her face shows on about 15–20% of the running time. No `[SPLIT]`/`[CORNER]` on tables, MCQs or notes. No AI avatars or synthetic voices (sole exception: a logged internal, never-published sample, `CLAUDE.md` §1).
   - [ ] Every external asset has its source, licence and credit logged. No news-agency or Parliament clips. No Google Earth Studio.
   - [ ] Any photorealistic AI image is flagged for YouTube's synthetic-content disclosure.
   - [ ] **Motion:** every build is keyed to the word it explains (`→ "word"` cues), and `render.js --strict` reports no missing cue. No frame is frozen for more than 3 s outside the end screen (living holds, camera moves). Every countdown runs over its own card.
@@ -234,6 +234,19 @@ Run this end to end, without self-imposed limits on searches, sources or depth (
   - Export to PDF with the channel branding.
 - [ ] **E** Rough cut.
 - [ ] **E/M** Post the poll: "Which issue should we decode next?"
+
+## On-camera recording (decision 41)
+
+Mounika records the whole script **on camera, in one take per section**. Claude chooses from the script's layout tags when the camera is shown, so the recording itself needs no planning beyond the guide below. Send the recordings by Google Drive link; the chat accepts only about 30 MB per file, so `drive.google.com` must be allowed in the environment's network settings.
+
+- **Phone** horizontal, at eye level, about an arm's length away, on a stand or a pile of books. Record at 1080p, 30 fps.
+- **Light** in front of her (a window or a lamp), never behind. Use a plain or tidy background.
+- **Sound:** a wired or lapel mic if possible. Record in a quiet room with the fan off.
+- **Eyes** on the lens, not on the screen. Keep the PDF script just below the lens.
+- **Mistakes:** pause, say "retake", and read the whole sentence again; Claude cuts it out. Countdowns are added automatically, so no need to pause at the questions.
+- **File names:** `grid_part1.mp4`, `grid_part2.mp4`, `desk.mp4`, and so on.
+
+Pipeline: `align_lm.py` → `timeline.py --align` → `build_audio.py` → `sound_bed.py --voice` → `render.js` → `compose_face.py` (camera laid into the `[FACE]`/`[SPLIT]`/`[CORNER]` rows) → `make_srt.py`.
 
 ## Sunday: lock and publish
 
