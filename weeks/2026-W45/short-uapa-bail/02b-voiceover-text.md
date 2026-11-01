@@ -1,9 +1,9 @@
-# Voiceover Text — 2026-W45 Short: UAPA bail, the exam question behind an award · v2
+# Voiceover Text — 2026-W45 Short: UAPA bail, the exam question behind an award · v3
 
-**Release:** a YouTube Short (vertical 9:16), about 85–90 s, on camera (decision 41).
+**Release:** a YouTube Short (vertical 9:16), about 95–100 s, on camera (decision 41).
 **Coverage:** the news of 8 Oct 2026 (Front Line Defenders Award), with the bail record to 1 Nov 2026.
 **Format:** voice-only. Everything below is recorded on the microphone; there is no on-camera recording.
-**Total:** 217 words · about 1.6 min at 135 wpm (1.6–1.7 min at 140–130 wpm)
+**Total:** 260 words · about 1.9 min at 135 wpm (1.9–2.0 min at 140–130 wpm)
 
 Visual directions for the editor are in `02-master-script.md`.
 
@@ -26,7 +26,7 @@ Visual directions for the editor are in `02-master-script.md`.
 
 | Segment | Words | Min |
 |---|---|---|
-| SHORT — UAPA bail | 217 | 1.6 |
+| SHORT — UAPA bail | 260 | 1.9 |
 
 ---
 
@@ -34,32 +34,32 @@ Visual directions for the editor are in `02-master-script.md`.
 
 Save as: `short-uapa-bail_VO_short.wav`
 
-**🎙️ NARRATION — *bright, curious, smile.***
+**🎙️ NARRATION — *like telling a friend something surprising.***
 
-A man in jail since 2020 just won a global human rights award. So, can an award get you bail? Let's decode it.
-
-**🎙️ NARRATION**
-
-First, the award. Front Line Defenders, an Irish NGO in Dublin, has honoured human rights defenders at risk every year since 2005, one from each world region.
-
-This October, its Asia-Pacific award went to Umar Khalid, held in the Delhi riots conspiracy case, which he denies.
-
-And the law holding him is UAPA, the Unlawful Activities Prevention Act of 1967. It was toughened after the Mumbai attacks of 2008, and since 2019, even an individual can be declared a terrorist.
-
-**🎙️ NARRATION — *slower.***
-
-Its bail clause, Section 43D five, says no bail if the charge looks prima facie true, and Watali, 2019, said judges need not weigh the evidence in detail.
+Imagine this. A man in jail since 2020 wins a global human rights award. Award vachindi... mari bail vastunda? Let's decode it together.
 
 **🎙️ NARRATION**
 
-But here's the twist: Najeeb, 2021, said long jail without trial can justify bail under Article 21. Still, in January 2026, the Supreme Court found a prima facie case and denied him bail.
+So first, who gives this award? Front Line Defenders, an Irish NGO from Dublin. 2005 nunchi prathi samvatsaram, pramaadamlo unna human rights defenders ki, prathi world region nunchi okkariki ee award isthaaru.
+
+This year, the Asia-Pacific award went to Umar Khalid, held in the Delhi riots conspiracy case. Police conspiracy antunnaru, aayana aa aaropanalanu khandisthunnaaru. Case inka court lo pending.
+
+So, what is UAPA? Say it with me: the Unlawful Activities Prevention Act, 1967. Ante, mana deshamlo main anti-terror law idhe. It got tougher after the Mumbai attacks of 2008, and since 2019, even an individual can be declared a terrorist.
 
 **🎙️ NARRATION — *slower.***
 
-Prelims trap: Front Line Defenders is an Irish NGO, not a UN body, and the 1998 UN Declaration on defenders is not binding.
+And here is the clause that decides bail: Section 43D five. Charge prima facie true ga kanipisthe, bail ivvakoodadu. In Watali, 2019, the Supreme Court said judges need not weigh the evidence in detail.
+
+**🎙️ NARRATION — *thoughtful.***
+
+But wait. Trial lekunda ella tharabadi jail lo unchadam nyaayamenaa? Najeeb, 2021, said long custody without trial can justify bail under Article 21. Still, in January 2026, the Court found a prima facie case and denied him bail.
+
+**🎙️ NARRATION — *slower, firm.***
+
+Now, Prelims trap. Ikkade chaala mandi thappu chesthaaru. Front Line Defenders is an Irish NGO, not a UN body. And the 1998 UN Declaration on defenders is not binding.
 
 **🎙️ NARRATION — *warm, smile.***
 
-Mains line: liberty versus security, with speedy trial as the bridge. Follow for one exam trap every day!
+For Mains, remember one line: liberty versus security, and speedy trial is the bridge. Ilaanti oka exam trap roju kalisi nerchukundaam... follow avvandi!
 
-*Words: 217 · about 1.6 min*
+*Words: 260 · about 1.9 min*
