@@ -1,9 +1,9 @@
-# Voiceover Text — 2026-W45 Short: UAPA bail, the exam question behind an award · v4
+# Voiceover Text — 2026-W45 Short: UAPA bail, the exam question behind an award · v5
 
-**Release:** a YouTube Short (vertical 9:16), about 2 min, on camera (decision 41).
+**Release:** a YouTube Short (vertical 9:16), about 1:30, on camera (decision 41).
 **Coverage:** the news of 8 Oct 2026 (Front Line Defenders Award), with the bail record to 1 Nov 2026.
 **Format:** voice-only. Everything below is recorded on the microphone; there is no on-camera recording.
-**Total:** 331 words · about 2.5 min at 135 wpm (2.4–2.5 min at 140–130 wpm)
+**Total:** 238 words · about 1.8 min at 135 wpm (1.7–1.8 min at 140–130 wpm)
 
 Visual directions for the editor are in `02-master-script.md`.
 
@@ -26,7 +26,7 @@ Visual directions for the editor are in `02-master-script.md`.
 
 | Segment | Words | Min |
 |---|---|---|
-| SHORT — UAPA bail | 331 | 2.5 |
+| SHORT — UAPA bail | 238 | 1.8 |
 
 ---
 
@@ -36,30 +36,30 @@ Save as: `short-uapa-bail_VO_short.wav`
 
 **🎙️ NARRATION — *like telling a friend something surprising.***
 
-Imagine this. A man in jail since 2020 wins a global human rights award. Award vachindi... mari bail vastunda? Let's decode it together.
+Imagine this. A man in jail since 2020 wins a global human rights award. Award vachindi... mari bail vastunda? Let's decode it.
 
 **🎙️ NARRATION**
 
-So first, who gives this award? Front Line Defenders, an Irish NGO from Dublin. 2005 nunchi prathi samvatsaram, pramaadamlo unna human rights defenders ki, prathi world region nunchi okkariki ee award isthaaru.
+The award is from Front Line Defenders, an Irish NGO in Dublin, given every year since 2005 to human rights defenders at risk.
 
-This year, the Asia-Pacific award went to Umar Khalid, held in the Delhi riots conspiracy case. Police conspiracy antunnaru, aayana aa aaropanalanu khandisthunnaaru. Case inka court lo pending.
+This year its Asia-Pacific award went to Umar Khalid, held in the Delhi riots conspiracy case. Police conspiracy antunnaru, aayana khandisthunnaaru, case inka pending.
 
-So, what is UAPA? Say it with me: the Unlawful Activities Prevention Act, 1967. Ante, mana deshamlo main anti-terror law idhe. It got tougher after the Mumbai attacks of 2008, and since 2019, even an individual can be declared a terrorist.
+So what is UAPA? Say it with me: the Unlawful Activities Prevention Act, 1967. Ante, mana main anti-terror law.
 
 **🎙️ NARRATION — *slower.***
 
-And here is the clause that decides bail: Section 43D five. Prima facie means at first look. Charge prima facie true ga kanipisthe, bail ivvakoodadu. Take the Watali case of 2019, a Kashmir terror-funding case: the Supreme Court cancelled his bail and said that at this stage judges only check the police papers at first look; they don't hold a mini trial. Ante, bail stage lo full evidence chudaru.
+Its bail rule is Section 43D five. Charge prima facie, that is at first look, true ga kanipisthe, bail ivvakoodadu. In the Watali case of 2019, a Kashmir terror-funding case, the Supreme Court said judges only check the police papers at first look, with no mini trial.
 
 **🎙️ NARRATION — *thoughtful.***
 
-But wait. Trial lekunda ella tharabadi jail lo unchadam nyaayamenaa? That was the Najeeb case of 2021. He had spent over five years in jail with his trial nowhere near the end, so the Supreme Court upheld his bail under Article 21, our right to life and liberty. Ante, trial chaala late aithe, bail door open avvochu. But for Umar Khalid, in January 2026, the Court found a prima facie case and denied bail.
+But trial lekunda ella tharabadi jail lo unchadam nyaayamenaa? In the Najeeb case of 2021, after over five years in jail with the trial far off, the Court upheld bail under Article 21. But for Umar Khalid, in January 2026, it found a prima facie case and denied bail.
 
 **🎙️ NARRATION — *slower, firm.***
 
-Now, Prelims trap. Ikkade chaala mandi thappu chesthaaru. Front Line Defenders is an Irish NGO, not a UN body. And the 1998 UN Declaration on defenders is not binding.
+Prelims trap, ikkade chaala mandi thappu chesthaaru: Front Line Defenders is an Irish NGO, not a UN body, and the 1998 UN Declaration on defenders is not binding.
 
 **🎙️ NARRATION — *warm, smile.***
 
-For Mains, remember one line: liberty versus security, and speedy trial is the bridge. Ilaanti oka exam trap roju kalisi nerchukundaam... follow avvandi!
+For Mains: liberty versus security, and speedy trial is the bridge. Roju oka exam trap... follow avvandi!
 
-*Words: 331 · about 2.5 min*
+*Words: 238 · about 1.8 min*

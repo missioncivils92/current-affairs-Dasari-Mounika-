@@ -1,7 +1,7 @@
 <div class="cover">
 <div class="brand">DECODE UPSC <span>with Mounika</span></div>
 <h1>Reel: Can an award get you bail? (UAPA)</h1>
-<p class="sub">YouTube Short · about 2:00 · English + తెలుగు, like talking to a friend · v3</p>
+<p class="sub">YouTube Short · about 1:30 · English + తెలుగు, like talking to a friend · v5</p>
 </div>
 
 ## How to record this reel
@@ -24,63 +24,49 @@ Imagine this. A man in jail since 2020 wins a global human rights award.
 
 🗣️ **అవార్డు వచ్చింది... మరి bail వస్తుందా?**
 
-Let's decode it together.
+Let's decode it.
 
-**🎙️ *friendly, curious.***
+**🎙️ *friendly.***
 
-So first, who gives this award? Front Line Defenders, an Irish NGO from Dublin.
-
-🗣️ **2005 నుంచి ప్రతి సంవత్సరం, ప్రమాదంలో ఉన్న human rights defenders కి, ప్రతి world region నుంచి ఒక్కరికి ఈ award ఇస్తారు.**
+The award is from Front Line Defenders, an Irish NGO in Dublin, given every year since 2005 to human rights defenders at risk.
 
 **🎙️ *calm, neutral.***
 
-This year, the Asia-Pacific award went to Umar Khalid, held in the Delhi riots conspiracy case.
+This year its Asia-Pacific award went to Umar Khalid, held in the Delhi riots conspiracy case.
 
-🗣️ **Police conspiracy అంటున్నారు, ఆయన ఆ ఆరోపణలను ఖండిస్తున్నారు. Case ఇంకా court లో pending.**
+🗣️ **Police conspiracy అంటున్నారు, ఆయన ఖండిస్తున్నారు, case ఇంకా pending.**
 
 **🎙️ *lift your energy, as if teaching the class.***
 
-So, what is UAPA? Say it with me: the **Unlawful… Activities… Prevention… Act**, 1967.
+So what is UAPA? Say it with me: the **Unlawful… Activities… Prevention… Act**, 1967.
 
-🗣️ **అంటే, మన దేశంలో main anti-terror law ఇదే.**
-
-It got tougher after the Mumbai attacks of 2008, and since 2019, even an individual can be declared a terrorist.
+🗣️ **అంటే, మన main anti-terror law.**
 
 **🎙️ *slower, important.***
 
-And here is the clause that decides bail: Section 43D(5). Prima facie means *at first look*.
+Its bail rule is Section 43D(5).
 
-🗣️ **Charge prima facie true గా కనిపిస్తే, bail ఇవ్వకూడదు.**
+🗣️ **Charge prima facie, that is at first look, true గా కనిపిస్తే, bail ఇవ్వకూడదు.**
 
-Take the Watali [wa-TAA-lee] case of 2019, a Kashmir terror-funding case: the Supreme Court cancelled his bail and said that at this stage judges only check the police papers at first look; they don't hold a mini trial.
-
-🗣️ **అంటే, bail stage లో full evidence చూడరు.**
+In the Watali [wa-TAA-lee] case of 2019, a Kashmir terror-funding case, the Supreme Court said judges only check the police papers at first look, with no mini trial.
 
 **🎙️ *thoughtful, softer.***
 
-But wait.
+🗣️ **But trial లేకుండా ఏళ్ల తరబడి jail లో ఉంచడం న్యాయమేనా?**
 
-🗣️ **Trial లేకుండా ఏళ్ల తరబడి jail లో ఉంచడం న్యాయమేనా?**
-
-That was the Najeeb [na-JEEB] case of 2021. He had spent over 5 years in jail with his trial nowhere near the end, so the Supreme Court upheld his bail under Article 21, our right to life and liberty.
-
-🗣️ **అంటే, trial చాలా late అయితే, bail door open అవ్వొచ్చు.**
-
-But for Umar Khalid, in January 2026, the Court found a prima facie case and denied bail.
+In the Najeeb [na-JEEB] case of 2021, after over 5 years in jail with the trial far off, the Court upheld bail under Article 21. But for Umar Khalid, in January 2026, it found a prima facie case and denied bail.
 
 **🎙️ *firm, "write this down" voice.***
 
-Now, Prelims trap.
+🗣️ **Prelims trap, ఇక్కడే చాలా మంది తప్పు చేస్తారు:**
 
-🗣️ **ఇక్కడే చాలా మంది తప్పు చేస్తారు.**
-
-Front Line Defenders is an Irish NGO, **not a UN body**. And the 1998 UN Declaration on defenders is **not binding**.
+Front Line Defenders is an Irish NGO, **not a UN body**, and the 1998 UN Declaration on defenders is **not binding**.
 
 **📷 FULL FACE: *warm, smile.***
 
-For Mains, remember one line: liberty versus security, and speedy trial is the bridge.
+For Mains: liberty versus security, and speedy trial is the bridge.
 
-🗣️ **ఇలాంటి ఒక exam trap రోజూ కలిసి నేర్చుకుందాం... follow అవ్వండి!**
+🗣️ **రోజూ ఒక exam trap... follow అవ్వండి!**
 
 ## Upload pack (for more reach)
 
@@ -98,7 +84,7 @@ For Mains, remember one line: liberty versus security, and speedy trial is the b
 > 🧠 Quick test: Consider these statements:
 > 1. Front Line Defenders is a UN body.
 > 2. The 1998 UN Declaration on Human Rights Defenders is legally binding.
-> 3. The 2019 amendment to UAPA allows an individual to be designated a terrorist.
+> 3. UAPA, the Unlawful Activities (Prevention) Act, was enacted in 1967.
 > How many are correct? (a) Only one (b) Only two (c) All three (d) None
 > Comment your answer! ✅ Answer: (a) Only one: statement 3.
 
