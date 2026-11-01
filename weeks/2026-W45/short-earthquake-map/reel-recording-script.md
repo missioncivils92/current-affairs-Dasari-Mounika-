@@ -1,7 +1,7 @@
 <div class="cover">
 <div class="brand">DECODE UPSC <span>with Mounika</span></div>
 <h1>Reel: India's earthquake map</h1>
-<p class="sub">YouTube Short · about 85 seconds · Tuesday 3 Nov 2026</p>
+<p class="sub">YouTube Short · about 95 seconds · Tuesday 3 Nov 2026</p>
 </div>
 
 ## How to record this reel
@@ -29,6 +29,8 @@ First, who makes this map? The Bureau of Indian Standards, under the Ministry of
 In November 2025 it released a new map. The old 2016 map has four zones; the new one added a sixth for the Himalayan arc, used probabilistic hazard modelling, moved boundary towns into the higher zone, and put about 61% of India in moderate to high hazard.
 
 But in March 2026 the new code was withdrawn, after the Housing Ministry raised cost concerns, so the 2016 map is back in force.
+
+And this is not a rumour: both the new map and its withdrawal were reported, so always check the date before you trust a map.
 
 **🎙️ NARRATION — *slower.***
 

@@ -1,9 +1,9 @@
-# Voiceover Text — 2026-W45 Short: India's earthquake map (old vs new, and who decides) · v2
+# Voiceover Text — 2026-W45 Short: India's earthquake map (old vs new, and who decides) · v3
 
 **Release:** Tuesday 3 Nov 2026, 6:00 PM IST, as a YouTube Short (vertical 9:16, about 85 s; the owner asked for 70 s, then added the comparison and the ministries)
 **Coverage:** Seismic zonation status as of 1 Nov 2026 (BIS IS 1893 (Part 1): 2025 notified Nov 2025, withdrawn Mar 2026; 2016 edition in force)
 **Format:** voice-only. Everything below is recorded on the microphone; there is no on-camera recording.
-**Total:** 203 words · about 1.5 min at 135 wpm (1.4–1.6 min at 140–130 wpm)
+**Total:** 228 words · about 1.7 min at 135 wpm (1.6–1.8 min at 140–130 wpm)
 
 Visual directions for the editor are in `02-master-script.md`.
 
@@ -26,7 +26,7 @@ Visual directions for the editor are in `02-master-script.md`.
 
 | Segment | Words | Min |
 |---|---|---|
-| SHORT — India's earthquake map | 203 | 1.5 |
+| SHORT — India's earthquake map | 228 | 1.7 |
 
 ---
 
@@ -46,6 +46,8 @@ In November 2025 it released a new map. The old 2016 map has four zones; the new
 
 But in March 2026 the new code was withdrawn, after the Housing Ministry raised cost concerns, so the 2016 map is back in force.
 
+And this is not a rumour: both the new map and its withdrawal were reported, so always check the date before you trust a map.
+
 **🎙️ NARRATION — *slower.***
 
 So India still has four zones: Zone 2, low; Zone 3, moderate; Zone 4, high; and Zone 5, very high.
@@ -60,4 +62,4 @@ Prelims trap: there is no Zone 1, Zone 6 is not in force, and the zones are set 
 
 Save this, and follow for one exam trap every day. The full weekly class is on Sunday.
 
-*Words: 203 · about 1.5 min*
+*Words: 228 · about 1.7 min*
