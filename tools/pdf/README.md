@@ -6,7 +6,9 @@ Converts `weeks/YYYY-Www/05-weekly-notes-mcq.md` into the branded A4 PDF.
 W=2026-W43
 pandoc weeks/$W/05-weekly-notes-mcq.md -f markdown-fancy_lists -t html5 -s \
   --css style.css --metadata pagetitle="Decode UPSC $W Notes" -o tools/pdf/notes.html
-cd tools/pdf && node render.js "$PWD/notes.html" "../../weeks/$W/$W-Decode-UPSC-Notes.pdf"
+cd tools/pdf && node render.js "$PWD/notes.html" "../../weeks/$W/Weekly-Current-Affairs-<DD-Mon>-to-<DD-Mon-YYYY>-Decode-UPSC.pdf"
 ```
 
 Needs pandoc and Playwright (Chromium). Write MCQ options inside a `::: opts` block, as in W43. Update the footer week label in `render.js` each week.
+
+Name the PDF by the week's dates, e.g. `Weekly-Current-Affairs-26-Oct-to-1-Nov-2026-Decode-UPSC.pdf` (owner, 1 Nov 2026), so students can tell the weeks apart in Telegram and their downloads.
