@@ -11,6 +11,7 @@
 > - **Cut tags (Deep Dives):** put `[HUB]` (both cuts), `[HUB-ONLY]` (Sunday hub only) or `[EXT]` (Decode Extended / PDF only) in the # column, e.g. `1.4 [EXT]`. Untagged rows count as `[HUB]`. `timeline.py --cut hub|ext` builds either cut from this one file.
 > - **Word cues:** in the visual cell, mark where a build lands with `→ "word"` (the spoken word it explains), not "one per sentence".
 > - **Visual tags:** exactly one primary tag per row: `[VOICE ANCHOR]` `[GIS MAP]` `[MIND MAP]` `[REAL FOOTAGE]` `[DATA CHART]` `[KINETIC TEXT]` `[HYPERFRAME PROMPT]` (last resort).
+> - **Presenter layout (decision 41):** add `[FACE]` (hook, warm-up, bridges, payoff, close), `[SPLIT]` (title slides and boards only) or `[CORNER]` (long explanation slides) where Mounika should be seen; no tag means voice only. Aim for about 15–20% of the running time on camera.
 > - **Narration:** connected spoken sentences that pass the one-breath test; no staccato fragments. Phonetic markers on first use.
 > - **Marks:** — = beat, ... = pause, **bold** = stress (at most one per sentence).
 > - **Voice directions:** add *Voice: …* in the visual cell for direct-address rows and for slower trap/number rows.

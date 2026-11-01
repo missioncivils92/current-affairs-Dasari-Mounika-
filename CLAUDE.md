@@ -33,7 +33,7 @@ You are the **Lead Researcher and Script Director**. Think and write like a seni
   - accuracy and verification (§3.5–§3.6);
   - Survey of India maps (§6.1);
   - copyright and licensing (§6.4);
-  - voice-only with Mounika's real voice (§1; sole exception: a logged internal, never-published reference sample);
+  - Mounika's real voice and, where shown, her real camera recording (§1); never an AI voice, face or avatar (sole exception: a logged internal, never-published reference sample);
   - non-partisanship and the compliance rules (§9);
   - viewer clarity: if a creative idea makes the explanation harder to follow, it goes.
   - the **runtime limits** in §2 and §4.1 (owner decision, Oct 2026). These are an explicit exception to "soft defaults are guides": only the owner can override them, with a reason logged in the brief.
@@ -47,8 +47,13 @@ You are the **Lead Researcher and Script Director**. Think and write like a seni
   2. **UPSC CSE Mains writers** (GS 1–4 and Essay). They need analysis, committee citations and answer frameworks.
   3. **APPSC / TGPSC Group-1 aspirants.** Serve them through a "Telugu States Lens" segment wherever an issue has a genuine AP/Telangana link. The APPSC Group-1 Screening Test is reported for **24 Jan 2027** (Notification 07/2026, [VERIFY] on psc.ap.gov.in). That date comes first, so it gets its own push (`PLAYBOOK.md` §Exam season).
 - **Positioning:** "One weekly masterclass, alongside one newspaper and instead of daily videos. We teach the static question hiding inside the news." Every segment shows its exam relevance: why it matters for Prelims, for Mains and for Group-1.
-- **Presenter:** **voice-only (faceless channel)** for the early videos (owner decision, Oct 2026). Mounika records all narration on the microphone and never appears on camera. Her real voice is the channel's identity. It also protects monetisation: YouTube's July 2025 YPP update targets mass-produced, repetitive ("inauthentic") content, and a distinct human voice is our clearest signal of original work. Her voice is carried visually by the recurring "Decode Desk" (§6.1).
-- **Never** use an AI avatar, AI face, deepfake, body double, text-to-speech or a voice clone in place of Mounika. Never show her hands or silhouette.
+- **Presenter:** **voice plus on-camera at chosen moments** (owner decision 41, Nov 2026; until then the channel was voice-only, decision of Oct 2026). Mounika records the narration on camera. Her face appears where a script row asks for it and nowhere else:
+  - `[FACE]`: she fills the frame, with a lower-third showing her name and the segment. Use it for the opening hook, the warm-up question, bridges between topics, the examiner's-tricks payoff and the closing.
+  - `[SPLIT]`: her camera fills the left panel and the slide is scaled on the right. Use it only on slides with big text, such as topic title slides and boards, because the slide shrinks to about 60%.
+  - `[CORNER]`: a small round camera sits at the bottom-right of a slide scaled to 80%. Use it on long explanation slides.
+  - **No tag (voice only):** every slide a student reads or copies (news, tables, maps, traps, MCQs, notes, revision sheets) stays full screen with her voice. Aim for her face on about 15–20% of the running time.
+  - **Why:** her real voice and face are the channel's identity and its clearest signal of original work. That matters because YouTube's July 2025 YPP update targets mass-produced, repetitive ("inauthentic") content.
+- **Never** use an AI avatar, AI face, deepfake, body double, text-to-speech or a voice clone in place of Mounika. Only her own recordings are used, and only where a row's layout tag asks for them.
 - **Sole exception:** an internal, never-published reference sample may use text-to-speech narration when the owner logs the decision in `docs/research/mentor-upgrade-decisions.md`. Such files are marked INTERNAL in their README, carry no upload checklist, and are never uploaded to any platform.
 
 ## 2. Output formats
@@ -309,8 +314,8 @@ Each Deep Dive answers **one central question** that is stated aloud near the st
    - It is honest and process-focused: how to revise this week's material in 20 minutes, or one 150-word answer to write this week. It treats setbacks and Plan B as normal.
    - **Banned:** fear framing, hustle glorification ("sixteen hours a day"), rank or selection promises, emotional appeals about family sacrifice, and topper testimonials. India's consumer regulator (CCPA) fined coaching institutes in 2025 over misleading topper claims.
 11. **Closing:** Mounika gives a philosophical or ethical verdict in voice, over the Decode Desk, that links the week's themes. Model it on a UPSC Essay topic: an aphorism illustrated by this week's events. Then give a single CTA, once, after the payoff and never at the start: subscribe, plus the pinned comment (the PDF notes, this week's MCQ challenge, and sharing your score). One CTA only (decision 36). Standalone breadth videos also open with a promise and an opening question, and end on "the examiner's three tricks" (`docs/research/2026-10-narration-that-builds-a-following.md`).
-12. **Voice-only delivery:** viewers never see Mounika, so the voice must carry the warmth.
-    - Mark direct-address rows with voice directions.
+12. **Voice and camera delivery:** on voice-only rows (most of the video) the voice must carry the warmth. On `[FACE]`, `[SPLIT]` and `[CORNER]` rows she looks into the lens and speaks to one aspirant.
+    - Mark direct-address rows with voice directions, and on-camera rows with a layout tag.
     - Use "you" often.
     - Keep a smile in the voice on hooks, analogies and closings.
 
@@ -347,6 +352,8 @@ Two craft rules follow from them (motion review, Oct 2026). Every build is keyed
   - Log it in the handoff so the editor ticks YouTube's **altered/synthetic content** disclosure on upload.
 
 Optional secondary tags: `[ON-SCREEN TEXT]` (exact words, at most 8), `[SFX]`, `[MUSIC]`, and `[PYQ ECHO]` (an overlay card: year · paper · format · frozen fact).
+
+**Presenter layout tags (decision 41):** a row may also carry one of `[FACE]`, `[SPLIT]` or `[CORNER]` (§1). `tools/masterclass-video` makes room for the camera (`timeline.py` reads the tag; `render.html` draws the layout), and `compose_face.py` lays in the camera recording, cut by the same audio plan as the voice so lips stay in sync. Never put `[SPLIT]` or `[CORNER]` on a table, an MCQ or a notes card.
 
 ### 6.2 Strict prohibitions
 
@@ -431,7 +438,7 @@ Generate **3 distinct title + thumbnail concepts** per masterclass.
 - **Thumbnails:**
   - At most 3 words, in white and yellow, placed top-left (away from the mobile timestamp at bottom-right).
   - One tangible visual conflict: an empty assembly line, two flags colliding, a gavel over a server, a satellite view of a river frontline.
-  - **No face (voice-only channel).**
+  - **Her face is allowed** (decision 41): a clear, well-lit photo of Mounika on one side, with at most 3 big words on the other. Without a face, use one concrete hero object (the W44 "pro" set).
   - One bold hero object on the right third, and a small "DECODE UPSC" yellow badge bottom-left as the brand mark.
 - **Description:**
   - A 2-line hook.

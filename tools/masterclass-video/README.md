@@ -109,6 +109,19 @@ First used for `weeks/2026-W44/sample-oleshky/`. `scenes/nsap.js` and `scenes/ec
 - `--stills t1,t2,…` takes a list of times, for example each row's end time minus 0.3 s. A bare `--stills` renders nothing useful.
 - Run `--strict` before every full render.
 
+## Presenter layouts (decision 41)
+
+A row's visual cell may carry `[FACE]`, `[SPLIT]` or `[CORNER]`. `timeline.py` stores it as `layout` (VOICE when absent).
+- **`render.html` makes room for the camera:**
+  - FACE draws a purple backdrop with a lower-third (Mounika · segment);
+  - SPLIT scales the slide to about 60% on the right, beside a 680×1020 camera panel;
+  - CORNER scales the slide to 80% from the top-left, as a rounded card, leaving the bottom-right free.
+- **`compose_face.py <aligned timeline> <camera.mp4> <slides.mp4> <mix.wav> <out.mp4>`** lays the camera in:
+  - it cuts the camera recording by the timeline's `audio_plan`, so the picture matches the voice, and shows a freeze frame during inserted holds;
+  - it overlays the camera only during each layout's rows: FACE above the lower-third, SPLIT in the left panel, CORNER as a 330 px circle.
+
+Test it with a synthetic camera clip (`ffmpeg -f lavfi -i testsrc2 …` muxed with the narration) before the real footage arrives.
+
 ## Sound
 
 `sound_bed.py <timeline.json> <out.wav> [--voice final_audio.wav]` synthesises the bed: a low ambient pad (ducked about 10 dB under the voice, rising in holds and under the end screen), a muted bell per countdown and a page turn for the Decode Archive. It is all own work, so there is nothing to license. Without `--voice` it writes the bed alone for silent previews.
