@@ -1,9 +1,9 @@
-# Voiceover Text — 2026-W45 Short: UAPA bail, the exam question behind an award · v3
+# Voiceover Text — 2026-W45 Short: UAPA bail, the exam question behind an award · v4
 
-**Release:** a YouTube Short (vertical 9:16), about 95–100 s, on camera (decision 41).
+**Release:** a YouTube Short (vertical 9:16), about 2 min, on camera (decision 41).
 **Coverage:** the news of 8 Oct 2026 (Front Line Defenders Award), with the bail record to 1 Nov 2026.
 **Format:** voice-only. Everything below is recorded on the microphone; there is no on-camera recording.
-**Total:** 260 words · about 1.9 min at 135 wpm (1.9–2.0 min at 140–130 wpm)
+**Total:** 331 words · about 2.5 min at 135 wpm (2.4–2.5 min at 140–130 wpm)
 
 Visual directions for the editor are in `02-master-script.md`.
 
@@ -26,7 +26,7 @@ Visual directions for the editor are in `02-master-script.md`.
 
 | Segment | Words | Min |
 |---|---|---|
-| SHORT — UAPA bail | 260 | 1.9 |
+| SHORT — UAPA bail | 331 | 2.5 |
 
 ---
 
@@ -48,11 +48,11 @@ So, what is UAPA? Say it with me: the Unlawful Activities Prevention Act, 1967. 
 
 **🎙️ NARRATION — *slower.***
 
-And here is the clause that decides bail: Section 43D five. Charge prima facie true ga kanipisthe, bail ivvakoodadu. In Watali, 2019, the Supreme Court said judges need not weigh the evidence in detail.
+And here is the clause that decides bail: Section 43D five. Prima facie means at first look. Charge prima facie true ga kanipisthe, bail ivvakoodadu. Take the Watali case of 2019, a Kashmir terror-funding case: the Supreme Court cancelled his bail and said that at this stage judges only check the police papers at first look; they don't hold a mini trial. Ante, bail stage lo full evidence chudaru.
 
 **🎙️ NARRATION — *thoughtful.***
 
-But wait. Trial lekunda ella tharabadi jail lo unchadam nyaayamenaa? Najeeb, 2021, said long custody without trial can justify bail under Article 21. Still, in January 2026, the Court found a prima facie case and denied him bail.
+But wait. Trial lekunda ella tharabadi jail lo unchadam nyaayamenaa? That was the Najeeb case of 2021. He had spent over five years in jail with his trial nowhere near the end, so the Supreme Court upheld his bail under Article 21, our right to life and liberty. Ante, trial chaala late aithe, bail door open avvochu. But for Umar Khalid, in January 2026, the Court found a prima facie case and denied bail.
 
 **🎙️ NARRATION — *slower, firm.***
 
@@ -62,4 +62,4 @@ Now, Prelims trap. Ikkade chaala mandi thappu chesthaaru. Front Line Defenders i
 
 For Mains, remember one line: liberty versus security, and speedy trial is the bridge. Ilaanti oka exam trap roju kalisi nerchukundaam... follow avvandi!
 
-*Words: 260 · about 1.9 min*
+*Words: 331 · about 2.5 min*
