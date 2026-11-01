@@ -22,7 +22,7 @@ SCENES.S2 = (ctx, s) => {                   // the award: who gives it, since wh
     kt(ctx, 'Human Rights Defenders at Risk', W / 2, CAM_TOP + 350, { font: F.ui(38, 800), color: '#4C1D95', align: 'center' });
     ctx.restore(); }
   factChip(ctx, s, 'Irish NGO · Dublin · founded 2001', CAM_TOP + 430, 'irish', '#FFFFFF', '#1B0B45');
-  factChip(ctx, s, 'Every year since 2005', CAM_TOP + 530, 'since', '#E9D5FF', '#1B0B45');
+  factChip(ctx, s, 'Every year since 2005', CAM_TOP + 530, 'thousand', '#E9D5FF', '#1B0B45');
   const R = [['AFRICA', 0, 0], ['AMERICAS', 1, 0], ['ASIA-PACIFIC', 0, 1], ['EUROPE & C. ASIA', 1, 1], ['MIDDLE EAST & N. AFRICA', 0, 2]];
   const r0 = ecue(s, 'region') - 0.4;
   R.forEach(([t, c, r], i) => {
@@ -42,8 +42,8 @@ SCENES.S3 = (ctx, s) => {                   // the news, as our own clipping, th
   clipV(ctx, 50, CAM_TOP + 115, W - 100, 400, bounce(s.t, 0.1), '8 OCT 2026 · TRINITY COLLEGE, DUBLIN', 'Front Line Defenders names Umar Khalid its 2026 Asia-Pacific laureate', 'Front Line Defenders · The Statesman · Outlook', -0.03);
   factChip(ctx, s, 'In custody since 13 Sep 2020', CAM_TOP + 570, 'held', '#FFFFFF', '#1B0B45');
   factChip(ctx, s, 'UAPA · Delhi riots conspiracy case', CAM_TOP + 680, 'delhi', '#FFD60A', '#1B0B45');
-  factChip(ctx, s, 'Police allege conspiracy · he denies it', CAM_TOP + 790, 'denies', '#E9D5FF', '#1B0B45');
-  kt(ctx, 'Trial pending · no view on the merits', 64, 1870, { font: F.ui(28, 700), color: '#E9D5FF', alpha: eia(s, ecue(s, 'denies') + 0.5) });
+  factChip(ctx, s, 'Police allege conspiracy · he denies it', CAM_TOP + 790, 'police', '#E9D5FF', '#1B0B45');
+  kt(ctx, 'Trial pending · no view on the merits', 64, 1870, { font: F.ui(28, 700), color: '#E9D5FF', alpha: eia(s, ecue(s, 'pending')) });
 };
 
 SCENES.S4 = (ctx, s) => {                   // expand UAPA letter by letter, then its timeline

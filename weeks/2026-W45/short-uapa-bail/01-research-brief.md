@@ -46,3 +46,18 @@
 - The title is a question.
 - The pinned "how many" MCQ is there to drive comments.
 - The runtime is about 90 s. Guides favour shorter Shorts for retention, so check the retention graph in Studio after 48 h. If it drops sharply after 60 s, cut the next reel to about 60 s.
+
+## v3: Telugu lines and their English captions (decision 42)
+
+Captions stay in English, so the `.srt` uses these meanings for the Telugu lines:
+
+| Telugu (spoken) | English caption |
+|---|---|
+| అవార్డు వచ్చింది... మరి bail వస్తుందా? | The award came... but will bail come? |
+| 2005 నుంచి ప్రతి సంవత్సరం... ఈ award ఇస్తారు | Every year since 2005, one defender at risk from each world region gets this award. |
+| Police conspiracy అంటున్నారు, ఆయన ఆ ఆరోపణలను ఖండిస్తున్నారు. Case ఇంకా court లో pending. | Police allege a conspiracy; he denies the charges. The case is still pending in court. |
+| అంటే, మన దేశంలో main anti-terror law ఇదే. | That is, India's main anti-terror law. |
+| Charge prima facie true గా కనిపిస్తే, bail ఇవ్వకూడదు. | If the charge looks prima facie true, no bail. |
+| Trial లేకుండా ఏళ్ల తరబడి jail లో ఉంచడం న్యాయమేనా? | Is it fair to keep someone in jail for years without trial? |
+| ఇక్కడే చాలా మంది తప్పు చేస్తారు. | This is where many go wrong. |
+| ఇలాంటి ఒక exam trap రోజూ కలిసి నేర్చుకుందాం... follow అవ్వండి! | Let's learn one exam trap like this every day... follow! |

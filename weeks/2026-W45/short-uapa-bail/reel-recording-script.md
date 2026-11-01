@@ -1,65 +1,94 @@
 <div class="cover">
 <div class="brand">DECODE UPSC <span>with Mounika</span></div>
 <h1>Reel: Can an award get you bail? (UAPA)</h1>
-<p class="sub">YouTube Short · about 90 seconds · lively, neutral, exam-focused · v2</p>
+<p class="sub">YouTube Short · about 1:40 · English + తెలుగు, like talking to a friend · v3</p>
 </div>
 
 ## How to record this reel
 
-- **Phone upright (vertical)**, at eye level, about an arm's length away. Frame from the top of your head to mid-chest. Set the camera to 1080p, 30 fps.
-- **Light in front of you**, in a quiet room.
-- **One take, into the lens, with energy and a smile**, as if you are explaining it to one friend. Sound a little faster and brighter than in the weekly class.
-- **Stay neutral on the case.** It is pending, so we explain the law and give no opinion.
-- **The first and last lines are full-face.** In the middle lines your face sits at the top of the screen while the animations play below. Keep your head near the top-centre of the frame.
-- **Take a small breath between lines.** I cut the pauses afterwards, and each animation lands on the word you say.
-- **If you make a mistake,** pause, say "retake", and read the sentence again.
-- **Sending:** record at **720p** to stay under 30 MB, or upload to Google Drive and send me the link.
+- **Talk; don't read.** Imagine one student sitting across from you over tea, and you are telling them something interesting you just found out. Switch to Telugu naturally, the way you would in class.
+- **The Telugu lines (తెలుగు) are the heart lines:** the question, the feeling and the trap moments. Say them slower and closer, with expression.
+- **Phone upright (vertical)**, at eye level, about an arm's length away. Frame from the top of your head to mid-chest. Set the camera to 1080p, 30 fps, and light the room from the front.
+- **Look into the lens and smile.** It's fine to use your hands and nod.
+- **Stay neutral on the case:** it is pending, so explain the law and give no opinion.
+- **First and last lines are full-face.** In the middle your face shows at the top while the animations play below, so keep your head near the top-centre of the frame.
+- **Pause for a breath between lines.** I trim the pauses, and each animation lands on your words.
+- **If you make a mistake,** pause, say "retake", and repeat the sentence.
+- **Sending:** record at 720p (under 30 MB), or upload to Google Drive and send the link.
 
 ## Script
 
-**📷 FULL FACE: *bright, curious, smile. Ask the question as if you really want to know.***
+**📷 FULL FACE: *like telling a friend something surprising.***
 
-A man in jail since 2020 just won a global human rights award. So, can an award get you bail? Let's decode it.
+Imagine this. A man in jail since 2020 wins a global human rights award.
 
-**🎙️ NARRATION: *friendly, storytelling.***
+🗣️ **అవార్డు వచ్చింది... మరి bail వస్తుందా?**
 
-First, the award. Front Line Defenders, an Irish NGO in Dublin, has honoured human rights defenders at risk every year since 2005, one from each world region.
+Let's decode it together.
 
-This October, its Asia-Pacific award went to Umar Khalid, held in the Delhi riots conspiracy case, which he denies.
+**🎙️ *friendly, curious.***
 
-**🎙️ NARRATION: *stress each word of the full form: Un-law-ful… Ac-ti-vi-ties…***
+So first, who gives this award? Front Line Defenders, an Irish NGO from Dublin.
 
-And the law holding him is UAPA, the **Unlawful Activities Prevention Act** of 1967. It was toughened after the Mumbai attacks of 2008, and since 2019, even an individual can be declared a terrorist.
+🗣️ **2005 నుంచి ప్రతి సంవత్సరం, ప్రమాదంలో ఉన్న human rights defenders కి, ప్రతి world region నుంచి ఒక్కరికి ఈ award ఇస్తారు.**
 
-**🎙️ NARRATION: *slower, teacher voice.***
+**🎙️ *calm, neutral.***
 
-Its bail clause, Section 43D five, says no bail if the charge looks **prima facie true**, and Watali [wa-TAA-lee], 2019, said judges need not weigh the evidence in detail.
+This year, the Asia-Pacific award went to Umar Khalid, held in the Delhi riots conspiracy case.
 
-**🎙️ NARRATION: *lift your voice on "twist".***
+🗣️ **Police conspiracy అంటున్నారు, ఆయన ఆ ఆరోపణలను ఖండిస్తున్నారు. Case ఇంకా court లో pending.**
 
-But here's the **twist**: Najeeb [na-JEEB], 2021, said long jail without trial can justify bail under Article 21. Still, in January 2026, the Supreme Court found a prima facie case and denied him bail.
+**🎙️ *lift your energy, as if teaching the class.***
 
-**🎙️ NARRATION: *slower, firm.***
+So, what is UAPA? Say it with me: the **Unlawful… Activities… Prevention… Act**, 1967.
 
-Prelims trap: Front Line Defenders is an Irish NGO, **not a UN body**, and the 1998 UN Declaration on defenders is **not binding**.
+🗣️ **అంటే, మన దేశంలో main anti-terror law ఇదే.**
+
+It got tougher after the Mumbai attacks of 2008, and since 2019, even an individual can be declared a terrorist.
+
+**🎙️ *slower, important.***
+
+And here is the clause that decides bail: Section 43D(5).
+
+🗣️ **Charge prima facie true గా కనిపిస్తే, bail ఇవ్వకూడదు.**
+
+In Watali [wa-TAA-lee], 2019, the Supreme Court said judges need not weigh the evidence in detail.
+
+**🎙️ *thoughtful, softer.***
+
+But wait.
+
+🗣️ **Trial లేకుండా ఏళ్ల తరబడి jail లో ఉంచడం న్యాయమేనా?**
+
+Najeeb [na-JEEB], 2021, said long custody without trial can justify bail under Article 21. Still, in January 2026, the Court found a prima facie case and denied him bail.
+
+**🎙️ *firm, "write this down" voice.***
+
+Now, Prelims trap.
+
+🗣️ **ఇక్కడే చాలా మంది తప్పు చేస్తారు.**
+
+Front Line Defenders is an Irish NGO, **not a UN body**. And the 1998 UN Declaration on defenders is **not binding**.
 
 **📷 FULL FACE: *warm, smile.***
 
-Mains line: liberty versus security, with speedy trial as the bridge. Follow for one exam trap every day!
+For Mains, remember one line: liberty versus security, and speedy trial is the bridge.
+
+🗣️ **ఇలాంటి ఒక exam trap రోజూ కలిసి నేర్చుకుందాం... follow అవ్వండి!**
 
 ## Upload pack (for more reach)
 
-**Title** (pick one; a question works best for Shorts):
+**Title** (pick one):
 1. Can an Award Get You Bail? UAPA Explained #UPSC #Shorts
-2. UAPA Full Form & Bail Rule in 90s #UPSC #Shorts
+2. UAPA Full Form & Bail Rule #UPSC #Shorts
 3. Section 43D(5) vs Article 21 #UPSC #Shorts
 
 **Description:**
-> Human rights award in the news. But what does UAPA's bail rule say? Unlawful Activities (Prevention) Act 1967, Section 43D(5), Watali 2019 vs K.A. Najeeb 2021, Article 21, plus 2 Prelims traps. Neutral, exam-focused; the case is pending before the courts.
+> Human rights award in the news. But what does UAPA's bail rule say? Unlawful Activities (Prevention) Act 1967, Section 43D(5), Watali 2019 vs K.A. Najeeb 2021, Article 21, plus 2 Prelims traps. Explained in English and Telugu. Neutral and exam-focused: the case is pending before the courts.
 > Full weekly class every Sunday, 6 PM.
-> #UPSC #UPSC2027 #CurrentAffairs #UAPA #Polity #APPSC #TGPSC #Group1 #Shorts
+> #UPSC #UPSC2027 #CurrentAffairs #UAPA #Polity #APPSC #TGPSC #Group1 #Telugu #Shorts
 
-**Pinned comment (gets students commenting, which helps reach):**
+**Pinned comment:**
 > 🧠 Quick test: Consider these statements:
 > 1. Front Line Defenders is a UN body.
 > 2. The 1998 UN Declaration on Human Rights Defenders is legally binding.
@@ -68,7 +97,7 @@ Mains line: liberty versus security, with speedy trial as the bridge. Follow for
 > Comment your answer! ✅ Answer: (a) Only one: statement 3.
 
 **Reach tips:**
-- Post at **6 PM**, when students are free.
+- Post at 6 PM.
 - Reply to the first comments within an hour.
-- Link the Sunday weekly class as the Short's "related video".
-- Keep the first frame (the "CAN AN AWARD GET YOU BAIL?" band) as the thumbnail.
+- Link the Sunday class as the related video.
+- Add "Telugu" to the hashtags: English + Telugu Shorts are rare for UPSC, and that is your edge with APPSC and TGPSC aspirants.
