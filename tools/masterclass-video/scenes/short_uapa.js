@@ -12,7 +12,7 @@ function factChip(ctx, s, t, y, cue, fill, ink, x = 60) {
   exBox(ctx, x, y, w, 80, { fill, r: 40 }); kt(ctx, t, x + 30, y + 54, { font: F.ui(36, 900), color: ink }); ctx.restore();
 }
 
-SCENES.S2 = (ctx, s) => {                   // the award: who gives it, since when, and the five regions
+SCENES.S2 = (ctx, s) => {                   // the award: who gives it, since when, and to whom
   vBase(ctx); camSpace(ctx, CAM_TOP); header(ctx, s, 'THE AWARD', 'For human rights defenders at risk');
   const k = bounce(s.t, ecue(s, 'front'));
   if (k > 0) { ctx.save(); ctx.translate(W / 2, CAM_TOP + 300); ctx.scale(k, k); ctx.translate(-W / 2, -(CAM_TOP + 300));
@@ -23,18 +23,7 @@ SCENES.S2 = (ctx, s) => {                   // the award: who gives it, since wh
     ctx.restore(); }
   factChip(ctx, s, 'Irish NGO · Dublin · founded 2001', CAM_TOP + 430, 'irish', '#FFFFFF', '#1B0B45');
   factChip(ctx, s, 'Every year since 2005', CAM_TOP + 530, 'thousand', '#E9D5FF', '#1B0B45');
-  const R = [['AFRICA', 0, 0], ['AMERICAS', 1, 0], ['ASIA-PACIFIC', 0, 1], ['EUROPE & C. ASIA', 1, 1], ['MIDDLE EAST & N. AFRICA', 0, 2]];
-  const r0 = ecue(s, 'region') - 0.4;
-  R.forEach(([t, c, r], i) => {
-    const kk = bounce(s.t, r0 + i * 0.15); if (kk <= 0) return;
-    const w = r === 2 ? W - 100 : 470, x = 50 + c * 510, y = CAM_TOP + 650 + r * 120, hi = i === 2;
-    const glow = hi ? span(s.t, r0 + 1, r0 + 1.6) : 0;
-    ctx.save(); ctx.translate(x + w / 2, y + 50); ctx.scale(kk * (1 + 0.06 * glow), kk * (1 + 0.06 * glow)); ctx.translate(-(x + w / 2), -(y + 50));
-    if (glow) { ctx.shadowColor = '#FFD60A'; ctx.shadowBlur = 40 * glow; }
-    exBox(ctx, x, y, w, 100, { fill: glow ? '#FFD60A' : 'rgba(255,255,255,0.14)', r: 20 }); ctx.shadowColor = 'transparent';
-    kt(ctx, t, x + w / 2, y + 64, { font: F.ui(38, 900), color: glow ? '#1B0B45' : '#FFFFFF', align: 'center' }); ctx.restore();
-  });
-  kt(ctx, 'One laureate per region', 64, CAM_TOP + 1060, { font: F.ui(30, 700), color: '#E9D5FF', alpha: eia(s, r0 + 1) });
+  factChip(ctx, s, 'For human rights defenders at risk', CAM_TOP + 630, 'risk', '#06D6A0', '#053B2C');
 };
 
 SCENES.S3 = (ctx, s) => {                   // the news, as our own clipping, then the facts on their words
@@ -46,7 +35,7 @@ SCENES.S3 = (ctx, s) => {                   // the news, as our own clipping, th
   kt(ctx, 'Trial pending · no view on the merits', 64, 1870, { font: F.ui(28, 700), color: '#E9D5FF', alpha: eia(s, ecue(s, 'pending')) });
 };
 
-SCENES.S4 = (ctx, s) => {                   // expand UAPA letter by letter, then its timeline
+SCENES.S4 = (ctx, s) => {                   // expand UAPA letter by letter
   vBase(ctx); camSpace(ctx, CAM_TOP); header(ctx, s, 'EXPAND IT', "India's main anti-terror law");
   const L = [['U', 'nlawful', 'unlawful'], ['A', 'ctivities', 'activities'], ['P', 'revention', 'prevention'], ['A', 'ct, 1967', 'act']];
   L.forEach(([c, rest, cue], i) => {
@@ -58,18 +47,7 @@ SCENES.S4 = (ctx, s) => {                   // expand UAPA letter by letter, the
     const n = Math.round(rest.length * clamp((s.t - at) / 0.35));
     if (n > 0) kt(ctx, rest.slice(0, n), 175, y - 4, { font: F.ui(74, 900), color: '#FFFFFF' });
   });
-  const y0 = CAM_TOP + 860, nodes = [[170, '1967', 'Enacted', 'act'], [540, '2008', 'After 26/11 · bail tightened (s.43D)', 'mumbai'], [910, '2019', 'Individuals can be declared terrorists', 'individual']];
-  const t0 = ecue(s, 'act');
-  const grow = span(s.t, t0, ecue(s, 'individual') + 0.3);
-  if (grow > 0) { ctx.save(); ctx.strokeStyle = '#E9D5FF'; ctx.lineWidth = 8; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(90, y0); ctx.lineTo(90 + (990 - 90) * grow, y0); ctx.stroke(); ctx.restore(); }
-  nodes.forEach(([x, yr, lab, cue]) => {
-    const k = bounce(s.t, ecue(s, cue)); if (k <= 0) return;
-    ctx.save(); ctx.translate(x, y0); ctx.scale(k, k); ctx.translate(-x, -y0);
-    ctx.beginPath(); ctx.arc(x, y0, 22, 0, 7); ctx.fillStyle = '#FFD60A'; ctx.fill();
-    kt(ctx, yr, x, y0 - 50, { font: F.ui(56, 900), color: '#FFD60A', align: 'center' });
-    kt(ctx, lab, x, y0 + 80, { font: F.ui(32, 800), color: '#FFFFFF', align: 'center', maxW: 330, lh: 40 });
-    ctx.restore();
-  });
+  card(ctx, 50, CAM_TOP + 800, W - 100, 190, '#FFD60A', bounce(s.t, ecue(s, 'main')), [["INDIA'S MAIN ANTI-TERROR LAW", F.ui(50, 900), '#1B0B45'], ['Its bail rule: Section 43D(5)', F.ui(36, 800), '#6B21A8']]);
 };
 
 SCENES.S5 = (ctx, s) => {                   // the law: s.43D(5) and Watali
