@@ -78,7 +78,7 @@ SCENES.S5 = (ctx, s) => {                   // the law: s.43D(5) and Watali
   card(ctx, 50, CAM_TOP + 200, W - 100, 400, '#FFD60A', bounce(s.t, a1), [['SECTION 43D(5)', F.ui(78, 900), '#1B0B45'], ['No bail if there are reasonable grounds to believe the accusation is', F.ui(38, 800), '#1B0B45'], ['PRIMA FACIE TRUE', F.ui(54, 900), '#7C3AED']]);
   const a2 = ecue(s, 'watali'), k = span(s.t, a2, a2 + 0.5);
   if (k > 0) { ctx.save(); ctx.translate((1 - easeOut(k)) * 1000, 0);
-    card(ctx, 50, CAM_TOP + 660, W - 100, 330, '#FFFFFF', 1, [['NIA v. WATALI · 2019', F.ui(46, 900), '#7C3AED'], ['At the bail stage, courts need not weigh the evidence in detail', F.ui(40, 800), '#1B0B45']]); ctx.restore(); }
+    card(ctx, 50, CAM_TOP + 660, W - 100, 330, '#FFFFFF', 1, [['NIA v. WATALI · 2019', F.ui(46, 900), '#7C3AED'], ['Kashmir terror-funding case · bail cancelled', F.ui(34, 800), '#6B21A8'], ['First look only · no mini-trial', F.ui(44, 900), '#1B0B45']]); ctx.restore(); }
 };
 
 SCENES.S6 = (ctx, s) => {                   // the balance: s.43D(5) against Article 21
@@ -94,7 +94,7 @@ SCENES.S6 = (ctx, s) => {                   // the balance: s.43D(5) against Art
     exBox(ctx, ex - 170, ey + 70, 340, 150, { fill, r: 22 });
     kt(ctx, t, ex, ey + 140, { font: F.ui(34, 900), color: ink, align: 'center' }); kt(ctx, sub, ex, ey + 190, { font: F.ui(30, 700), color: ink, align: 'center' });
   });
-  card(ctx, 50, CAM_TOP + 650, W - 100, 210, '#FFFFFF', bounce(s.t, tN), [['K.A. NAJEEB · 2021', F.ui(42, 900), '#06A77D'], ['Long custody without trial can justify bail (Art 21)', F.ui(36, 800), '#1B0B45']]);
+  card(ctx, 50, CAM_TOP + 650, W - 100, 210, '#FFFFFF', bounce(s.t, tN), [['K.A. NAJEEB · 2021', F.ui(42, 900), '#06A77D'], ['5+ years in jail, trial far off: bail upheld (Art 21)', F.ui(34, 800), '#1B0B45']]);
   card(ctx, 50, CAM_TOP + 880, W - 100, 190, '#FDE68A', bounce(s.t, tJ), [['JAN 2026 · SUPREME COURT', F.ui(40, 900), '#7C3AED'], ['Prima facie case found · bail denied', F.ui(36, 800), '#1B0B45']]);
   kt(ctx, 'May 2026: question referred to a larger bench (reported)', 64, 1885, { font: F.ui(26, 700), color: '#E9D5FF', alpha: eia(s, tJ + 2) });
 };

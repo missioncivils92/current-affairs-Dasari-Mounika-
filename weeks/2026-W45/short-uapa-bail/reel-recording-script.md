@@ -1,7 +1,7 @@
 <div class="cover">
 <div class="brand">DECODE UPSC <span>with Mounika</span></div>
 <h1>Reel: Can an award get you bail? (UAPA)</h1>
-<p class="sub">YouTube Short · about 1:40 · English + తెలుగు, like talking to a friend · v3</p>
+<p class="sub">YouTube Short · about 2:00 · English + తెలుగు, like talking to a friend · v3</p>
 </div>
 
 ## How to record this reel
@@ -48,11 +48,13 @@ It got tougher after the Mumbai attacks of 2008, and since 2019, even an individ
 
 **🎙️ *slower, important.***
 
-And here is the clause that decides bail: Section 43D(5).
+And here is the clause that decides bail: Section 43D(5). Prima facie means *at first look*.
 
 🗣️ **Charge prima facie true గా కనిపిస్తే, bail ఇవ్వకూడదు.**
 
-In Watali [wa-TAA-lee], 2019, the Supreme Court said judges need not weigh the evidence in detail.
+Take the Watali [wa-TAA-lee] case of 2019, a Kashmir terror-funding case: the Supreme Court cancelled his bail and said that at this stage judges only check the police papers at first look; they don't hold a mini trial.
+
+🗣️ **అంటే, bail stage లో full evidence చూడరు.**
 
 **🎙️ *thoughtful, softer.***
 
@@ -60,7 +62,11 @@ But wait.
 
 🗣️ **Trial లేకుండా ఏళ్ల తరబడి jail లో ఉంచడం న్యాయమేనా?**
 
-Najeeb [na-JEEB], 2021, said long custody without trial can justify bail under Article 21. Still, in January 2026, the Court found a prima facie case and denied him bail.
+That was the Najeeb [na-JEEB] case of 2021. He had spent over 5 years in jail with his trial nowhere near the end, so the Supreme Court upheld his bail under Article 21, our right to life and liberty.
+
+🗣️ **అంటే, trial చాలా late అయితే, bail door open అవ్వొచ్చు.**
+
+But for Umar Khalid, in January 2026, the Court found a prima facie case and denied bail.
 
 **🎙️ *firm, "write this down" voice.***
 
