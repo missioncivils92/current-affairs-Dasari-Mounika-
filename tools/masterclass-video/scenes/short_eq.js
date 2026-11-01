@@ -148,3 +148,27 @@ SCENES.S7 = (ctx, s) => {                   // three traps, each struck through 
 };
 
 SCENES.S8 = (ctx, s) => { vBase(ctx); camSpace(ctx, CAM_FACE); band(ctx, s, [['1 EXAM TRAP', '#FFD60A', 104, 'trap'], ['EVERY DAY · DECODE UPSC', '#FFFFFF', 60, 'every']]); };
+
+// how it was reported: two clippings in our own design (no real newspaper page; §6.4), and an official-notice slot
+// that shows a PIB or BIS screenshot when A['official_notice'] is loaded (brand/ or assets), else a labelled frame
+function clipV(ctx, x, y, w, h, k, date, head, src, rot) {
+  if (k <= 0) return; ctx.save(); ctx.translate(x + w / 2, y + h / 2); ctx.rotate(rot * (2 - Math.min(1, k))); ctx.scale(k, k); ctx.translate(-(x + w / 2), -(y + h / 2));
+  ctx.shadowColor = 'rgba(0,0,0,0.45)'; ctx.shadowBlur = 30; ctx.shadowOffsetY = 10; ctx.fillStyle = '#FBF6EA'; ctx.fillRect(x, y, w, h); ctx.shadowColor = 'transparent';
+  exLogo(ctx, x + 50, y + 52, 30); kt(ctx, 'THE DECODE DESK', x + 96, y + 66, { font: F.head(38, 900), color: '#1B1B1B' });
+  ctx.fillStyle = '#1B1B1B'; ctx.fillRect(x + 30, y + 96, w - 60, 3);
+  kt(ctx, date, x + 30, y + 136, { font: F.ui(28, 800), color: '#5A4A32' });
+  kt(ctx, head, x + 30, y + 190, { font: F.head(40, 800), color: '#1B1B1B', maxW: w - 60, lh: 48 });
+  kt(ctx, 'Reported by: ' + src, x + 30, y + h - 30, { font: F.ui(26, 700), color: '#5A4A32', maxW: w - 60 });
+  ctx.restore();
+}
+SCENES.S9 = (ctx, s) => {
+  vBase(ctx); camSpace(ctx, CAM_TOP); header(ctx, s, 'HOW IT WAS REPORTED');
+  clipV(ctx, 50, CAM_TOP + 115, 660, 380, bounce(s.t, 0.3), 'NOV 2025', 'BIS releases a revised earthquake code with a new Zone VI', 'ThePrint · Vision IAS', -0.04);
+  clipV(ctx, 370, CAM_TOP + 505, 660, 380, bounce(s.t, ecue(s, 'withdrawal', 1.4)), 'MAR 2026', 'BIS withdraws the 2025 seismic code; the 2016 code applies', 'Economic Times · ETV Bharat', 0.05);
+  const a = eia(s, ecue(s, 'check', 2.5)), img = A['official_notice'];
+  if (img) { ctx.save(); ctx.globalAlpha *= a; const bh = 230, bw = Math.min(W - 120, bh * img.width / img.height); ctx.drawImage(img, 60, 1650, bw, bh); ctx.restore();
+    exChip(ctx, 'OFFICIAL: ' + (window.NOTICE_CREDIT || 'Source: PIB'), 60, 1595, '#06D6A0', '#053B2C', 26, a); }
+  else { ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = '#06D6A0'; ctx.setLineDash([16, 10]); ctx.lineWidth = 5; ctx.strokeRect(60, 1640, W - 120, 240); ctx.restore();
+    kt(ctx, 'OFFICIAL NOTICE: PIB / BIS SCREENSHOT', W / 2, 1750, { font: F.ui(36, 900), color: '#06D6A0', align: 'center', alpha: a });
+    kt(ctx, 'Always check the date before you trust a map', W / 2, 1805, { font: F.ui(30, 700), color: '#E9D5FF', align: 'center', alpha: a }); }
+};
