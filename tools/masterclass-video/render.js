@@ -3,6 +3,7 @@
 //   node render.js <assets_dir> <timeline.json> <scene_file.js> <out.mp4> [--review] [--strict] [--fps 30] [--from s] [--to s]
 //   --strict stops the render if any word cue (s.w("...") in a scene) is missing from the narration.
 //   node render.js <assets_dir> <timeline.json> <scene_file.js> <out_dir> --stills 12.5,40,95
+//   --size 1080x1920 renders vertically (Shorts and Reels); the scene file must lay itself out for that size.
 //
 // <assets_dir> must contain: fonts/local.css (+ ttf), d3.min.js, geo.json, terrain/*.png|json, sat/*.png|json.
 // Audio: pass --audio <file> to mux a narration track (the final cut); preview renders are silent.
@@ -13,6 +14,7 @@ const fs = require('fs'), path = require('path');
 const [assets, tlFile, sceneFile, out] = process.argv.slice(2, 6).map(p => path.resolve(p));
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
 const fps = +arg('--fps', 30), review = process.argv.includes('--review');
+const [VW, VH] = arg('--size', '1920x1080').split('x').map(Number);   // --size 1080x1920 renders a vertical Short
 const stills = arg('--stills', null), audio = arg('--audio', null);
 
 (async () => {
@@ -24,7 +26,8 @@ const stills = arg('--stills', null), audio = arg('--audio', null);
     if (f.endsWith('.png') && !f.startsWith('p_')) images[f.replace('.png', '')] = 'file://' + path.join(dir, f);
   }
   const browser = await chromium.launch({ args: ['--allow-file-access-from-files', '--disable-web-security'] });
-  const page = await browser.newPage({ viewport: { width: 1920, height: 1080 } });
+  const page = await browser.newPage({ viewport: { width: VW, height: VH } });
+  await page.addInitScript(([w, h]) => { window.SIZE = [w, h]; }, [VW, VH]);
   const pageErrors = [];
   page.on('pageerror', e => { pageErrors.push(e.message); console.error('PAGE ERROR', e.message); });
   page.on('console', m => { if (m.type() === 'error') console.error('console:', m.text()); });

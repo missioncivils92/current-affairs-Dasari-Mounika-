@@ -18,7 +18,7 @@ window.boot = async (cfg) => {
   Object.assign(A, cfg.data);
   for (const [k, v] of Object.entries(cfg.images)) A[k] = await loadImg(v);
   TL = cfg.timeline; makeGrain();
-  ctx = document.getElementById('c').getContext('2d');
+  const cv = document.getElementById('c'); cv.width = W; cv.height = H; ctx = cv.getContext('2d');
   const mk = () => { const c = document.createElement('canvas'); c.width = W; c.height = H; return c; };
   bufA = mk(); bufB = mk();
   // dry run: draw every row at a few points so every word cue is looked up once, then report the ones not found
@@ -85,6 +85,7 @@ function presenterBackdrop(g, row, t) {
 function drawRow(c, row, t) {
   const g = c.getContext('2d'); g.save(); g.clearRect(0, 0, W, H);
   const s = sceneState(row, t); const L = LAYOUT[row.layout];
+  if (W < H) { drawScene(g, row, s); g.restore(); return s; }    // vertical Shorts: the scene file lays out the camera space itself
   if (row.layout === 'FACE') presenterBackdrop(g, row, t);
   else if (L) {
     if (!bufS) { bufS = document.createElement('canvas'); bufS.width = W; bufS.height = H; }
