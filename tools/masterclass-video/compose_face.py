@@ -15,12 +15,17 @@ Vertical Shorts (--vertical, 1080×1920): FACE fills the top 1080×1500 (the sce
 TOP fills the top 1080×760 above the visual.
 
 Usage: python3 -I compose_face.py <aligned timeline.json> <camera video> <rendered slides.mp4> <mix.wav> <out.mp4> [--vertical]
+       [--face-y N] [--top-y N]   (vertical: the top edge of the FACE and TOP crops in the camera frame; lower N
+                                   when the head sits high in the frame)
 """
 import json, subprocess, sys, tempfile
 from pathlib import Path
 
 tl_path, cam, slides, mix, out = sys.argv[1:6]
 VERT = '--vertical' in sys.argv
+def opt(name, default):
+    return int(sys.argv[sys.argv.index(name) + 1]) if name in sys.argv else default
+FACE_Y, TOP_Y = opt('--face-y', 120), opt('--top-y', 420)   # vertical: where the crops start in the camera frame
 FW, FH = (1080, 1920) if VERT else (1920, 1080)
 tl = json.load(open(tl_path))
 assert "audio_plan" in tl, "timeline has no audio_plan: build it with timeline.py --align"
@@ -65,7 +70,7 @@ def ranges(kind):
 
 fc = (
     f"[1:v]split=2[cf][ct];"
-    f"[cf]crop=1080:1500:0:120[face];[ct]crop=1080:760:0:420[top];"                # vertical: face area, top panel
+    f"[cf]crop=1080:1500:0:{FACE_Y}[face];[ct]crop=1080:760:0:{TOP_Y}[top];"                # vertical: face area, top panel
     f"[0:v][face]overlay=0:0:enable='{ranges('FACE')}'[v1];"
     f"[v1][top]overlay=0:0:enable='{ranges('TOP')}'[v]"
 ) if VERT else (

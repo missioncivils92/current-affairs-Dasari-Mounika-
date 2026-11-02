@@ -3,7 +3,7 @@
 // Neutral by design: the allegation and the denial are both on screen, there is no photograph of the accused, and
 // nothing predicts the pending case (CLAUDE.md §9). Every build lands on the word that names it.
 
-SCENES.S1 = (ctx, s) => { vBase(ctx); camSpace(ctx, CAM_FACE); band(ctx, s, [['CAN AN AWARD', '#FFFFFF', 84, 'award'], ['GET YOU BAIL?', '#FFD60A', 124, 'bail']]); };
+SCENES.S1 = (ctx, s) => { vBase(ctx); camSpace(ctx, CAM_FACE); band(ctx, s, [['CAN AN AWARD', '#FFFFFF', 84, -1], ['GET YOU BAIL?', '#FFD60A', 124, -0.8]]); };   // band on screen from frame 1: it is the Short's thumbnail
 
 function factChip(ctx, s, t, y, cue, fill, ink, x = 60) {
   const at = ecue(s, cue), k = bounce(s.t, at); if (k <= 0) return;
