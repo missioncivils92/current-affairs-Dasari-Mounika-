@@ -15,8 +15,9 @@ Vertical Shorts (--vertical, 1080×1920): FACE fills the top 1080×1500 (the sce
 TOP fills the top 1080×760 above the visual.
 
 Usage: python3 -I compose_face.py <aligned timeline.json> <camera video> <rendered slides.mp4> <mix.wav> <out.mp4> [--vertical]
-       [--face-y N] [--top-y N]   (vertical: the top edge of the FACE and TOP crops in the camera frame; lower N
+       [--face-y N] [--top-y N] [--clean]   (vertical: the top edge of the FACE and TOP crops in the camera frame; lower N
                                    when the head sits high in the frame)
+       --clean: natural skin smoothing, colour and light correction on the camera (no reshaping, no AI)
 """
 import json, subprocess, sys, tempfile
 from pathlib import Path
@@ -26,6 +27,10 @@ VERT = '--vertical' in sys.argv
 def opt(name, default):
     return int(sys.argv[sys.argv.index(name) + 1]) if name in sys.argv else default
 FACE_Y, TOP_Y = opt('--face-y', 120), opt('--top-y', 420)   # vertical: where the crops start in the camera frame
+# --clean: a natural "clean and neat" camera look (owner, 2 Nov 2026): light denoise, edge-preserving skin smoothing,
+# a touch of brightness, contrast and warmth, and gentle sharpening so the eyes stay crisp. No face reshaping, no AI.
+CLEAN = ("hqdn3d=3:2:4:4,bilateral=sigmaS=10:sigmaR=0.08,eq=brightness=0.02:contrast=1.08:gamma=1.05:saturation=1.12,"
+         "colorbalance=rm=0.04:bm=-0.03,unsharp=5:5:0.5,") if '--clean' in sys.argv else ""
 FW, FH = (1080, 1920) if VERT else (1920, 1080)
 tl = json.load(open(tl_path))
 assert "audio_plan" in tl, "timeline has no audio_plan: build it with timeline.py --align"
@@ -41,7 +46,7 @@ for op in tl["audio_plan"]:
         if e - s < 0.04:
             continue
         cmd = ["ffmpeg", "-loglevel", "error", "-y", "-ss", f"{s:.3f}", "-i", cam, "-t", f"{e - s:.3f}", "-an",
-               "-vf", f"scale={FW}:{FH}:force_original_aspect_ratio=increase,crop={FW}:{FH},fps={FPS},setsar=1",
+               "-vf", f"{CLEAN}scale={FW}:{FH}:force_original_aspect_ratio=increase,crop={FW}:{FH},fps={FPS},setsar=1",
                "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", str(p)]
     else:                                                       # a hold: freeze the last kept camera frame
         prev = parts[-1] if parts else None

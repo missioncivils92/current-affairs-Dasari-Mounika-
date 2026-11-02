@@ -74,3 +74,4 @@ Captions stay in English, so the `.srt` uses these meanings for the Telugu lines
   - The hook band ("CAN AN AWARD GET YOU BAIL?") now shows from frame 1, because that frame becomes the Short's thumbnail.
 - **Final:** 2:08, music ducked under the voice, a 0.4 s fade-out at the end.
 - **Captions:** `Reel-UAPA-Bail-captions-EN.srt` is English only; the Telugu lines carry their English meaning (see the v3 table above).
+- **Clean look (owner, 2 Nov):** "keep my face clean and neat". The camera got a natural clean-up: light denoise, edge-preserving skin smoothing, a touch more brightness, contrast and warmth, and gentle sharpening. Features are not reshaped and no AI is used. This is now `compose_face.py --clean` for every future reel.
