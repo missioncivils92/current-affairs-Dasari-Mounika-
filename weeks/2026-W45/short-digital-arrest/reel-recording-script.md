@@ -1,13 +1,14 @@
 <div class="cover">
 <div class="brand">DECODE UPSC <span>with Mounika</span></div>
 <h1>Reel: "Digital arrest": what UPSC will ask</h1>
-<p class="sub">YouTube Short · about 1:20 · English + తెలుగు · post Tue 3 Nov, 6 PM</p>
+<p class="sub">YouTube Short · about 1:35 · English + తెలుగు · post Tue 3 Nov, 6 PM</p>
 </div>
 
 ## How to record
 
 - **Talk to one friend.** This topic protects people, so sound caring and confident, never scary.
 - **Telugu lines (🗣️)** are the heart lines: say them slower and closer to the camera.
+- **The bold questions** ("What if…", "How is it possible…", "Can someone really…") are the hooks. Ask each one as if you really want to know, pause for half a second, then answer.
 - **Hold the phone upright** at eye level, an arm's length away. Leave a little space above your head, and keep your head near the top-centre of the frame.
 - **Light:** face a window or lamp, and wipe the lens first.
 - **Finishing:** after the last line, **stay still and smile for 2 seconds** before you reach for the phone. Then I can cut cleanly.
@@ -15,35 +16,39 @@
 
 ## Script
 
-**📷 FULL FACE: *like telling a friend, half-smile.***
+**The story in one line:** what the scam is → what the Supreme Court did → the job it gave each institution → why the CBI needed the states → the trap.
 
-Your phone rings: you are under digital arrest!
+**📷 FULL FACE: *curious, like asking a friend "what would you do?"***
+
+**What if** your phone rings right now, and a man in uniform says, you are under digital arrest?
 
 🗣️ **భయపడకండి, ఇది scam.**
 
-And this week the Supreme Court asked who should pay for it.
+**So how does this scam work, and what has the Supreme Court done about it?**
+
+**🎙️ *storytelling, step by step.***
+
+Here is how it works. A fake officer on a video call says your name is in a crime case, keeps you on camera for hours, and makes you send money to a so-called safe account, which is really a **mule account**.
+
+🗣️ **కానీ గుర్తుంచుకోండి**, there is no such thing as digital arrest in Indian law.
 
 **🎙️ *clear, news voice.***
 
-On October 29th, in its suo motu case, the Court proposed that banks compensate victims when their own negligence let the fraud through. Over 21,000 complaints, and 647 crore rupees lost, in just 8 months of this year.
+In October 2025, after a senior citizen wrote to the Chief Justice, the Supreme Court took up the issue on its own, as a **suo motu** case. The Home Ministry told the Court: over 21,000 complaints, and 647 crore rupees lost, in just 8 months of this year.
 
-**🎙️ *firm.***
+**🎙️ *energetic: "each one got a job".***
 
-Exam fact one: there is no such thing as digital arrest in Indian law.
+Now, the Court gave **each institution a job**. The **CBI** got a pan-India probe. The **RBI and banks** must hunt down mule accounts, and on October 29th the Court proposed that banks compensate victims when their own negligence let the fraud through. And the Home Ministry's **I-4-C**, which runs the **1930** helpline, collects every complaint.
 
-🗣️ **Video call లో CBI, police, ED, ఎవరూ arrest చేయరు.**
+**🎙️ *puzzled on the question, then slower on the trap.***
 
-**🎙️ *lift your energy: "the pair UPSC loves".***
+**But how is it possible** that the Court had to ask the states before sending the CBI? Because police is a **State subject**, and the CBI is **not a statutory body**: a Home Ministry resolution set it up in 1963, and its powers come from the DSPE Act of 1946, which needs state consent.
 
-Now the look-alike pair UPSC loves: I-4-C, the cybercrime coordination centre, is under the **Home Ministry** and runs the **1930** helpline, while CERT-In is under the **IT Ministry**, under **Section 70B** of the IT Act.
-
-**🎙️ *slower, "write this down" voice.***
-
-Why did the Court ask states to consent to a CBI probe? Because police is a **State subject**. Prelims trap: the CBI is **not a statutory body**; a Home Ministry resolution set it up in 1963, and its powers come from the DSPE Act of 1946.
+🗣️ **ఇదే Prelims trap!**
 
 **📷 FULL FACE: *warm, smile.***
 
-Remember: no digital arrest in law, and call 1930.
+So remember: no digital arrest in law, and call 1930.
 
 🗣️ **ఈ video మీ family తో share చేయండి**, and follow for one exam trap every day!
 
@@ -53,11 +58,11 @@ Remember: no digital arrest in law, and call 1930.
 
 **Title** (pick one):
 1. Is "Digital Arrest" Legal? What UPSC Will Ask #UPSC #Shorts
-2. CBI, I4C or CERT-In? Digital Arrest Trap #UPSC #Shorts
+2. Digital Arrest: Who Does What? CBI, RBI, I4C #UPSC #Shorts
 3. Supreme Court on Digital Arrest Scams #UPSC #Shorts
 
 **Description:**
-> "Digital arrest" scams and the Supreme Court hearing of 29 Oct 2026: who is liable, and what UPSC will ask. There is no "digital arrest" in law; I4C (MHA, 1930 helpline) vs CERT-In (MeitY, IT Act s.70B); why the CBI needs state consent; the CBI is not a statutory body (MHA resolution 1963, DSPE Act 1946). Explained in English and Telugu.
+> "Digital arrest" scams and the Supreme Court hearing of 29 Oct 2026: who is liable, and what UPSC will ask. How the scam works; there is no "digital arrest" in law; the job the Court gave the CBI (pan-India probe), RBI and banks (mule accounts, compensation) and I4C (MHA, 1930 helpline); why the CBI needs state consent; the CBI is not a statutory body (MHA resolution 1963, DSPE Act 1946). Explained in English and Telugu.
 > Report cyber fraud: call 1930 or visit cybercrime.gov.in.
 > Full weekly class every Sunday, 6 PM.
 > #UPSC #UPSC2027 #CurrentAffairs #DigitalArrest #CyberSecurity #Polity #APPSC #TGPSC #Telugu #Shorts
