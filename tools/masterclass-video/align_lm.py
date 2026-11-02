@@ -58,10 +58,34 @@ arpa = ["\\data\\", f"ngram 1={len(uni)}", f"ngram 2={len(bi)}", "", "\\1-grams:
 arpa += [f"{math.log10(c / N):.4f} {w} -0.3" for w, c in uni.items()]
 arpa += ["", "\\2-grams:"] + [f"{math.log10(0.7 * c / uni[a]):.4f} {a} {b}" for (a, b), c in bi.items()] + ["", "\\end\\", ""]
 (tmp / "script.arpa").write_text("\n".join(arpa))
+# romanised Telugu (decision 42: Shorts code-mix Telugu, written in roman letters in the master script) gets a
+# letter-to-sound guess, so the Telugu lines still anchor the alignment
+G2P = [("aa", "AA"), ("ee", "IY"), ("ii", "IY"), ("oo", "UW"), ("uu", "UW"), ("ai", "AY"), ("au", "AW"), ("th", "T"), ("dh", "D"),
+       ("kh", "K"), ("gh", "G"), ("ch", "CH"), ("sh", "SH"), ("ph", "P"), ("bh", "B"), ("jh", "JH"), ("a", "AH"), ("e", "EY"),
+       ("i", "IH"), ("o", "OW"), ("u", "UH"), ("k", "K"), ("g", "G"), ("j", "JH"), ("t", "T"), ("d", "D"), ("n", "N"), ("p", "P"),
+       ("b", "B"), ("m", "M"), ("y", "Y"), ("r", "R"), ("l", "L"), ("v", "V"), ("w", "W"), ("s", "S"), ("h", "HH"), ("f", "F"),
+       ("z", "Z"), ("c", "K"), ("q", "K"), ("x", "K S")]
+
+
+def g2p(w):
+    out, i = [], 0
+    while i < len(w):
+        for k, v in G2P:
+            if w.startswith(k, i):
+                if not (out and out[-1] == v):              # doubled consonants (vachindi, okkariki) are one phone
+                    out.append(v)
+                i += len(k); break
+        else:
+            i += 1
+    if out:
+        print(f"  letter-to-sound: {w} -> {' '.join(out)}")
+    return " ".join(out) or None
+
+
 dic = Decoder(samprate=sr, loglevel="FATAL")             # a plain decoder only to look up the default dictionary
 lines = []
 for w in sorted(set(words)):
-    p = dic.lookup_word(w) or OOV.get(w)
+    p = dic.lookup_word(w) or OOV.get(w) or g2p(w)
     if p is None:
         sys.exit(f"No pronunciation for {w!r}: add it to OOV in align_vo.py")
     lines.append(f"{w} {p}")

@@ -61,3 +61,16 @@ Captions stay in English, so the `.srt` uses these meanings for the Telugu lines
 | Trial లేకుండా ఏళ్ల తరబడి jail లో ఉంచడం న్యాయమేనా? | Is it fair to keep someone in jail for years without trial? |
 | ఇక్కడే చాలా మంది తప్పు చేస్తారు. | This is where many go wrong. |
 | ఇలాంటి ఒక exam trap రోజూ కలిసి నేర్చుకుందాం... follow అవ్వండి! | Let's learn one exam trap like this every day... follow! |
+
+## Build log (2 Nov 2026)
+
+- **Recording:** Mounika's vertical camera take, 2:13 (1080×1920, 30 fps). It was cut at 2:12.4, just after "follow avvandi!", because her hand reaches for the camera after that.
+- **Alignment:**
+  - `align_lm.py` anchored 52% of the words.
+  - The Telugu lines now use a letter-to-sound fallback for romanised words.
+  - S1 aligned weakly, so caption cues 2 and 3 were merged.
+- **Camera crops:**
+  - Her head sits high in the frame, so the TOP and FACE crops start at y = 0 (`compose_face.py --face-y 0 --top-y 0`, new options).
+  - The hook band ("CAN AN AWARD GET YOU BAIL?") now shows from frame 1, because that frame becomes the Short's thumbnail.
+- **Final:** 2:08, music ducked under the voice, a 0.4 s fade-out at the end.
+- **Captions:** `Reel-UAPA-Bail-captions-EN.srt` is English only; the Telugu lines carry their English meaning (see the v3 table above).
