@@ -42,7 +42,8 @@
 
 **Creative idea this week (§0.1):**
 - The reel opens with **a ringing "incoming video call" card** that the hook band answers.
-- The **look-alike pair** (I4C vs CERT-In) is shown as a split card, so the trap is visible as a contrast.
+- v1 showed the look-alike pair (I4C vs CERT-In) as a split card.
+- **v3 (owner: "unclear, no connection")** replaces it with a **"one case, three jobs" mind map**. The Court's case sits at the centre, with the CBI, RBI + banks and I4C as branches, each with the job the Court gave it. CERT-In is dropped because it has no role in the case. Lesson for future reels: every institution named must be linked to the story by what it does in it.
 
 ## Sources
 - [LiveLaw: SC directions on digital arrest scams](https://www.livelaw.in/top-stories/digital-arrest-scams-supreme-court-issues-directions-for-prevention-compensation-greivance-redressal-544292)

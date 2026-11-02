@@ -1,9 +1,9 @@
-# Voiceover Text — 2026-W45 Short: "Digital arrest", the Supreme Court and who's who · v1
+# Voiceover Text — 2026-W45 Short: "Digital arrest", the Supreme Court and who's who · v3
 
-**Release:** Tue 3 Nov 2026, 6:00 PM IST · YouTube Short (vertical 9:16), about 80 s, on camera (decision 41).
+**Release:** Tue 3 Nov 2026, 6:00 PM IST · YouTube Short (vertical 9:16), about 95 s, on camera (decision 41).
 **Coverage:** the SC hearing of 29 Oct 2026, plus MHA data for Jan–Aug 2026.
 **Format:** voice-only. Everything below is recorded on the microphone; there is no on-camera recording.
-**Total:** 198 words · about 1.5 min at 135 wpm (1.4–1.5 min at 140–130 wpm)
+**Total:** 285 words · about 2.1 min at 135 wpm (2.0–2.2 min at 140–130 wpm)
 
 Visual directions for the editor are in `02-master-script.md`.
 
@@ -26,7 +26,7 @@ Visual directions for the editor are in `02-master-script.md`.
 
 | Segment | Words | Min |
 |---|---|---|
-| SHORT — Digital arrest | 198 | 1.5 |
+| SHORT — Digital arrest | 285 | 2.1 |
 
 ---
 
@@ -34,24 +34,24 @@ Visual directions for the editor are in `02-master-script.md`.
 
 Save as: `short-digital-arrest_VO_short.wav`
 
-**🎙️ NARRATION — *like telling a friend, half-smile.***
+**🎙️ NARRATION — *curious, like asking a friend.***
 
-Your phone rings: you are under digital arrest! Bhayapadakandi, idi scam. And this week the Supreme Court asked who should pay for it.
+What if your phone rings right now, and a man in uniform says, you are under digital arrest? Bhayapadakandi, idi scam. So how does this scam work, and what has the Supreme Court done about it?
 
 **🎙️ NARRATION**
 
-On October 29th, in its suo motu case, the Court proposed that banks compensate victims when their own negligence let the fraud through. Over 21,000 complaints, and 647 crore rupees lost, in just eight months of this year.
+Here is how it works. A fake officer on a video call says your name is in a crime case, keeps you on camera for hours, and makes you send money to a so-called safe account, which is really a mule account. Kani gurthunchukondi, there is no such thing as digital arrest in Indian law.
 
-Exam fact one: there is no such thing as digital arrest in Indian law. Video call lo CBI, police, ED, evaru arrest cheyyaru.
+In October 2025, after a senior citizen wrote to the Chief Justice, the Supreme Court took up the issue on its own, as a suo motu case. The Home Ministry told the Court: over 21,000 complaints, and 647 crore rupees lost, in just eight months of this year.
 
-Now the look-alike pair UPSC loves: I-four-C, the cybercrime coordination centre, is under the Home Ministry and runs the 1930 helpline, while CERT-In is under the IT Ministry, under Section 70B of the IT Act.
+Now, the Court gave each institution a job. The CBI got a pan-India probe. The RBI and banks must hunt down mule accounts, and on October 29th the Court proposed that banks compensate victims when their own negligence let the fraud through. And the Home Ministry's I-four-C, which runs the 1930 helpline, collects every complaint.
 
-**🎙️ NARRATION — *slower.***
+**🎙️ NARRATION — *puzzled on the question, slower on the trap.***
 
-Why did the Court ask states to consent to a CBI probe? Because police is a State subject. Prelims trap: the CBI is not a statutory body; a Home Ministry resolution set it up in 1963, and its powers come from the DSPE Act of 1946.
+But how is it possible that the Court had to ask the states before sending the CBI? Because police is a State subject, and the CBI is not a statutory body: a Home Ministry resolution set it up in 1963, and its powers come from the DSPE Act of 1946, which needs state consent. Ide Prelims trap!
 
 **🎙️ NARRATION — *warm, smile.***
 
-Remember: no digital arrest in law, and call 1930. Ee video mee family tho share cheyyandi, and follow for one exam trap every day!
+So remember: no digital arrest in law, and call 1930. Ee video mee family tho share cheyyandi, and follow for one exam trap every day!
 
-*Words: 198 · about 1.5 min*
+*Words: 285 · about 2.1 min*
