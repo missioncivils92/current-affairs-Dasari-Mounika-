@@ -15,10 +15,11 @@ Vertical Shorts (--vertical, 1080×1920): FACE fills the top 1080×1500 (the sce
 TOP fills the top 1080×760 above the visual.
 
 Usage: python3 -I compose_face.py <aligned timeline.json> <camera video> <rendered slides.mp4> <mix.wav> <out.mp4> [--vertical]
-       [--face-y N] [--top-y N] [--top-h N] [--clean]   (vertical: the top edge of the FACE and TOP crops in the camera frame; lower N
+       [--face-y N] [--top-y N] [--top-h N] [--clean | --polish]   (vertical: the top edge of the FACE and TOP crops in the camera frame; lower N
                                    when the head sits high in the frame; --top-h > 760 shows more of the
                                    camera in the TOP panel, centred on a blurred fill, when the face is large)
        --clean: natural skin smoothing, colour and light correction on the camera (no reshaping, no AI)
+       --polish: the same, stronger (smoother skin, richer colour, crisp eyes, soft vignette)
 """
 import json, subprocess, sys, tempfile
 from pathlib import Path
@@ -33,6 +34,11 @@ TOP_H = opt('--top-h', 760)   # vertical: camera height shown in the 760-px TOP 
 # a touch of brightness, contrast and warmth, and gentle sharpening so the eyes stay crisp. No face reshaping, no AI.
 CLEAN = ("hqdn3d=3:2:4:4,bilateral=sigmaS=10:sigmaR=0.08,eq=brightness=0.02:contrast=1.08:gamma=1.05:saturation=1.12,"
          "colorbalance=rm=0.04:bm=-0.03,unsharp=5:5:0.5,") if '--clean' in sys.argv else ""
+# --polish: a stronger "neat and polished" look (owner, 3 Nov 2026): heavier denoise and skin smoothing, highlights
+# held back, richer warm colour, crisp edge sharpening so eyes and brows stay sharp, a soft vignette. No reshaping, no AI.
+if '--polish' in sys.argv:
+    CLEAN = ("hqdn3d=4:3:6:5,bilateral=sigmaS=14:sigmaR=0.10,curves=master='0/0 0.45/0.5 0.88/0.86 1/0.97',"
+             "eq=contrast=1.08:saturation=1.16,colorbalance=rs=0.02:rm=0.04:bm=-0.03:bh=-0.02,unsharp=5:5:0.9:3:3:0,vignette=PI/6,")
 FW, FH = (1080, 1920) if VERT else (1920, 1080)
 tl = json.load(open(tl_path))
 assert "audio_plan" in tl, "timeline has no audio_plan: build it with timeline.py --align"

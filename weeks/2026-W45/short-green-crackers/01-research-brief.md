@@ -51,6 +51,6 @@
   - clip 5: R.5 and R.6.
 - **Alignment:** `align_lm.py` anchored 29% of the words. Row starts land on the clip boundaries; word cues inside rows are interpolated. The new `ALIGN_DUMP` option writes the recognised words, to check which clip holds which line.
 - **Ending:** her hand reaches for the phone at about 1:50, just as she finishes. The video holds the last clean frame (109.9 s) under the final half-second of voice, then fades out over 0.4 s.
-- **Camera:** her face is large and mid-frame, so the TOP panel shows a 1000-px-tall crop scaled into the 760-px panel and centred on a blurred fill (`compose_face.py --top-y 220 --top-h 1000`). FACE rows use `--face-y 120`. The clean look (`--clean`) is on.
+- **Camera:** her face is large and mid-frame, so the TOP panel shows a 1000-px-tall crop scaled into the 760-px panel and centred on a blurred fill (`compose_face.py --top-y 220 --top-h 1000`). FACE rows use `--face-y 120`. The clean look was on at first. **Owner, 3 Nov: "keep my face neat and polished"**, so the final uses the new `--polish` preset: heavier denoise and skin smoothing, highlights held back, richer warm colour, crisp edge sharpening, a soft vignette. There is no reshaping and no AI. `--polish` is now the default for future reels.
 - **Final:** 1:51 with music ducked under the voice. English captions are in `Reel-Green-Crackers-captions-EN.srt`, with the three Telugu lines given in English.
 - **Institute photos:** still empty (sources blocked); the frames stay hidden without them.
