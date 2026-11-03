@@ -15,11 +15,11 @@ Vertical Shorts (--vertical, 1080×1920): FACE fills the top 1080×1500 (the sce
 TOP fills the top 1080×760 above the visual.
 
 Usage: python3 -I compose_face.py <aligned timeline.json> <camera video> <rendered slides.mp4> <mix.wav> <out.mp4> [--vertical]
-       [--face-y N] [--top-y N] [--top-h N] [--clean | --polish]   (vertical: the top edge of the FACE and TOP crops in the camera frame; lower N
+       [--face-y N] [--top-y N] [--top-h N] [--face-h N] [--clean | --polish]   (vertical: the top edge of the FACE and TOP crops in the camera frame; lower N
                                    when the head sits high in the frame; --top-h > 760 shows more of the
                                    camera in the TOP panel, centred on a blurred fill, when the face is large)
        --clean: natural skin smoothing, colour and light correction on the camera (no reshaping, no AI)
-       --polish: the same, stronger (smoother skin, richer colour, crisp eyes, soft vignette)
+       --polish: light denoise, warm rich colour, crisp sharpening after a lanczos upscale (no smoothing blur)
 """
 import json, subprocess, sys, tempfile
 from pathlib import Path
@@ -29,16 +29,18 @@ VERT = '--vertical' in sys.argv
 def opt(name, default):
     return int(sys.argv[sys.argv.index(name) + 1]) if name in sys.argv else default
 FACE_Y, TOP_Y = opt('--face-y', 120), opt('--top-y', 420)   # vertical: where the crops start in the camera frame
-TOP_H = opt('--top-h', 760)   # vertical: camera height shown in the 760-px TOP panel; >760 zooms out (blurred side fill)
+TOP_H, FACE_H = opt('--top-h', 760), opt('--face-h', 1500)   # vertical: camera height shown in the 760-px TOP panel; >760 zooms out (blurred side fill)
 # --clean: a natural "clean and neat" camera look (owner, 2 Nov 2026): light denoise, edge-preserving skin smoothing,
 # a touch of brightness, contrast and warmth, and gentle sharpening so the eyes stay crisp. No face reshaping, no AI.
 CLEAN = ("hqdn3d=3:2:4:4,bilateral=sigmaS=10:sigmaR=0.08,eq=brightness=0.02:contrast=1.08:gamma=1.05:saturation=1.12,"
          "colorbalance=rm=0.04:bm=-0.03,unsharp=5:5:0.5,") if '--clean' in sys.argv else ""
-# --polish: a stronger "neat and polished" look (owner, 3 Nov 2026): heavier denoise and skin smoothing, highlights
-# held back, richer warm colour, crisp edge sharpening so eyes and brows stay sharp, a soft vignette. No reshaping, no AI.
+# --polish: "neat and polished" (owner, 3 Nov 2026) without blur: light denoise at the camera's own resolution, highlights
+# held back, warm rich colour; then a lanczos upscale and crisp sharpening after it, so eyes and hair stay sharp.
+# (The first version smoothed skin with a bilateral filter; on a low-resolution take it blurred the face. Dropped.)
+POST = ""
 if '--polish' in sys.argv:
-    CLEAN = ("hqdn3d=4:3:6:5,bilateral=sigmaS=14:sigmaR=0.10,curves=master='0/0 0.45/0.5 0.88/0.86 1/0.97',"
-             "eq=contrast=1.08:saturation=1.16,colorbalance=rs=0.02:rm=0.04:bm=-0.03:bh=-0.02,unsharp=5:5:0.9:3:3:0,vignette=PI/6,")
+    CLEAN = "hqdn3d=1.5:1.2:3:3,curves=master='0/0 0.45/0.5 0.88/0.86 1/0.97',eq=contrast=1.06:saturation=1.14,colorbalance=rm=0.04:bm=-0.03,"
+    POST = "unsharp=5:5:1.1:3:3:0.3,"
 FW, FH = (1080, 1920) if VERT else (1920, 1080)
 tl = json.load(open(tl_path))
 assert "audio_plan" in tl, "timeline has no audio_plan: build it with timeline.py --align"
@@ -54,7 +56,7 @@ for op in tl["audio_plan"]:
         if e - s < 0.04:
             continue
         cmd = ["ffmpeg", "-loglevel", "error", "-y", "-ss", f"{s:.3f}", "-i", cam, "-t", f"{e - s:.3f}", "-an",
-               "-vf", f"{CLEAN}scale={FW}:{FH}:force_original_aspect_ratio=increase,crop={FW}:{FH},fps={FPS},setsar=1",
+               "-vf", f"{CLEAN}scale={FW}:{FH}:force_original_aspect_ratio=increase:flags=lanczos,crop={FW}:{FH},{POST}fps={FPS},setsar=1",
                "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", str(p)]
     else:                                                       # a hold: freeze the last kept camera frame
         prev = parts[-1] if parts else None
@@ -83,9 +85,11 @@ def ranges(kind):
 
 fc = (
     f"[1:v]split=2[cf][ct];"
-    f"[cf]crop=1080:1500:0:{FACE_Y}[face];"                                          # vertical: face area
+    + (f"[cf]crop=1080:1500:0:{FACE_Y}[face];" if FACE_H == 1500 else                       # vertical: face area, or
+     f"[cf]crop=1080:{FACE_H}:0:{FACE_Y},split=2[fa][fb];[fa]scale=-2:1500:flags=lanczos[ff];"   # zoomed out on a blur
+     f"[fb]scale=1080:1500,boxblur=24,eq=brightness=-0.12[fg];[fg][ff]overlay=(W-w)/2:0[face];")
     + (f"[ct]crop=1080:760:0:{TOP_Y}[top];" if TOP_H == 760 else                         # top panel, or zoomed out:
-       f"[ct]crop=1080:{TOP_H}:0:{TOP_Y},split=2[ta][tb];[ta]scale=-2:760[tf];"
+       f"[ct]crop=1080:{TOP_H}:0:{TOP_Y},split=2[ta][tb];[ta]scale=-2:760:flags=lanczos[tf];"
        f"[tb]scale=1080:760,boxblur=24,eq=brightness=-0.12[tg];[tg][tf]overlay=(W-w)/2:0[top];")
     + f"[0:v][face]overlay=0:0:enable='{ranges('FACE')}'[v1];"
     f"[v1][top]overlay=0:0:enable='{ranges('TOP')}'[v]"
