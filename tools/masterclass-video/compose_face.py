@@ -15,8 +15,9 @@ Vertical Shorts (--vertical, 1080×1920): FACE fills the top 1080×1500 (the sce
 TOP fills the top 1080×760 above the visual.
 
 Usage: python3 -I compose_face.py <aligned timeline.json> <camera video> <rendered slides.mp4> <mix.wav> <out.mp4> [--vertical]
-       [--face-y N] [--top-y N] [--clean]   (vertical: the top edge of the FACE and TOP crops in the camera frame; lower N
-                                   when the head sits high in the frame)
+       [--face-y N] [--top-y N] [--top-h N] [--clean]   (vertical: the top edge of the FACE and TOP crops in the camera frame; lower N
+                                   when the head sits high in the frame; --top-h > 760 shows more of the
+                                   camera in the TOP panel, centred on a blurred fill, when the face is large)
        --clean: natural skin smoothing, colour and light correction on the camera (no reshaping, no AI)
 """
 import json, subprocess, sys, tempfile
@@ -27,6 +28,7 @@ VERT = '--vertical' in sys.argv
 def opt(name, default):
     return int(sys.argv[sys.argv.index(name) + 1]) if name in sys.argv else default
 FACE_Y, TOP_Y = opt('--face-y', 120), opt('--top-y', 420)   # vertical: where the crops start in the camera frame
+TOP_H = opt('--top-h', 760)   # vertical: camera height shown in the 760-px TOP panel; >760 zooms out (blurred side fill)
 # --clean: a natural "clean and neat" camera look (owner, 2 Nov 2026): light denoise, edge-preserving skin smoothing,
 # a touch of brightness, contrast and warmth, and gentle sharpening so the eyes stay crisp. No face reshaping, no AI.
 CLEAN = ("hqdn3d=3:2:4:4,bilateral=sigmaS=10:sigmaR=0.08,eq=brightness=0.02:contrast=1.08:gamma=1.05:saturation=1.12,"
@@ -75,8 +77,11 @@ def ranges(kind):
 
 fc = (
     f"[1:v]split=2[cf][ct];"
-    f"[cf]crop=1080:1500:0:{FACE_Y}[face];[ct]crop=1080:760:0:{TOP_Y}[top];"                # vertical: face area, top panel
-    f"[0:v][face]overlay=0:0:enable='{ranges('FACE')}'[v1];"
+    f"[cf]crop=1080:1500:0:{FACE_Y}[face];"                                          # vertical: face area
+    + (f"[ct]crop=1080:760:0:{TOP_Y}[top];" if TOP_H == 760 else                         # top panel, or zoomed out:
+       f"[ct]crop=1080:{TOP_H}:0:{TOP_Y},split=2[ta][tb];[ta]scale=-2:760[tf];"
+       f"[tb]scale=1080:760,boxblur=24,eq=brightness=-0.12[tg];[tg][tf]overlay=(W-w)/2:0[top];")
+    + f"[0:v][face]overlay=0:0:enable='{ranges('FACE')}'[v1];"
     f"[v1][top]overlay=0:0:enable='{ranges('TOP')}'[v]"
 ) if VERT else (
     f"[1:v]split=3[cf][cs][cc];"
