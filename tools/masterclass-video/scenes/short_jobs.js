@@ -15,7 +15,7 @@ SCENES.S1 = (ctx, s) => { vBase(ctx); camSpace(ctx, CAM_FACE); band(ctx, s, [['N
 
 SCENES.S2 = (ctx, s) => {                   // the rules: a bottom-up complaint ladder and two stopwatches
   vBase(ctx); camSpace(ctx, CAM_TOP); header(ctx, s, 'WHY IN NEWS');
-  clipV(ctx, 50, CAM_TOP + 110, W - 100, 330, bounce(s.t, 0.1), '2 NOVEMBER 2026 · MINISTRY OF RURAL DEVELOPMENT', 'Grievance Redressal Rules, 2026 notified under the new rural jobs Act', 'Down To Earth · Business Standard', -0.03);
+  clipV(ctx, 50, CAM_TOP + 110, W - 100, 330, bounce(s.t, 0.1), '2 NOVEMBER 2026 · MINISTRY OF RURAL DEVELOPMENT', 'Grievance Redressal Rules, 2026 notified under the new rural jobs Act', 'Press Information Bureau · Down To Earth · Business Standard', -0.03);
   const steps = [['GRAM PANCHAYAT', 'gram', '#E9D5FF'], ['BLOCK', 'block', '#C4B5FD'], ['DISTRICT', 'district', YEL]];
   steps.forEach(([t, cue, fill], i) => {               // bottom-up: the first level sits lowest
     const at = ecue(s, cue), k = bounce(s.t, at); if (k <= 0) return;

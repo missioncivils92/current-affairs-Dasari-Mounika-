@@ -48,3 +48,17 @@
 - [Upstox: replaces MGNREGA from July 1](https://upstox.com/news/business-news/latest-updates/vb-g-ram-g-act-to-replace-mgnrega-from-july-1-what-changes-for-rural-workers/article-193471/)
 - [CAG: MGNREGA financial management](https://cag.gov.in/uploads/download_audit_report/2025/Chapter-IV---Financial-Management-0699d38fec68855.68127947.pdf)
 - [Governance Now: Andhra Pradesh shows the way for NREGA social audit](https://www.governancenow.com/news/regular-story/andhra-pradesh-shows-way-nrega-social-audit)
+
+## Press Information Bureau check (owner: "please check from PIB", 3 Nov)
+
+pib.gov.in is blocked from this session, so the check used PIB's search index:
+
+| Fact | PIB page | Status |
+|---|---|---|
+| The Ministry of Rural Development notified the Grievance Redressal Rules, 2026 under the Act | PIB listing carries the headline; secondary sites cite PIB Delhi, Release ID 2331390, 2 Nov 2026 | Confirmed (headline); release text not opened |
+| Draft rules issued 22 May 2026 in the e-Gazette, with 30 days of public consultation | PIB release on States' preparedness (PRID 2264559) | Confirmed |
+| The Act commenced on 1 Jul 2026; MGNREGA stands repealed from the same date | PIB "Historic Commencement" release (PRID 2259703) | Confirmed |
+| Grievance mechanisms cover discrimination, harassment and violations of workers' rights, with attention to women and vulnerable groups | PIB release on rural women (PRID 2225945) | Confirmed |
+| 7-working-day enquiry; 15-day resolution; Gram Panchayat/Block/District tiers | Not visible in PIB snippets; consistent across ANI, Down To Earth, Business Standard and Rural Voice | Reported (multiple outlets) |
+
+The clipping's credit line now leads with "Press Information Bureau".
