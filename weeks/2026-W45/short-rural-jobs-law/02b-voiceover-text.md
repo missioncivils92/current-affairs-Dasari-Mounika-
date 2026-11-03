@@ -1,9 +1,9 @@
-# Voiceover Text — 2026-W45 Short: The new rural jobs law and its 15-day grievance rules · v1
+# Voiceover Text — 2026-W45 Short: The new rural jobs law and its 15-day grievance rules · v2
 
-**Release:** Wed 4 Nov 2026, 6:00 PM IST · YouTube Short (vertical 9:16), about 70 s, on camera (decision 41).
+**Release:** Wed 4 Nov 2026, 6:00 PM IST · YouTube Short (vertical 9:16), about 1:40, on camera (decision 41).
 **Coverage:** the Grievance Redressal Rules, 2026, notified on 2 Nov 2026 under the Viksit Bharat – Guarantee for Rozgar and Ajeevika Mission (Gramin) Act, 2025.
 **Format:** voice-only. Everything below is recorded on the microphone; there is no on-camera recording.
-**Total:** 187 words · about 1.4 min at 135 wpm (1.3–1.4 min at 140–130 wpm)
+**Total:** 246 words · about 1.8 min at 135 wpm (1.8–1.9 min at 140–130 wpm)
 
 Visual directions for the editor are in `02-master-script.md`.
 
@@ -26,7 +26,7 @@ Visual directions for the editor are in `02-master-script.md`.
 
 | Segment | Words | Min |
 |---|---|---|
-| SHORT — The new rural jobs law | 187 | 1.4 |
+| SHORT — The new rural jobs law | 246 | 1.8 |
 
 ---
 
@@ -36,24 +36,24 @@ Save as: `short-rural-jobs-law_VO_short.wav`
 
 **🎙️ NARRATION — *concerned, then curious.***
 
-What if you worked on a village road, and your wages never came? Who do you complain to? Ee kotha rules lo answer undi.
+Imagine you dug a village pond for two weeks, and your wages never came. Who would you complain to? Ee kotha rules deeniki answer. Let's understand them step by step.
 
 **🎙️ NARRATION**
 
-On November second, the Rural Development Ministry notified grievance rules under the new rural jobs law: every complaint enquired within seven working days and resolved within 15, at Gram Panchayat, Block and District level.
+On November second, the Rural Development Ministry notified grievance rules, so your complaint cannot just sit on a desk. It must be enquired into within seven working days and solved within 15, and if the Gram Panchayat fails, it moves up to the Block, and then the District.
 
-But which law? From July first, 2026, the Mahatma Gandhi National Rural Employment Guarantee Act was replaced by the Viksit Bharat Guarantee for Rozgar and Ajeevika Mission, Gramin, Act, and the guarantee rose from 100 to 125 days.
+But rules under which law? From July first, 2026, the old Mahatma Gandhi National Rural Employment Guarantee Act was replaced by the Viksit Bharat Guarantee for Rozgar and Ajeevika Mission, Gramin, Act, and the promise of work grew from 100 to 125 days.
 
 **🎙️ NARRATION — *slower.***
 
-And who pays? Under the old Act, the Centre paid all the wages; now it is 60 to 40, and 90 to 10 for Himalayan and north-eastern states. States can also pause work for up to 60 days at sowing and harvest. Ide Prelims trap!
+More days need more money, so who pays? Under the old Act, the Centre paid all the wages; now it is 60 to 40 with the states, and 90 to 10 for Himalayan and north-eastern states. States can also pause work for up to 60 days at sowing and harvest, so farms get workers. Ide Prelims trap!
 
 **🎙️ NARRATION**
 
-Telugu States lens: united Andhra Pradesh pioneered independent social audits, with a society set up in 2009, a model for the whole country.
+And why should Telugu states feel proud? Because united Andhra Pradesh pioneered independent social audits, where villagers check the work themselves, with a society set up in 2009, a model for the country.
 
 **🎙️ NARRATION — *warm, thoughtful smile.***
 
-Mains debate: a fixed allocation versus a demand-driven right. Follow for one exam trap every day!
+So your Mains debate: a fixed allocation from the Centre, or a demand-driven right? Write your view in the comments, and follow for one exam trap every day!
 
-*Words: 187 · about 1.4 min*
+*Words: 246 · about 1.8 min*

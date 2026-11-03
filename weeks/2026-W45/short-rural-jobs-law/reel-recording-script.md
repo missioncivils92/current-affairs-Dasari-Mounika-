@@ -1,49 +1,51 @@
 <div class="cover">
 <div class="brand">DECODE UPSC <span>with Mounika</span></div>
 <h1>Reel: The new rural jobs law: what UPSC will ask</h1>
-<p class="sub">YouTube Short · about 70 seconds · post Wed 4 Nov, 6 PM · English + తెలుగు · no short forms</p>
+<p class="sub">YouTube Short · about 1:40 · connected story · post Wed 4 Nov, 6 PM · English + తెలుగు · no short forms</p>
 </div>
 
 ## How to record (lessons from the last reel)
 
 - **Use your camera at 1080p** (Settings → Video resolution). The last clips arrived at about half of HD, which made them look soft.
 - **One take if you can.** If you need to stop, sit in the same place and position each time.
-- **Speak a little faster** than last time, with energy, as if telling a friend something surprising. Aim for about 70 seconds.
+- **Speak a little faster** than last time, with energy, as if telling a friend something surprising. Aim for about 1 minute 40 seconds.
 - **Phone upright** at eye level, a bit farther away, so your head and shoulders fit with space above. Face the window.
 - **At the end, stay still and smile for 2 seconds** before you reach for the phone.
 - **Send the original file.** If it's too big for the chat, use a Google Drive link (allowed in a new session).
 
 ## Script
 
-**The story in one line:** the worker's problem → the new rules → which law → who pays → Telugu States lens → Mains debate.
+**How it flows:** each part answers the question the last part raised. The *underlined-style links in italics* are the bridges: say them as if you are thinking aloud with the student.
 
-**📷 FULL FACE: *concerned, then curious.***
+**📷 FULL FACE: *concerned, then curious, like telling a friend a real story.***
 
-**What if** you worked on a village road, and your wages never came? **Who do you complain to?**
+Imagine you dug a village pond for two weeks, and your wages never came. **Who would you complain to?**
 
-🗣️ **ఈ కొత్త rules లో answer ఉంది.**
+🗣️ **ఈ కొత్త rules దీనికి answer.**
 
-**🎙️ *clear, news voice.***
+*Let's understand them step by step.*
 
-On November 2nd, the Rural Development Ministry notified grievance rules under the new rural jobs law: every complaint enquired within **7 working days** and resolved within **15**, at **Gram Panchayat, Block and District** level.
+**🎙️ *clear, reassuring.***
 
-**🎙️ *curious: "but which law?"***
+On November 2nd, the Rural Development Ministry notified grievance rules, *so your complaint cannot just sit on a desk.* It must be enquired into within **7 working days** and solved within **15**, *and if the Gram Panchayat fails, it moves up* to the **Block**, and then the **District**.
 
-**But which law?** From July 1st, 2026, the **Mahatma Gandhi National Rural Employment Guarantee Act** was replaced by the **Viksit Bharat Guarantee for Rozgar and Ajeevika Mission, Gramin, Act**, and the guarantee rose from **100** to **125 days**.
+**🎙️ *curious, "here's the part people miss".***
 
-**🎙️ *slower, "write this down".***
+***But rules under which law?*** From July 1st, 2026, the old **Mahatma Gandhi National Rural Employment Guarantee Act** was replaced by the **Viksit Bharat Guarantee for Rozgar and Ajeevika Mission, Gramin, Act**, *and the promise of work grew* from **100** to **125 days**.
 
-**And who pays?** Under the old Act, the Centre paid all the wages; now it is **60 to 40**, and **90 to 10** for Himalayan and north-eastern states. States can also **pause work for up to 60 days** at sowing and harvest.
+**🎙️ *logical, then slower on the numbers.***
+
+***More days need more money, so who pays?*** Under the old Act, the Centre paid all the wages; now it is **60 to 40** with the states, and **90 to 10** for Himalayan and north-eastern states. States can also **pause work for up to 60 days** at sowing and harvest, *so farms get workers.*
 
 🗣️ **ఇదే Prelims trap!**
 
 **🎙️ *proud, warm.***
 
-**Telugu States lens:** united Andhra Pradesh pioneered **independent social audits**, with a society set up in **2009**, a model for the whole country.
+***And why should Telugu states feel proud?*** Because united Andhra Pradesh pioneered **independent social audits**, *where villagers check the work themselves,* with a society set up in **2009**, a model for the country.
 
-**📷 FULL FACE: *thoughtful smile.***
+**📷 FULL FACE: *thoughtful, inviting.***
 
-**Mains debate:** a fixed allocation versus a demand-driven right. Follow for one exam trap every day!
+*So your* **Mains debate:** a fixed allocation from the Centre, or a demand-driven right? **Write your view in the comments**, and follow for one exam trap every day!
 
 *(Stay still and smile for 2 seconds.)*
 
