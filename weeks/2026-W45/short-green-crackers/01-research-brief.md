@@ -54,3 +54,9 @@
 - **Camera:** her face is large and mid-frame, so the TOP panel shows a 1000-px-tall crop scaled into the 760-px panel and centred on a blurred fill (`compose_face.py --top-y 220 --top-h 1000`). FACE rows use `--face-y 120`. The clean look was on at first. **Owner, 3 Nov: "keep my face neat and polished"**, so the final uses the new `--polish` preset: heavier denoise and skin smoothing, highlights held back, richer warm colour, crisp edge sharpening, a soft vignette. There is no reshaping and no AI. `--polish` is now the default for future reels.
 - **Final:** 1:51 with music ducked under the voice. English captions are in `Reel-Green-Crackers-captions-EN.srt`, with the three Telugu lines given in English.
 - **Institute photos:** still empty (sources blocked); the frames stay hidden without them.
+- **v3 final (owner: "not at all clear, blurred; the joins between videos clearly show"):**
+  - The source clips are only 534×1280 at about 1 Mbps.
+  - Skin smoothing was dropped, because it blurred the face. `--polish` is now light denoise, warm colour, a lanczos upscale and crisp sharpening.
+  - The full-face rows zoom out (`--face-y 0 --face-h 1900`), so the camera is upscaled about 1.6× instead of 2×.
+  - Each clip join gets a 0.18 s white flash and alternating 1.08× punch-ins, with micro audio fades.
+  - **Ask for the next take:** send the original camera file in 1080p (not a compressed copy).
