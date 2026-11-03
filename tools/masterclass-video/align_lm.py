@@ -12,7 +12,7 @@ The output has the same format as align_vo.py, so timeline.py --align and build_
 
 Usage: python3 -I align_lm.py <02-master-script.md> <audio_16k_mono.wav> <out.json>
 """
-import ast, difflib, json, math, re, subprocess, sys, tempfile, wave, collections, bisect
+import os, ast, difflib, json, math, re, subprocess, sys, tempfile, wave, collections, bisect
 from pathlib import Path
 from pocketsphinx import Decoder
 import importlib.util
@@ -135,6 +135,9 @@ for k, (a, b, ka, kb) in enumerate(merged):
             hyp.append((w, ws, we))
     if (k + 1) % 40 == 0:
         print(f"  recognised {k + 1}/{len(merged)} pieces · t={b:.0f}s", flush=True)
+
+if os.environ.get("ALIGN_DUMP"):                          # ALIGN_DUMP=file: write what was heard, for checking a take
+    Path(os.environ["ALIGN_DUMP"]).write_text("\n".join(f"{ws:7.2f} {w}" for w, ws, we in hyp) + "\n")
 
 # ---- match recognised words to the script, keep runs of 2+ words as anchors
 # A banded global alignment (Needleman-Wunsch) keeps the match in script order, so a phrase the script repeats

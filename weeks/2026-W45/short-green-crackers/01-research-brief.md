@@ -41,3 +41,16 @@
 
 - **Short forms:** every short form is expanded in the narration and on screen: National Environmental Engineering Research Institute; Council of Scientific and Industrial Research; Petroleum and Explosives Safety Organisation; Department for Promotion of Industry and Internal Trade; National Capital Region; Quick Response code; Asian News International. The only exceptions are the cracker names SWAS, STAR and SAFAL, which are names (each is followed by its full form) and could be asked as names.
 - **Institute photos:** frames beside both institutions (scene S4) fill automatically from `<assets>/photos/inst_neeri.png` and `inst_peso.png`, each with a `.json` `{credit}`, through a new `photos/` folder in `render.js`. No photo was fetched: commons.wikimedia.org, upload.wikimedia.org, neeri.res.in, peso.gov.in, csir.res.in and pib.gov.in are blocked from this session. Only licence-checked photos may be used (§6.4): Wikimedia Commons files with their stated licence, or PIB/government photos. Official logos and emblems are not used.
+
+## Build log (3 Nov 2026)
+
+- **Recording:** 5 vertical clips (534×1280), joined in order, 1:51 in total. The rows matched the clips:
+  - clip 1: R.1 and R.2;
+  - clips 2 and 3: R.3;
+  - clip 4: R.4;
+  - clip 5: R.5 and R.6.
+- **Alignment:** `align_lm.py` anchored 29% of the words. Row starts land on the clip boundaries; word cues inside rows are interpolated. The new `ALIGN_DUMP` option writes the recognised words, to check which clip holds which line.
+- **Ending:** her hand reaches for the phone at about 1:50, just as she finishes. The video holds the last clean frame (109.9 s) under the final half-second of voice, then fades out over 0.4 s.
+- **Camera:** her face is large and mid-frame, so the TOP panel shows a 1000-px-tall crop scaled into the 760-px panel and centred on a blurred fill (`compose_face.py --top-y 220 --top-h 1000`). FACE rows use `--face-y 120`. The clean look (`--clean`) is on.
+- **Final:** 1:51 with music ducked under the voice. English captions are in `Reel-Green-Crackers-captions-EN.srt`, with the three Telugu lines given in English.
+- **Institute photos:** still empty (sources blocked); the frames stay hidden without them.
