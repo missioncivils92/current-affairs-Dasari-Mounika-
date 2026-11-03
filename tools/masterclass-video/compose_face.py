@@ -48,25 +48,29 @@ tmp = Path(tempfile.mkdtemp())
 FPS = 30
 
 # 1. the camera track, cut and padded exactly like the narration
-parts, n = [], 0
+# Each part gets an exact frame count from the running output time, so rounding never accumulates: the picture
+# stays within half a frame of the voice for the whole video (lip sync).
+parts, n, ot = [], 0, 0.0
 for op in tl["audio_plan"]:
     p = tmp / f"p{n:04d}.mp4"; n += 1
+    d = (op[2] - op[1]) if op[0] == "src" else op[1]
+    f0 = round(ot * FPS); ot += d; nf = round(ot * FPS) - f0
+    if nf <= 0:
+        continue
     if op[0] == "src":
         s, e = op[1], op[2]
-        if e - s < 0.04:
-            continue
-        cmd = ["ffmpeg", "-loglevel", "error", "-y", "-ss", f"{s:.3f}", "-i", cam, "-t", f"{e - s:.3f}", "-an",
+        cmd = ["ffmpeg", "-loglevel", "error", "-y", "-ss", f"{s:.3f}", "-i", cam, "-t", f"{e - s + 0.5:.3f}", "-frames:v", str(nf), "-an",
                "-vf", f"{CLEAN}scale={FW}:{FH}:force_original_aspect_ratio=increase:flags=lanczos,crop={FW}:{FH},{POST}fps={FPS},setsar=1",
                "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", str(p)]
     else:                                                       # a hold: freeze the last kept camera frame
         prev = parts[-1] if parts else None
         if prev is None:
-            cmd = ["ffmpeg", "-loglevel", "error", "-y", "-f", "lavfi", "-i", f"color=c=black:s={FW}x{FH}:r={FPS}", "-t", f"{op[1]:.3f}",
+            cmd = ["ffmpeg", "-loglevel", "error", "-y", "-f", "lavfi", "-i", f"color=c=black:s={FW}x{FH}:r={FPS}", "-frames:v", str(nf),
                    "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p", str(p)]
         else:
             cmd = ["ffmpeg", "-loglevel", "error", "-y", "-sseof", "-0.1", "-i", str(prev), "-frames:v", "1", "-update", "1", str(tmp / "last.png")]
             subprocess.run(cmd, check=True)
-            cmd = ["ffmpeg", "-loglevel", "error", "-y", "-loop", "1", "-framerate", str(FPS), "-i", str(tmp / "last.png"), "-t", f"{op[1]:.3f}",
+            cmd = ["ffmpeg", "-loglevel", "error", "-y", "-loop", "1", "-framerate", str(FPS), "-i", str(tmp / "last.png"), "-frames:v", str(nf),
                    "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p", "-vf", "setsar=1", str(p)]
     subprocess.run(cmd, check=True); parts.append(p)
 (tmp / "list.txt").write_text("".join(f"file '{p}'\n" for p in parts))

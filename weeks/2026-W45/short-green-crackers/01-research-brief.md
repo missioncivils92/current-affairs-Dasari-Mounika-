@@ -60,3 +60,8 @@
   - The full-face rows zoom out (`--face-y 0 --face-h 1900`), so the camera is upscaled about 1.6× instead of 2×.
   - Each clip join gets a 0.18 s white flash and alternating 1.08× punch-ins, with micro audio fades.
   - **Ask for the next take:** send the original camera file in 1080p (not a compressed copy).
+- **v4 final (owner: "no match between video and voice, no proper lip sync"):**
+  - **Cause:** each phone clip had 40–200 ms more audio than video. Joining them with the concat demuxer (`-c copy`) let those gaps add up, so the picture ran about 0.5 s behind the voice by clip 5.
+  - **Fix:** each clip's picture is matched to its sound, the clips are joined with the concat filter, and `compose_face.py` now cuts camera parts by exact frame counts from the running output time.
+  - **Verified:** at all four joins, the white flash lands within 20 ms of the audio boundary (31.50/31.49, 66.80/66.80, 72.20/72.19, 87.17/87.15 s).
+  - **Tool:** `join_clips.py` now does this for any multi-clip take.
