@@ -36,3 +36,8 @@
 - [Daily Jagran: time limits](https://www.thedailyjagran.com/india/news/supreme-court-allows-green-crackers-in-delhi-ncr-on-november-7-8-for-diwali-sets-time-limits-10334855)
 - [Drishti: Green crackers](https://www.drishtiias.com/daily-updates/daily-news-analysis/green-crackers-1/print_manually)
 - [LiveLaw: Courts, crackers and clean air](https://livelaw.in/articles/supreme-court-order-firecrackers-ban-environmental-jurisprudence-and-delhi-pollution-analysis-308908)
+
+## v2 (owner: "no short forms; add institute images near the institutions")
+
+- **Short forms:** every short form is expanded in the narration and on screen: National Environmental Engineering Research Institute; Council of Scientific and Industrial Research; Petroleum and Explosives Safety Organisation; Department for Promotion of Industry and Internal Trade; National Capital Region; Quick Response code; Asian News International. The only exceptions are the cracker names SWAS, STAR and SAFAL, which are names (each is followed by its full form) and could be asked as names.
+- **Institute photos:** frames beside both institutions (scene S4) fill automatically from `<assets>/photos/inst_neeri.png` and `inst_peso.png`, each with a `.json` `{credit}`, through a new `photos/` folder in `render.js`. No photo was fetched: commons.wikimedia.org, upload.wikimedia.org, neeri.res.in, peso.gov.in, csir.res.in and pib.gov.in are blocked from this session. Only licence-checked photos may be used (§6.4): Wikimedia Commons files with their stated licence, or PIB/government photos. Official logos and emblems are not used.

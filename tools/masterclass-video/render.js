@@ -22,7 +22,7 @@ const stills = arg('--stills', null), audio = arg('--audio', null);
   const tl = JSON.parse(fs.readFileSync(tlFile, 'utf8'));
   const images = {}, data = { geo: JSON.parse(fs.readFileSync(path.join(assets, 'geo.json'))) };
   const envFile = arg('--env', null); if (envFile) data.env = JSON.parse(fs.readFileSync(envFile));
-  for (const dir of [path.join(assets, 'terrain'), path.join(assets, 'sat'), path.join(__dirname, 'brand')]) for (const f of fs.existsSync(dir) ? fs.readdirSync(dir) : []) {
+  for (const dir of [path.join(assets, 'terrain'), path.join(assets, 'sat'), path.join(assets, 'photos'), path.join(__dirname, 'brand')]) for (const f of fs.existsSync(dir) ? fs.readdirSync(dir) : []) {   // photos/: licensed photos (name.png + name.json {credit})
     if (f.endsWith('.json')) data[f.replace('.json', '_meta')] = JSON.parse(fs.readFileSync(path.join(dir, f)));
     if (f.endsWith('.png') && !f.startsWith('p_')) images[f.replace('.png', '')] = 'file://' + path.join(dir, f);
   }
