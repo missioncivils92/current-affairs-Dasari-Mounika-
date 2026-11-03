@@ -27,18 +27,18 @@ SCENES.S1 = (ctx, s) => {
 
 SCENES.S2 = (ctx, s) => {                   // why in news: the order, its windows, and the 300 m ring
   vBase(ctx); camSpace(ctx, CAM_TOP); header(ctx, s, 'WHY IN NEWS');
-  clipV(ctx, 50, CAM_TOP + 110, W - 100, 330, bounce(s.t, 0.1), '2 NOV 2026 · SUPREME COURT', 'SC permits certified green crackers in Delhi-NCR for two days', 'The Hindu · ANI · Hans India', -0.03);
-  pill(ctx, s, 'ONLY CERTIFIED GREEN', 60, CAM_TOP + 470, ecue(s, 'certified'), GRN, GDK);
-  pill(ctx, s, 'NOV 7 & 8', 60, CAM_TOP + 575, ecue(s, 'seventh'), '#FFD60A', '#1B0B45');
-  pill(ctx, s, '6–7 AM', 330, CAM_TOP + 575, ecue(s, 'morning'), '#4CC9F0', '#062A3A');
-  pill(ctx, s, '8–10 PM', 560, CAM_TOP + 575, ecue(s, 'night'), '#F9A8D4', '#4A0D2E');
+  clipV(ctx, 50, CAM_TOP + 110, W - 100, 400, bounce(s.t, 0.1), '2 NOVEMBER 2026 · SUPREME COURT', 'Supreme Court permits certified green crackers in Delhi-National Capital Region for two days', 'The Hindu · Asian News International · Hans India', -0.03);
+  pill(ctx, s, 'ONLY CERTIFIED GREEN', 60, CAM_TOP + 545, ecue(s, 'certified'), GRN, GDK);
+  pill(ctx, s, 'NOVEMBER 7 & 8', 560, CAM_TOP + 545, ecue(s, 'seventh'), '#FFD60A', '#1B0B45');
+  pill(ctx, s, '6–7 MORNING', 60, CAM_TOP + 650, ecue(s, 'morning'), '#4CC9F0', '#062A3A');
+  pill(ctx, s, '8–10 NIGHT', 400, CAM_TOP + 650, ecue(s, 'night'), '#F9A8D4', '#4A0D2E');
   const th = ecue(s, 'hundred'), g = span(s.t, th, th + 0.8);
   if (g > 0) {                              // the ring draws itself around the protected centre
-    const cx = W / 2 - 80, cy = CAM_TOP + 880, R = 150;
+    const cx = W / 2 - 80, cy = CAM_TOP + 930, R = 140;
     ctx.save(); ctx.strokeStyle = '#E9D5FF'; ctx.setLineDash([16, 12]); ctx.lineWidth = 6; ctx.beginPath(); ctx.arc(cx, cy, R, -Math.PI / 2, -Math.PI / 2 + g * Math.PI * 2); ctx.stroke(); ctx.restore();
     ctx.save(); ctx.globalAlpha = g; exBox(ctx, cx - 125, cy - 45, 250, 90, { fill: '#FFFFFF', r: 20 });
     kt(ctx, 'NO CRACKERS', cx, cy + 11, { font: F.ui(28, 900), color: '#1B0B45', align: 'center' });
-    kt(ctx, '300 m', cx + R + 20, cy - 10, { font: F.ui(52, 900), color: '#FFD60A' });
+    kt(ctx, '300 metres', cx + R + 20, cy - 10, { font: F.ui(48, 900), color: '#FFD60A' });
     kt(ctx, 'hospitals · schools', cx + R + 20, cy + 36, { font: F.ui(26, 800), color: '#E9D5FF' });
     kt(ctx, 'silence zones', cx + R + 20, cy + 68, { font: F.ui(26, 800), color: '#E9D5FF' }); ctx.restore();
   }
@@ -46,38 +46,55 @@ SCENES.S2 = (ctx, s) => {                   // why in news: the order, its windo
 
 SCENES.S3 = (ctx, s) => {                   // what makes a cracker green
   vBase(ctx); camSpace(ctx, CAM_TOP); header(ctx, s, 'WHAT MAKES IT GREEN?');
-  card(ctx, 50, CAM_TOP + 120, W - 100, 170, GRN, bounce(s.t, ecue(s, 'csir-neeri')), [['CSIR-NEERI, Nagpur', F.ui(52, 900), GDK], ['designed green crackers (2018–19)', F.ui(32, 800), GDK]]);
-  pill(ctx, s, '✗ Barium nitrate', 60, CAM_TOP + 320, ecue(s, 'barium'), '#FFFFFF', '#1B0B45');
-  pill(ctx, s, '≈30% less emissions', 470, CAM_TOP + 320, ecue(s, 'thirty'), '#FFD60A', '#1B0B45');
+  card(ctx, 50, CAM_TOP + 110, W - 100, 230, GRN, bounce(s.t, ecue(s, 'environmental')), [['National Environmental Engineering Research Institute, Nagpur', F.ui(40, 900), GDK], ['a Council of Scientific and Industrial Research laboratory · designed them in 2018–19', F.ui(28, 800), GDK]]);
+  pill(ctx, s, '✗ Barium nitrate', 60, CAM_TOP + 370, ecue(s, 'barium'), '#FFFFFF', '#1B0B45');
+  pill(ctx, s, '≈30% less emissions', 470, CAM_TOP + 370, ecue(s, 'thirty'), '#FFD60A', '#1B0B45');
   const T = [['SWAS', 'Safe Water Releaser', '#4CC9F0', '#062A3A'], ['STAR', 'Safe Thermite Cracker', '#FFD60A', '#1B0B45'], ['SAFAL', 'Safe Minimal Aluminium', '#F9A8D4', '#4A0D2E']];
   const ts = ecue(s, 'swas');
   T.forEach(([n, f, fill, ink], i) => {
-    const x = 50 + i * 333, y = CAM_TOP + 450, k = bounce(s.t, ts + i * 0.35); if (k <= 0) return;
+    const x = 50 + i * 333, y = CAM_TOP + 490, k = bounce(s.t, ts + i * 0.35); if (k <= 0) return;
     ctx.save(); ctx.translate(x + 155, y + 130); ctx.scale(k, k); ctx.translate(-(x + 155), -(y + 130));
     exBox(ctx, x, y, 310, 260, { fill, r: 26 });
     kt(ctx, n, x + 155, y + 110, { font: F.ui(64, 900), color: ink, align: 'center' });
     kt(ctx, f, x + 155, y + 170, { font: F.ui(28, 800), color: ink, align: 'center', maxW: 270, lh: 34 }); ctx.restore();
   });
-  pill(ctx, s, 'Green logo + QR code = genuine', 60, CAM_TOP + 750, ecue(s, 'qr'), '#FFFFFF', GDK, 40);
+  pill(ctx, s, 'Green logo + Quick Response code = genuine', 60, CAM_TOP + 790, ecue(s, 'quick'), '#FFFFFF', GDK, 34);
   kt(ctx, 'Emission cut varies by type and test (≈30–35%)', 64, 1880, { font: F.ui(26, 700), color: '#E9D5FF', alpha: eia(s, ecue(s, 'thirty') + 0.6) });
 };
 
-SCENES.S4 = (ctx, s) => {                   // who checks: NEERI designs and certifies, PESO licenses
+function photoFrame(ctx, key, x, y, w, h, k) {   // a licensed photo with its credit, when one is in <assets>/photos
+  const img = A[key]; if (!img || k <= 0) return false;
+  ctx.save(); ctx.globalAlpha = Math.min(1, k); ctx.fillStyle = '#FFFFFF'; ctx.fillRect(x - 6, y - 6, w + 12, h + 12);
+  const sc = Math.max(w / img.width, h / img.height), sw = w / sc, sh = h / sc;
+  ctx.drawImage(img, (img.width - sw) / 2, (img.height - sh) / 2, sw, sh, x, y, w, h);
+  const cr = (A[key + '_meta'] || {}).credit; if (cr) kt(ctx, cr, x, y + h + 26, { font: F.ui(18, 700), color: '#E9D5FF', maxW: w });
+  ctx.restore(); return true;
+}
+function instCard(ctx, y, h, fill, ink, k, lines, imgKey) {
+  if (k <= 0) return; const hasImg = !!A[imgKey], tw = hasImg ? W - 100 - 340 : W - 180;
+  ctx.save(); ctx.translate(W / 2, y + h / 2); ctx.scale(k, k); ctx.translate(-W / 2, -(y + h / 2));
+  exBox(ctx, 50, y, W - 100, h, { fill, r: 26 }); let yy = y + 62;
+  for (const [t, px, c] of lines) { yy += kt(ctx, t, 90, yy, { font: F.ui(px, 900), color: c || ink, maxW: tw, lh: px * 1.15 }) + px * 0.3; }
+  ctx.restore();
+  photoFrame(ctx, imgKey, W - 50 - 310, y + 25, 280, h - 70, k);
+}
+
+SCENES.S4 = (ctx, s) => {                   // who checks: the Nagpur institute certifies, the Safety Organisation licenses
   vBase(ctx); camSpace(ctx, CAM_TOP); header(ctx, s, 'WHO CHECKS?', 'The court order names both');
-  card(ctx, 50, CAM_TOP + 200, W - 100, 230, GRN, bounce(s.t, ecue(s, 'certifies')), [['CSIR-NEERI', F.ui(56, 900), GDK], ['Certifies the formula', F.ui(40, 900), GDK], ['CSIR: Ministry of Science & Technology', F.ui(28, 800), GDK]]);
-  const tp = ecue(s, 'peso'), ga = span(s.t, tp - 0.4, tp);
-  if (ga > 0) { ctx.save(); ctx.strokeStyle = '#FFD60A'; ctx.lineWidth = 10; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(W / 2, CAM_TOP + 440); ctx.lineTo(W / 2, CAM_TOP + 440 + 60 * ga); ctx.stroke();
-    if (ga >= 1) { ctx.fillStyle = '#FFD60A'; ctx.beginPath(); ctx.moveTo(W / 2 - 22, CAM_TOP + 490); ctx.lineTo(W / 2 + 22, CAM_TOP + 490); ctx.lineTo(W / 2, CAM_TOP + 518); ctx.fill(); } ctx.restore(); }
-  card(ctx, 50, CAM_TOP + 530, W - 100, 270, '#FFD60A', bounce(s.t, tp), [['PESO', F.ui(60, 900), '#1B0B45'], ['Licenses the makers', F.ui(40, 900), '#1B0B45'], ['DPIIT, Commerce Ministry · Explosives Act, 1884', F.ui(28, 800), '#6B21A8']]);
-  const tt = ecue(s, 'explosives') + 0.8, k = bounce(s.t, tt);
-  if (k > 0) { ctx.save(); ctx.globalAlpha = Math.min(1, k); ctx.fillStyle = 'rgba(230,57,70,0.95)'; rr(ctx, 50, CAM_TOP + 840, W - 100, 150, 24); ctx.fill();
-    kt(ctx, 'PRELIMS TRAP', 90, CAM_TOP + 892, { font: F.ui(30, 900), color: '#FFFFFF' });
-    kt(ctx, 'NEERI designs · PESO licenses', 90, CAM_TOP + 955, { font: F.ui(44, 900), color: '#FFFFFF' }); ctx.restore(); }
+  instCard(ctx, CAM_TOP + 180, 300, GRN, GDK, bounce(s.t, ecue(s, 'certifies')), [['National Environmental Engineering Research Institute', 40], ['Certifies the formula', 38, '#1B0B45'], ['Council of Scientific and Industrial Research · Ministry of Science and Technology', 24]], 'inst_neeri');
+  const tp = ecue(s, 'petroleum'), ga = span(s.t, tp - 0.4, tp);
+  if (ga > 0) { ctx.save(); ctx.strokeStyle = '#FFD60A'; ctx.lineWidth = 10; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(W / 2, CAM_TOP + 490); ctx.lineTo(W / 2, CAM_TOP + 490 + 40 * ga); ctx.stroke();
+    if (ga >= 1) { ctx.fillStyle = '#FFD60A'; ctx.beginPath(); ctx.moveTo(W / 2 - 22, CAM_TOP + 525); ctx.lineTo(W / 2 + 22, CAM_TOP + 525); ctx.lineTo(W / 2, CAM_TOP + 553); ctx.fill(); } ctx.restore(); }
+  instCard(ctx, CAM_TOP + 565, 330, '#FFD60A', '#1B0B45', bounce(s.t, tp), [['Petroleum and Explosives Safety Organisation', 42], ['Licenses the makers', 38], ['Department for Promotion of Industry and Internal Trade, Commerce Ministry · Explosives Act, 1884', 24, '#6B21A8']], 'inst_peso');
+  const tt = ecue(s, 'explosives act') + 0.8, k = bounce(s.t, tt);
+  if (k > 0) { ctx.save(); ctx.globalAlpha = Math.min(1, k); ctx.fillStyle = 'rgba(230,57,70,0.95)'; rr(ctx, 50, CAM_TOP + 915, W - 100, 160, 24); ctx.fill();
+    kt(ctx, 'PRELIMS TRAP', 90, CAM_TOP + 962, { font: F.ui(28, 900), color: '#FFFFFF' });
+    kt(ctx, 'The research institute designs · the Safety Organisation licenses', 90, CAM_TOP + 1015, { font: F.ui(34, 900), color: '#FFFFFF', maxW: W - 180, lh: 40 }); ctx.restore(); }
 };
 
 SCENES.S5 = (ctx, s) => {                   // Article 25 vs Article 21
   vBase(ctx); camSpace(ctx, CAM_TOP); header(ctx, s, 'THE BALANCE', 'Can a court limit a festival?');
-  card(ctx, 50, CAM_TOP + 120, W - 100, 190, '#FFFFFF', bounce(s.t, ecue(s, 'religious')), [['Pollution "defeats the very purpose', F.ui(40, 900), '#1B0B45'], ['of the festivities" (SC, 2 Nov 2026)', F.ui(34, 800), '#6B21A8']]);
+  card(ctx, 50, CAM_TOP + 110, W - 100, 240, '#FFFFFF', bounce(s.t, ecue(s, 'religious')), [['Pollution "defeats the very purpose', F.ui(40, 900), '#1B0B45'], ['of the festivities"', F.ui(40, 900), '#1B0B45'], ['Supreme Court, 2 November 2026', F.ui(28, 800), '#6B21A8']]);
   const t25 = ecue(s, 'twenty-five'), t21 = ecue(s, 'twenty-one');
   const tilt = 0.17 * easeOut(span(s.t, t21, t21 + 0.8));          // + tips toward Article 21
   const cx = W / 2, cy = CAM_TOP + 430, L = 300;

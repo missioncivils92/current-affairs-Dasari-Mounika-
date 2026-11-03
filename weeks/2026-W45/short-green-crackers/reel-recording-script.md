@@ -1,7 +1,7 @@
 <div class="cover">
 <div class="brand">DECODE UPSC <span>with Mounika</span></div>
 <h1>Reel: Green crackers: what UPSC will ask</h1>
-<p class="sub">YouTube Short · about 70 seconds · English + తెలుగు · festive, curious, exam-focused</p>
+<p class="sub">YouTube Short · about 80 seconds · no short forms · English + తెలుగు · festive, curious, exam-focused</p>
 </div>
 
 ## How to record
@@ -27,15 +27,15 @@
 
 **🎙️ *clear, news voice.***
 
-On November 2nd, the Supreme Court allowed only **certified green crackers** in Delhi-NCR, on November 7th and 8th, from 6 to 7 in the morning and 8 to 10 at night, and none within **300 metres** of hospitals and schools.
+On November 2nd, the Supreme Court allowed only **certified green crackers** in Delhi and the **National Capital Region**, on November 7th and 8th, from 6 to 7 in the morning and 8 to 10 at night, and none within **300 metres** of hospitals and schools.
 
 **🎙️ *curious, then confident.***
 
-**What makes them green?** CSIR-NEERI designed them: no **barium nitrate**, about **30%** less emissions, in three types, **SWAS, STAR and SAFAL**, with a green logo and **QR code**.
+**What makes them green?** The **National Environmental Engineering Research Institute** in Nagpur, a laboratory of the **Council of Scientific and Industrial Research**, designed them: no **barium nitrate**, about **30%** less emissions, and three types, **SWAS**, the Safe Water Releaser, **STAR**, the Safe Thermite Cracker, and **SAFAL**, Safe Minimal Aluminium, each with a green logo and a **Quick Response code** to scan.
 
 **🎙️ *"pay attention" voice.***
 
-**And who checks them?** NEERI certifies the formula, and **PESO**, under the Commerce Ministry, licenses the makers under the Explosives Act.
+**And who checks them?** The Nagpur institute certifies the formula, and the **Petroleum and Explosives Safety Organisation**, under the Commerce Ministry, licenses the makers under the Explosives Act.
 
 **🎙️ *thoughtful.***
 
@@ -51,25 +51,25 @@ Follow for one exam trap every day.
 
 *(Stay still and smile for 2 seconds.)*
 
-**Pronunciation:** NEERI [NEE-ree] · PESO [PAY-so] · SWAS [Swaas] · SAFAL [Sa-PHAL]
+**Pronunciation:** SWAS [Swaas] · SAFAL [Sa-PHAL] · Thermite [THUR-mite]
 
 ## Upload pack
 
 **Title** (pick one):
 1. What Makes a Cracker "Green"? UPSC Angle #UPSC #Shorts
-2. Green Crackers: NEERI or PESO? #UPSC #Shorts
-3. Can a Court Limit Diwali? Art 25 vs 21 #UPSC #Shorts
+2. Green Crackers: Who Designs, Who Licenses? #UPSC #Shorts
+3. Can a Court Limit Diwali? Article 25 vs 21 #UPSC #Shorts
 
 **Description:**
-> The Supreme Court (2 Nov 2026) allowed only certified green crackers in Delhi-NCR on 7–8 Nov, 6–7 AM and 8–10 PM, and none within 300 m of hospitals and schools. What makes a cracker green (CSIR-NEERI; no barium nitrate; SWAS, STAR, SAFAL; QR code), who checks them (NEERI certifies, PESO licenses under the Explosives Act), and Article 25 vs Article 21. Explained in English and Telugu.
-> Source: The Hindu, 3 Nov 2026; ANI.
+> The Supreme Court (2 November 2026) allowed only certified green crackers in Delhi and the National Capital Region on 7–8 November, 6–7 in the morning and 8–10 at night, and none within 300 metres of hospitals and schools. What makes a cracker green (National Environmental Engineering Research Institute, a Council of Scientific and Industrial Research laboratory; no barium nitrate; SWAS, STAR, SAFAL; Quick Response code), who checks them (the institute certifies; the Petroleum and Explosives Safety Organisation licenses under the Explosives Act), and Article 25 versus Article 21. Explained in English and Telugu.
+> Source: The Hindu, 3 November 2026; Asian News International.
 > Full weekly class every Sunday, 6 PM.
 > #UPSC #UPSC2027 #CurrentAffairs #GreenCrackers #Diwali #Environment #Polity #APPSC #TGPSC #Telugu #Shorts
 
 **Pinned comment:**
 > 🧠 Quick test: Consider these statements:
-> 1. Green crackers were developed by CSIR-NEERI.
-> 2. PESO, which licenses firecracker makers, works under the Ministry of Environment.
+> 1. Green crackers were developed by the National Environmental Engineering Research Institute.
+> 2. The Petroleum and Explosives Safety Organisation, which licenses firecracker makers, works under the Ministry of Environment.
 > 3. Freedom of religion under Article 25 is subject to public order, morality and health.
 > How many are correct? (a) Only one (b) Only two (c) All three (d) None
-> Comment your answer! ✅ Answer: (b) Only two: statements 1 and 3 (PESO is under DPIIT, Ministry of Commerce and Industry).
+> Comment your answer! ✅ Answer: (b) Only two: statements 1 and 3 (the Safety Organisation is under the Department for Promotion of Industry and Internal Trade, Ministry of Commerce and Industry).

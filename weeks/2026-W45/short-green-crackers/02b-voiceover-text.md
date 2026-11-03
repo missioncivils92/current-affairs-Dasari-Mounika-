@@ -1,9 +1,9 @@
-# Voiceover Text — 2026-W45 Short: Green crackers, the Supreme Court and who checks them · v1
+# Voiceover Text — 2026-W45 Short: Green crackers, the Supreme Court and who checks them · v2
 
-**Release:** Tue 3 Nov 2026 (owner's pick for today's reel) · YouTube Short (vertical 9:16), about 70 s (owner), on camera (decision 41).
+**Release:** Tue 3 Nov 2026 (owner's pick for today's reel) · YouTube Short (vertical 9:16), about 80 s (owner asked for 70 s, then for full names), on camera (decision 41).
 **Coverage:** SC order of Mon 2 Nov 2026 (Delhi-NCR, Deepavali, 7–8 Nov), as reported by The Hindu (3 Nov, Hyderabad edition, p.1), ANI and Hans India.
 **Format:** voice-only. Everything below is recorded on the microphone; there is no on-camera recording.
-**Total:** 157 words · about 1.2 min at 135 wpm (1.1–1.2 min at 140–130 wpm)
+**Total:** 202 words · about 1.5 min at 135 wpm (1.4–1.6 min at 140–130 wpm)
 
 Visual directions for the editor are in `02-master-script.md`.
 
@@ -26,7 +26,7 @@ Visual directions for the editor are in `02-master-script.md`.
 
 | Segment | Words | Min |
 |---|---|---|
-| SHORT — Green crackers | 157 | 1.2 |
+| SHORT — Green crackers | 202 | 1.5 |
 
 ---
 
@@ -40,11 +40,11 @@ What if Diwali crackers were allowed for just three hours a day? Delhi lo ide ja
 
 **🎙️ NARRATION**
 
-On November second, the Supreme Court allowed only certified green crackers in Delhi-NCR, on November seventh and eighth, from six to seven in the morning and eight to 10 at night, and none within 300 metres of hospitals and schools.
+On November second, the Supreme Court allowed only certified green crackers in Delhi and the National Capital Region, on November seventh and eighth, from six to seven in the morning and eight to 10 at night, and none within 300 metres of hospitals and schools.
 
-What makes them green? CSIR-NEERI designed them: no barium nitrate, about 30% less emissions, in three types, SWAS, STAR and SAFAL, with a green logo and QR code.
+What makes them green? The National Environmental Engineering Research Institute in Nagpur, a laboratory of the Council of Scientific and Industrial Research, designed them: no barium nitrate, about 30% less emissions, and three types, SWAS, the Safe Water Releaser, STAR, the Safe Thermite Cracker, and SAFAL, Safe Minimal Aluminium, each with a green logo and a Quick Response code to scan.
 
-And who checks them? NEERI certifies the formula, and PESO, under the Commerce Ministry, licenses the makers under the Explosives Act.
+And who checks them? The Nagpur institute certifies the formula, and the Petroleum and Explosives Safety Organisation, under the Commerce Ministry, licenses the makers under the Explosives Act.
 
 **🎙️ NARRATION — *thoughtful.***
 
@@ -54,4 +54,4 @@ But how can a court limit a festival? It called crackers a religious practice, y
 
 Green ga Deepavali jarupukundam! Follow for one exam trap every day.
 
-*Words: 157 · about 1.2 min*
+*Words: 202 · about 1.5 min*
