@@ -1,7 +1,7 @@
 """Add slide transitions and entrance animations to the deck built by build_deck.js.
 
 Shapes named "a<group><effect>_..." animate; same group = together.
-effect: f fade, w wipe from left, u float up, z zoom.
+effect: f fade, w wipe from left, u float up, z zoom, r reveal (zoom after a thinking pause; quiz answers).
 
 Usage: python3 animate.py in.pptx out.pptx [auto|click]
   auto  - each slide builds itself, group after group (good for a screen-recorded video)
@@ -11,7 +11,7 @@ import re, sys, zipfile, shutil
 
 src, dst = sys.argv[1], sys.argv[2]
 mode = sys.argv[3] if len(sys.argv) > 3 else "auto"
-DUR, STEP = 500, 650  # ms per effect, ms between groups in auto mode
+DUR, STEP, THINK = 500, 650, 5000  # ms per effect, ms between groups, quiz pause (auto mode)
 
 class Ids:
     def __init__(self): self.n = 2
@@ -32,7 +32,7 @@ def filt(nid, spid, f):
     return (f'<p:animEffect transition="in" filter="{f}"><p:cBhvr><p:cTn id="{nid()}" dur="{DUR}"/>'
             f'<p:tgtEl><p:spTgt spid="{spid}"/></p:tgtEl></p:cBhvr></p:animEffect>')
 
-PRESET = {"f": (10, 0), "w": (22, 8), "u": (42, 0), "z": (53, 16)}
+PRESET = {"f": (10, 0), "w": (22, 8), "u": (42, 0), "z": (53, 16), "r": (53, 16)}
 
 def effect(nid, spid, eff, node_type, has_text):
     pid, sub = PRESET[eff]
@@ -44,7 +44,7 @@ def effect(nid, spid, eff, node_type, has_text):
         body += filt(nid, spid, "wipe(left)")
     elif eff == "u":
         body += filt(nid, spid, "fade") + anim(nid, spid, "ppt_x", "#ppt_x", "#ppt_x") + anim(nid, spid, "ppt_y", "#ppt_y+.1", "#ppt_y")
-    elif eff == "z":
+    elif eff in ("z", "r"):
         body += filt(nid, spid, "fade") + anim(nid, spid, "ppt_w", "0", "#ppt_w") + anim(nid, spid, "ppt_h", "0", "#ppt_h")
     return (f'<p:par><p:cTn id="{nid()}" presetID="{pid}" presetClass="entr" presetSubtype="{sub}" fill="hold"{grp} nodeType="{node_type}">'
             f'<p:stCondLst><p:cond delay="0"/></p:stCondLst><p:childTnLst>{body}</p:childTnLst></p:cTn></p:par>')
@@ -54,10 +54,13 @@ def timing(groups, text_ids):
     clicks = []
     if mode == "auto":
         inner = []
+        start = 0
         for gi, eff_shapes in enumerate(groups):
+            if gi:
+                start += STEP + (THINK if any(e == "r" for _, e in eff_shapes) else 0)
             effs = "".join(effect(nid, sp, eff, "afterEffect" if k == 0 else "withEffect", sp in text_ids)
                            for k, (sp, eff) in enumerate(eff_shapes))
-            inner.append(f'<p:par><p:cTn id="{nid()}" fill="hold"><p:stCondLst><p:cond delay="{gi * STEP}"/></p:stCondLst><p:childTnLst>{effs}</p:childTnLst></p:cTn></p:par>')
+            inner.append(f'<p:par><p:cTn id="{nid()}" fill="hold"><p:stCondLst><p:cond delay="{start}"/></p:stCondLst><p:childTnLst>{effs}</p:childTnLst></p:cTn></p:par>')
         clicks.append(f'<p:par><p:cTn id="{nid()}" fill="hold"><p:stCondLst><p:cond delay="indefinite"/><p:cond evt="onBegin" delay="0"><p:tn val="2"/></p:cond></p:stCondLst><p:childTnLst>{"".join(inner)}</p:childTnLst></p:cTn></p:par>')
     else:
         for eff_shapes in groups:
@@ -74,7 +77,7 @@ def timing(groups, text_ids):
             '<p:nextCondLst><p:cond evt="onNext" delay="0"><p:tgtEl><p:sldTgt/></p:tgtEl></p:cond></p:nextCondLst></p:seq>'
             '</p:childTnLst></p:cTn></p:par></p:tnLst>' + (f'<p:bldLst>{bld}</p:bldLst>' if bld else '') + '</p:timing>')
 
-NAME = re.compile(r'<p:(nvSpPr|nvPicPr|nvCxnSpPr)><p:cNvPr id="(\d+)" name="a(\d+)([fwuz])_[^"]*"')
+NAME = re.compile(r'<p:(nvSpPr|nvPicPr|nvCxnSpPr)><p:cNvPr id="(\d+)" name="a(\d+)([fwuzr])_[^"]*"')
 
 def process(xml, idx):
     groups = {}

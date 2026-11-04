@@ -1,7 +1,7 @@
 # Nyaya Patashala: Environmental Laws, Decoded
 
 **Course:** LL.B (3YDC), Semester I, Paper V: Environmental Laws (Kakatiya University syllabus, all 4 units)
-**Format:** 40-slide animated PowerPoint (16:9) for a voice-over YouTube lesson
+**Format:** 48-slide animated PowerPoint (16:9), plain white design, for a voice-over YouTube lesson
 
 ## Files
 | File | Use |
@@ -15,7 +15,12 @@
 **Speaker notes** on every slide hold the full voice-over script, with voice directions and pronunciation markers.
 
 ## Slide map
-1–3 Opening (title, paper at a glance, roadmap) · 4–9 Unit I · 10–19 Unit II · 20–29 Unit III · 30–37 Unit IV · 38–40 revision, practice questions, closing
+- 1–3 Opening (title, paper at a glance, roadmap)
+- 4–11 Unit I · 12–23 Unit II · 24–35 Unit III · 36–45 Unit IV
+- 46–48 Revision, practice questions, closing
+
+Each unit opens with a **topics slide**: every syllabus topic for that unit, numbered.
+**8 quick quizzes** (2 per unit) are spread through the deck. These are exam-style MCQs written for this lesson, not verified university PYQs. In the AUTO file the answer appears after a 5-second pause; in the CLICK file it appears on your click.
 
 ## Rebuild
 ```bash
