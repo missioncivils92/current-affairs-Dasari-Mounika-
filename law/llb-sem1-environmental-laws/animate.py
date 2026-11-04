@@ -11,7 +11,7 @@ import re, sys, zipfile, shutil
 
 src, dst = sys.argv[1], sys.argv[2]
 mode = sys.argv[3] if len(sys.argv) > 3 else "auto"
-DUR, STEP, THINK = 500, 650, 5000  # ms per effect, ms between groups, quiz pause (auto mode)
+DUR, STEP, THINK = 500, 650, 6000  # ms per effect, ms between groups, quiz pause (auto mode)
 
 class Ids:
     def __init__(self): self.n = 2

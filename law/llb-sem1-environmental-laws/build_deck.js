@@ -186,36 +186,38 @@ async function divider(unit, title, sub, topics, ic, notes) {
   return s;
 }
 
-// Exam-style quiz: question, four options, a pause, then the answer and why.
+// Semester-exam question: question, a pause to plan, then the answer outline point by point.
 let QN = 0;
-async function quiz(unit, q, opts, ans, why, notes) {
+async function examQ(unit, kind, q, points) {
   QN++;
-  const s = newSlide("Nyaya Content", unit.section, `Quick quiz ${QN}  ·  Unit ${unit.num}`);
+  const s = newSlide("Nyaya Content", unit.section, `Exam question ${QN}  ·  Unit ${unit.num}`);
   const nq = next("f", "q");
-  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: M, y: 1.5, w: W - 2 * M, h: 1.25, fill: { color: SLATE }, line: { type: "none" }, rectRadius: 0.1, objectName: nq + "_bg" });
-  s.addImage({ data: await icon("FaCircleQuestion", "yellow"), x: M + 0.3, y: 1.8, w: 0.65, h: 0.65, objectName: nq + "_i", altText: "Question" });
-  txt(s, q, { x: M + 1.2, y: 1.5, w: W - 2 * M - 1.5, h: 1.25, fontSize: 22, bold: true, color: WHITE, valign: "middle" }, nq + "_t");
-  const L = ["A", "B", "C", "D"], ow = (W - 2 * M - 0.25) / 2, oh = 1.0;
-  const pos = (i) => ({ x: M + (i % 2) * (ow + 0.25), y: 3.0 + Math.floor(i / 2) * (oh + 0.2) });
-  const no = next("u", "opts");
-  opts.forEach((o, i) => {
-    const { x, y } = pos(i);
-    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y, w: ow, h: oh, fill: { color: CARD }, line: { color: CARD2, width: 1 }, rectRadius: 0.1, objectName: `${no}_b${i}` });
-    s.addShape(pres.shapes.OVAL, { x: x + 0.22, y: y + 0.24, w: 0.52, h: 0.52, fill: { color: YEL }, line: { type: "none" }, objectName: `${no}_c${i}` });
-    txt(s, L[i], { x: x + 0.22, y: y + 0.24, w: 0.52, h: 0.52, fontSize: 18, bold: true, align: "center", valign: "middle" }, `${no}_l${i}`);
-    txt(s, o, { x: x + 0.95, y, w: ow - 1.15, h: oh, fontSize: 17, valign: "middle" }, `${no}_t${i}`);
-  });
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: M, y: 1.45, w: W - 2 * M, h: 1.45, fill: { color: SLATE }, line: { type: "none" }, rectRadius: 0.1, objectName: nq + "_bg" });
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: M + 0.3, y: 1.6, w: 1.9, h: 0.36, fill: { color: YEL }, line: { type: "none" }, rectRadius: 0.06, objectName: nq + "_tag" });
+  txt(s, kind.toUpperCase(), { x: M + 0.3, y: 1.6, w: 1.9, h: 0.36, fontSize: 12, bold: true, align: "center", valign: "middle", charSpacing: 2 }, nq + "_k");
+  txt(s, q, { x: M + 0.3, y: 2.0, w: W - 2 * M - 0.6, h: 0.82, fontSize: 19, bold: true, color: WHITE, valign: "middle" }, nq + "_t");
   const np = next("f", "pause");
-  s.addImage({ data: await icon("FaStopwatch", "teal"), x: M, y: 5.5, w: 0.4, h: 0.4, objectName: np + "_i", altText: "Timer" });
-  txt(s, "Pause the video and answer: five seconds!", { x: M + 0.55, y: 5.5, w: 6, h: 0.4, fontSize: 15, bold: true, color: TEAL, valign: "middle" }, np + "_t");
-  const na = next("r", "ans");
-  const { x, y } = pos(ans);
-  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y, w: ow, h: oh, fill: { color: TEAL }, line: { type: "none" }, rectRadius: 0.1, objectName: na + "_b" });
-  s.addImage({ data: await icon("FaCircleCheck", "white"), x: x + 0.22, y: y + 0.24, w: 0.52, h: 0.52, objectName: na + "_i", altText: "Correct" });
-  txt(s, opts[ans], { x: x + 0.95, y, w: ow - 1.15, h: oh, fontSize: 17, bold: true, color: WHITE, valign: "middle" }, na + "_t");
-  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: M, y: 5.45, w: W - 2 * M, h: 1.2, fill: { color: CARD2 }, line: { type: "none" }, rectRadius: 0.1, objectName: na + "_wb" });
-  txt(s, [{ text: `Answer: ${L[ans]}.  `, options: { bold: true, color: TEAL } }, { text: why }], { x: M + 0.3, y: 5.45, w: W - 2 * M - 0.6, h: 1.2, fontSize: 16, valign: "middle" }, na + "_w");
-  s.addNotes(notes);
+  s.addImage({ data: await icon("FaStopwatch", "teal"), x: M, y: 3.05, w: 0.38, h: 0.38, objectName: np + "_i", altText: "Timer" });
+  txt(s, "Pause the video and plan your answer, then compare it with this outline.", { x: M + 0.5, y: 3.05, w: 10, h: 0.38, fontSize: 15, bold: true, color: TEAL, valign: "middle" }, np + "_t");
+  const na = next("r", "outline");
+  const top = 3.6, bot = 6.7;
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: M, y: top, w: W - 2 * M, h: bot - top, fill: { color: CARD }, line: { type: "none" }, rectRadius: 0.1, objectName: na + "_bg" });
+  txt(s, "HOW TO WRITE THE ANSWER", { x: M + 0.3, y: top + 0.12, w: 6, h: 0.32, fontSize: 13, bold: true, color: GOLD, charSpacing: 2 }, na + "_h");
+  const step = (bot - top - 0.6) / points.length;
+  points.forEach((pt, i) => {
+    const ng = next("w", "pt" + i);
+    const y = top + 0.52 + i * step;
+    const d = Math.min(0.32, step - 0.06);
+    s.addShape(pres.shapes.OVAL, { x: M + 0.3, y: y + (step - d) / 2, w: d, h: d, fill: { color: SLATE }, line: { type: "none" }, objectName: ng + "_o" });
+    txt(s, String(i + 1), { x: M + 0.3, y: y + (step - d) / 2, w: d, h: d, fontSize: 11, bold: true, color: WHITE, align: "center", valign: "middle" }, ng + "_n");
+    const m = pt.match(/^([^:]{2,40}):\s(.*)$/);
+    txt(s, m ? [{ text: m[1] + ": ", options: { bold: true, color: GOLD } }, { text: m[2] }] : pt, { x: M + 0.8, y, w: W - 2 * M - 1.1, h: step, fontSize: 14, valign: "middle" }, ng + "_t");
+  });
+  s.addNotes(
+    "[VOICE ANCHOR: teacherly, slower on the question]\n" +
+    `Semester exam question. ${kind}: ${q} ... Pause the video and plan your answer for a moment. ... ` +
+    "Now, here is how to write it. " + points.map((p, i) => `Point ${i + 1}. ${p.replace(/\(/g, ", ").replace(/\)/g, ",")}.`).join(" ")
+  );
 }
 
 // ============================================================
@@ -227,15 +229,15 @@ async function build() {
     const k = next("f", "kicker");
     txt(s, "PAPER V  ·  LL.B (3YDC)  ·  SEMESTER I", { x: M, y: 1.45, w: 7.6, h: 0.4, fontSize: 16, bold: true, color: GOLD, charSpacing: 3 }, k);
     s.addText("Environmental Laws — Decoded", { placeholder: "title" });
-    s.addText("All four units of the Kakatiya University syllabus: concepts, global treaties, the Constitution, the courts and the statutes", { placeholder: "body" });
+    s.addText("All five units of the Kakatiya University syllabus: concepts, treaties, the Constitution, the courts, the statutes, and forests and wildlife", { placeholder: "body" });
     const nm = next("z", "hero");
     s.addImage({ path: EMBLEM, x: 8.55, y: 1.15, w: 4.2, h: 4.2, objectName: nm + "_logo", altText: "Nyaya Patashala logo" });
     s.addNotes(
       "[VOICE ANCHOR: warm, unhurried, smile in the voice]\n" +
       "Welcome to Nyaya Patashala [NYAA-ya Paa-TA-shaa-la]. Every river you drink from, every breath you take in a city — somewhere behind it, there is a law. " +
-      "This is Paper Five of your first semester: Environmental Laws. In one sitting, we will decode all four units — " +
+      "This is Paper Five of your first semester: Environmental Laws. In one sitting, we will decode all five units — " +
       "what the environment means, how the world built a rulebook to protect it, how our Constitution and our courts turned that rulebook into rights, " +
-      "and finally the three Acts every law student must know section by section. Keep a notebook open. Let us begin."
+      "the three pollution Acts every law student must know, and finally the laws on forests, wildlife and biodiversity. Keep a notebook open. Let us begin."
     );
   }
 
@@ -246,7 +248,7 @@ async function build() {
       ["100", "Total marks", "Theory paper"],
       ["80 | 20", "External | Internal", "University exam + internal assessment"],
       ["6 hrs", "Per week", "Theory teaching load"],
-      ["4", "Units", "Concepts → treaties → Constitution → statutes"],
+      ["5", "Units", "Concepts → treaties → Constitution → statutes → forests & wildlife"],
     ];
     const cw = 2.85, gap = 0.233;
     stats.forEach(([big, lab, small], i) => {
@@ -267,37 +269,38 @@ async function build() {
     s.addNotes(
       "[VOICE ANCHOR: clear, practical]\n" +
       "First, the paper itself. It is a theory paper of one hundred marks, eighty external and twenty internal, taught six hours a week. " +
-      "Four units. Write this down — every good answer in environmental law stands on three legs: the provision, the leading case, and the principle the court laid down. " +
+      "Five units. Write this down — every good answer in environmental law stands on three legs: the provision, the leading case, and the principle the court laid down. " +
       "For every topic today, I will give you all three."
     );
   }
 
   // ---------------- 3. Roadmap ----------------
   {
-    const s = newSlide("Nyaya Content", "Opening", "Your four-unit roadmap");
+    const s = newSlide("Nyaya Content", "Opening", "Your five-unit roadmap");
     const units = [
       ["I", "The concepts", "Meaning of environment, Indian tradition, ecology, pollution, ozone, climate change", "FaEarthAsia"],
       ["II", "The global rulebook", "Ramsar 1971 → Stockholm 1972 → Brundtland → Rio 1992 → Kyoto → MDGs → Johannesburg 2002", "FaGlobe"],
       ["III", "Constitution, courts & torts", "42nd Amendment, Art 21/14/19, PIL, SD, precaution, polluter pays, liability, public trust, BNS/BNSS", "FaLandmark"],
       ["IV", "The statute book", "Water Act 1974, Air Act 1981, Environment (Protection) Act 1986, environment tribunals", "FaBookOpen"],
+      ["V", "Forests, wildlife & biodiversity", "Forest Acts 1927 & 1980, Wild Life Act 1972, Biological Diversity Act 2002, NGT appraisal", "FaTree"],
     ];
-    const cw = 2.85, gap = 0.233;
-    for (let i = 0; i < 4; i++) {
+    const cw = 2.27, gap = 0.195;
+    for (let i = 0; i < 5; i++) {
       const [n, h, b, ic] = units[i];
       const x = M + i * (cw + gap);
       const nm = next("u", "unit" + i);
       s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 1.6, w: cw, h: 4.95, fill: { color: CARD }, line: { type: "none" }, rectRadius: 0.12, shadow: shadow(), objectName: nm + "_bg" });
-      await iconCircle(s, ic, x + 0.3, y0(1.9), 0.8, YEL, "slate", nm);
-      txt(s, "UNIT " + n, { x: x + 1.25, y: 1.95, w: cw - 1.4, h: 0.7, fontSize: 22, bold: true, color: GOLD, valign: "middle", fontFace: "Cambria" }, nm + "_u");
-      txt(s, h, { x: x + 0.3, y: 2.95, w: cw - 0.6, h: 0.8, fontSize: 20, bold: true }, nm + "_h");
-      txt(s, b, { x: x + 0.3, y: 3.8, w: cw - 0.6, h: 2.5, fontSize: 15, color: MUTED }, nm + "_b");
+      await iconCircle(s, ic, x + 0.2, 1.9, 0.7, YEL, "slate", nm);
+      txt(s, "UNIT " + n, { x: x + 1.0, y: 1.9, w: cw - 1.1, h: 0.7, fontSize: 20, bold: true, color: GOLD, valign: "middle", fontFace: "Cambria" }, nm + "_u");
+      txt(s, h, { x: x + 0.2, y: 2.85, w: cw - 0.4, h: 0.9, fontSize: 17, bold: true }, nm + "_h");
+      txt(s, b, { x: x + 0.2, y: 3.85, w: cw - 0.4, h: 2.5, fontSize: 14, color: MUTED }, nm + "_b");
     }
     s.addNotes(
       "[VOICE ANCHOR: confident, steady pace]\n" +
       "Here is the map. Unit One gives you the vocabulary — environment, ecology, pollution, ozone and climate. " +
       "Unit Two is the global rulebook, from Ramsar [Raam-SAAR] in nineteen seventy-one to Johannesburg in two thousand two. " +
       "Unit Three is the heart of the paper: the Constitution, the courts, and the law of torts. " +
-      "Unit Four is the statute book: the Water Act, the Air Act and the Environment Protection Act. Let us open Unit One."
+      "Unit Four is the statute book: the Water Act, the Air Act and the Environment Protection Act. And Unit Five protects living nature: forests, wildlife and biodiversity, with an appraisal of the NGT. Let us open Unit One."
     );
   }
 
@@ -346,10 +349,15 @@ async function build() {
     );
   }
 
-  await quiz(U1, "Where is the term “environment” defined in Indian law?",
-    ["Sec 2(a), Water Act, 1974", "Sec 2(a), Environment (Protection) Act, 1986", "Article 48A of the Constitution", "Sec 2(b), Air Act, 1981"], 1,
-    "Sec 2(a) of the EPA, 1986 covers water, air, land and their inter-relationship with living beings and property.",
-    "[VOICE ANCHOR: playful, smile in the voice]\nQuick quiz! Where is the word environment defined in Indian law? Option A, Water Act section two-A. B, Environment Protection Act section two-A. C, Article forty-eight-A. D, Air Act section two-B. Pause the video... five, four, three, two, one. The answer is **B**: Section two-A of the Environment Protection Act, nineteen eighty-six.");
+  await examQ(U1, "Short note", "Define “environment”. Explain its components and types.", [
+    "Intro: Sec 2(a), EPA 1986: water, air, land and their inter-relationship with living beings and property",
+    "Meaning: from the French “environner”, to surround; the definition is inclusive",
+    "Abiotic components: air, water, soil, minerals, sunlight, temperature",
+    "Biotic components: producers, consumers and decomposers",
+    "Four spheres: lithosphere, hydrosphere, atmosphere, biosphere; ecosystem and ecology",
+    "Types: natural, man-made and social environment",
+    "Conclusion: the law protects relationships; link to Art 48A and Art 51A(g)",
+  ]);
 
   // 6. Tradition timeline
   {
@@ -479,10 +487,15 @@ async function build() {
     );
   }
 
-  await quiz(U1, "Which treaty phases out ozone-depleting substances such as CFCs?",
-    ["Kyoto Protocol, 1997", "Montreal Protocol, 1987", "Ramsar Convention, 1971", "Convention on Biological Diversity, 1992"], 1,
-    "Vienna Convention 1985 is the framework; the Montreal Protocol 1987 sets the phase-out; the Kigali Amendment 2016 adds HFCs.",
-    "[VOICE ANCHOR: playful, quick]\nBefore Unit Two, one question. Which treaty phases out ozone-depleting substances like CFCs? Kyoto, Montreal, Ramsar, or the CBD? Five seconds... The answer is **B**, the Montreal Protocol of nineteen eighty-seven. Kyoto is about greenhouse gases, not the ozone layer. Do not mix them up.");
+  await examQ(U1, "Essay", "What is pollution? Discuss its sources, types and effects, with special reference to ozone depletion and climate change.", [
+    "Intro: pollutant and pollution defined in Sec 2(b) and 2(c), EPA 1986",
+    "Sources: natural vs man-made; point vs non-point",
+    "Types: air, water, soil, noise, thermal, radioactive, with one example each",
+    "Effects: on human health, ecosystems and the economy",
+    "Ozone depletion: CFCs in the stratosphere; Vienna 1985, Montreal 1987, Kigali 2016",
+    "Climate change: greenhouse gases; IPCC, UNFCCC 1992, Kyoto 1997, Paris 2015",
+    "Conclusion: sustainable development, polluter pays, Art 48A and Art 51A(g)",
+  ]);
 
   // ================= UNIT II =================
   const U2 = { section: "Unit II: International law", num: "II" };
@@ -607,10 +620,15 @@ async function build() {
     );
   }
 
-  await quiz(U2, "World Environment Day, 5 June, marks the opening of which event?",
-    ["Rio Earth Summit, 1992", "Stockholm Conference, 1972", "Ramsar Convention, 1971", "Johannesburg Summit, 2002"], 1,
-    "The UN Conference on the Human Environment opened in Stockholm on 5 June 1972; the UN General Assembly made it World Environment Day.",
-    "[VOICE ANCHOR: light, curious]\nQuiz time. World Environment Day, the fifth of June — which event does it mark? Rio, Stockholm, Ramsar or Johannesburg? Pause... The answer is **B**, Stockholm, nineteen seventy-two. And remember, the second of February — World Wetlands Day — belongs to Ramsar.");
+  await examQ(U2, "Short note", "Stockholm Conference, 1972 and its impact on Indian environmental law.", [
+    "Intro: UN Conference on the Human Environment, Stockholm, 5–16 June 1972",
+    "Aims: a common outlook to preserve and improve the human environment",
+    "Outcomes: 26 principles, Action Plan of 109 recommendations, UNEP, World Environment Day",
+    "Key principles: Principle 1 (environment of quality) and Principle 21 (no-harm rule)",
+    "Impact on India: 42nd Amendment, 1976 inserted Art 48A and Art 51A(g)",
+    "Impact on India: Air Act 1981 and EPA 1986 enacted under Art 253 citing Stockholm",
+    "Conclusion: Stockholm began the shift from pollution control to sustainable development",
+  ]);
 
   // 15. UNEP & Brundtland
   {
@@ -729,10 +747,15 @@ async function build() {
     );
   }
 
-  await quiz(U2, "Which principle of the Rio Declaration, 1992 states the precautionary approach?",
-    ["Principle 7", "Principle 10", "Principle 15", "Principle 16"], 2,
-    "Principle 15 is precaution. Principle 7 is CBDR, 10 is public participation, and 16 is polluter pays.",
-    "[VOICE ANCHOR: playful]\nLast question of Unit Two. Which Rio principle states the precautionary approach — seven, ten, fifteen or sixteen? Five seconds... It is **C**, Principle fifteen. Sixteen is polluter pays, which our Supreme Court also adopted in the Vellore case.");
+  await examQ(U2, "Essay", "Trace the development of international environmental law from Stockholm (1972) to Johannesburg (2002).", [
+    "Intro: roots in the no-harm rule (Trail Smelter arbitration); Ramsar Convention 1971",
+    "Stockholm 1972: Declaration, Action Plan and the creation of UNEP",
+    "Brundtland Report 1987: the classic definition of sustainable development",
+    "Rio 1992: Rio Declaration (P7, P10, P15, P16), Agenda 21, UNFCCC, CBD",
+    "1997: Earth Summit+5 review of Agenda 21 and the Kyoto Protocol",
+    "2000–2002: MDGs; Johannesburg WSSD, three pillars and Plan of Implementation",
+    "Conclusion: led to SDGs and Paris 2015; adopted by Indian courts in Vellore (1996)",
+  ]);
 
   // ================= UNIT III =================
   const U3 = { section: "Unit III: Constitution & courts", num: "III" };
@@ -768,10 +791,15 @@ async function build() {
     );
   }
 
-  await quiz(U3, "Article 48A and Article 51A(g) were inserted by which amendment?",
-    ["44th Amendment, 1978", "42nd Amendment, 1976", "73rd Amendment, 1992", "86th Amendment, 2002"], 1,
-    "The 42nd Amendment, 1976 added Art 48A (DPSP) and Art 51A(g) (Fundamental Duty), and moved forests and wildlife to the Concurrent List.",
-    "[VOICE ANCHOR: playful]\nQuick check. Articles forty-eight-A and fifty-one-A-g were inserted by which amendment? Forty-fourth, forty-second, seventy-third or eighty-sixth? Pause... The answer is **B**, the forty-second Amendment of nineteen seventy-six.");
+  await examQ(U3, "Essay", "“The right to a clean environment is part of the right to life.” Discuss with reference to Articles 21, 14 and 19.", [
+    "Intro: 42nd Amendment added Art 48A (DPSP) and Art 51A(g) (duty), not directly enforceable",
+    "PIL and locus standi: S.P. Gupta (1981); RLEK v State of UP (1985)",
+    "Art 21: Subhash Kumar v State of Bihar (1991); Virender Gaur v State of Haryana (1995)",
+    "Art 14: Bangalore Medical Trust v Muddappa (1991): arbitrary action struck down",
+    "Art 19(1)(g): no right to trade in a polluting manner; M.C. Mehta (Kanpur tanneries, 1987)",
+    "Principles: Vellore (1996): SD, precaution, polluter pays; N.D. Jayal (2003)",
+    "Conclusion: duties and directives read into rights; NGT now applies these principles",
+  ]);
 
   // 22. Locus standi & PIL
   {
@@ -894,10 +922,15 @@ async function build() {
     );
   }
 
-  await quiz(U3, "The rule of absolute liability, with no exceptions, was laid down in:",
-    ["Rylands v Fletcher (1868)", "M.C. Mehta v Union of India (1987)", "Vellore Citizens’ Welfare Forum (1996)", "M.C. Mehta v Kamal Nath (1997)"], 1,
-    "The Oleum gas leak case. Rylands gave strict liability, Vellore gave SD and polluter pays, and Kamal Nath gave public trust.",
-    "[VOICE ANCHOR: energetic]\nOne more. Which case laid down absolute liability with no exceptions? Rylands versus Fletcher, M. C. Mehta nineteen eighty-seven, Vellore, or Kamal Nath? Five seconds... It is **B**, the Oleum gas leak case. Notice how each of the other three options is the leading case for a different doctrine.");
+  await examQ(U3, "Essay", "Distinguish between strict liability and absolute liability. Why did the Supreme Court evolve absolute liability?", [
+    "Intro: no-fault liability for hazardous activities",
+    "Strict liability: Rylands v Fletcher (1868): non-natural use, escape, damage",
+    "Exceptions: Act of God, plaintiff’s fault, consent, act of a stranger, statutory authority",
+    "Absolute liability: M.C. Mehta v UoI (1987), Oleum gas leak; no exceptions, no escape needed",
+    "Reasons: hazardous industry, the Bhopal tragedy, compensation linked to the enterprise’s capacity",
+    "Followed: Indian Council for Enviro-Legal Action (1996); Public Liability Insurance Act 1991",
+    "Conclusion: NGT Act, Sec 17 now provides no-fault liability for accidents",
+  ]);
 
   // 27. Public trust
   {
@@ -1021,10 +1054,15 @@ async function build() {
     );
   }
 
-  await quiz(U4, "The Water (Prevention and Control of Pollution) Act, 1974 was enacted under:",
-    ["Article 249", "Article 252", "Article 253", "Article 356"], 1,
-    "Water is a State subject, so Parliament legislated under Art 252 after state legislatures passed resolutions. The Air Act and EPA use Art 253.",
-    "[VOICE ANCHOR: playful]\nQuiz! Under which Article was the Water Act of nineteen seventy-four enacted — two forty-nine, two fifty-two, two fifty-three or three fifty-six? Pause... The answer is **B**, Article two fifty-two.");
+  await examQ(U4, "Short note", "Importance of Sections 3 and 5 of the Environment (Protection) Act, 1986.", [
+    "Intro: EPA 1986, an umbrella law after the Bhopal tragedy, enacted under Art 253",
+    "Sec 3(1): Central Government may take all measures to protect and improve the environment",
+    "Sec 3(2): emission standards, restricting areas for industry, safeguards against accidents",
+    "Sec 3(3): power to constitute authorities, e.g., Central Ground Water Authority",
+    "Sec 5: directions to any person or authority, incl. closure or stopping power and water",
+    "Rules: basis for the EIA Notification 2006, CRZ Notifications and waste rules",
+    "Conclusion: Sec 3 is the power to plan; Sec 5 is the power to act",
+  ]);
 
   // 32. Water Act
   {
@@ -1190,43 +1228,301 @@ async function build() {
     );
   }
 
-  await quiz(U4, "Which of these Acts is NOT in Schedule I of the National Green Tribunal Act, 2010?",
-    ["Water Act, 1974", "Air Act, 1981", "Wild Life (Protection) Act, 1972", "Biological Diversity Act, 2002"], 2,
-    "Schedule I has seven Acts, including the Water, Air, EPA, Forest Conservation and Biological Diversity Acts. The Wild Life (Protection) Act is not listed.",
-    "[VOICE ANCHOR: playful, final quiz]\nThe last quiz of the class. Which of these Acts is not in the NGT's First Schedule? Water Act, Air Act, Wild Life Protection Act, or the Biological Diversity Act? Five seconds... The answer is **C**, the Wild Life Protection Act.");
+  await examQ(U4, "Essay", "Explain the regulatory mechanism and penalties under the Water Act, 1974 and the role of the judiciary in preventing water pollution.", [
+    "Intro: India’s first major pollution law, enacted under Art 252",
+    "Boards: CPCB (Sec 3) and SPCBs (Sec 4); their functions under Sec 16 and Sec 17",
+    "Powers: samples (Sec 21), entry (Sec 23), ban on discharge (Sec 24), consent (Sec 25, 26)",
+    "Directions: Sec 33A allows closure, prohibition, or stopping power and water",
+    "Penalties: Chapter VII (Sec 41–50); cognizance on complaint under Sec 49",
+    "Judiciary: M.C. Mehta (Ganga tanneries, 1987); Vellore Citizens’ Welfare Forum (1996)",
+    "Conclusion: 2024 amendment, stronger Boards, and NGT oversight",
+  ]);
+
+  // ================= UNIT V =================
+  const U5 = { section: "Unit V: Forests, wildlife & biodiversity", num: "V" };
+  pres.addSection({ title: U5.section });
+  await divider(U5, "Forests, wildlife and biodiversity", "The living environment and the laws that guard it",
+    ["Protection of forest, wild life and biodiversity", "Importance of forest and need for its conservation", "Indian Forest Act, 1927: salient features",
+     "Forest Conservation Act, 1980: salient features", "Judicial approach for forest conservation", "Wild Life (Protection) Act, 1972",
+     "Sanctuaries and national parks", "Licensing of zoos and parks", "Offences against wild life",
+     "Biodiversity conservation", "Biological Diversity Act, 2002: salient features", "National Green Tribunal Act, 2010: an appraisal"], "FaTree",
+    "[VOICE ANCHOR: warm, a little slower]\nUnit Five. So far we protected air and water. Now we protect life itself — forests, wild animals and biodiversity. Here are the twelve topics of this unit.");
+
+  // V1. Importance of forests
+  {
+    const s = newSlide("Nyaya Content", U5.section, "Importance of forests and the need for conservation");
+    const imp = [["Ecological", "Protect soil, recharge groundwater, and shelter most land species", "FaTree"], ["Climate", "Store carbon and influence local rainfall and temperature", "FaCloudSun"], ["Economic", "Timber, fuelwood, bamboo and non-timber forest produce", "FaCoins"], ["Social", "Homes and livelihoods of tribal and forest-dwelling communities", "FaPeopleGroup"]];
+    const cw = (W - 2 * M - 0.45) / 4;
+    for (let i = 0; i < 4; i++) {
+      await card(s, { x: M + i * (cw + 0.15), y: 1.6, w: cw, h: 2.3, head: imp[i][0], body: imp[i][1], ic: imp[i][2], headSize: 17 });
+    }
+    await card(s, { x: M, y: 4.1, w: 7.4, h: 2.45, head: "Why conservation is needed", body: ["Forest loss from mining, dams, roads, encroachment and fires", "National Forest Policy, 1988: aim for one-third of land under forest or tree cover", "Constitution: Art 48A, Art 51A(g); forests in the Concurrent List (Entry 17A)"], ic: "FaTriangleExclamation", iconFill: RED, iconColor: "white", headColor: RED });
+    await card(s, { x: 8.2, y: 4.1, w: 4.53, h: 2.45, head: "The legal story in one line", body: "Indian Forest Act 1927 manages forests → Forest Conservation Act 1980 stops their diversion → the courts widen protection.", ic: "FaRoute", iconFill: TEAL, iconColor: "white", headColor: TEAL });
+    s.addNotes(
+      "[VOICE ANCHOR: warm, descriptive]\n" +
+      "Why do forests matter? Four reasons. Ecological — they protect soil and water and shelter most land species. Climate — they store carbon. Economic — timber, bamboo and forest produce. " +
+      "And social — they are home to tribal and forest-dwelling communities. " +
+      "But forests are lost to mining, dams, roads and encroachment. The National Forest Policy of nineteen eighty-eight set a goal of one-third of our land under forest or tree cover. " +
+      "Remember the story in one line: the Indian Forest Act manages forests, the Forest Conservation Act stops their diversion, and the courts widen protection."
+    );
+  }
+
+  // V2. Indian Forest Act 1927
+  {
+    const s = newSlide("Nyaya Content", U5.section, "Indian Forest Act, 1927: salient features");
+    rowTable(s, {
+      x: M, y: 1.6, colW: [2.3, 3.6, 2.95, 3.28], rowH: [0.55, 0.95, 0.75], fontSize: 14,
+      header: ["Feature", "Reserved forest", "Village forest", "Protected forest"],
+      rows: [
+        ["Chapter", "Ch II (Sec 3–27)", "Ch III (Sec 28)", "Ch IV (Sec 29–34)"],
+        ["How created", "Notified by the State after a Forest Settlement Officer settles rights", "Reserved forest land assigned to a village community", "Notified over forest land that is not reserved"],
+        ["Protection", "Highest: activities barred unless permitted", "Managed by the village for its own use", "Lower: activities allowed unless prohibited"],
+      ],
+    });
+    const f = [["Ch V (Sec 35)", "Control over forests not owned by the Government"], ["Ch VII (Sec 41)", "Rules on transit of timber and forest produce"], ["Sec 52", "Seizure of property used in forest offences"], ["Sec 68", "Power to compound forest offences"]];
+    const cw = (W - 2 * M - 0.45) / 4;
+    f.forEach(([h, b], i) => {
+      const nm = next("z", "f" + i);
+      const x = M + i * (cw + 0.15);
+      s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 4.85, w: cw, h: 1.7, fill: { color: CARD2 }, line: { type: "none" }, rectRadius: 0.1, objectName: nm + "_bg" });
+      txt(s, [{ text: h, options: { bold: true, color: GOLD, fontSize: 17, breakLine: true } }, { text: b, options: { fontSize: 14 } }], { x: x + 0.2, y: 4.95, w: cw - 0.4, h: 1.5 }, nm + "_t");
+    });
+    s.addNotes(
+      "[VOICE ANCHOR: structured]\n" +
+      "The Indian Forest Act of nineteen twenty-seven is a colonial law, built on the Acts of eighteen sixty-five and eighteen seventy-eight. Its aim was to manage forests and their produce. " +
+      "It creates three classes. Reserved forests, under Chapter Two, get the highest protection — everything is barred unless permitted. Village forests, under Section twenty-eight, are managed by a village community. " +
+      "Protected forests, under Chapter Four, get lower protection — everything is allowed unless prohibited. " +
+      "Also note Section thirty-five on private forests, Section forty-one on transit of forest produce, Section fifty-two on seizure, and Section sixty-eight on compounding offences."
+    );
+  }
+
+  // V3. Forest Conservation Act 1980
+  {
+    const s = newSlide("Nyaya Content", U5.section, "Forest Conservation Act, 1980: salient features");
+    const nh = next("f", "h");
+    txt(s, "SECTION 2: PRIOR APPROVAL OF THE CENTRAL GOVERNMENT IS NEEDED TO…", { x: M, y: 1.55, w: 7.6, h: 0.35, fontSize: 14, bold: true, color: GOLD, charSpacing: 1 }, nh);
+    const r = [["De-reserve", "a reserved forest", "FaUnlock"], ["Use forest land", "for any non-forest purpose", "FaIndustry"], ["Lease forest land", "to a private person or body", "FaFileSignature"], ["Clear natural trees", "to raise a plantation", "FaTree"]];
+    for (let i = 0; i < 4; i++) {
+      const col = i % 2, row = Math.floor(i / 2);
+      await card(s, { x: M + col * 3.85, y: 2.0 + row * 1.6, w: 3.7, h: 1.45, head: r[i][0], body: r[i][1], ic: r[i][2], headSize: 17, bodySize: 15 });
+    }
+    await card(s, { x: M, y: 5.25, w: 7.55, h: 1.3, head: null, body: "Also: Sec 3 Advisory Committee; Sec 3A and 3B penalties, including for officials; compensatory afforestation under the CAF Act, 2016 (CAMPA).", eff: "f", fill: CARD2, label: "also" });
+    await card(s, { x: 8.4, y: 1.55, w: 4.33, h: 5.0, head: "2023 amendment", body: ["Renamed the Van (Sanrakshan Evam Samvardhan) Adhiniyam, 1980", "Covers notified forests and land recorded as forest", "Exempts some strategic and security projects near borders", "Under challenge in the Supreme Court; in 2024 it directed that the wide Godavarman meaning of “forest” continue meanwhile"], ic: "FaPenToSquare", iconFill: TEAL, iconColor: "white", headColor: TEAL });
+    s.addNotes(
+      "[VOICE ANCHOR: firm on Section two]\n" +
+      "The Indian Forest Act managed forests. But forests kept disappearing. So in nineteen eighty came the Forest Conservation Act — a short Act with one powerful section. " +
+      "**Section two.** No State can, without prior approval of the Central Government, de-reserve a reserved forest, use forest land for a non-forest purpose, lease it to a private party, or clear natural trees to raise a plantation. " +
+      "Section three creates an Advisory Committee, and compensatory afforestation is now governed by the CAF Act of twenty sixteen. " +
+      "In twenty twenty-three the Act was amended and renamed the Van Sanrakshan Evam Samvardhan [VUN Sun-RUK-shun AY-vum Sum-VAR-dhun] Adhiniyam. The amendment is under challenge, and the Supreme Court has told authorities to keep using the wide Godavarman meaning of forest meanwhile."
+    );
+  }
+
+  // V4. Judicial approach
+  {
+    const s = newSlide("Nyaya Content", U5.section, "Judicial approach to forest conservation");
+    const cases = [
+      ["T.N. Godavarman Thirumulpad v UoI (1996 on)", "“Forest” takes its dictionary meaning, whatever the ownership; FCA applies to all forests; Central Empowered Committee set up; continuing mandamus.", "FaGavel", CARD, GOLD, YEL, "slate"],
+      ["Banwasi Seva Ashram v State of UP (1986)", "Balanced industrial need (a power project) with the rights of forest-dwelling tribals; ordered rehabilitation safeguards.", "FaPeopleGroup", CARD, GOLD, YEL, "slate"],
+      ["Telugu States Lens · Samatha v State of AP (1997)", "Government, forest and tribal land in Scheduled Areas cannot be leased to non-tribals or private companies for mining (Fifth Schedule).", "FaMountain", CARD2, TEAL, TEAL, "white"],
+      ["Orissa Mining Corp v MoEF (2013), Niyamgiri", "Gram sabhas must decide whether mining affects the religious and cultural rights of forest dwellers under the Forest Rights Act, 2006.", "FaLandmark", CARD, GOLD, YEL, "slate"],
+    ];
+    for (let i = 0; i < 4; i++) {
+      const col = i % 2, row = Math.floor(i / 2);
+      const [h, b, ic, fill, hc, icf, icc] = cases[i];
+      await card(s, { x: M + col * 6.14, y: 1.6 + row * 2.55, w: 5.99, h: 2.4, head: h, body: b, ic, fill, headColor: hc, iconFill: icf, iconColor: icc, headSize: 16, bodySize: 15 });
+    }
+    s.addNotes(
+      "[VOICE ANCHOR: storytelling]\n" +
+      "Courts have been the strongest guardians of our forests. In T. N. Godavarman Thirumulpad, from nineteen ninety-six, the Supreme Court said forest means forest in its dictionary sense, whoever owns it. " +
+      "In Banwasi Seva Ashram, nineteen eighty-six, the court balanced a power project against the rights of forest-dwelling tribals. " +
+      "**Telugu States Lens.** Samatha versus State of Andhra Pradesh, nineteen ninety-seven. Land in the Scheduled Areas could not be leased to private companies for mining. A must for Group-1. " +
+      "And in the Niyamgiri [Ni-yam-GI-ree] case of twenty thirteen, the gram sabhas were given the final say on how mining affected their rights."
+    );
+  }
+
+  await examQ(U5, "Essay", "Explain the salient features of the Forest Conservation Act, 1980 and the judicial approach to forest conservation.", [
+    "Intro: Indian Forest Act 1927 managed forests as a resource; FCA 1980 aimed to conserve them",
+    "Sec 2: prior Central approval to de-reserve forests or use forest land for non-forest purposes",
+    "Sec 2: also for leasing to private bodies and clearing natural forest for plantations",
+    "Sec 3: Advisory Committee; compensatory afforestation under the CAF Act, 2016",
+    "Godavarman (1996 on): dictionary meaning of “forest”; Central Empowered Committee",
+    "Samatha (1997) and Niyamgiri (2013): rights of tribals and gram sabhas",
+    "Conclusion: 2023 amendment (Van Adhiniyam) and the need to balance development",
+  ]);
+
+  // V5. Wild Life (Protection) Act 1972
+  {
+    const s = newSlide("Nyaya Content", U5.section, "Wild Life (Protection) Act, 1972: salient features");
+    const facts = [
+      ["Art 252", "Passed on state resolutions; wildlife moved to the Concurrent List (17B) in 1976", "FaLandmark"],
+      ["Sec 5A", "National Board for Wild Life, chaired by the Prime Minister", "FaUsers"],
+      ["Sec 9", "Hunting of scheduled animals prohibited, except as allowed by Sec 11 and 12", "FaBan"],
+      ["Schedules", "Graded protection; the 2022 amendment reduced six schedules to four", "FaLayerGroup"],
+      ["Sec 39", "Wild animals hunted or found dead become government property", "FaBuildingColumns"],
+      ["Ch VA", "Ban on trade in scheduled animal articles; CITES provisions added in 2022", "FaShieldHalved"],
+    ];
+    for (let i = 0; i < 6; i++) {
+      const col = i % 2, row = Math.floor(i / 2);
+      const x = M + col * 3.95, y = 1.6 + row * 1.68;
+      const nm = next("z", "w" + i);
+      s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y, w: 3.8, h: 1.5, fill: { color: CARD }, line: { type: "none" }, rectRadius: 0.1, objectName: nm + "_bg" });
+      await iconCircle(s, facts[i][2], x + 0.18, y + 0.2, 0.6, YEL, "slate", nm);
+      txt(s, facts[i][0], { x: x + 0.9, y: y + 0.2, w: 2.7, h: 0.6, fontSize: 17, bold: true, color: GOLD, valign: "middle" }, nm + "_h");
+      txt(s, facts[i][1], { x: x + 0.18, y: y + 0.85, w: 3.45, h: 0.6, fontSize: 14 }, nm + "_b");
+    }
+    await card(s, { x: 8.55, y: 1.6, w: 4.18, h: 4.88, head: "Authorities", body: ["Chief Wild Life Warden (Sec 4)", "State Board for Wild Life (Sec 6)", "Central Zoo Authority (Sec 38A)", "National Tiger Conservation Authority (Sec 38L)", "Wildlife Crime Control Bureau (Sec 38Y)"], ic: "FaSitemap", iconFill: TEAL, iconColor: "white", headColor: TEAL });
+    s.addNotes(
+      "[VOICE ANCHOR: steady, section by section]\n" +
+      "The Wild Life Protection Act of nineteen seventy-two was passed under Article two fifty-two, because wildlife was then a State subject. In nineteen seventy-six it moved to the Concurrent List. " +
+      "Section five-A creates the National Board for Wild Life, chaired by the Prime Minister. Section nine prohibits hunting of scheduled animals. " +
+      "The schedules give graded protection — the twenty twenty-two amendment reduced them from six to four. " +
+      "Section thirty-nine makes wild animals that are hunted or found dead government property, and Chapter Five-A bans trade in scheduled animal articles. " +
+      "On the right, the authorities: the Chief Wild Life Warden, the Central Zoo Authority, the NTCA and the Wildlife Crime Control Bureau."
+    );
+  }
+
+  // V6. Sanctuary vs National Park
+  {
+    const s = newSlide("Nyaya Content", U5.section, "Sanctuaries vs national parks");
+    rowTable(s, {
+      x: M, y: 1.6, colW: [2.9, 4.62, 4.61], rowH: 0.58, fontSize: 15,
+      header: ["Point", "Sanctuary", "National park"],
+      rows: [
+        ["Declared under", "Sec 18 (State); Centre under Sec 38", "Sec 35 (State); Centre under Sec 38"],
+        ["People’s rights", "May continue if the Collector allows them", "All rights must be extinguished"],
+        ["Grazing", "May be regulated or permitted", "Prohibited (Sec 35(7))"],
+        ["Changing boundaries", "Only on NBWL recommendation (Sec 26A(3))", "Only on NBWL recommendation (Sec 35(5))"],
+        ["Level of protection", "High", "Highest"],
+      ],
+    });
+    const pa = [["Conservation reserve", "Sec 36A: on government land next to protected areas"], ["Community reserve", "Sec 36C: on community or private land, with people’s consent"], ["Tiger reserve", "Sec 38V: notified on NTCA advice (2006 amendment)"]];
+    const cw = (W - 2 * M - 0.3) / 3;
+    pa.forEach(([h, b], i) => {
+      const nm = next("u", "pa" + i);
+      const x = M + i * (cw + 0.15);
+      s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 5.3, w: cw, h: 1.25, fill: { color: i === 2 ? TEAL : CARD2 }, line: { type: "none" }, rectRadius: 0.1, objectName: nm + "_bg" });
+      txt(s, [{ text: h, options: { bold: true, fontSize: 16, breakLine: true, color: i === 2 ? WHITE : GOLD } }, { text: b, options: { fontSize: 14, color: i === 2 ? WHITE : SLATE } }], { x: x + 0.2, y: 5.38, w: cw - 0.4, h: 1.1 }, nm + "_t");
+    });
+    s.addNotes(
+      "[VOICE ANCHOR: comparative, clear]\n" +
+      "A favourite exam question: sanctuary versus national park. Both are declared by the State Government — sanctuaries under Section eighteen, national parks under Section thirty-five — and the Centre can declare either under Section thirty-eight. " +
+      "In a sanctuary, some rights of people may continue, and grazing may be allowed. In a national park, all rights must be extinguished, and grazing is prohibited. " +
+      "Boundaries of either can change only on the recommendation of the National Board for Wild Life. " +
+      "Add three newer categories: conservation reserves, community reserves, and tiger reserves."
+    );
+  }
+
+  // V7. Zoos & offences
+  {
+    const s = newSlide("Nyaya Content", U5.section, "Licensing of zoos and offences against wild life");
+    await card(s, { x: M, y: 1.6, w: 5.99, h: 3.2, head: "Zoos (Chapter IVA)", body: ["Central Zoo Authority set up under Sec 38A (1991 amendment)", "Sec 38H: no zoo may operate without recognition from the CZA", "CZA sets standards for housing, upkeep and veterinary care", "Recognition can be refused or withdrawn"], ic: "FaPaw" });
+    await card(s, { x: 6.74, y: 1.6, w: 5.99, h: 3.2, head: "Offences and enforcement", body: ["Sec 51: penalties; harsher for Schedule I animals and offences in sanctuaries or national parks", "Sec 50: powers of entry, search, seizure and arrest", "Sec 55: courts act on complaint by officers, or by a citizen after 60 days’ notice"], ic: "FaGavel", iconFill: RED, iconColor: "white", headColor: RED });
+    await card(s, { x: M, y: 5.0, w: W - 2 * M, h: 1.55, head: "Centre for Environmental Law, WWF-I v Union of India (2013)", body: "The Supreme Court ordered relocation of some Asiatic lions from Gir to Kuno, taking a species-first approach: protecting an endangered species comes before local or state pride.", ic: "FaScaleBalanced", fill: CARD2, headSize: 16, bodySize: 14 });
+    s.addNotes(
+      "[VOICE ANCHOR: steady]\n" +
+      "Your syllabus mentions licensing of zoos. Since nineteen ninety-one, the Central Zoo Authority under Section thirty-eight-A regulates zoos. Under Section thirty-eight-H, no zoo may operate without its recognition. " +
+      "Offences: Section fifty-one lays down penalties, which are harsher for Schedule One animals and for offences inside sanctuaries and national parks. Section fifty gives powers of search and arrest, and under Section fifty-five even a citizen can complain after sixty days' notice. " +
+      "And a case to quote: Centre for Environmental Law, WWF-India versus Union of India, twenty thirteen — the Asiatic lions case, where the court put the species first."
+    );
+  }
+
+  await examQ(U5, "Essay", "Discuss the salient features of the Wild Life (Protection) Act, 1972. Distinguish between a sanctuary and a national park.", [
+    "Intro: enacted under Art 252 in 1972; wildlife moved to the Concurrent List in 1976",
+    "Authorities: NBWL (Sec 5A), State Boards, Chief Wild Life Warden, NTCA, WCCB",
+    "Hunting ban: Sec 9; graded protection through schedules (four after 2022)",
+    "Protected areas: sanctuaries (Sec 18), national parks (Sec 35), reserves, tiger reserves",
+    "Sanctuary vs national park: rights and grazing may be allowed vs extinguished and prohibited",
+    "Trade ban (Ch VA), zoos (Sec 38A, 38H), offences and penalties (Sec 51)",
+    "Conclusion: CEL, WWF-I v UoI (2013), species-first approach",
+  ]);
+
+  // V8. Biological Diversity Act 2002
+  {
+    const s = newSlide("Nyaya Content", U5.section, "Biodiversity conservation: Biological Diversity Act, 2002");
+    const tiers = [["National Biodiversity Authority", "Sec 8 · Chennai"], ["State Biodiversity Boards", "Sec 22"], ["Biodiversity Management Committees", "Sec 41 · local bodies; People’s Biodiversity Registers"]];
+    for (let i = 0; i < 3; i++) {
+      const nm = next("w", "tier" + i);
+      const x = M + i * 4.1;
+      s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 1.6, w: 3.75, h: 1.35, fill: { color: i === 0 ? YEL : CARD }, line: { type: "none" }, rectRadius: 0.1, objectName: nm + "_bg" });
+      txt(s, [{ text: tiers[i][0], options: { bold: true, fontSize: 16, breakLine: true } }, { text: tiers[i][1], options: { fontSize: 14 } }], { x: x + 0.2, y: 1.6, w: 3.35, h: 1.35, valign: "middle" }, nm + "_t");
+      if (i < 2) s.addShape(pres.shapes.RIGHT_ARROW, { x: x + 3.8, y: 2.1, w: 0.26, h: 0.35, fill: { color: MUTED }, line: { type: "none" }, objectName: nm + "_ar" });
+    }
+    rowTable(s, {
+      x: M, y: 3.2, colW: [1.7, 6.0], rowH: 0.48, fontSize: 14,
+      header: ["Section", "Rule"],
+      rows: [
+        ["Sec 3", "Foreigners need NBA approval to access biological resources"],
+        ["Sec 6", "Patents based on Indian biological resources need NBA approval"],
+        ["Sec 7", "Indian entities give prior intimation to the SBB"],
+        ["Sec 21", "Fair and equitable benefit sharing"],
+        ["Sec 37", "State may notify biodiversity heritage sites"],
+      ],
+    });
+    await card(s, { x: 8.6, y: 3.2, w: 4.13, h: 3.35, head: "Why it matters", body: ["Implements the CBD, 1992 and the Nagoya Protocol", "Fights biopiracy: US turmeric patent revoked (1997); European neem patent revoked", "2023 amendment: decriminalised offences; eased rules for AYUSH and codified traditional knowledge"], ic: "FaSeedling", iconFill: TEAL, iconColor: "white", headColor: TEAL, bodySize: 14 });
+    s.addNotes(
+      "[VOICE ANCHOR: clear]\n" +
+      "India implemented the Convention on Biological Diversity through the Biological Diversity Act, two thousand two. It has a three-tier structure: the National Biodiversity Authority in Chennai, State Biodiversity Boards, and Biodiversity Management Committees at the local level, which keep People's Biodiversity Registers. " +
+      "Key sections: Section three — foreigners need NBA approval. Section six — patents based on Indian biological resources need NBA approval. Section seven — Indian entities inform the State Board. Section twenty-one — benefit sharing. Section thirty-seven — biodiversity heritage sites. " +
+      "Why does it matter? Biopiracy. India fought and won the revocation of the turmeric and neem patents abroad."
+    );
+  }
+
+  // V9. NGT appraisal
+  {
+    const s = newSlide("Nyaya Content", U5.section, "National Green Tribunal Act, 2010: an appraisal");
+    await card(s, { x: M, y: 1.6, w: 5.99, h: 3.55, head: "Strengths", body: ["Specialised forum of judicial and expert members (Sec 4)", "Applies SD, precaution and polluter pays (Sec 20)", "Not bound by CPC; aims to decide within six months (Sec 18(3))", "Suo motu power upheld: MCGM v Ankita Sinha (2021)", "Benches at Delhi, Bhopal, Pune, Kolkata and Chennai"], ic: "FaThumbsUp", iconFill: TEAL, iconColor: "white", headColor: TEAL });
+    await card(s, { x: 6.74, y: 1.6, w: 5.99, h: 3.55, head: "Concerns", body: ["Vacancies and few benches limit access for distant litigants", "Wild Life (Protection) Act and Forest Rights Act are outside Schedule I", "Orders are not always complied with", "Overlap and friction with High Court jurisdiction", "Appeals to the Supreme Court can add delay"], ic: "FaTriangleExclamation", iconFill: RED, iconColor: "white", headColor: RED });
+    await card(s, { x: M, y: 5.35, w: W - 2 * M, h: 1.2, head: "Way forward", body: "Fill vacancies, add circuit benches, widen Schedule I to cover wildlife and forest-rights laws, and monitor compliance of orders.", ic: "FaRoute", fill: CARD2, headSize: 16, bodySize: 15 });
+    s.addNotes(
+      "[VOICE ANCHOR: balanced, evaluative]\n" +
+      "Your syllabus says: the NGT Act, an appraisal. Appraisal means strengths and weaknesses. " +
+      "Strengths: a specialised forum with judicial and expert members; Section twenty makes it apply sustainable development, precaution and polluter pays; it is not bound by the Civil Procedure Code and tries to decide within six months; and in Ankita Sinha, twenty twenty-one, the Supreme Court upheld its suo motu power. " +
+      "Concerns: vacancies and few benches; the Wild Life Act and the Forest Rights Act are outside its Schedule; compliance with its orders is uneven; and there is friction with High Courts. " +
+      "End your answer with a way forward: fill vacancies, add circuit benches, widen Schedule One, and monitor compliance."
+    );
+  }
+
+  await examQ(U5, "Short note", "National Green Tribunal Act, 2010: an appraisal.", [
+    "Intro: set up on 18 Oct 2010; replaced the 1995 and 1997 Acts (Sec 38)",
+    "Composition: Chairperson, judicial and expert members (Sec 4); five benches",
+    "Jurisdiction: Sec 14–16 over the seven Acts in Schedule I; no-fault liability (Sec 17)",
+    "Strengths: SD, precaution and polluter pays (Sec 20); suo motu power (Ankita Sinha, 2021)",
+    "Concerns: vacancies, access, WPA and FRA excluded, compliance of orders",
+    "Conclusion: way forward: more benches, wider Schedule I, compliance monitoring",
+  ]);
 
   // ================= CLOSING =================
   pres.addSection({ title: "Revision" });
   // 38. Year recap
   {
-    const s = newSlide("Nyaya Content", "Revision", "Rapid revision: twelve years to remember");
-    const yrs = [["1971", "Ramsar"], ["1972", "Stockholm, UNEP"], ["1974", "Water Act"], ["1976", "42nd Amendment"], ["1981", "Air Act"], ["1986", "EPA"], ["1987", "Brundtland; Oleum case"], ["1992", "Rio, CBD"], ["1997", "Kyoto; Kamal Nath"], ["2002", "Johannesburg"], ["2010", "NGT Act"], ["2023", "BNS, BNSS"]];
-    const cw = 1.9, ch = 2.35, gx = (W - 2 * M - 6 * cw) / 5;
+    const s = newSlide("Nyaya Content", "Revision", "Rapid revision: fourteen years to remember");
+    const yrs = [["1927", "Indian Forest Act"], ["1971", "Ramsar"], ["1972", "Stockholm; Wild Life Act"], ["1974", "Water Act"], ["1976", "42nd Amendment"], ["1980", "Forest Conservation Act"], ["1981", "Air Act"], ["1986", "EPA"], ["1987", "Brundtland; Oleum case"], ["1992", "Rio, CBD"], ["1997", "Kyoto; Kamal Nath"], ["2002", "Johannesburg; Biological Diversity Act"], ["2010", "NGT Act"], ["2023", "BNS, BNSS"]];
+    const cw = 1.6, ch = 2.35, gx = (W - 2 * M - 7 * cw) / 6;
     yrs.forEach(([y, l], i) => {
-      const col = i % 6, row = Math.floor(i / 6);
+      const col = i % 7, row = Math.floor(i / 7);
       const x = M + col * (cw + gx), yy = 1.65 + row * (ch + 0.25);
       const nm = next("z", "y" + y);
       s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: yy, w: cw, h: ch, fill: { color: row === 0 ? CARD : CARD2 }, line: { type: "none" }, rectRadius: 0.1, shadow: shadow(), objectName: nm + "_bg" });
-      txt(s, y, { x, y: yy + 0.3, w: cw, h: 0.8, fontSize: 30, bold: true, color: GOLD, align: "center", valign: "middle", fontFace: "Cambria" }, nm + "_y");
-      txt(s, l, { x: x + 0.12, y: yy + 1.15, w: cw - 0.24, h: 1.0, fontSize: 15, align: "center" }, nm + "_l");
+      txt(s, y, { x, y: yy + 0.3, w: cw, h: 0.8, fontSize: 28, bold: true, color: GOLD, align: "center", valign: "middle", fontFace: "Cambria" }, nm + "_y");
+      txt(s, l, { x: x + 0.1, y: yy + 1.1, w: cw - 0.2, h: 1.15, fontSize: 14, align: "center" }, nm + "_l");
     });
     s.addNotes(
       "[VOICE ANCHOR: rapid-fire round, energetic, smile in the voice]\n" +
-      "Rapid revision. Say them with me. Seventy-one — Ramsar. Seventy-two — Stockholm. Seventy-four — Water Act. Seventy-six — forty-second Amendment. " +
+      "Rapid revision. Say them with me. Nineteen twenty-seven — the Indian Forest Act. Seventy-one — Ramsar. Seventy-two — Stockholm, and the Wild Life Act. Seventy-four — Water Act. Seventy-six — forty-second Amendment. Eighty — Forest Conservation Act. " +
       "Eighty-one — Air Act. Eighty-six — EPA. Eighty-seven — Brundtland, and the Oleum gas case. Ninety-two — Rio. Ninety-seven — Kyoto, and Kamal Nath. " +
-      "Two thousand two — Johannesburg. Twenty ten — the NGT. And twenty twenty-three — the BNS and BNSS. If you know these twelve, you have the skeleton of the whole paper."
+      "Two thousand two — Johannesburg, and the Biological Diversity Act. Twenty ten — the NGT. And twenty twenty-three — the BNS and BNSS. If you know these fourteen, you have the skeleton of the whole paper."
     );
   }
 
   // 39. Practice questions
   {
-    const s = newSlide("Nyaya Content", "Revision", "Practice questions for your semester exam");
+    const s = newSlide("Nyaya Content", "Revision", "More practice: one question from each unit");
     const qs = [
-      ["Essay", "Trace the development of international environmental law from Stockholm (1972) to Johannesburg (2002)."],
-      ["Essay", "Distinguish strict liability from absolute liability with reference to M.C. Mehta v Union of India (1987)."],
-      ["Essay", "Discuss the importance of Sections 3 and 5 of the Environment (Protection) Act, 1986."],
-      ["Essay", "How has the judiciary read the right to a clean environment into Articles 21, 14 and 19?"],
-      ["Short notes", "Public trust doctrine · Precautionary principle · Article 48A · Ramsar Convention · Sec 152 BNSS"],
+      ["Unit I", "Explain environmental protection in ancient Indian tradition and culture."],
+      ["Unit II", "Write a note on the Brundtland Report and the concept of sustainable development."],
+      ["Unit III", "Explain the doctrine of public trust with the help of decided cases."],
+      ["Unit IV", "Discuss the role of the judiciary in the prevention of air pollution."],
+      ["Unit V", "Explain the salient features of the Biological Diversity Act, 2002."],
     ];
     for (let i = 0; i < qs.length; i++) {
       const y = 1.6 + i * 0.9;
@@ -1239,8 +1535,8 @@ async function build() {
     await card(s, { x: 9.1, y: 1.6, w: 3.63, h: 4.38, head: "Answer skeleton", body: ["Intro: define the concept or quote the provision", "Body: law → leading case → principle → criticism", "Conclusion: way forward, linked to sustainable development"], ic: "FaPenNib", bodySize: 14 });
     s.addNotes(
       "[VOICE ANCHOR: encouraging]\n" +
-      "Here are five practice questions built from today's lesson. Four essays — the international timeline, strict versus absolute liability, Sections three and five, and Articles twenty-one, fourteen and nineteen. " +
-      "And a set of short notes. For every answer, use the same skeleton. Introduction — define or quote the provision. Body — the law, the leading case, the principle, and a line of criticism. " +
+      "Here are five more practice questions, one from each unit: Indian tradition, the Brundtland Report, public trust, the judiciary and air pollution, and the Biological Diversity Act. " +
+      "For every answer, use the same skeleton. Introduction — define or quote the provision. Body — the law, the leading case, the principle, and a line of criticism. " +
       "Conclusion — a way forward, linked to sustainable development. Pause here and attempt one answer today."
     );
   }
