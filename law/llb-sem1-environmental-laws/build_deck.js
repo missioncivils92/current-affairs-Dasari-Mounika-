@@ -191,59 +191,25 @@ async function divider(unit, title, sub, topics, ic, notes) {
   return s;
 }
 
-async function unitQuestions(unit, essays, shorts) {
-  const s = newSlide("Nyaya Content", unit.section, `Unit ${unit.num}: important exam questions`);
-  const ne = next("u", "ess");
-  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: M, y: 1.55, w: 7.45, h: 5.0, fill: { color: CARD }, line: { type: "none" }, rectRadius: 0.1, objectName: ne + "_bg" });
-  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: M + 0.25, y: 1.72, w: 3.4, h: 0.42, fill: { color: SLATE }, line: { type: "none" }, rectRadius: 0.06, objectName: ne + "_tag" });
-  txt(s, "ESSAY QUESTIONS (LONG ANSWER)", { x: M + 0.25, y: 1.72, w: 3.4, h: 0.42, fontSize: 12, bold: true, color: WHITE, align: "center", valign: "middle", charSpacing: 1 }, ne + "_k");
-  txt(s, essays.map((q, i) => ({ text: q, options: { bullet: { type: "number" }, breakLine: i < essays.length - 1, paraSpaceAfter: 10 } })),
-    { x: M + 0.3, y: 2.35, w: 6.85, h: 4.05, fontSize: 15 }, ne + "_q");
-  const ns = next("u", "sn");
-  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 8.25, y: 1.55, w: 4.48, h: 5.0, fill: { color: CARD2 }, line: { type: "none" }, rectRadius: 0.1, objectName: ns + "_bg" });
-  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 8.5, y: 1.72, w: 2.7, h: 0.42, fill: { color: TEAL }, line: { type: "none" }, rectRadius: 0.06, objectName: ns + "_tag" });
-  txt(s, "SHORT NOTES", { x: 8.5, y: 1.72, w: 2.7, h: 0.42, fontSize: 12, bold: true, color: WHITE, align: "center", valign: "middle", charSpacing: 1 }, ns + "_k");
-  txt(s, shorts.map((q, i) => ({ text: q, options: { bullet: { indent: 14 }, breakLine: i < shorts.length - 1, paraSpaceAfter: 6 } })),
-    { x: 8.55, y: 2.35, w: 3.95, h: 4.05, fontSize: 15 }, ns + "_q");
-  s.addNotes(
-    "[VOICE ANCHOR: focused, encouraging]\n" +
-    `Before we start Unit ${unit.num}, look at the questions you must be ready to answer. Essay questions: ` +
-    essays.map((q, i) => `${i + 1}. ${q}`).join(" ") +
-    " And short notes on: " + shorts.join(", ") + ". Keep these in mind as we go through the unit. I will show you how to write some of them along the way."
-  );
-}
-
-// Semester-exam question: question, a pause to plan, then the answer outline point by point.
-let QN = 0;
-async function examQ(unit, kind, q, points) {
-  QN++;
-  const s = newSlide("Nyaya Content", unit.section, `Exam question ${QN}  ·  Unit ${unit.num}`);
-  const nq = next("f", "q");
-  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: M, y: 1.45, w: W - 2 * M, h: 1.45, fill: { color: SLATE }, line: { type: "none" }, rectRadius: 0.1, objectName: nq + "_bg" });
-  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: M + 0.3, y: 1.6, w: 1.9, h: 0.36, fill: { color: YEL }, line: { type: "none" }, rectRadius: 0.06, objectName: nq + "_tag" });
-  txt(s, kind.toUpperCase(), { x: M + 0.3, y: 1.6, w: 1.9, h: 0.36, fontSize: 12, bold: true, align: "center", valign: "middle", charSpacing: 2 }, nq + "_k");
-  txt(s, q, { x: M + 0.3, y: 2.0, w: W - 2 * M - 0.6, h: 0.82, fontSize: 19, bold: true, color: WHITE, valign: "middle" }, nq + "_t");
-  const np = next("f", "pause");
-  s.addImage({ data: await icon("FaStopwatch", "teal"), x: M, y: 3.05, w: 0.38, h: 0.38, objectName: np + "_i", altText: "Timer" });
-  txt(s, "Pause the video and plan your answer, then compare it with this outline.", { x: M + 0.5, y: 3.05, w: 10, h: 0.38, fontSize: 15, bold: true, color: TEAL, valign: "middle" }, np + "_t");
-  const na = next("r", "outline");
-  const top = 3.6, bot = 6.7;
-  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: M, y: top, w: W - 2 * M, h: bot - top, fill: { color: CARD }, line: { type: "none" }, rectRadius: 0.1, objectName: na + "_bg" });
-  txt(s, "HOW TO WRITE THE ANSWER", { x: M + 0.3, y: top + 0.12, w: 6, h: 0.32, fontSize: 13, bold: true, color: GOLD, charSpacing: 2 }, na + "_h");
-  const step = (bot - top - 0.6) / points.length;
-  points.forEach((pt, i) => {
-    const ng = next("w", "pt" + i);
-    const y = top + 0.52 + i * step;
-    const d = Math.min(0.32, step - 0.06);
-    s.addShape(pres.shapes.OVAL, { x: M + 0.3, y: y + (step - d) / 2, w: d, h: d, fill: { color: SLATE }, line: { type: "none" }, objectName: ng + "_o" });
-    txt(s, String(i + 1), { x: M + 0.3, y: y + (step - d) / 2, w: d, h: d, fontSize: 11, bold: true, color: WHITE, align: "center", valign: "middle" }, ng + "_n");
-    const m = pt.match(/^([^:]{2,40}):\s(.*)$/);
-    txt(s, m ? [{ text: m[1] + ": ", options: { bold: true, color: GOLD } }, { text: m[2] }] : pt, { x: M + 0.8, y, w: W - 2 * M - 1.1, h: step, fontSize: 14, valign: "middle" }, ng + "_t");
+async function unitQuestions(unit, longQs, shortQs) {
+  const s = newSlide("Nyaya Content", unit.section, `Unit ${unit.num}: important questions`);
+  const colW = (W - 2 * M - 0.25) / 2;
+  const cols = [["LONG ANSWER QUESTIONS", longQs, SLATE, CARD], ["SHORT ANSWER QUESTIONS", shortQs, TEAL, CARD2]];
+  cols.forEach(([label, qs, tagFill, bg], c) => {
+    const nm = next("u", "col" + c);
+    const x = M + c * (colW + 0.25);
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 1.55, w: colW, h: 5.0, fill: { color: bg }, line: { type: "none" }, rectRadius: 0.1, objectName: nm + "_bg" });
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: x + 0.25, y: 1.72, w: 3.3, h: 0.42, fill: { color: tagFill }, line: { type: "none" }, rectRadius: 0.06, objectName: nm + "_tag" });
+    txt(s, label, { x: x + 0.25, y: 1.72, w: 3.3, h: 0.42, fontSize: 12, bold: true, color: WHITE, align: "center", valign: "middle", charSpacing: 1 }, nm + "_k");
+    txt(s, qs.map((q, i) => ({ text: q, options: { bullet: { type: "number" }, breakLine: i < qs.length - 1, paraSpaceAfter: 10 } })),
+      { x: x + 0.3, y: 2.35, w: colW - 0.55, h: 4.05, fontSize: 15 }, nm + "_q");
   });
   s.addNotes(
-    "[VOICE ANCHOR: teacherly, slower on the question]\n" +
-    `Semester exam question. ${kind}: ${q} ... Pause the video and plan your answer for a moment. ... ` +
-    "Now, here is how to write it. " + points.map((p, i) => `Point ${i + 1}. ${p}.`).join(" ")
+    "[VOICE ANCHOR: focused, encouraging]\n" +
+    `Here are the important questions from Unit ${unit.num}. Five long answer questions: ` +
+    longQs.map((q, i) => `${i + 1}. ${q}`).join(" ") +
+    ` And five short answer questions: ` + shortQs.map((q, i) => `${i + 1}. ${q}`).join(" ") +
+    " Note them down. Everything you need to answer them is in the slides that follow."
   );
 }
 
@@ -338,7 +304,7 @@ async function build() {
     ["Meaning, Definition and Concept of Environment", "Environmental Protection in Ancient Indian Tradition and Culture", "Protection of Environment in Ancient India and During Medieval Period", "Components of Environment", "Biosphere and Ecosystem", "Ecology", "Types of Environment", "Concept of Pollution", "Sources of Pollution, Types of Pollution, and Effects of Pollution", "Ozone Depletion", "Global Warming", "Climate Change"], "FaEarthAsia",
     "[VOICE ANCHOR: lower, deliberate]\nUnit One. Before we study any law, we must know what that law protects. So — what exactly is the environment?");
 
-  await unitQuestions(U1, ["Define “environment”. Explain its components, types and the concept of ecology.", "What is pollution? Discuss its sources, types and effects, with reference to ozone depletion and climate change.", "Discuss environmental protection in ancient Indian tradition and culture and during the medieval period."], ["Biosphere and ecosystem", "Types of environment", "Ozone depletion", "Global warming", "Climate change"]);
+  await unitQuestions(U1, ["Define environment. Explain its meaning, concept and components.", "Discuss environmental protection in ancient Indian tradition and culture and during the medieval period.", "Explain biosphere, ecosystem and ecology, and the types of environment.", "What is pollution? Discuss its sources, types and effects.", "Discuss ozone depletion, global warming and climate change."], ["Define “environment” under the EPA, 1986.", "What is an ecosystem?", "Distinguish between biotic and abiotic components.", "What is ozone depletion?", "What is global warming?"]);
 
   // 5. Meaning & definition
   {
@@ -375,16 +341,6 @@ async function build() {
       "On the right, the four spheres: lithosphere, hydrosphere, atmosphere and biosphere. When any one is disturbed, the others feel it."
     );
   }
-
-  await examQ(U1, "Short note", "Define “environment”. Explain its components and types.", [
-    "Intro: Sec 2(a), EPA 1986: water, air, land and their inter-relationship with living beings and property",
-    "Meaning: from the French “environner”, to surround; the definition is inclusive",
-    "Abiotic components: air, water, soil, minerals, sunlight, temperature",
-    "Biotic components: producers, consumers and decomposers",
-    "Four spheres: lithosphere, hydrosphere, atmosphere, biosphere; ecosystem and ecology",
-    "Types: natural, man-made and social environment",
-    "Conclusion: the law protects relationships; link to Art 48A and Art 51A(g)",
-  ]);
 
   // 6. Tradition timeline
   {
@@ -514,16 +470,6 @@ async function build() {
     );
   }
 
-  await examQ(U1, "Essay", "What is pollution? Discuss its sources, types and effects, with special reference to ozone depletion and climate change.", [
-    "Intro: pollutant and pollution defined in Sec 2(b) and 2(c), EPA 1986",
-    "Sources: natural vs man-made; point vs non-point",
-    "Types: air, water, soil, noise, thermal, radioactive, with one example each",
-    "Effects: on human health, ecosystems and the economy",
-    "Ozone depletion: CFCs in the stratosphere; Vienna 1985, Montreal 1987, Kigali 2016",
-    "Climate change: greenhouse gases; IPCC, UNFCCC 1992, Kyoto 1997, Paris 2015",
-    "Conclusion: sustainable development, polluter pays, Art 48A and Art 51A(g)",
-  ]);
-
   // ================= UNIT II =================
   const U2 = { section: "Unit II: International law", num: "II" };
   pres.addSection({ title: U2.section });
@@ -531,7 +477,7 @@ async function build() {
     ["History and Development of Environmental Protection under International Law", "Fundamental Principles of International Environmental Law", "Ramsar Convention, 1971", "United Nations Conference on Human Environment, 1972 (Stockholm Conference)", "Aims and Objectives of the Conference", "Stockholm Declaration, 1972", "Impact of Stockholm, UNEP", "The Brundtland Commission, Brundtland Report 1987", "Rio Declaration, 1992", "Convention on Biological Diversity, 1992", "Earth Summit Plus Five", "Kyoto Protocol, 1997", "Millennium Development Goals", "Johannesburg Conference 2002 (WSSD)", "Johannesburg Declaration & Major Outcomes"], "FaGlobe",
     "[VOICE ANCHOR: lift in energy]\nUnit Two. Pollution does not stop at borders, so the law could not stop there either.");
 
-  await unitQuestions(U2, ["Trace the history and development of international environmental law from Stockholm (1972) to Johannesburg (2002).", "Explain the fundamental principles of international environmental law.", "Discuss the aims, objectives and impact of the Stockholm Conference, 1972."], ["Ramsar Convention, 1971", "UNEP", "Brundtland Report, 1987", "Rio Declaration, 1992", "CBD, 1992", "Kyoto Protocol, 1997", "MDGs"]);
+  await unitQuestions(U2, ["Trace the history and development of environmental protection under international law.", "Explain the fundamental principles of international environmental law.", "Discuss the aims, objectives and impact of the Stockholm Conference, 1972.", "Explain the Rio Declaration, 1992 and the Convention on Biological Diversity, 1992.", "Discuss the Kyoto Protocol, 1997 and the outcomes of the Johannesburg Conference, 2002."], ["Ramsar Convention, 1971", "UNEP", "Brundtland Report, 1987", "Earth Summit Plus Five", "Millennium Development Goals"]);
 
   // 11. Timeline
   {
@@ -645,16 +591,6 @@ async function build() {
       "Its impact on India is direct. The forty-second Amendment followed in nineteen seventy-six. And the preambles of the Air Act and the Environment Protection Act expressly refer to the Stockholm decisions — which is why Parliament could use Article two hundred and fifty-three."
     );
   }
-
-  await examQ(U2, "Short note", "Stockholm Conference, 1972 and its impact on Indian environmental law.", [
-    "Intro: UN Conference on the Human Environment, Stockholm, 5–16 June 1972",
-    "Aims: a common outlook to preserve and improve the human environment",
-    "Outcomes: 26 principles, Action Plan of 109 recommendations, UNEP, World Environment Day",
-    "Key principles: Principle 1 (environment of quality) and Principle 21 (no-harm rule)",
-    "Impact on India: 42nd Amendment, 1976 inserted Art 48A and Art 51A(g)",
-    "Impact on India: Air Act 1981 and EPA 1986 enacted under Art 253 citing Stockholm",
-    "Conclusion: Stockholm began the shift from pollution control to sustainable development",
-  ]);
 
   // 15. UNEP & Brundtland
   {
@@ -773,16 +709,6 @@ async function build() {
     );
   }
 
-  await examQ(U2, "Essay", "Trace the development of international environmental law from Stockholm (1972) to Johannesburg (2002).", [
-    "Intro: roots in the no-harm rule (Trail Smelter arbitration); Ramsar Convention 1971",
-    "Stockholm 1972: Declaration, Action Plan and the creation of UNEP",
-    "Brundtland Report 1987: the classic definition of sustainable development",
-    "Rio 1992: Rio Declaration (P7, P10, P15, P16), Agenda 21, UNFCCC, CBD",
-    "1997: Earth Summit+5 review of Agenda 21 and the Kyoto Protocol",
-    "2000–2002: MDGs; Johannesburg WSSD, three pillars and Plan of Implementation",
-    "Conclusion: led to SDGs and Paris 2015; adopted by Indian courts in Vellore (1996)",
-  ]);
-
   // ================= UNIT III =================
   const U3 = { section: "Unit III: Constitution & courts", num: "III" };
   pres.addSection({ title: U3.section });
@@ -790,7 +716,7 @@ async function build() {
     ["Protection of Environment under the Indian Constitution", "42nd Constitution Amendment Act, 1976", "Directive Principles of State Policy", "Fundamental Duties", "Judicial Role, Expansion of Locus Standi, PIL", "Dynamic Interpretation of Article 21, 14 & 19 of the Constitution", "Right to Clean and Pollution-free Environment", "Sustainable Development", "Precautionary and Polluter Pays Principles", "Absolute and Strict Liability", "Doctrine of Public Trust", "Environmental Protection and Law of Torts", "Tort of Nuisance: Public and Private", "Tort of Negligence", "Tort of Trespass", "Environmental Torts", "Provisions under the Bharatiya Nyaya Sanhita, 2023 (BNS) & under the Bharatiya Nagarik Suraksha Sanhita, 2023 (BNSS)"], "FaLandmark",
     "[VOICE ANCHOR: serious, slower]\nUnit Three is where most of your marks are. Our Constitution of nineteen fifty did not even mention the environment. So how did a clean environment become a fundamental right?");
 
-  await unitQuestions(U3, ["“The right to a clean environment is part of the right to life.” Discuss with reference to Articles 21, 14 and 19.", "Distinguish between strict liability and absolute liability.", "Explain the role of the judiciary, locus standi and PIL in environmental protection.", "Discuss environmental protection under the law of torts and the BNS/BNSS."], ["42nd Amendment, 1976", "Art 48A and 51A(g)", "Sustainable development", "Precautionary principle", "Polluter pays principle", "Doctrine of public trust"]);
+  await unitQuestions(U3, ["Explain the protection of environment under the Indian Constitution with reference to the 42nd Amendment, 1976.", "Discuss the judicial role, expansion of locus standi and PIL in environmental protection.", "Explain the dynamic interpretation of Articles 21, 14 and 19 for a clean and pollution-free environment.", "Distinguish between absolute and strict liability with decided cases.", "Discuss environmental protection under the law of torts and under the BNS and BNSS, 2023."], ["Sustainable development", "Precautionary principle", "Polluter pays principle", "Doctrine of public trust", "Public and private nuisance"]);
 
   // 21. 42nd Amendment
   {
@@ -814,16 +740,6 @@ async function build() {
       "Remember — a Directive Principle is not enforceable in court on its own. The courts solved that problem through Article twenty-one."
     );
   }
-
-  await examQ(U3, "Essay", "“The right to a clean environment is part of the right to life.” Discuss with reference to Articles 21, 14 and 19.", [
-    "Intro: 42nd Amendment added Art 48A (DPSP) and Art 51A(g) (duty), not directly enforceable",
-    "PIL and locus standi: S.P. Gupta (1981); RLEK v State of UP (1985)",
-    "Art 21: Subhash Kumar v State of Bihar (1991); Virender Gaur v State of Haryana (1995)",
-    "Art 14: Bangalore Medical Trust v Muddappa (1991): arbitrary action struck down",
-    "Art 19(1)(g): no right to trade in a polluting manner; M.C. Mehta (Kanpur tanneries, 1987)",
-    "Principles: Vellore (1996): SD, precaution, polluter pays; N.D. Jayal (2003)",
-    "Conclusion: duties and directives read into rights; NGT now applies these principles",
-  ]);
 
   // 22. Locus standi & PIL
   {
@@ -946,16 +862,6 @@ async function build() {
     );
   }
 
-  await examQ(U3, "Essay", "Distinguish between strict liability and absolute liability. Why did the Supreme Court evolve absolute liability?", [
-    "Intro: no-fault liability for hazardous activities",
-    "Strict liability: Rylands v Fletcher (1868): non-natural use, escape, damage",
-    "Exceptions: Act of God, plaintiff’s fault, consent, act of a stranger, statutory authority",
-    "Absolute liability: M.C. Mehta v UoI (1987), Oleum gas leak; no exceptions, no escape needed",
-    "Reasons: hazardous industry, the Bhopal tragedy, compensation linked to the enterprise’s capacity",
-    "Followed: Indian Council for Enviro-Legal Action (1996); Public Liability Insurance Act 1991",
-    "Conclusion: NGT Act, Sec 17 now provides no-fault liability for accidents",
-  ]);
-
   // 27. Public trust
   {
     const s = newSlide("Nyaya Content", U3.section, "Doctrine of public trust");
@@ -1044,7 +950,7 @@ async function build() {
     ["Protection of Water, Air and Environment in India", "The Water (Prevention and Control of Pollution) Act of 1974", "The Framework of the Act", "Regulatory Mechanism: Its Powers and Functions", "Offences and Penalties under Water Act", "Role of Judiciary in Prevention of Water Pollution", "The Air (Prevention and Control of Pollution) Act of 1981", "The Framework of the Act", "Regulatory Mechanism: Its Powers and Functions", "Offences and Penalties under Air Act", "Role of Judiciary in Prevention of Air Pollution", "The Environment Protection Act (EPA) of 1986", "Main Aims and Objectives of the Act", "Importance of Section 3 and 5 of EPA", "Penalties under the Act", "National Environment Tribunal"], "FaBookOpen",
     "[VOICE ANCHOR: focused]\nUnit Four. Three Acts, one pattern: a regulator, a consent system, directions, penalties, and courts that keep watch. Learn the pattern once and all three become easy.");
 
-  await unitQuestions(U4, ["Explain the regulatory mechanism and penalties under the Water Act, 1974 and the role of the judiciary.", "Explain the framework of the Air Act, 1981 and the role of the judiciary in preventing air pollution.", "Discuss the main aims and objectives of the Environment (Protection) Act, 1986 and its penalties."], ["Sections 3 and 5 of EPA", "CPCB and SPCBs", "Consent mechanism", "Citizen complaint (Sec 49 / 43 / 19)", "National Environment Tribunal"]);
+  await unitQuestions(U4, ["Explain the framework and regulatory mechanism of the Water Act, 1974.", "Discuss offences and penalties under the Water Act and the role of the judiciary in preventing water pollution.", "Explain the framework and regulatory mechanism of the Air Act, 1981.", "Discuss offences and penalties under the Air Act and the role of the judiciary in preventing air pollution.", "Discuss the main aims and objectives of the Environment (Protection) Act, 1986 and the penalties under it."], ["Importance of Section 3 of EPA", "Importance of Section 5 of EPA", "Central and State Pollution Control Boards", "Consent to establish and operate", "National Environment Tribunal"]);
 
   // 31. Three Acts overview
   {
@@ -1075,16 +981,6 @@ async function build() {
       "This is a favourite trap. Water — two fifty-two. Air and EPA — two fifty-three."
     );
   }
-
-  await examQ(U4, "Short note", "Importance of Sections 3 and 5 of the Environment (Protection) Act, 1986.", [
-    "Intro: EPA 1986, an umbrella law after the Bhopal tragedy, enacted under Art 253",
-    "Sec 3(1): Central Government may take all measures to protect and improve the environment",
-    "Sec 3(2): emission standards, restricting areas for industry, safeguards against accidents",
-    "Sec 3(3): power to constitute authorities, e.g., Central Ground Water Authority",
-    "Sec 5: directions to any person or authority, incl. closure or stopping power and water",
-    "Rules: basis for the EIA Notification 2006, CRZ Notifications and waste rules",
-    "Conclusion: Sec 3 is the power to plan; Sec 5 is the power to act",
-  ]);
 
   // 32. Water Act
   {
@@ -1250,16 +1146,6 @@ async function build() {
     );
   }
 
-  await examQ(U4, "Essay", "Explain the regulatory mechanism and penalties under the Water Act, 1974 and the role of the judiciary in preventing water pollution.", [
-    "Intro: India’s first major pollution law, enacted under Art 252",
-    "Boards: CPCB (Sec 3) and SPCBs (Sec 4); their functions under Sec 16 and Sec 17",
-    "Powers: samples (Sec 21), entry (Sec 23), ban on discharge (Sec 24), consent (Sec 25, 26)",
-    "Directions: Sec 33A allows closure, prohibition, or stopping power and water",
-    "Penalties: Chapter VII (Sec 41–50); cognizance on complaint under Sec 49",
-    "Judiciary: M.C. Mehta (Ganga tanneries, 1987); Vellore Citizens’ Welfare Forum (1996)",
-    "Conclusion: 2024 amendment, stronger Boards, and NGT oversight",
-  ]);
-
   // ================= UNIT V =================
   const U5 = { section: "Unit V: Forests, wildlife & biodiversity", num: "V" };
   pres.addSection({ title: U5.section });
@@ -1267,7 +1153,7 @@ async function build() {
     ["Protection of Forest, Wild Life and Biodiversity", "Importance of Forest and need for its Conservation", "Indian Forest Act, 1927 and its Salient Features", "Forest Conservation Act, 1980 and its Salient Features", "Judicial Approach for Forest Conservation", "The Wildlife Protection Act 1972", "Sanctuaries and National Parks", "Licensing of Zoos and Parks", "Offences against Wild Life", "Biodiversity Conservation", "Biological Diversity Act, 2002 and its Salient Features", "National Green Tribunal Act, 2010 – An Appraisal"], "FaTree",
     "[VOICE ANCHOR: warm, a little slower]\nUnit Five. So far we protected air and water. Now we protect life itself — forests, wild animals and biodiversity.");
 
-  await unitQuestions(U5, ["Explain the salient features of the Forest Conservation Act, 1980 and the judicial approach to forest conservation.", "Discuss the salient features of the Wild Life (Protection) Act, 1972. Distinguish a sanctuary from a national park.", "Explain the salient features of the Biological Diversity Act, 2002.", "Critically appraise the National Green Tribunal Act, 2010."], ["Indian Forest Act, 1927", "Importance of forests", "Licensing of zoos", "Offences against wild life", "Godavarman case"]);
+  await unitQuestions(U5, ["Explain the importance of forests and the salient features of the Indian Forest Act, 1927.", "Discuss the salient features of the Forest Conservation Act, 1980 and the judicial approach to forest conservation.", "Explain the salient features of the Wild Life (Protection) Act, 1972 and offences against wild life.", "Explain the salient features of the Biological Diversity Act, 2002.", "Critically appraise the National Green Tribunal Act, 2010."], ["Sanctuary vs national park", "Licensing of zoos", "Reserved forest", "Biodiversity conservation", "T.N. Godavarman case"]);
 
   // V1. Importance of forests
   {
@@ -1361,16 +1247,6 @@ async function build() {
     );
   }
 
-  await examQ(U5, "Essay", "Explain the salient features of the Forest Conservation Act, 1980 and the judicial approach to forest conservation.", [
-    "Intro: Indian Forest Act 1927 managed forests as a resource; FCA 1980 aimed to conserve them",
-    "Sec 2: prior Central approval to de-reserve forests or use forest land for non-forest purposes",
-    "Sec 2: also for leasing to private bodies and clearing natural forest for plantations",
-    "Sec 3: Advisory Committee; compensatory afforestation under the CAF Act, 2016",
-    "Godavarman (1996 on): dictionary meaning of “forest”; Central Empowered Committee",
-    "Samatha (1997) and Niyamgiri (2013): rights of tribals and gram sabhas",
-    "Conclusion: 2023 amendment (Van Adhiniyam) and the need to balance development",
-  ]);
-
   // V5. Wild Life (Protection) Act 1972
   {
     const s = newSlide("Nyaya Content", U5.section, "Wild Life (Protection) Act, 1972: salient features");
@@ -1447,16 +1323,6 @@ async function build() {
     );
   }
 
-  await examQ(U5, "Essay", "Discuss the salient features of the Wild Life (Protection) Act, 1972. Distinguish between a sanctuary and a national park.", [
-    "Intro: enacted under Art 252 in 1972; wildlife moved to the Concurrent List in 1976",
-    "Authorities: NBWL (Sec 5A), State Boards, Chief Wild Life Warden, NTCA, WCCB",
-    "Hunting ban: Sec 9; graded protection through schedules (four after 2022)",
-    "Protected areas: sanctuaries (Sec 18), national parks (Sec 35), reserves, tiger reserves",
-    "Sanctuary vs national park: rights and grazing may be allowed vs extinguished and prohibited",
-    "Trade ban (Ch VA), zoos (Sec 38A, 38H), offences and penalties (Sec 51)",
-    "Conclusion: CEL, WWF-I v UoI (2013), species-first approach",
-  ]);
-
   // V8. Biological Diversity Act 2002
   {
     const s = newSlide("Nyaya Content", U5.section, "Biodiversity conservation: Biological Diversity Act, 2002");
@@ -1502,15 +1368,6 @@ async function build() {
       "End your answer with a way forward: fill vacancies, add circuit benches, widen Schedule One, and monitor compliance."
     );
   }
-
-  await examQ(U5, "Short note", "National Green Tribunal Act, 2010: an appraisal.", [
-    "Intro: set up on 18 Oct 2010; replaced the 1995 and 1997 Acts (Sec 38)",
-    "Composition: Chairperson, judicial and expert members (Sec 4); five benches",
-    "Jurisdiction: Sec 14–16 over the seven Acts in Schedule I; no-fault liability (Sec 17)",
-    "Strengths: SD, precaution and polluter pays (Sec 20); suo motu power (Ankita Sinha, 2021)",
-    "Concerns: vacancies, access, WPA and FRA excluded, compliance of orders",
-    "Conclusion: way forward: more benches, wider Schedule I, compliance monitoring",
-  ]);
 
   // ================= CLOSING =================
   pres.addSection({ title: "Revision" });
