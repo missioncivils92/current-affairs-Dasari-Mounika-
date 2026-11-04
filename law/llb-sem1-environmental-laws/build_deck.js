@@ -216,7 +216,7 @@ async function examQ(unit, kind, q, points) {
   s.addNotes(
     "[VOICE ANCHOR: teacherly, slower on the question]\n" +
     `Semester exam question. ${kind}: ${q} ... Pause the video and plan your answer for a moment. ... ` +
-    "Now, here is how to write it. " + points.map((p, i) => `Point ${i + 1}. ${p.replace(/\(/g, ", ").replace(/\)/g, ",")}.`).join(" ")
+    "Now, here is how to write it. " + points.map((p, i) => `Point ${i + 1}. ${p}.`).join(" ")
   );
 }
 
