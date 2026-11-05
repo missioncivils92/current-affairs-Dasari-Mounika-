@@ -154,7 +154,7 @@ def to_digits(text):
     out.append(text[last:])
     res = "".join(out)
     res = re.sub(r"(\d) (per cent|percent)\b", r"\1%", res)
-    res = re.sub(r"\b(\d{2,3}) ([A-D])\b(?=[,.;: ]|$)", r"\1\2", res)    # Article 243 D -> 243D, 224 A -> 224A
+    res = re.sub(r"\b(\d{2,3}) ([A-H])\b(?=[,.;: ]|$)", r"\1\2", res)    # Article 243 D -> 243D, 243 F -> 243F, 224 A -> 224A
     return res
 
 
