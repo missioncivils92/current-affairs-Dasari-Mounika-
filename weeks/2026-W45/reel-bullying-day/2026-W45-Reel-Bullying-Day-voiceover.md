@@ -1,52 +1,56 @@
-# Reel Voiceover — Day against Bullying at School: "Your phone won't stop buzzing"
+# Reel Voiceover — Day against Bullying at School (EXAM cut): "Your phone won't stop buzzing"
 
 **Record:** today (Thu 5 Nov) · **Publish:** Thu 5 Nov 2026, 7–9 PM IST
 **Save as:** `2026-W45_REEL_bullying_day.mp4` (face video) or `.wav` (voice only)
-**Length:** about 45 seconds (about 105 words at a brisk, warm pace). Matches `reel_45s.html`.
-**Title:** Is it really "just a joke"? #UPSC #Shorts
-**Voice:** soft and close on the hook; clear and steady on the numbers; crisp on the trap; warm, with a smile, on the last line.
-**Camera (if recording your face):** phone upright (9:16), face a window, eyes on the lens. On-camera lines are marked 🎥; the rest can be voice only over the cards.
+**Length:** about 45 seconds (about 110 words, brisk and clear). Matches `reel_45s_exam.html` (purple).
+**Title:** Bullying Day: 5 facts UPSC can ask #UPSC #Shorts
+**Voice:** soft on the hook; crisp and quick on the facts; firm on the trap; warm on the last line.
+**Camera (if recording your face):** phone upright (9:16), face a window, eyes on the lens. 🎥 = on-camera lines; the rest can be voice only over the cards.
 
-**Reading marks:** — short beat · ... pause · **bold** = stress · [brackets] = direction, not read aloud.
+**Reading marks:** — short beat · ... pause · **bold** = stress · [brackets] = direction or pronunciation, not read aloud.
 
 ---
 
-🎥 It's eleven forty-seven at night. Your phone won't stop **buzzing**...
+🎥 It's eleven forty-seven. Your phone won't stop **buzzing**...
 
-Today — the day against bullying at school. One in **three** students is bullied at least once a month.
+Today is UNESCO's International Day against Violence and Bullying at School — always the **first Thursday** of November.
 
-It's not just a joke. Online stalking, and sharing private photos, are **crimes** in India.
+**Write this down.** Thirty-two per cent of students are bullied at least once a month — but only **sixteen** per cent of countries have a full legal framework.
 
-Now — **India**. After the Supreme Court acted in 2009, every college follows UGC anti-ragging rules. CBSE wants an anti-bullying committee in every school.
+In India — BNS Section seventy-eight covers online stalking. And the DPDP Act bans **tracking** children online.
 
-And in twenty twenty-five, in a case from Andhra Pradesh, the Supreme Court set guidelines on student **mental health**.
+In twenty twenty-five, in a case from Andhra Pradesh — Sukdeb Saha [SOOK-dev SAA-ha] — the Supreme Court made mental health part of **Article twenty-one**.
 
-**Prelims Trap.** Who declared this day? [pause one second] ... **UNESCO**. Not the UN General Assembly.
+**Prelims Trap.** UNESCO declared this day — **not** the UN General Assembly.
 
-You are **not** alone — call nineteen thirty, or one four four one six.
+**Mains Lens.** Link it to the twenty twenty-four essay on social media and loneliness.
 
 🎥 [smile] Be the one who doesn't **forward** it.
 
 ---
 
 ## On-screen text cards (for the editor)
-1. "It's 11:47 PM. Your phone won't stop buzzing." + phone with class-group notifications
-2. "TODAY · DAY AGAINST BULLYING AT SCHOOL" · "1 in 3 students bullied by peers at least once a month" (UNESCO, 2019)
-3. "Not 'just a joke'." · "BNS Sec 78 · online stalking" · "IT Act Sec 66E · sharing private photos"
-4. INDIA'S CONNECTION: "2009 · Ragging: Supreme Court orders → UGC anti-ragging rules for every college" · "CBSE: every school needs an anti-bullying committee" · "Anti-ragging helpline 1800-180-5522"
-5. TELUGU STATES LENS: "From Andhra Pradesh to the Supreme Court" · "Sukdeb Saha v State of AP (2025): national guidelines on student mental health" · "Group-1: APPSC/TGPSC · GS-2"
-6. PRELIMS TRAP: "Who declared this day?" → "UNESCO, in 2019 — not the UN General Assembly"
-7. "You are not alone." · 1930 Cyber crime · 14416 Tele-MANAS · 1098 Childline
-8. "Be the one who doesn't forward it." · "Kindness is also a skill." · "Send this to a student who needs it."
+1. Hook: "It's 11:47 PM. Your phone won't stop buzzing." + phone with class-group notifications
+2. TODAY · 5 NOV — full name of the day · Proclaimed by UNESCO, 40th General Conference, 2019 · Proposed by France, Mexico, Morocco · First Thursday of November · 2025 theme: "Screen smart: Learning to be safe in the digital era"
+3. WRITE THIS DOWN — 32% students bullied at least once in the last month (UNESCO 2019, 144 countries) · only 16% of countries (32) have a comprehensive legal framework (UNESCO 2024)
+4. INDIA · LEGAL FRAMEWORK — BNS Sec 78 · IT Act Sec 66E · IT Act Sec 67B · DPDP Act Sec 9 (parental consent; no tracking/targeted ads at children)
+5. COURTS & POLICY TIMELINE — 2001 Vishwa Jagriti Mission · 2009 UGC Anti-Ragging Regulations (Raghavan Committee), helpline 1800-180-5522 · 2015 CBSE Acad-17/2015 anti-bullying committees · 2023 UMMEED draft (MoE), NCPCR guidelines · TELUGU STATES LENS: Sukdeb Saha v State of AP (2025)
+6. PRELIMS TRAPS — UNESCO not UNGA · first Thursday, not a fixed date · UMMEED = Understand, Motivate, Manage, Empathise, Empower, Develop
+7. MAINS LENS — GS-1 / GS-2 / GS-4 · UPSC Essay 2024: "Social media is triggering 'Fear of Missing Out' amongst youth, precipitating depression and loneliness."
+8. Close — "Be the one who doesn't forward it." · 1930 · 14416 · 1098 · "Save for revision · Send to a friend preparing for UPSC"
 
-## Data points (with dates)
-| Fact | Figure | As of | Source |
-|---|---|---|---|
-| The day | International Day against Violence and Bullying at School, including Cyberbullying; first Thursday of November | Proclaimed 2019 (40th General Conference) | UNESCO |
-| Prevalence | Almost 1 in 3 students bullied by peers at school at least once in the last month | 2019 | UNESCO, *Behind the Numbers* |
-| Online stalking | BNS 2023 Sec 78 (incl. monitoring a woman's internet / e-mail use) | In force 1 Jul 2024 | Bharatiya Nyaya Sanhita |
-| Private images | IT Act 2000 Sec 66E (violation of privacy) | — | Information Technology Act |
-| Ragging | SC orders in *University of Kerala v Council of Principals of Colleges* (2009, Raghavan Committee) → UGC Regulations on Curbing the Menace of Ragging in HEIs, 2009; helpline 1800-180-5522 | 2009 | Supreme Court; UGC |
-| School bullying | CBSE guidelines (2015) ask schools to form anti-bullying committees [VERIFY circular no.] | 2015 | CBSE |
-| Student mental health | *Sukdeb Saha v State of Andhra Pradesh* — SC guidelines on mental health in educational institutions (case: death of a NEET aspirant in Visakhapatnam) [VERIFY date/details] | July 2025 | Supreme Court |
-| Helplines | 1930 (cyber crime, MHA) · 14416 (Tele-MANAS, MoHFW) · 1098 (Childline) | Check before posting | Government portals |
+## Data points (with sources, checked 5 Nov 2026)
+| Fact | Detail | Source |
+|---|---|---|
+| The day | Proclaimed at UNESCO's 40th General Conference (2019), approved by all Member States; proposed by France, Mexico and Morocco; first Thursday of November | [GCED Clearinghouse (UNESCO)](https://gcedclearinghouse.org/en/node/66909), [Better Internet for Kids](https://better-internet-for-kids.europa.eu/en/events/international-day-against-violence-and-bullying-school-including-cyberbullying) |
+| 2025 theme | "Screen smart: Learning to be safe in the digital era" (2026 theme not yet confirmed; UNESCO's 5 Nov 2026 dialogue is titled "Every learner safe and well: from promise to practice") | [blog citing UNESCO](https://gsouto-digitalteacher.blogspot.com/2025/11/international-day-against-violence.html), [UN Indico listing](https://indico.un.org/event/1024932/sessions/160106/session-timetable.pdf) |
+| 32% / 1 in 3 | Bullied by peers at school at least once in the last month; data from 144 countries | [UN News, Jan 2019](https://news.un.org/en/story/2019/01/1031052) |
+| 16% | Only 32 states (16%) have a comprehensive legal framework on school violence and bullying | [UNESCO via Scoop, 6 Nov 2024](https://scoop.co.nz/stories/WO2411/S00049/unesco-urges-more-action-to-combat-violence-and-bullying-at-school.htm) |
+| DPDP Act 2023, Sec 9 | Verifiable parental consent; no tracking, behavioural monitoring or targeted advertising directed at children | [dpdpa.com — Sec 9](https://dpdpa.com/dpdpa2023/chapter-2/section9.html) |
+| Ragging | Vishwa Jagriti Mission (2001); Raghavan Committee; UGC Regulations notified 17 June 2009; helpline from 20 June 2009 | [Drishti IAS](https://www.drishtiias.com/daily-updates/daily-news-analysis/combating-ragging-in-educational-institutions/print_manually), [MoE — Raghavan report](https://education.gov.in/sites/upload_files/mhrd/files/document-reports/RaggingReport.pdf) |
+| CBSE | Circular Acad-17/2015 (9 Mar 2015), Prevention of Bullying & Ragging; anti-bullying committee | [CBSE circular PDF](https://cbseacademic.nic.in/web_material/Circulars/2015/17_Prevention%20of%20Bullying%20&%20Ragging%20in%20Schools.pdf) |
+| NCPCR | "Preventing Bullying and Cyberbullying: Guidelines for Schools" (draft 2023; 2024 version) | [NCPCR PDF](https://www.ncpcr.gov.in/uploads/1702548255657ad31ff39b4_preventing-bullying-and-cyberbullying-guidelines-for-schools.pdf) |
+| UMMEED | Understand, Motivate, Manage, Empathise, Empower, Develop — MoE draft suicide-prevention guidelines for schools (Oct 2023) | [The Quint](https://thequint.com/news/india/education-ministry-draft-guidelines-schools-prevent-student-suicides) |
+| Sukdeb Saha v State of AP | 25 July 2025, 2025 INSC 893; 15 binding guidelines for all institutions; mental health part of Art 21 | [Verdictum](https://www.verdictum.in/court-updates/supreme-court/sukdeb-saha-v-the-state-of-andhra-pradesh-2025-insc-893-mental-health-policy-educational-institutions-1586163), [LiveLaw](https://www.livelaw.in/amp/supreme-court/in-neet-aspirants-death-case-supreme-court-issues-guidelines-to-protect-mental-health-of-students-in-colleges-coaching-centres-298795) |
+| UPSC Essay 2024 | "Social media is triggering 'Fear of Missing Out' amongst youth, precipitating depression and loneliness" | [Dalvoy — Essay 2024](https://www.dalvoy.com/en/upsc/mains/previous-years/2024/essay/social-media-fomo-depression-loneliness) |
+| IT Act / BNS | IT Act 2000 Sec 66E, 67B; BNS 2023 Sec 78 | Bare Acts |
