@@ -1,9 +1,9 @@
-# Reel Voiceover — Day against Bullying at School (EXAM cut): "Your phone won't stop buzzing"
+# Reel Voiceover — Day against Bullying at School (SHORT EXAM cut): "Your phone won't stop buzzing"
 
 **Record:** today (Thu 5 Nov) · **Publish:** Thu 5 Nov 2026, 7–9 PM IST
 **Save as:** `2026-W45_REEL_bullying_day.mp4` (face video) or `.wav` (voice only)
-**Length:** about 50 seconds (about 120 words, clear and steady). Matches `reel_50s_exam.html` (purple).
-**Title:** Bullying Day: 5 facts UPSC can ask #UPSC #Shorts
+**Length:** about 30 seconds (about 70 words). Matches `reel_30s_exam.html` (purple). Longer 45 s and 50 s exam cuts are in the same folder.
+**Title:** Bullying Day: what UPSC can ask #UPSC #Shorts
 **Voice:** soft on the hook; crisp and quick on the facts; firm on the trap; warm on the last line.
 **Camera (if recording your face):** phone upright (9:16), face a window, eyes on the lens. 🎥 = on-camera lines; the rest can be voice only over the cards.
 
@@ -13,17 +13,13 @@
 
 🎥 It's eleven forty-seven. Your phone won't stop **buzzing**...
 
-Today is UNESCO's International Day against Violence and Bullying at School — always the **first Thursday** of November.
+Today is UNESCO's day against bullying at school — always the **first Thursday** of November.
 
-**Write this down.** Thirty-two per cent of students are bullied at least once a month — but only **sixteen** per cent of countries have a full legal framework.
+In India — BNS Section seventy-eight covers online stalking, and the DPDP Act bans **tracking** children online.
 
-In India — BNS Section seventy-eight covers online stalking. And the DPDP Act bans **tracking** children online.
-
-In twenty twenty-five, in a case from Andhra Pradesh — Sukdeb Saha [SOOK-dev SAA-ha] — the Supreme Court made mental health part of **Article twenty-one**.
+In twenty twenty-five, in a case from Andhra Pradesh, the Supreme Court made mental health part of **Article twenty-one**.
 
 **Prelims Trap.** UNESCO declared this day — **not** the UN General Assembly.
-
-**Mains Lens.** Link it to the twenty twenty-four essay on social media and loneliness.
 
 🎥 [smile] Be the one who doesn't **forward** it.
 
