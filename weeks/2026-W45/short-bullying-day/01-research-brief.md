@@ -43,3 +43,12 @@
   - Advice to the owner: use a teleprompter without a badge, or the app's paid tier, for future takes.
 - **Look:** `--polish` (crisp). Fade-out over the last 0.5 s. Final length 2:05.
 - **Captions:** English, in `Reel-Bullying-Day-captions-EN.srt`, with the Telugu lines given in English.
+- **v2 (owner: "remove that teleprompter watermark"):**
+  - Template matching found the badge cycling round all four corners every 10 s:
+    - bottom-right: 0–10 s, then every 40 s;
+    - top-right: 10–20 s;
+    - top-left: 20–30 s;
+    - bottom-left: 30–40 s.
+  - It was removed with ffmpeg `delogo`, applied to each corner only during its intervals, with ±0.5 s padding (rectangles in the 720×1280 source: TL 2,12 298×104; TR 420,12 298×104; BL 2,1160 298×110; BR 420,1160 298×110). A faint soft patch remains on the wall.
+  - Reframed with full headroom (`--face-y 40 --top-y 60 --top-h 1000`). Timing is unchanged (125.60 s), so lip sync and captions still hold.
+  - This is the owner's own recording; the badge is the free teleprompter app's branding. Advice for future takes: use a badge-free teleprompter.
