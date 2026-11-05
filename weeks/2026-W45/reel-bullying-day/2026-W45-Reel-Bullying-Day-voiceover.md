@@ -2,7 +2,7 @@
 
 **Record:** today (Thu 5 Nov) · **Publish:** Thu 5 Nov 2026, 7–9 PM IST
 **Save as:** `2026-W45_REEL_bullying_day.mp4` (face video) or `.wav` (voice only)
-**Length:** about 45 seconds (about 110 words, brisk and clear). Matches `reel_45s_exam.html` (purple).
+**Length:** about 50 seconds (about 120 words, clear and steady). Matches `reel_50s_exam.html` (purple).
 **Title:** Bullying Day: 5 facts UPSC can ask #UPSC #Shorts
 **Voice:** soft on the hook; crisp and quick on the facts; firm on the trap; warm on the last line.
 **Camera (if recording your face):** phone upright (9:16), face a window, eyes on the lens. 🎥 = on-camera lines; the rest can be voice only over the cards.
