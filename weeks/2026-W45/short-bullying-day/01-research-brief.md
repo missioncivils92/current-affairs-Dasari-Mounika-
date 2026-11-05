@@ -33,3 +33,13 @@
 - [Education International statement](https://www.ei-ie.org/en/item/23583:statement-education-international-welcomes-the-first-international-day-against-violence-and-bullying-at-school-including-cyberbullying)
 - [NCPCR: CPCR Act](https://ncpcr.gov.in/public/cpcr-act)
 - [Wikipedia: NCPCR](https://en.wikipedia.org/wiki/National_Commission_for_Protection_of_Child_Rights)
+
+## Build log (5 Nov 2026)
+
+- **Recording:** one take, 2:05, 720×1280, variable 24 fps; converted to 30 fps. Picture and sound lengths match (125.60 / 125.57 s).
+- **Alignment:** `align_lm.py` anchored 61% of the words, with no weak rows.
+- **Watermark:** the take carries a "Made with Teleprompter.com" badge, from the teleprompter app's free version. It alternates between the top-left corner (y 15–112 in the 1280-px frame) and the bottom-right corner (y 1165–1265).
+  - It is kept out of frame by the crops, not edited out: FACE and TOP crops start at y 172 in the 1920-px frame (`--face-y 172 --top-y 172 --top-h 1000`). This trims a little hair at the top.
+  - Advice to the owner: use a teleprompter without a badge, or the app's paid tier, for future takes.
+- **Look:** `--polish` (crisp). Fade-out over the last 0.5 s. Final length 2:05.
+- **Captions:** English, in `Reel-Bullying-Day-captions-EN.srt`, with the Telugu lines given in English.
