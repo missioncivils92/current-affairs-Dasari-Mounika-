@@ -80,3 +80,55 @@ The owner should check YouTube Studio → Research tab for "current affairs Nove
 | Agni and Prithvi are ballistic missiles; BrahMos is a supersonic cruise missile (India–Russia joint venture) | Standard | Verified |
 | US midterms fall halfway through the president's four-year term | Standard | Verified |
 | Bullying day first observed in 2020 | UN News (2020) | Verified |
+
+## 6. v2: the "strong" cut (owner, 7 Nov)
+
+**Owner:** "It's ok with me time but good strong current affairs. You can make thumbnail from my new video not this one."
+
+**What changed:**
+- **Runtime:** about 15 min (2,078 words; 48 rows), up from about 10. The owner accepted the length. This is still below the §2 default of 26–30 min, so no override is needed.
+- **Every topic** now carries its static anchor and a trap; the big ones add a Mains line.
+- **Four new stories:** see the table below.
+- **Cancer-drug price cap:** joins the Cancer Day item.
+- **Midterms:** gain an India bridge (Senate ↔ Rajya Sabha).
+- **Quiz:** now four statements.
+- **Thumbnail:** the placeholder from the bullying-day reel is withdrawn. The thumbnail will be made from the new weekly recording.
+
+**New topics:**
+
+| # | Story (date) | Scope · subject | EYS | Why chosen |
+|---|---|---|---|---|
+| 4 | Article 22(2): the 24-hour clock starts at detention, not formal arrest (SC, 5 Nov) | National · Polity | 9 (P3·M2·I2·D2) | Fundamental-rights trap; overrules three High Courts |
+| 8 | Critical-mineral processing scheme: ₹2,814 crore, 30% capex subsidy, 2 lithium + 2 nickel plants (Cabinet, 4 Nov) | National · Economy, Resources | 8 (P2·M2·I2·D2) | Links to the storage story; processing vs mining vs recycling |
+| 9 | VISTAR: about ₹4,371 crore, 59 surveys, 8th Economic Census (Cabinet, 4 Nov) | National · Economy | 7 (P2·M1·I2·D2) | Economic Census vs Population Census trap |
+| 10 | Bharatiya Vayuyan Niyam, 2026 replaces the Aircraft Rules, 1937 from 1 Jan 2027 | National · Governance | 7 (P2·M1·I2·D2) | Rules vs Act (Adhiniyam 2024 replaced the Aircraft Act, 1934) |
+
+**Verification log (v2):**
+
+| Fact | Source | Status |
+|---|---|---|
+| SC, 5 Nov 2026 (Justices Ujjal Bhuyan and Atul S. Chandurkar): no distinction between arrest and detention for Art 22(2); the 24-hour clock starts when liberty is curtailed; only journey time excluded; Tripura NDPS case, 4 accused released; Orissa, Kerala and Madras High Court views overruled | ThePrint; Outlook; ETV Bharat; LawBeat; LawChakra (all 5 Nov) | Verified as reported; judgment PDF (2026 INSC 1195, *Sujit Das v. Union of India*) not reachable from the session (403), so on screen "as reported" |
+| Art 22(3): clauses (1) and (2) do not apply to enemy aliens or to persons under preventive detention | Constitution | Verified (standard) |
+| Critical-mineral processing: ₹2,814 crore; FY27–FY31; 30% capital subsidy; 4 plants (2 lithium, 2 nickel); caps ₹500 crore per lithium and ₹900 crore per nickel beneficiary (caps not on air); a separate ₹1,500 crore recycling scheme (Sep 2025) | Outlook; YourStory; Indian Masterminds; Business Today (2025) | Verified |
+| VISTAR: about ₹4,371.10 crore; 2026–27 to 2030–31; 59 surveys; 8th Economic Census of non-farm establishments, by the Statistics Ministry with states | newsonair; DD India; Free Press Journal (4 Nov) | Verified; census fieldwork dates unsettled, so not on air |
+| Population Census: Registrar General and Census Commissioner, Ministry of Home Affairs | Standard | Verified |
+| Bharatiya Vayuyan Niyam, 2026: notified (31 Oct per one report; covered 2–3 Nov); replaces the Aircraft Rules, 1937 from 1 Jan 2027; under the Bharatiya Vayuyan Adhiniyam, 2024 (replaced the Aircraft Act, 1934); fare intervention in extraordinary situations | newsonair (3 Nov); Telangana Today; The Hans India | Verified; the notification date is not used on air |
+| Agnipath: launched June 2022; ages 17½–21; second engagement with higher pay, enhanced Seva Nidhi and seniority (reported) | ThePrint (2022); Careers360; DD India | Verified / reported |
+| Cancer medicines: the National Pharmaceutical Pricing Authority caps trade margins at 30% on 137 non-scheduled anti-cancer drugs from 9 Nov 2026; Para 19, Drugs (Prices Control) Order, 2013; prices may fall up to 70% | newsonair (19 Oct); Moneylife; Upstox | Verified |
+| The pricing authority sits under the Department of Pharmaceuticals, Ministry of Chemicals and Fertilizers; National Cancer Awareness Day observed since 2014 | Standard | Verified (standard) |
+| Rajya Sabha: a permanent body, a third retire every second year (Art 83(1)); 6-year terms; Lok Sabha 5 years | Constitution | Verified |
+| Fast-track special courts: "centrally sponsored scheme" | newsonair headline (4 Nov) | Verified |
+
+**Dropped (v2 sweep):**
+- **UPSC Mains 2026 result:** one digest says it was declared on 5 Nov, but no official or news confirmation was found, so it is not on air.
+- **CERT-In agentic-AI guidance:** single digest.
+- **Asian Champions Trophy:** still no date confirmed.
+- **Special Summary Revision of electoral rolls:** low Prelims yield this week.
+
+**v2 sources:**
+- [ThePrint: 24-hr deadline starts from detention](https://theprint.in/judiciary/detention-magistrate-arrest/3091670/) · [Outlook](https://www.outlookindia.com/national/sc-says-24-hour-custody-clock-starts-when-liberty-is-curtailed-rejects-distinction-between-detention-and-arrest) · [ETV Bharat](https://www.etvbharat.com/en/bharat/no-difference-between-arrest-detention-sc-says-24-hour-clock-starts-when-liberty-is-curtailed-enn26110502192) · [LawBeat](https://lawbeat.in/top-stories/article-22-clock-starts-at-detention-not-formal-arrest-supreme-court-lays-down-duties-for-magistrates-on-remand-1649205)
+- [Outlook: critical-mineral processing](https://www.outlookindia.com/national/govt-approves-rs-2814-crore-scheme-critical-mineral-processing-lithium-nickel-plants) · [YourStory](https://yourstory.com/2026/11/cabinet-approves-rs-2814-cr-scheme-to-promote-processing-of-lithium-nickel) · [Indian Masterminds](https://indianmasterminds.com/news/cabinet-approves-2814-crore-critical-mineral-processing-scheme-lithium-nickel-248355/)
+- [newsonair: VISTAR](https://newsonair.gov.in/cabinet-approves-over-rs-4371-crore-vistar-scheme-to-modernise-indias-statistical-system/) · [DD India](https://ddindia.co.in/2026/11/cabinet-approves-rs-4371-crore-vistar-scheme-to-modernise-indias-statistical-system/)
+- [newsonair: Bharatiya Vayuyan Niyam](https://newsonair.gov.in/govt-notifies-new-set-of-rules-governing-indias-civil-aviation-sector-replacing-colonial-era-aircraft-rules-1937/) · [The Hans India](https://www.thehansindia.com/business/market-compass/govt-notifies-new-aviation-rules-bharatiya-vayuyan-niyam-effective-jan-1-2027-1138423)
+- [newsonair: cancer-drug margins](https://newsonair.gov.in/govt-caps-trade-margins-on-137-anti-cancer-drugs-at-30-prices-to-reduce-by-70-from-nov-9/) · [Moneylife](https://www.moneylife.in/article/cancer-drug-prices-set-to-fall-by-up-to-70-percentage-as-nppa-caps-trade-margins-on-137-medicines/81978.html)
+- [DD India: Agniveers](https://ddindia.co.in/2026/11/cabinet-approves-two-year-extension-for-agniveers-opens-pathway-to-regular-service-for-all-eligible-personnel/) · [Careers360](https://news.careers360.com/agnipath-scheme-overhaul-govt-grants-2-year-extension-agniveers-permanent-recruitment)

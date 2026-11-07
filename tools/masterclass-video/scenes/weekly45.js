@@ -72,48 +72,46 @@ function wTrap(myth, truth, cueMyth, cueTruth, note) {
 SCENES.S000 = () => {};   // [FACE]: the camera fills the frame
 SCENES.S001 = (ctx, s) => {
   exSlide(ctx, W45.nat, null, null);
-  kt(ctx, "TODAY'S 11 STORIES", 72, 120, { font: F.head(84, 900), color: '#FFFFFF', alpha: eia(s, 0.05) });
-  const list = [['Agnipath', 'nat'], ['Green crackers', 'nat'], ['Two-child rule', 'nat'], ['Fast-track courts', 'nat'],
-    ['Rural jobs law', 'nat'], ['Storing power', 'nat'], ['Pralay missile', 'nat'], ['Malabar', 'nat'],
-    ['US midterms', 'int'], ['Bullying day', 'misc'], ['Cancer day', 'misc']];
-  const groups = { 0: 'national', 6: 'defence', 8: 'world', 9: 'days' };
-  list.forEach(([name, sc], i) => {
-    const col = i < 6 ? 0 : i < 9 ? 1 : 2, row = i < 6 ? i : i < 9 ? i - 6 : i - 9;
-    const x = 72 + col * 610, y = 200 + row * 135;
-    const cueWord = i < 4 ? 'national' : i < 6 ? 'national' : i < 8 ? 'defence' : i < 9 ? 'world' : 'days';
-    const k = bounce(s.t, at(s, cueWord, 0.2) + (i % 3) * 0.12);
-    if (k <= 0) return;
-    ctx.save(); ctx.translate(x + 280, y + 55); ctx.scale(k, k); ctx.translate(-(x + 280), -(y + 55));
-    exBox(ctx, x, y, 570, 110, { fill: '#FFFFFF', bar: sc === 'nat' ? YEL : sc === 'int' ? '#4A90C2' : '#A78BFA', r: 22 });
-    kt(ctx, `${i + 1}`, x + 50, y + 74, { font: F.head(56, 900), color: '#7C3AED', align: 'center' });
-    kt(ctx, name, x + 100, y + 72, { font: F.ui(46, 900), color: EP.purple.ink });
+  kt(ctx, "TODAY'S 15 STORIES", 72, 120, { font: F.head(84, 900), color: '#FFFFFF', alpha: eia(s, 0.05) });
+  const G = { law: YEL, eco: '#06D6A0', def: '#F97316', world: '#4A90C2', day: '#A78BFA' };
+  const list = [['Agnipath', 'def'], ['Green crackers', 'law'], ['Two-child rule', 'law'], ['Arrest or detention?', 'law'], ['Fast-track courts', 'law'],
+    ['Rural jobs law', 'law'], ['Storing power', 'eco'], ['Critical minerals', 'eco'], ['VISTAR statistics', 'eco'], ['New aviation rules', 'eco'],
+    ['Pralay missile', 'def'], ['Malabar', 'def'], ['US midterms', 'world'], ['Bullying day', 'day'], ['Cancer day', 'day']];
+  list.forEach(([name, g], i) => {
+    const col = Math.floor(i / 5), row = i % 5, x = 72 + col * 610, y = 190 + row * 135;
+    const k = bounce(s.t, 0.4 + i * (s.d * 0.7 / 15)); if (k <= 0) return;
+    ctx.save(); ctx.translate(x + 285, y + 55); ctx.scale(k, k); ctx.translate(-(x + 285), -(y + 55));
+    exBox(ctx, x, y, 570, 110, { fill: '#FFFFFF', bar: G[g], r: 22 });
+    kt(ctx, `${i + 1}`, x + 56, y + 74, { font: F.head(52, 900), color: '#7C3AED', align: 'center' });
+    kt(ctx, name, x + 110, y + 72, { font: F.ui(42, 900), color: EP.purple.ink });
     ctx.restore();
   });
   const k = bounce(s.t, at(s, 'alert', 0.85));
-  if (k > 0) { ctx.save(); ctx.globalAlpha *= Math.min(1, k); exBox(ctx, 1292, 605, 570, 110, { fill: '#2BB3A3', r: 22 });
-    kt(ctx, '+ Alert for Telugu aspirants', 1322, 675, { font: F.ui(38, 900), color: '#FFFFFF' }); ctx.restore(); }
-  void groups;
+  if (k > 0) { ctx.save(); ctx.globalAlpha *= Math.min(1, k); exBox(ctx, 72, 880, 870, 110, { fill: '#2BB3A3', r: 22 });
+    kt(ctx, '+ Alert for Telugu aspirants', 110, 950, { font: F.ui(42, 900), color: '#FFFFFF' }); ctx.restore(); }
+  [['Law and welfare', G.law], ['Economy', G.eco], ['Defence', G.def], ['World', G.world], ['Days', G.day]].forEach(([t, c2], i) =>
+    exChip(ctx, t, 1000 + (i % 3) * 290, 885 + Math.floor(i / 3) * 70, c2, '#1B0B45', 26, eia(s, 0.3)));
 };
 
 // ---------- 1 · Agnipath ----------
 SCENES.S011 = wTitle(1, 'Agnipath scheme changes', 'nat', 'Scrapped? Or modified?');
 SCENES.S012 = (ctx, s) => {
   const c = W45.nat; exSlide(ctx, c, null, null); wHead(ctx, s, c, 'WHAT CHANGED', 'Union Cabinet, 4–5 November 2026');
-  const cols = [['2022 · THE START', ['4 years of service', 'About 1 in 4 kept'], 'twenty', '#E9DDFF'],
-    ['2026 · THE CHANGE', ['About 3 in 4 get 2 more years', 'Pathway to regular enrolment, subject to selection'], 'three in four', YEL]];
+  const cols = [['JUNE 2022 · THE START', ['Ages 17½ to 21', '4 years of service', 'About 1 in 4 kept'], 'twenty', '#E9DDFF'],
+    ['2026 · THE CHANGE', ['About 3 in 4 get 2 more years', 'Higher pay · bigger Seva Nidhi', 'Pathway to regular enrolment, subject to selection'], 'three in four', YEL]];
   cols.forEach(([h, lines, cw, fill], i) => {
     const x = 72 + i * 900, k = bounce(s.t, at(s, cw, 0.2 + i * 0.4));
     if (k <= 0) return;
     ctx.save(); ctx.translate(x + 410, 600); ctx.scale(k, k); ctx.translate(-(x + 410), -600);
     exBox(ctx, x, 280, 820, 640, { fill, r: 28 });
     kt(ctx, h, x + 50, 370, { font: F.ui(48, 900), color: c.ink });
-    let y = 480; for (const l of lines) y += kt(ctx, l, x + 50, y, { font: F.ui(54, 900), color: '#2E1065', maxW: 720, lh: 64 }) + 40;
+    let y = 470; for (const l of lines) y += kt(ctx, l, x + 50, y, { font: F.ui(50, 900), color: '#2E1065', maxW: 720, lh: 58 }) + 30;
     ctx.restore();
   });
   const ka = eia(s, at(s, 'three in four', 0.45));
   if (ka > 0) kt(ctx, '→', 945, 640, { font: F.head(110, 900), color: '#FFFFFF', align: 'center', alpha: ka });
 };
-SCENES.S013 = wTrap('Agnipath has been scrapped', 'Not scrapped: modified. Entry is still the four-year Agniveer route', 'scrapped', 'modified');
+SCENES.S013 = wTrap('Agnipath has been scrapped', 'Not scrapped: modified. Entry is still the four-year Agniveer route', 'scrapped', 'modified', 'Mains: a younger army vs experience and training costs');
 
 // ---------- 2 · Green crackers ----------
 SCENES.S021 = wTitle(2, 'Green crackers for Deepavali', 'nat', 'Who designs them? Who licenses the makers?');
@@ -121,14 +119,19 @@ SCENES.S022 = (ctx, s) => {
   const c = W45.nat; exSlide(ctx, c, null, null); wHead(ctx, s, c, 'THE SUPREME COURT ORDER', 'Order of 2 November 2026');
   wFacts(ctx, s, [
     { t: 'Delhi and the National Capital Region', sub: 'Only certified green crackers', cue: 'certified' },
-    { t: '7 and 8 November · a few hours only', sub: '6–7 in the morning · 8–10 at night', cue: 'hours' },
-    { t: 'Designed by the National Environmental Engineering Research Institute, Nagpur', sub: 'No barium nitrate', cue: 'designed', h: 210 },
-  ]);
+    { t: '7 and 8 November · a few hours only', sub: '6–7 in the morning · 8–10 at night', cue: 'seventh' },
+    { t: 'Not within 300 metres of hospitals, schools and silence zones', cue: 'metres' },
+  ], 250, 72, 1776);
+  [['Article 25: religion, subject to health', 'twenty-five'], ['Article 21: life includes clean air', 'twenty-one']].forEach(([t, cw], i) => {
+    const x = 72 + i * 900, k = bounce(s.t, at(s, cw, 0.7 + i * 0.1)); if (k <= 0) return;
+    ctx.save(); ctx.translate(x + 420, 900); ctx.scale(k, k); ctx.translate(-(x + 420), -900);
+    exBox(ctx, x, 830, 840, 140, { fill: YEL, r: 24 }); kt(ctx, t, x + 40, 918, { font: F.ui(42, 900), color: EP.purple.ink, maxW: 780 }); ctx.restore();
+  });
 };
 SCENES.S023 = (ctx, s) => {
   const c = W45.trap; exSlide(ctx, c, null, null); exChip(ctx, 'PRELIMS TRAP', 72, 50, '#FFFFFF', '#B91C1C', 44, eia(s, 0.05));
-  const boxes = [['DESIGNS THE FORMULA', 'National Environmental Engineering Research Institute, Nagpur', 'designs'],
-    ['LICENSES THE MAKERS', 'Petroleum and Explosives Safety Organisation · under the Commerce Ministry', 'licenses']];
+  const boxes = [['DESIGNS THE FORMULA', 'National Environmental Engineering Research Institute, Nagpur · no barium nitrate', 'designed'],
+    ['LICENSES THE MAKERS', 'Petroleum and Explosives Safety Organisation · Commerce Ministry · Explosives Act, 1884', 'licenses']];
   boxes.forEach(([h, b, cw], i) => {
     const x = 72 + i * 900, k = bounce(s.t, at(s, cw, 0.2 + i * 0.4)); if (k <= 0) return;
     ctx.save(); ctx.translate(x + 410, 560); ctx.scale(k, k); ctx.translate(-(x + 410), -560);
@@ -157,6 +160,11 @@ SCENES.S032 = (ctx, s) => {
   if (gr > 0) { const y = base - 2.1 * unit; ctx.save(); ctx.strokeStyle = '#F9A8D4'; ctx.lineWidth = 6; ctx.setLineDash([18, 12]);
     ctx.beginPath(); ctx.moveTo(240, y); ctx.lineTo(240 + 960 * gr, y); ctx.stroke(); ctx.restore();
     kt(ctx, 'replacement level 2.1', 1230, y + 14, { font: F.ui(40, 900), color: '#F9A8D4', alpha: gr }); }
+  [['Article 243F: a State law decides disqualifications', 'two-forty-three'], ['Article 21: reproductive choice?', 'twenty-one']].forEach(([t, cw], i) => {
+    const k = bounce(s.t, at(s, cw, 0.8 + i * 0.08)); if (k <= 0) return;
+    ctx.save(); ctx.translate(1540, 410 + i * 150); ctx.scale(k, k); ctx.translate(-1540, -(410 + i * 150));
+    exBox(ctx, 1230, 350 + i * 150, 620, 124, { fill: YEL, r: 22 }); kt(ctx, t, 1260, 400 + i * 150, { font: F.ui(34, 900), color: EP.purple.ink, maxW: 570, lh: 40 }); ctx.restore();
+  });
   kt(ctx, 'Total fertility rate · Source: Sample Registration System, 2023', 1230, 880, { font: F.ui(30, 700), color: '#E9D5FF', maxW: 600, lh: 38, alpha: eia(s, at(s, 'one point nine', 0.6) + 0.8) });
 };
 SCENES.S033 = (ctx, s) => {
@@ -177,8 +185,8 @@ SCENES.S033 = (ctx, s) => {
 };
 
 // ---------- 4 · Fast-track special courts ----------
-SCENES.S041 = wTitle(4, 'Fast-track special courts till 2031', 'nat', 'Speedy justice for women and children');
-SCENES.S042 = (ctx, s) => {
+SCENES.S051 = wTitle(5, 'Fast-track special courts till 2031', 'nat', 'Speedy justice for women and children');
+SCENES.S052 = (ctx, s) => {
   const c = W45.nat; exSlide(ctx, c, null, null); wHead(ctx, s, c, 'UNION CABINET · 4 NOVEMBER 2026');
   const nums = [['Extended to', '31 March 2031', 'thirty-one'], ['Courts', '779 → 850', 'eight hundred and fifty']];
   nums.forEach(([l, v, cw], i) => {
@@ -189,15 +197,15 @@ SCENES.S042 = (ctx, s) => {
   });
   wFacts(ctx, s, [
     { t: 'Rape cases and cases under the Protection of Children from Sexual Offences Act', cue: 'rape', h: 170 },
-    { t: "Centre's share: from the Nirbhaya Fund · total about ₹3,788 crore", cue: 'nirbhaya' },
-    { t: 'Scheme began in 2019', cue: 'nineteen', f: 0.9 },
+    { t: 'Since 2019 · after the Criminal Law (Amendment) Act, 2018 · about ₹3,788 crore', cue: 'nineteen' },
+    { t: "PRELIMS TRAP · centrally sponsored: the states share the cost · Centre's part from the Nirbhaya Fund", cue: 'centrally', fill: '#E63946', ink: '#FFFFFF', bar: '#FFFFFF', size: 44 },
   ], 470, 72, 1776);
 };
 SCENES.S900 = () => {};
 
 // ---------- 5 · Rural jobs law ----------
-SCENES.S051 = wTitle(5, 'Rural jobs law: the 15-day complaint rule', 'nat', 'Grievance Redressal Rules, 2026');
-SCENES.S052 = (ctx, s) => {
+SCENES.S061 = wTitle(6, 'Rural jobs law: the 15-day complaint rule', 'nat', 'Grievance Redressal Rules, 2026');
+SCENES.S062 = (ctx, s) => {
   const c = W45.nat; exSlide(ctx, c, null, null); wHead(ctx, s, c, 'HOW A COMPLAINT MOVES', 'Notified by the Rural Development Ministry, 2 November 2026');
   ['Gram Panchayat', 'Block', 'District'].forEach((l, i) => {
     const x = 72 + i * 600, k = bounce(s.t, at(s, ['gram', 'block', 'district'][i], 0.4 + i * 0.05)); if (k <= 0) return;
@@ -210,15 +218,15 @@ SCENES.S052 = (ctx, s) => {
     ctx.save(); ctx.translate(72 + i * 900 + 410, 530); ctx.scale(k, k); ctx.translate(-(72 + i * 900 + 410), -530);
     exBox(ctx, 72 + i * 900, 460, 840, 140, { fill: YEL, r: 70 }); kt(ctx, t, 72 + i * 900 + 420, 550, { font: F.ui(50, 900), color: c.ink, align: 'center' }); ctx.restore(); });
   wFacts(ctx, s, [
-    { t: 'Replaced the Mahatma Gandhi National Rural Employment Guarantee Act from 1 July 2026', cue: 'replaced', size: 44, h: 150 },
+    { t: 'Viksit Bharat Guarantee for Rozgar and Ajeevika Mission (Gramin) Act replaced the Mahatma Gandhi National Rural Employment Guarantee Act from 1 July 2026', cue: 'replaced', size: 40, f: 0.1 },
     { t: 'Guarantee: 100 → 125 days of work', cue: 'hundred and twenty-five', f: 0.85 },
   ], 650, 72, 1776);
 };
-SCENES.S053 = wTrap('The Centre pays all the wages', 'Cost now shared 60 : 40 with the states (90 : 10 for Himalayan and north-eastern states)', 'centre', 'sixty');
+SCENES.S063 = wTrap('The Centre pays all the wages', 'Cost now shared 60 : 40 with the states (90 : 10 for Himalayan and north-eastern states)', 'centre', 'sixty', 'Telugu states: united Andhra Pradesh pioneered social audits · its audit society dates from 2009');
 
 // ---------- 6 · Storage ----------
-SCENES.S061 = wTitle(6, 'Storing electricity: 92 gigawatt-hours', 'nat', 'What happens to solar power after sunset?');
-SCENES.S062 = (ctx, s) => {
+SCENES.S071 = wTitle(7, 'Storing electricity: 92 gigawatt-hours', 'nat', 'What happens to solar power after sunset?');
+SCENES.S072 = (ctx, s) => {
   const c = W45.nat; exSlide(ctx, c, null, null); wHead(ctx, s, c, 'UNION CABINET · 4 NOVEMBER 2026');
   const k0 = bounce(s.t, at(s, 'fourteen', 0.1));
   if (k0 > 0) { ctx.save(); ctx.translate(960, 230); ctx.scale(k0, k0); ctx.translate(-960, -230);
@@ -234,7 +242,7 @@ SCENES.S062 = (ctx, s) => {
   });
   wFacts(ctx, s, [{ t: 'Viability gap funding = the government pays part of the cost, so a useful project becomes viable', cue: 'means', size: 46, h: 170 }], 690, 72, 1776);
 };
-SCENES.S063 = (ctx, s) => {
+SCENES.S073 = (ctx, s) => {
   const c = W45.misc; exSlide(ctx, c, null, null); exChip(ctx, 'PUMPED STORAGE = A WATER BATTERY', 72, 50, '#FFFFFF', c.ink, 40, eia(s, 0.05));
   // two reservoirs: water climbs on "uphill", falls on "fall"
   const up = at(s, 'uphill', 0.25), dn = at(s, 'fall', 0.45);
@@ -251,8 +259,8 @@ SCENES.S063 = (ctx, s) => {
 };
 
 // ---------- 7 · Pralay ----------
-SCENES.S071 = wTitle(7, 'Pralay missile test', 'nat', 'Defence Research and Development Organisation · 5 November');
-SCENES.S072 = (ctx, s) => {
+SCENES.S111 = wTitle(11, 'Pralay missile test', 'nat', 'Defence Research and Development Organisation · 5 November');
+SCENES.S112 = (ctx, s) => {
   const c = W45.nat; exSlide(ctx, c, null, null); wHead(ctx, s, c, 'PRALAY');
   wFacts(ctx, s, [
     { t: '5 November 2026 · Dr APJ Abdul Kalam Island, Odisha', cue: 'island', f: 0.15 },
@@ -267,10 +275,10 @@ SCENES.S072 = (ctx, s) => {
 };
 
 // ---------- 8 · Malabar ----------
-SCENES.S081 = wTitle(8, 'Malabar 2026', 'int', 'Four navies, one sea');
-SCENES.S082 = (ctx, s) => {
+SCENES.S121 = wTitle(12, 'Malabar 2026', 'int', 'Four navies, one sea');
+SCENES.S122 = (ctx, s) => {
   const c = W45.int; exSlide(ctx, c, null, null); wHead(ctx, s, c, 'WHERE AND WHO');
-  wFacts(ctx, s, [{ t: 'Off Honshu, Japan · 5–12 November 2026', cue: 'honshu', ink: c.ink, bar: '#4A90C2' }], 170, 72, 1776);
+  wFacts(ctx, s, [{ t: 'Off Honshu, Japan · 5–12 November 2026 · the four Quad countries', cue: 'honshu', ink: c.ink, bar: '#4A90C2' }], 170, 72, 1776);
   ['India', 'United States', 'Japan', 'Australia'].forEach((n, i) => {
     const x = 72 + i * 450, k = bounce(s.t, at(s, ['india', 'united', 'japan and', 'australia'][i], 0.4 + i * 0.05)); if (k <= 0) return;
     ctx.save(); ctx.translate(x + 210, 450); ctx.scale(k, k); ctx.translate(-(x + 210), -450);
@@ -278,7 +286,7 @@ SCENES.S082 = (ctx, s) => {
   });
   wFacts(ctx, s, [{ t: "India's ship: Indian Naval Ship Sahyadri (a frigate)", cue: 'sahyadri', ink: c.ink, bar: YEL }], 620, 72, 1776);
 };
-SCENES.S083 = (ctx, s) => {
+SCENES.S123 = (ctx, s) => {
   const c = W45.trap; exSlide(ctx, c, null, null); exChip(ctx, 'PRELIMS TRAP · HOW MALABAR GREW', 72, 50, '#FFFFFF', '#B91C1C', 40, eia(s, 0.05));
   const steps = [['1992', 'Began: India + United States', 'ninety-two'], ['2015', 'Japan: permanent member', 'fifteen'], ['2020', 'Australia rejoined', 'rejoined']];
   ctx.save(); ctx.strokeStyle = 'rgba(255,255,255,0.6)'; ctx.lineWidth = 8; ctx.beginPath(); ctx.moveTo(200, 560); ctx.lineTo(200 + 1520 * span(s.t, 0.3, at(s, 'rejoined', 0.8)), 560); ctx.stroke(); ctx.restore();
@@ -293,8 +301,8 @@ SCENES.S083 = (ctx, s) => {
 SCENES.S901 = () => {};
 
 // ---------- 9 · US midterms ----------
-SCENES.S091 = wTitle(9, "America's midterm elections", 'int', 'House, Senate, and why "midterm"?');
-SCENES.S092 = (ctx, s) => {
+SCENES.S131 = wTitle(13, "America's midterm elections", 'int', 'House, Senate, and why "midterm"?');
+SCENES.S132 = (ctx, s) => {
   const c = W45.int; exSlide(ctx, c, null, null); wHead(ctx, s, c, 'THE UNITED STATES CONGRESS', 'Results, 4–7 November 2026');
   const cols = [['HOUSE OF REPRESENTATIVES', '435', 'members · 2-year term', 'Won by the Democrats (projected)', 'thirty-five'],
     ['SENATE', '100', 'members · 6-year term', 'A third elected every two years · control reported, count pending', 'hundred members']];
@@ -311,11 +319,11 @@ SCENES.S092 = (ctx, s) => {
 };
 
 // ---------- 10 · Bullying day ----------
-SCENES.S101 = wTitle(10, 'Day against bullying at school', 'misc', '5 November · first Thursday of November');
-SCENES.S102 = (ctx, s) => {
+SCENES.S141 = wTitle(14, 'Day against bullying at school', 'misc', '5 November · first Thursday of November');
+SCENES.S142 = (ctx, s) => {
   const c = W45.misc; exSlide(ctx, c, null, null); wHead(ctx, s, c, 'INTERNATIONAL DAY AGAINST VIOLENCE AND BULLYING AT SCHOOL');
   wFacts(ctx, s, [
-    { t: 'First Thursday of November · first observed in 2020', cue: 'thursday', f: 0.2 },
+    { t: 'First Thursday of November · first observed 2020', sub: 'Declared in 2019 by the member states of the United Nations Educational, Scientific and Cultural Organization', cue: 'thursday', f: 0.2 },
     { t: '1 in 3 students bullied in the past month', cue: 'one in three' },
   ], 190, 72, 1776);
   const tt = at(s, 'trap', 0.7), k = bounce(s.t, tt);
@@ -326,16 +334,118 @@ SCENES.S102 = (ctx, s) => {
 };
 
 // ---------- 11 · Cancer day ----------
-SCENES.S111 = wTitle(11, 'National Cancer Awareness Day', 'misc', '7 November');
-SCENES.S112 = (ctx, s) => {
-  const c = W45.misc; exSlide(ctx, c, null, null); wHead(ctx, s, c, '7 NOVEMBER = MARIE CURIE\'S BIRTHDAY (1867)');
-  kt(ctx, 'Two Nobel Prizes · two different sciences', 72, 280, { font: F.head(70, 900), color: '#FFFFFF', alpha: eia(s, at(s, 'two nobel', 0.3)) });
-  [['PHYSICS', '1903', 'physics'], ['CHEMISTRY', '1911', 'chemistry']].forEach(([h, y, cw], i) => {
-    const x = 72 + i * 900, k = bounce(s.t, at(s, cw, 0.5 + i * 0.2)); if (k <= 0) return;
-    ctx.save(); ctx.translate(x + 420, 600); ctx.scale(k, k); ctx.translate(-(x + 420), -600);
-    exBox(ctx, x, 380, 840, 440, { fill: i ? YEL : '#FFFFFF', r: 28 });
-    kt(ctx, h, x + 420, 500, { font: F.ui(60, 900), color: c.ink, align: 'center' });
-    kt(ctx, y, x + 420, 700, { font: F.head(170, 900), color: '#7C3AED', align: 'center' }); ctx.restore();
+SCENES.S151 = wTitle(15, 'Cancer Awareness Day and cheaper cancer medicines', 'misc', '7 November · prices capped from 9 November');
+SCENES.S152 = (ctx, s) => {
+  const c = W45.misc; exSlide(ctx, c, null, null); wHead(ctx, s, c, 'NATIONAL CANCER AWARENESS DAY · 7 NOVEMBER');
+  wFacts(ctx, s, [
+    { t: "Marie Curie's birthday · observed in India since 2014", cue: 'birthday', f: 0.1 },
+    { t: 'From 9 November: trade margin capped at 30% on 137 anti-cancer medicines', sub: 'Some prices may fall by up to 70%', cue: 'ninth' },
+    { t: 'Set by the National Pharmaceutical Pricing Authority · Paragraph 19, Drugs (Prices Control) Order, 2013', cue: 'paragraph', size: 44 },
+  ], 170, 72, 1776);
+};
+SCENES.S153 = (ctx, s) => {
+  const c = W45.trap; exSlide(ctx, c, null, null); exChip(ctx, 'PRELIMS TRAP · TWO OF THEM', 72, 50, '#FFFFFF', '#B91C1C', 44, eia(s, 0.05));
+  const boxes = [['MARIE CURIE', 'Two Nobel Prizes, two sciences: Physics 1903 · Chemistry 1911', 'physics'],
+    ['THE PRICING AUTHORITY', 'Under the Department of Pharmaceuticals (Chemicals and Fertilizers Ministry), not the Health Ministry', 'department']];
+  boxes.forEach(([h, b2, cw], i) => {
+    const x = 72 + i * 900, k = bounce(s.t, at(s, cw, 0.2 + i * 0.4)); if (k <= 0) return;
+    ctx.save(); ctx.translate(x + 420, 560); ctx.scale(k, k); ctx.translate(-(x + 420), -560);
+    exBox(ctx, x, 250, 840, 620, { fill: '#FFFFFF', r: 28 });
+    kt(ctx, h, x + 50, 350, { font: F.ui(48, 900), color: '#B91C1C' });
+    kt(ctx, b2, x + 50, 470, { font: F.ui(54, 900), color: '#4A0710', maxW: 740, lh: 66 }); ctx.restore();
+  });
+};
+
+// ---------- 4 · Arrest or detention (Article 22) ----------
+SCENES.S041 = wTitle(4, 'Arrest or detention? The 24-hour clock', 'nat', 'Article 22 · Supreme Court, 5 November');
+SCENES.S042 = (ctx, s) => {
+  const c = W45.nat; exSlide(ctx, c, null, null); wHead(ctx, s, c, 'ARTICLE 22(2)', 'Supreme Court, 5 November 2026 (Justices Ujjal Bhuyan and Atul S. Chandurkar), as reported');
+  wFacts(ctx, s, [{ t: 'Produce before the nearest magistrate within 24 hours · only the journey time is excluded', cue: 'magistrate', f: 0.1, size: 46 }], 240, 72, 1776);
+  // the clock line: starts at DETENTION; "formal arrest" sits greyed later on the line
+  const tl = at(s, 'difference', 0.55), g = span(s.t, tl, tl + 1.2), y = 560;
+  if (g > 0) {
+    ctx.save(); ctx.strokeStyle = YEL; ctx.lineWidth = 12; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(160, y); ctx.lineTo(160 + 1560 * easeOut(g), y); ctx.stroke(); ctx.restore();
+    exChip(ctx, '⏱ DETENTION: the clock starts', 110, y - 110, YEL, c.ink, 38, eia(s, tl));
+    exChip(ctx, 'formal arrest (later)', 900, y + 40, 'rgba(255,255,255,0.25)', '#FFFFFF', 34, eia(s, tl + 0.6));
+    exChip(ctx, '24 hours', 1520, y - 110, '#FFFFFF', c.ink, 38, eia(s, tl + 1.0));
+  }
+  wFacts(ctx, s, [
+    { t: 'Tripura drug case · 4 accused ordered released', cue: 'released', f: 0.75 },
+    { t: 'Overruled: Orissa, Kerala and Madras High Courts', cue: 'overruled', f: 0.88 },
+  ], 690, 72, 1776);
+};
+SCENES.S043 = wTrap('The 24 hours start when the arrest is recorded', 'They start at detention · only the travel time is excluded', 'detention', 'journey',
+  'Article 22(3): these safeguards do not apply to enemy aliens or to preventive detention');
+
+// ---------- 8 · Critical minerals ----------
+SCENES.S081 = wTitle(8, 'Critical minerals: processing at home', 'nat', 'Where does your battery’s lithium get processed?');
+SCENES.S082 = (ctx, s) => {
+  const c = W45.nat; exSlide(ctx, c, null, null); wHead(ctx, s, c, 'UNION CABINET · 4 NOVEMBER 2026');
+  const k0 = bounce(s.t, at(s, 'two thousand eight', 0.3));
+  if (k0 > 0) { ctx.save(); ctx.translate(960, 240); ctx.scale(k0, k0); ctx.translate(-960, -240);
+    exBox(ctx, 72, 170, 1776, 150, { fill: YEL, r: 28 }); kt(ctx, '₹2,814 crore · 30% capital subsidy · 5 years (2026–27 to 2030–31)', 960, 268, { font: F.ui(52, 900), color: c.ink, align: 'center' }); ctx.restore(); }
+  ['Lithium', 'Lithium', 'Nickel', 'Nickel'].forEach((m, i) => {
+    const x = 72 + i * 450, k = bounce(s.t, at(s, i < 2 ? 'two for lithium' : 'two for nickel', 0.5) + (i % 2) * 0.15); if (k <= 0) return;
+    ctx.save(); ctx.translate(x + 210, 470); ctx.scale(k, k); ctx.translate(-(x + 210), -470);
+    exBox(ctx, x, 390, 420, 160, { fill: '#FFFFFF', bar: i < 2 ? '#06D6A0' : '#4CC9F0', r: 24 });
+    kt(ctx, 'Plant ' + (i + 1), x + 210, 450, { font: F.ui(34, 800), color: '#6B21A8', align: 'center' });
+    kt(ctx, m, x + 210, 515, { font: F.ui(52, 900), color: c.ink, align: 'center' }); ctx.restore();
+  });
+  const steps = ['Storage', 'Batteries', 'Processed minerals'], tc = at(s, 'chain', 0.8);
+  steps.forEach((t, i) => {
+    const x = 72 + i * 620, a = eia(s, tc + i * 0.5);
+    exBox(ctx, x, 660, 520, 130, { fill: '#2E1065', alpha: a, r: 24 });
+    kt(ctx, t, x + 260, 742, { font: F.ui(46, 900), color: YEL, align: 'center', alpha: a });
+    if (i < 2) kt(ctx, '→', x + 570, 745, { font: F.head(70, 900), color: '#FFFFFF', align: 'center', alpha: eia(s, tc + i * 0.5 + 0.3) });
+  });
+  kt(ctx, 'Why: processing of these minerals is concentrated in a few countries', 72, 900, { font: F.ui(40, 800), color: '#FFFFFF', maxW: 1776, alpha: eia(s, at(s, 'concentrated', 0.15)) });
+};
+SCENES.S083 = wTrap('A mining scheme', 'A processing scheme · recycling has its own ₹1,500 crore scheme (2025)', 'processing', 'recycling');
+
+// ---------- 9 · VISTAR ----------
+SCENES.S091 = wTitle(9, 'VISTAR: counting India’s economy', 'nat', 'How does India count its shops and factories?');
+SCENES.S092 = (ctx, s) => {
+  const c = W45.nat; exSlide(ctx, c, null, null); wHead(ctx, s, c, 'UNION CABINET · 4 NOVEMBER 2026');
+  wFacts(ctx, s, [
+    { t: 'VISTAR · about ₹4,371 crore · 2026–27 to 2030–31', sub: 'Modernising statistics with digital tools and artificial intelligence', cue: 'vistar', f: 0.05 },
+    { t: '59 surveys', cue: 'fifty-nine' },
+    { t: '8th Economic Census: every non-farm establishment and its workers', cue: 'eighth' },
+  ], 170, 72, 1776);
+  const tt = at(s, 'trap', 0.7), k = bounce(s.t, tt);
+  if (k > 0) { ctx.save(); ctx.translate(960, 870); ctx.scale(k, k); ctx.translate(-960, -870);
+    exBox(ctx, 72, 760, 1776, 230, { fill: '#E63946', r: 26 });
+    kt(ctx, 'PRELIMS TRAP', 120, 825, { font: F.ui(38, 900), color: '#FFD9DC' });
+    kt(ctx, 'Economic Census: Statistics Ministry  ·  Population Census: Registrar General (Home Ministry)', 120, 900, { font: F.ui(46, 900), color: '#FFFFFF', maxW: 1680, lh: 54 }); ctx.restore(); }
+};
+
+// ---------- 10 · Aviation rules ----------
+SCENES.S101 = wTitle(10, 'New aviation rules replace 1937', 'nat', 'Bharatiya Vayuyan Niyam, 2026');
+SCENES.S102 = (ctx, s) => {
+  const c = W45.nat; exSlide(ctx, c, null, null); wHead(ctx, s, c, 'CIVIL AVIATION MINISTRY · NOTIFIED');
+  wFacts(ctx, s, [
+    { t: 'Bharatiya Vayuyan Niyam, 2026', sub: 'From 1 January 2027 · replace the Aircraft Rules, 1937', cue: 'niyam', f: 0.05 },
+    { t: 'Registration · safety · licences · airports', cue: 'registration' },
+    { t: 'The government can step in on air fares in extraordinary situations', cue: 'fares' },
+  ], 170, 72, 1776);
+  const tt = at(s, 'trap', 0.7), k = bounce(s.t, tt);
+  if (k > 0) { ctx.save(); ctx.translate(960, 870); ctx.scale(k, k); ctx.translate(-960, -870);
+    exBox(ctx, 72, 760, 1776, 230, { fill: '#E63946', r: 26 });
+    kt(ctx, 'PRELIMS TRAP · rules vs Act', 120, 825, { font: F.ui(38, 900), color: '#FFD9DC' });
+    kt(ctx, 'Niyam = the rules (2026)  ·  Adhiniyam = the Act (2024), which replaced the Aircraft Act, 1934', 120, 900, { font: F.ui(46, 900), color: '#FFFFFF', maxW: 1680, lh: 54 }); ctx.restore(); }
+};
+
+// ---------- 13 · the India bridge ----------
+SCENES.S133 = (ctx, s) => {
+  const c = W45.trap; exSlide(ctx, c, null, null); exChip(ctx, 'PRELIMS TRAP · CONNECT IT TO INDIA', 72, 50, '#FFFFFF', '#B91C1C', 40, eia(s, 0.05));
+  const cols = [['SENATE  ↔  RAJYA SABHA', ['6-year terms', 'About a third every 2 years', 'Never dissolved: a permanent house'], 'rajya'],
+    ['HOUSE  ↔  LOK SABHA', ['Both directly elected', 'House: 2 years', 'Lok Sabha: 5 years'], 'lok']];
+  cols.forEach(([h, lines, cw], i) => {
+    const x = 72 + i * 900, k = bounce(s.t, at(s, cw, 0.2 + i * 0.45)); if (k <= 0) return;
+    ctx.save(); ctx.translate(x + 420, 560); ctx.scale(k, k); ctx.translate(-(x + 420), -560);
+    exBox(ctx, x, 230, 840, 680, { fill: '#FFFFFF', r: 28 });
+    kt(ctx, h, x + 50, 330, { font: F.ui(46, 900), color: '#B91C1C' });
+    let y = 460; for (const l of lines) y += kt(ctx, '• ' + l, x + 50, y, { font: F.ui(50, 900), color: '#4A0710', maxW: 740, lh: 60 }) + 40;
+    ctx.restore();
   });
 };
 
@@ -349,19 +459,21 @@ SCENES.S995 = (ctx, s) => {
     { t: 'Check the official website for exact details', cue: 'check', fill: YEL, ink: c.ink },
   ], 190);
 };
-const QS = ['Agnipath has been scrapped.', 'Pumped storage is the biggest share of the new storage plan.', 'Malabar began as an India–United States exercise.'];
+const QS = ['Agnipath has been scrapped.', 'The 24-hour limit in Article 22(2) runs from detention.', 'Pumped storage is the biggest share of the new storage plan.', 'The Economic Census is run by the Registrar General of India.'];
+const QOK = [false, true, true, false];
 function quizCard(ctx, s, answer) {
-  const c = W45.nat; exSlide(ctx, c, null, null); exChip(ctx, answer ? 'ANSWER' : 'QUICK-FIRE QUESTION', 72, 50, YEL, c.ink, 40, eia(s, 0.05));
-  kt(ctx, 'How many of these statements are correct?', 72, 220, { font: F.head(62, 900), color: '#FFFFFF' });
+  const c = W45.nat; exSlide(ctx, c, null, null); exChip(ctx, answer ? 'ANSWER' : 'QUICK-FIRE QUESTION', 72, 40, YEL, c.ink, 40, eia(s, 0.05));
+  kt(ctx, 'How many of these statements are correct?', 72, 200, { font: F.head(60, 900), color: '#FFFFFF' });
   QS.forEach((q, i) => {
-    const ok = i > 0, y = 290 + i * 170;
-    exBox(ctx, 72, y, 1776, 140, { fill: answer ? (ok ? '#D1FAE5' : '#FFE4E6') : '#FFFFFF', bar: answer ? (ok ? '#06D6A0' : '#E63946') : YEL, alpha: eia(s, 0.2 + i * 0.25) });
-    kt(ctx, `${i + 1}. ${q}`, 120, y + 88, { font: F.ui(46, 800), color: c.ink, maxW: 1560, alpha: eia(s, 0.2 + i * 0.25) });
-    if (answer) kt(ctx, ok ? '✓' : '✗', 1790, y + 92, { font: F.ui(64, 900), color: ok ? '#059669' : '#E63946', align: 'center' });
+    const ok = QOK[i], y = 250 + i * 150, a = eia(s, 0.2 + i * 0.2);
+    exBox(ctx, 72, y, 1776, 128, { fill: answer ? (ok ? '#D1FAE5' : '#FFE4E6') : '#FFFFFF', bar: answer ? (ok ? '#06D6A0' : '#E63946') : YEL, alpha: a });
+    kt(ctx, `${i + 1}. ${q}`, 120, y + 80, { font: F.ui(46, 800), color: c.ink, maxW: 1560, alpha: a });
+    if (answer) kt(ctx, ok ? '✓' : '✗', 1790, y + 84, { font: F.ui(64, 900), color: ok ? '#059669' : '#E63946', align: 'center' });
   });
-  const opts = answer ? 'Answer: (b) Only two · statements 2 and 3 · Agnipath was modified, not scrapped' : '(a) Only one   (b) Only two   (c) All three   (d) None';
-  kt(ctx, opts, 72, 880, { font: F.ui(48, 900), color: YEL, maxW: 1776, lh: 58, alpha: eia(s, answer ? 0.3 : 1.0) });
-  if (!answer) {   // a 7-second countdown ring after "answer"
+  const opts = answer ? 'Answer: (b) Only two · statements 2 and 3' : '(a) Only one   (b) Only two   (c) Only three   (d) All four';
+  kt(ctx, opts, 72, 900, { font: F.ui(50, 900), color: YEL, maxW: 1500, alpha: eia(s, answer ? 0.3 : 1.0) });
+  if (answer) kt(ctx, 'Agnipath was modified, not scrapped · the Economic Census is run by the Statistics Ministry', 72, 980, { font: F.ui(36, 800), color: '#FFFFFF', maxW: 1776, alpha: eia(s, 1.0) });
+  if (!answer) {   // a 7-second countdown ring over the silent hold
     const t0 = s.hold ? s.hold.at : at(s, 'answer', 0.4) + 0.4, p = span(s.t, t0, t0 + 7);
     if (p > 0 && p < 1) { ctx.save(); ctx.lineWidth = 16; ctx.strokeStyle = 'rgba(255,255,255,0.25)'; ctx.beginPath(); ctx.arc(1760, 940, 70, 0, 7); ctx.stroke();
       ctx.strokeStyle = YEL; ctx.beginPath(); ctx.arc(1760, 940, 70, -Math.PI / 2, -Math.PI / 2 + 2 * Math.PI * (1 - p)); ctx.stroke(); ctx.restore();
