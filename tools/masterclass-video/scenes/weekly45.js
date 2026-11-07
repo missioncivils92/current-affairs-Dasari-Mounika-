@@ -482,4 +482,18 @@ function quizCard(ctx, s, answer) {
 }
 SCENES.S990 = (ctx, s) => quizCard(ctx, s, false);
 SCENES.S991 = (ctx, s) => quizCard(ctx, s, true);
+SCENES.S992 = (ctx, s) => {           // Mains practice: two questions, then the pointer to the practice sheet
+  const c = W45.nat; exSlide(ctx, c, null, null); exChip(ctx, 'MAINS PRACTICE · WRITE ONE', 72, 40, YEL, c.ink, 40, eia(s, 0.05));
+  const qs = [['M1 · GS-2 · 10 marks', 'Is the protection of Article 22(2) real only if the 24-hour clock runs from the moment liberty is curtailed? Discuss.', 'question one'],
+    ['M2 · GS-2 · 15 marks', 'Should population policy rely on incentives or penalties? Examine the two-child rule for panchayat elections.', 'question two']];
+  qs.forEach(([h, q, cw], i) => {
+    const y = 170 + i * 330, k = bounce(s.t, at(s, cw, 0.15 + i * 0.3)); if (k <= 0) return;
+    ctx.save(); ctx.translate(960, y + 140); ctx.scale(k, k); ctx.translate(-960, -(y + 140));
+    exBox(ctx, 72, y, 1776, 290, { fill: '#FFFFFF', bar: YEL, r: 26 });
+    kt(ctx, h, 120, y + 70, { font: F.ui(38, 900), color: '#7C3AED' });
+    kt(ctx, q, 120, y + 145, { font: F.ui(50, 900), color: c.ink, maxW: 1680, lh: 60 }); ctx.restore();
+  });
+  kt(ctx, '150 words · 7 minutes · post it in the comments', 72, 900, { font: F.ui(46, 900), color: YEL, alpha: eia(s, at(s, 'hundred and fifty', 0.6)) });
+  kt(ctx, 'All 15 MCQs and 6 Mains questions with answers: practice sheet in the description', 72, 975, { font: F.ui(38, 800), color: '#FFFFFF', maxW: 1776, alpha: eia(s, at(s, 'practice sheet', 0.85)) });
+};
 SCENES.S999 = () => {};

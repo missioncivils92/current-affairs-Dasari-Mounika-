@@ -158,6 +158,14 @@ The answer is only two: statements two and three. Agnipath has been modified, no
 
 Comment చేయండి!
 
+### Mains practice
+
+And for Mains, here is this week's writing practice. Question one: is the protection of Article 22 real only if the 24-hour clock runs from the moment liberty is curtailed? Question two: should population policy rely on incentives or penalties, in the light of the two-child rule? Pick one, write 150 words in 7 minutes, and
+
+మీ answer comments లో రాయండి.
+
+All 15 practice questions and 6 Mains questions, with answers, are in the practice sheet linked in the description.
+
 ### Close (on camera)
 
 That was November's first week: 15 stories, 15 traps. If this helped, share it with one friend who is preparing with you, and subscribe for every Sunday's class.

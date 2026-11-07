@@ -38,7 +38,8 @@ Agnipath scrapped? When does the 24-hour arrest clock really start? Green cracke
 12:57 Cancer Day and the 30% price cap on cancer medicines
 13:51 Andhra Pradesh teacher recruitment alert
 14:07 Quick-fire quiz
-14:37 Wrap-up
+14:37 Mains practice: write one answer
+15:12 Wrap-up
 
 📌 Key facts
 • Agnipath: about 3 in 4 Agniveers get 2 more years; modified, not scrapped.
@@ -56,6 +57,8 @@ Agnipath scrapped? When does the 24-hour arrest clock really start? Green cracke
 • US Congress vs India: Senate ↔ Rajya Sabha (6 years, a third every 2 years).
 • National Commission for Protection of Child Rights: statutory (2005 Act).
 • Cancer medicines: 30% trade-margin cap on 137 drugs from 9 Nov (National Pharmaceutical Pricing Authority, Department of Pharmaceuticals).
+
+📝 Practice sheet (15 Prelims MCQs + 6 Mains questions with answer outlines): [PDF link]
 
 🎯 This week's Shorts: two-child rule · rural jobs law · green crackers · bullying day · UAPA bail
 
@@ -85,6 +88,7 @@ Comment your answer! ✅ Answer: (b) Only two (statements 2 and 3). Agnipath was
 - **Tags field:** november current affairs 2026, november 1st week current affairs, weekly current affairs, upsc current affairs, appsc current affairs, tgpsc current affairs, current affairs in telugu, agnipath scheme changes, article 22 arrest detention, green crackers supreme court, two child rule supreme court.
 - **YouTube Studio → Research tab:** search "current affairs November 2026" and copy its exact wording into the title if it differs.
 - **Shorts:** in each W45 Short, set this video as the **Related video**.
+- **Practice sheet:** upload `Practice-Set-Nov-1st-Week-Decode-UPSC.pdf` (Telegram or Drive) and paste its link in place of [PDF link].
 - **End screen:** add this video plus "Subscribe" for the last 15 seconds.
 - **Community post** on Sunday at 5 PM: the thumbnail plus "Agnipath scrapped? Answer at 6 PM".
 - **WhatsApp/Telegram:** share the link with one line, "November 1st week: 15 topics, 15 traps, English + Telugu".
