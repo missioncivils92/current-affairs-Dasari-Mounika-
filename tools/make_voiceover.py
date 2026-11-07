@@ -19,7 +19,7 @@ title = src.splitlines()[0].replace("# Master Script — ", "")
 meta = {k: re.search(rf"\*\*{k}:\*\* (.*)", src).group(1) for k in ("Release", "Coverage")}
 start = src.find("## COLD OPEN")                # a single-segment sample may start at its first segment
 if start < 0:
-    start = re.search(r"^## (?:DEEP DIVE|FOCUS|PRELIMS GRID|AP–TG DESK|UPDATE DESK|PILLAR|SHORT)", src, flags=re.M).start()
+    start = re.search(r"^## (?:DEEP DIVE|FOCUS|PRELIMS GRID|AP–TG DESK|UPDATE DESK|PILLAR|SHORT|WEEKLY)", src, flags=re.M).start()
 body = re.split(r"^## (?:RUNTIME SUMMARY|PACKAGING)", src[start:], flags=re.M)[0]
 codes = {"COLD OPEN": "open", "PILLAR 1": "P1", "PILLAR 2": "P2", "PILLAR 3": "P3", "PILLAR 4": "P4",
          "PILLAR 5": "P5", "TRANSITION": "transition", "TRAP VAULT": "traps", "DESK NOTE": "desknote",
@@ -78,11 +78,12 @@ for line in body.splitlines():
         say(line[2:])
 flush()
 
+fmt = ("on camera (decision 41): record the whole script in one camera take; the editor shows your face only on rows tagged [FACE], [SPLIT] or [CORNER] in `02-master-script.md`." if re.search(r"`\[(?:FACE|SPLIT|CORNER)\]`", src) else "voice-only. Everything below is recorded on the microphone; there is no on-camera recording.")
 head = f"""# Voiceover Text — {title} · {version}
 
 **Release:** {meta['Release']}
 **Coverage:** {meta['Coverage']}
-**Format:** voice-only. Everything below is recorded on the microphone; there is no on-camera recording.
+**Format:** {fmt}
 **Total:** {total} words · about {total/135:.1f} min at 135 wpm ({total/140:.1f}–{total/130:.1f} min at 140–130 wpm)
 
 Visual directions for the editor are in `02-master-script.md`.
