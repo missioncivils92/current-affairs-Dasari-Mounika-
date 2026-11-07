@@ -1,6 +1,6 @@
 # Upload Pack — 2026-W45 Weekly: November 1st Week Current Affairs (Mon 2 – Sat 7 Nov 2026)
 
-**Release:** Sun 8 Nov 2026, 6:00 PM IST · 16:9 · about 15 min · 15 topics.
+**Release:** Sun 8 Nov 2026, 6:00 PM IST · 16:9 · about 20 min · 15 topics, each with a practice MCQ.
 
 **Thumbnail:** made from a frame of the new weekly recording (owner, 7 Nov), never from an older reel.
 - Pick a well-lit, smiling frame, with her face on the right.
@@ -17,29 +17,28 @@
 ## Description
 
 ```
-Agnipath scrapped? When does the 24-hour arrest clock really start? Green crackers, the two-child rule, cheaper cancer medicines and more: November's first week of current affairs, 15 stories with the static fact and the exam trap for each. Explained in English, with Telugu on the key lines.
+Agnipath scrapped? When does the 24-hour arrest clock really start? Green crackers, the two-child rule, cheaper cancer medicines and more: November's first week of current affairs, 15 stories with the static fact, the exam trap and a practice MCQ for each. Explained in English, with Telugu on the key lines.
 
 ⏱️ Chapters
 00:00 What changed this week?
 00:44 Agnipath: scrapped or modified?
-01:45 Green crackers: Articles 25 and 21, and who licenses them
-02:51 Two-child rule: struck down? (Telugu states)
-04:02 Article 22: the 24-hour clock starts at detention
-05:13 Fast-track special courts till 2031
-06:07 Rural jobs law: the 15-day complaint rule
-07:12 92 gigawatt-hours of storage: pumped vs battery
-07:57 Critical minerals: lithium and nickel processing
-08:44 VISTAR and the Economic Census trap
-09:24 Bharatiya Vayuyan Niyam replaces the 1937 rules
-10:05 Pralay: ballistic or cruise?
-10:37 Malabar 2026: how the exercise grew
-11:15 US midterms, and the Rajya Sabha trap
-12:19 Day against bullying: statutory body trap
-12:57 Cancer Day and the 30% price cap on cancer medicines
-13:51 Andhra Pradesh teacher recruitment alert
-14:07 Quick-fire quiz
-14:37 This week's Mains question (Article 22)
-15:12 Wrap-up
+02:12 Green crackers: Articles 25 and 21, and who licenses them
+03:38 Two-child rule: struck down? (Telugu states)
+05:15 Article 22: the 24-hour clock starts at detention
+06:45 Fast-track special courts till 2031
+08:06 Rural jobs law: the 15-day complaint rule
+09:32 92 gigawatt-hours of storage: pumped vs battery
+10:36 Critical minerals: lithium and nickel processing
+11:43 VISTAR and the Economic Census trap
+12:47 Bharatiya Vayuyan Niyam replaces the 1937 rules
+13:49 Pralay: ballistic or cruise?
+14:40 Malabar 2026: how the exercise grew
+15:36 US midterms, and the Rajya Sabha trap
+16:59 Day against bullying: statutory body trap
+17:56 Cancer Day and the 30% price cap on cancer medicines
+19:10 Andhra Pradesh teacher recruitment alert
+19:26 This week's Mains question (Article 22)
+19:51 Wrap-up
 
 📌 Key facts
 • Agnipath: about 3 in 4 Agniveers get 2 more years; modified, not scrapped.

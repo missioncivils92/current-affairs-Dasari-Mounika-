@@ -28,6 +28,15 @@ Prelims trap: the scheme has not been scrapped; it has been modified, and entry 
 
 And for Mains, think of the trade-off: a younger army on one side, and experience and training costs on the other.
 
+
+**MCQ (the question is on screen):** Now, your first question of the day. Read both statements and decide: which of them is correct?
+
+*(stay silent for 6 seconds)*
+
+The answer is A, statement 1 only. The scheme was modified, not scrapped, so entry is still through the four-year Agniveer route.
+
+మీ first tick పెట్టుకోండి!
+
 ### 2 · Green crackers
 
 And with Deepavali here, our second story asks: can the Supreme Court decide how you celebrate a festival?
@@ -35,6 +44,13 @@ And with Deepavali here, our second story asks: can the Supreme Court decide how
 On November 2, the Supreme Court allowed only certified green crackers in Delhi and the National Capital Region, on the 7th and 8th, from 6 to 7 in the morning and 8 to 10 at night, and never within 300 metres of hospitals, schools and silence zones. Why can a court do this? Because the freedom of religion under Article 25 is subject to public health, and the right to life under Article 21 includes clean air. The Court said pollution defeats the very purpose of the festival.
 
 Now the trap. Green crackers were designed by the National Environmental Engineering Research Institute in Nagpur, and they contain no barium nitrate. But the institute only designs the formula; the Petroleum and Explosives Safety Organisation, under the Commerce Ministry, licenses the makers under the Explosives Act of 1884.
+
+
+**MCQ (the question is on screen):** Your turn. How many of these three pairs are correctly matched?
+
+*(stay silent for 6 seconds)*
+
+The answer is B, only two. The explosives safety organisation works under the Commerce Ministry, not the Environment Ministry.
 
 ### 3 · Two-child rule
 
@@ -44,6 +60,13 @@ This week the Supreme Court said laws that disqualify people with more than two 
 
 Telugu states lens: Andhra Pradesh had this rule since 1994 and scrapped it in 2024, and Telangana removed it for rural bodies in 2026. But remember the trap: the Supreme Court has not struck the rule down; it only referred the question to a larger bench.
 
+
+**MCQ (the question is on screen):** Now a Statement-one, Statement-two question, the format UPSC loves. Both may be true, so decide: does the second explain the first?
+
+*(stay silent for 6 seconds)*
+
+The answer is B. Both statements are correct, but Article 243F does not explain the reference; falling fertility and reproductive choice do.
+
 ### 4 · Arrest or detention?
 
 Story four protects every one of us: when exactly does the 24-hour clock start after the police pick you up?
@@ -52,11 +75,25 @@ Article 22, clause 2, says an arrested person must be produced before the neares
 
 Prelims trap: the 24 hours run from detention, not from the time the arrest is written down, and the only time excluded is the journey to the magistrate. Also remember, Article 22, clause 3, says these safeguards do not apply to an enemy alien or to a person held under preventive detention.
 
+
+**MCQ (the question is on screen):** Pause and answer: which one statement about Article 22, clause 2, is correct?
+
+*(stay silent for 6 seconds)*
+
+The answer is B. The clock starts at detention, and only the journey time is excluded.
+
 ### 5 · Fast-track special courts
 
 Story five is about speedy justice for women and children.
 
 The Cabinet extended the fast-track special courts scheme till March 2031, with about ₹3,788 crore, and raised the number of courts from 779 to 850. These courts hear rape cases and cases under the Protection of Children from Sexual Offences Act. The scheme began in 2019, after the Criminal Law Amendment Act of 2018. Prelims trap: it is a centrally sponsored scheme, so the states share the cost, and the Centre's part comes from the Nirbhaya Fund.
+
+
+**MCQ (the question is on screen):** Three statements on fast-track courts. How many of them are correct?
+
+*(stay silent for 6 seconds)*
+
+The answer is A, only one. The courts go up from 779 to 850, and they come from a centrally sponsored scheme, not a separate Act.
 
 ### Bridge (on camera)
 
@@ -74,6 +111,13 @@ From July 1, the Viksit Bharat Guarantee for Rozgar and Ajeevika Mission, Gramin
 
 Prelims trap: the Centre no longer pays all the wages; the cost is now shared 60 to 40 with the states, and 90 to 10 for Himalayan and north-eastern states. Telugu states lens: united Andhra Pradesh pioneered social audits of this programme, with its own audit society from 2009.
 
+
+**MCQ (the question is on screen):** Now the rural jobs law. How many of these three statements are correct?
+
+*(stay silent for 6 seconds)*
+
+The answer is C, all three: 125 days, 60 to 40 sharing, and 15 days to resolve a complaint.
+
 ### 7 · Storing electricity
 
 Story seven answers a simple question: what happens to solar power after sunset?
@@ -81,6 +125,13 @@ Story seven answers a simple question: what happens to solar power after sunset?
 The Cabinet approved ₹14,500 crore of viability gap funding to build 92 gigawatt-hours of grid-scale storage: 60 from pumped storage, 30 from batteries and 2 from new technologies. Viability gap funding means the government pays part of the cost, so that a project which is useful but not yet profitable becomes viable.
 
 Pumped storage is like a giant water battery: you pump water uphill when power is cheap, and let it fall through turbines when it is needed. Prelims trap: the biggest share here is pumped storage, not batteries.
+
+
+**MCQ (the question is on screen):** A quick one on storage: which part of the 92 gigawatt-hours is the largest?
+
+*(stay silent for 6 seconds)*
+
+The answer is B, pumped storage, with 60 of the 92 gigawatt-hours.
 
 ### 8 · Critical minerals
 
@@ -90,17 +141,38 @@ Lithium and nickel are critical minerals for batteries and electric vehicles, bu
 
 Prelims trap: this scheme is about processing, not mining or recycling. Recycling has its own ₹1,500 crore scheme from 2025.
 
+
+**MCQ (the question is on screen):** Another Statement-one, Statement-two question. Does the second statement explain the first?
+
+*(stay silent for 6 seconds)*
+
+The answer is A. Both are correct, and the concentration of processing abroad is exactly why the scheme was approved.
+
 ### 9 · VISTAR
 
 Story nine is about the numbers behind every policy: how does India count its shops and factories?
 
 The Cabinet approved VISTAR, a scheme of about ₹4,371 crore over five years, to modernise India's statistical system with digital tools and artificial intelligence. It will run 59 surveys and the 8th Economic Census, which counts every non-farm establishment and its workers. Prelims trap: the Economic Census is run by the Ministry of Statistics and Programme Implementation, while the Population Census is run by the Registrar General and Census Commissioner under the Home Ministry.
 
+
+**MCQ (the question is on screen):** Now the census trap. How many of these three statements are correct?
+
+*(stay silent for 6 seconds)*
+
+The answer is C, all three. The Economic Census sits with the Statistics Ministry, and the Population Census with the Registrar General under the Home Ministry.
+
 ### 10 · New aviation rules
 
 Story ten: why was India still flying under rules written in 1937?
 
 The Civil Aviation Ministry notified the Bharatiya Vayuyan Niyam, 2026, which replace the colonial-era Aircraft Rules of 1937 from January 1, 2027. They cover aircraft registration, safety, licences and airports, and they let the government step in on air fares in extraordinary situations. Prelims trap: the Niyam are the rules; the parent law is the Bharatiya Vayuyan Adhiniyam of 2024, which replaced the Aircraft Act of 1934.
+
+
+**MCQ (the question is on screen):** Rules or Act? How many of these three statements are correct?
+
+*(stay silent for 6 seconds)*
+
+The answer is B, only two. The new rules actually let the government step in on fares in extraordinary situations.
 
 ### Bridge (on camera)
 
@@ -114,6 +186,13 @@ Story eleven is a missile with a dramatic name: Pralay.
 
 On November 5, the Defence Research and Development Organisation flight-tested Pralay from Doctor A P J Abdul Kalam Island off Odisha. Pralay is a quasi-ballistic missile, which means it can change its path in flight, so it is harder to intercept. Prelims trap: Agni and Prithvi are ballistic missiles, while BrahMos is a cruise missile built with Russia, so do not mix up the families.
 
+
+**MCQ (the question is on screen):** Missile families: how many of these four pairs are correctly matched?
+
+*(stay silent for 6 seconds)*
+
+The answer is C, only three. Prithvi is a ballistic missile, not a cruise missile.
+
 ### 12 · Malabar 2026
 
 From land to sea: our twelfth story is Exercise Malabar.
@@ -121,6 +200,13 @@ From land to sea: our twelfth story is Exercise Malabar.
 Malabar 2026 is being held off Honshu in Japan from the 5th to the 12th of November, with the navies of India, the United States, Japan and Australia, the same four countries that form the Quad. India has sent the frigate Indian Naval Ship Sahyadri.
 
 Prelims trap: Malabar began in 1992 as a two-nation exercise between India and the United States; Japan became a permanent member in 2015, and Australia rejoined in 2020.
+
+
+**MCQ (the question is on screen):** Arrange these three Malabar milestones in the correct order.
+
+*(stay silent for 6 seconds)*
+
+The answer is A: three, one, two. 1992, then 2015, then 2020.
 
 ### 13 · America's midterm elections
 
@@ -130,11 +216,25 @@ In America's midterm elections, the Democrats won control of the House of Repres
 
 Now connect it to India, because this is a favourite trap. Our Rajya Sabha works like the American Senate: members serve six years and about one third retire every two years, so the Rajya Sabha is a permanent house that is never dissolved. The Lok Sabha, like the House of Representatives, is directly elected, but for five years, not two.
 
+
+**MCQ (the question is on screen):** Now the India bridge. How many of these three statements are correct?
+
+*(stay silent for 6 seconds)*
+
+The answer is B, only two. The Rajya Sabha is a permanent house and is never dissolved.
+
 ### 14 · Day against bullying at school
 
 Now two important days. Story fourteen was on November 5.
 
 The International Day against Violence and Bullying at School, including Cyberbullying, is held on the first Thursday of November. It was declared by the member states of the United Nations Educational, Scientific and Cultural Organization in 2019 and first observed in 2020, and one in three students worldwide has been bullied in the past month. Prelims trap: India's National Commission for Protection of Child Rights is a statutory body under a 2005 Act, not a constitutional one.
+
+
+**MCQ (the question is on screen):** Which one of these correctly describes the National Commission for Protection of Child Rights?
+
+*(stay silent for 6 seconds)*
+
+The answer is B, a statutory body under the 2005 Act.
 
 ### 15 · Cancer Awareness Day and cheaper cancer medicines
 
@@ -144,19 +244,16 @@ The day falls on Marie Curie's birthday, and India has marked it since 2014. Fro
 
 Two traps here. Marie Curie won two Nobel Prizes in two different sciences, Physics in 1903 and Chemistry in 1911. And the pricing authority sits under the Department of Pharmaceuticals in the Chemicals and Fertilizers Ministry, not under the Health Ministry.
 
+
+**MCQ (the question is on screen):** The last topic question. How many of these four statements are correct?
+
+*(stay silent for 6 seconds)*
+
+The answer is C, only three. The pricing authority works under the Department of Pharmaceuticals, not the Health Ministry.
+
 ### Alert
 
 One alert for Telugu aspirants: Andhra Pradesh has announced its District Selection Committee teacher recruitment for about 2,721 posts, with applications reported from November 11. Please check the official website for exact details.
-
-### Quiz
-
-Now, your quick-fire question. How many of these four statements are correct? Pause the video and answer.
-
-*(stay silent for 7 seconds)*
-
-The answer is only two: statements two and three. Agnipath has been modified, not scrapped, and the Economic Census is run by the Statistics Ministry. How many did you get right?
-
-Comment చేయండి!
 
 ### Mains practice
 

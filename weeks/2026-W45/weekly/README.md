@@ -1,6 +1,6 @@
 # 2026-W45 Weekly: November 1st Week Current Affairs (Mon 2 – Sat 7 Nov 2026)
 
-Release: Sun 8 Nov 2026, 6:00 PM IST. Format (v2, owner 7 Nov: "time is OK, but strong current affairs"): about 15 min, 15 topics plus 1 alert, on camera (decision 41), English with Telugu on the key lines.
+Release: Sun 8 Nov 2026, 6:00 PM IST. Format (v2, owner 7 Nov: "time is OK, but strong current affairs"): about 20 min, 15 topics (each ending with a practice MCQ, as in W44) plus 1 alert, on camera (decision 41), English with Telugu on the key lines.
 
 | File | What it is |
 |---|---|
