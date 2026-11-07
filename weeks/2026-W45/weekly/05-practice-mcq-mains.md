@@ -1,10 +1,10 @@
 <div class="cover">
 <div class="brand">DECODE UPSC <span>with Mounika</span></div>
 <h1>November 1st Week 2026: Practice Set</h1>
-<p class="sub">15 Prelims MCQs · 6 Mains questions with answer outlines · Mon 2 – Sat 7 Nov 2026</p>
+<p class="sub">15 Prelims MCQs · 1 Mains question with answer outline · Mon 2 – Sat 7 Nov 2026</p>
 </div>
 
-**How to use:** attempt all 15 MCQs in 15 minutes without looking at the answers, then check them against the key at the end. Then write one Mains answer: 150 words in 7 minutes, or 250 words in 11 minutes.
+**How to use:** attempt all 15 MCQs in 15 minutes without looking at the answers, then check them against the key at the end. Then write the Mains answer: 150 words in 7 minutes.
 
 ## Part A · Prelims MCQs
 
@@ -181,9 +181,9 @@ How many of the statements given above are correct?
 | 14 | (b) | It is a statutory body under the 2005 Act, under the Ministry of Women and Child Development. |
 | 15 | (c) | Statement 1 is wrong: the authority works under the Department of Pharmaceuticals, Ministry of Chemicals and Fertilizers. |
 
-## Part B · Mains questions with answer outlines
+## Part B · Mains question with answer outline
 
-**M1. Article 22 (GS-2 · 10 marks · 150 words)** `#UPSC-Mains-GS2 #APPSC-G1-Mains-P2`
+**Mains question · Article 22 (GS-2 · 10 marks · 150 words)** `#UPSC-Mains-GS2 #APPSC-G1-Mains-P2`
 
 "The protection of Article 22(2) is real only if the 24-hour clock runs from the moment liberty is curtailed." Discuss in the light of a recent Supreme Court judgment.
 - **Introduction:** Article 22(2) requires production before a magistrate within 24 hours, excluding the journey; it is a check on police custody.
@@ -194,66 +194,4 @@ How many of the statements given above are correct?
   - The burden falls on magistrates' remand scrutiny and on police record-keeping.
 - **Conclusion:** liberty is measured from the first hour of custody. Better record-keeping and training of magistrates make the ruling work.
 
-**M2. Two-child rule (GS-2 / GS-1 · 15 marks · 250 words)** `#UPSC-Mains-GS2 #APPSC-G1-Mains-P2 #TGPSC-G1-Mains-P3`
-
-With India's fertility now below replacement level, examine whether disqualifying candidates with more than two children from panchayat elections is still justified. Should population policy rely on incentives or penalties?
-- **Introduction:** India's total fertility rate is 1.9 (Sample Registration System, 2023), against a replacement level of 2.1; the Supreme Court has referred *Javed* (2003) to a larger bench.
-- **Body:**
-  - The case for such laws: Article 243F lets States set disqualifications, and *Javed* upheld them as population control.
-  - The case against:
-    - reproductive choice under Article 21;
-    - an unequal effect on women and poorer households;
-    - fertility has already fallen without penalties.
-  - The Telugu states: Andhra Pradesh scrapped the rule in 2024 and Telangana for rural bodies in 2026.
-  - Incentives (education, health, women's work) versus penalties.
-- **Conclusion:** demographic transition calls for rights-based incentives, not electoral penalties. The larger bench's ruling will settle the constitutional question.
-
-**M3. Green crackers (GS-2 / GS-3 · 10 marks · 150 words)** `#UPSC-Mains-GS2 #UPSC-Mains-GS3`
-
-How has the Supreme Court balanced the freedom of religion with the right to clean air in regulating firecrackers? Discuss.
-- **Introduction:** the Court's order of 2 November 2026 allowed only certified green crackers in Delhi-NCR, with time windows.
-- **Body:**
-  - Article 25 is subject to public order, morality and health.
-  - Article 21 includes the right to a healthy environment.
-  - The tools the Court used:
-    - time windows;
-    - 300-metre silence zones;
-    - certification (the Nagpur research institute) and licensing (the explosives safety organisation).
-  - The enforcement gaps: fake "green" labels and enforcement across State borders.
-- **Conclusion:** harmonise faith and health through technology and enforcement, not a blanket choice between them.
-
-**M4. Energy transition (GS-3 · 15 marks · 250 words)** `#UPSC-Mains-GS3 #RBI-ESI`
-
-"Storage and processed critical minerals are the missing links of India's energy transition." Discuss with reference to the schemes approved by the Union Cabinet in November 2026.
-- **Introduction:** solar power is abundant only by day, and batteries depend on minerals processed abroad.
-- **Body:**
-  - Storage: viability gap funding of ₹14,500 crore for 92 gigawatt-hours (60 pumped storage, 30 battery, 2 new). Viability gap funding makes useful but loss-making projects viable.
-  - Minerals: ₹2,814 crore for a 30% capital subsidy to 2 lithium and 2 nickel processing plants. Recycling has a separate ₹1,500 crore scheme (2025).
-  - The challenges:
-    - the ecological footprint of pumped storage;
-    - access to ore;
-    - technology;
-    - the cost of finance.
-- **Conclusion:** link the chain (storage → batteries → minerals) through mineral partnerships abroad, recycling and domestic research.
-
-**M5. Agnipath (GS-3 · 10 marks · 150 words)** `#UPSC-Mains-GS3 #CAPF`
-
-Examine the November 2026 changes to the Agnipath scheme. How do they balance a younger armed force against the retention of experience?
-- **Introduction:** the scheme began in June 2022: entry at 17½–21, a four-year term, and about 25% retained.
-- **Body:**
-  - The change: about 75% get two more years, with higher pay, an enhanced Seva Nidhi and a pathway to regular enrolment, subject to selection.
-  - The gains: combat experience is retained, and the training investment is recovered.
-  - The concerns: pension and salary costs, uncertainty in the cadre, and morale.
-- **Conclusion:** a calibrated middle path; review it after the first batch completes its extended service.
-
-**M6. Rural jobs law (GS-2 · 10 marks · 150 words)** `#UPSC-Mains-GS2 #AP-G2 #TS-G2`
-
-"Grievance redressal is the real test of a rights-based welfare law." Discuss with reference to the Grievance Redressal Rules, 2026 under the new rural employment law.
-- **Introduction:** the Viksit Bharat Guarantee for Rozgar and Ajeevika Mission (Gramin) Act replaced the Mahatma Gandhi National Rural Employment Guarantee Act from 1 July 2026; the guarantee is 125 days.
-- **Body:**
-  - The rules: enquiry within 7 working days and resolution within 15, at three tiers (Gram Panchayat, Block, District), with complaints in any mode.
-  - Accountability: social audits; united Andhra Pradesh's audit society dates from 2009.
-  - The concerns: 60 : 40 cost-sharing may strain State finances, and normative allocation may replace demand.
-- **Conclusion:** timelines need independent monitoring and compensation for delay to make the right enforceable.
-
-*All facts are verified in `01-research-brief.md` (§3, §5 and §6). Questions marked UPSC-format are practice questions written for this channel, not previous-year questions.*
+*All facts are verified in `01-research-brief.md` (§3, §5 and §6). All questions are practice questions written for this channel, not previous-year questions.*

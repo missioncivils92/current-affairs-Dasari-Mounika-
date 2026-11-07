@@ -1,9 +1,9 @@
-# Voiceover Text — 2026-W45 Weekly: November 1st Week Current Affairs (Mon 2 – Sat 7 Nov 2026) · v3
+# Voiceover Text — 2026-W45 Weekly: November 1st Week Current Affairs (Mon 2 – Sat 7 Nov 2026) · v4
 
 **Release:** Sun 8 Nov 2026 (Deepavali), 6:00 PM IST · 16:9 · target about 15 min · on camera (decision 41).
 **Coverage:** Mon 2 – Sat 7 Nov 2026: Agnipath changes, green crackers, the two-child rule, the Article 22 ruling on arrest and detention, fast-track special courts, the rural jobs grievance rules, grid-scale storage, the critical-mineral processing scheme, VISTAR and the Economic Census, the Bharatiya Vayuyan Niyam, Pralay, Malabar 2026, the US midterms, the bullying day, and National Cancer Awareness Day with the cancer-drug price cap. Also an Andhra Pradesh teacher-recruitment alert.
 **Format:** on camera (decision 41): record the whole script in one camera take; the editor shows your face only on rows tagged [FACE], [SPLIT] or [CORNER] in `02-master-script.md`.
-**Total:** 2161 words · about 16.0 min at 135 wpm (15.4–16.6 min at 140–130 wpm)
+**Total:** 2137 words · about 15.8 min at 135 wpm (15.3–16.4 min at 140–130 wpm)
 
 Visual directions for the editor are in `02-master-script.md`.
 
@@ -26,7 +26,7 @@ Visual directions for the editor are in `02-master-script.md`.
 
 | Segment | Words | Min |
 |---|---|---|
-| WEEKLY — November 1st week | 2161 | 16.0 |
+| WEEKLY — November 1st week | 2137 | 15.8 |
 
 ---
 
@@ -148,10 +148,10 @@ Now, your quick-fire question. How many of these four statements are correct? Pa
 
 The answer is only two: statements 2 and 3. Agnipath has been modified, not scrapped, and the Economic Census is run by the Statistics Ministry. How many did you get right? Comment cheyyandi!
 
-And for Mains, here is this week's writing practice. Question one: is the protection of Article 22 real only if the twenty-four-hour clock runs from the moment liberty is curtailed? Question two: should population policy rely on incentives or penalties, in the light of the two-child rule? Pick one, write 150 words in seven minutes, and Mee answer comments lo rayandi. All 15 practice questions and six Mains questions, with answers, are in the practice sheet linked in the description.
+And for Mains, here is this week's one writing question: is the protection of Article 22 real only if the twenty-four-hour clock runs from the moment liberty is curtailed? Write 150 words in seven minutes, and Mee answer comments lo rayandi. All 15 practice MCQs, with answers, are in the practice sheet linked in the description.
 
 **🎙️ NARRATION — *warm, festive smile.***
 
 That was November's first week: 15 stories, 15 traps. If this helped, share it with one friend who is preparing with you, and subscribe for every Sunday's class. Andariki Deepavali subhakankshalu, green ga jarupukundam!
 
-*Words: 2161 · about 16.0 min*
+*Words: 2137 · about 15.8 min*

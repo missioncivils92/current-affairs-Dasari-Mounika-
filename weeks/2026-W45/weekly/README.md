@@ -8,7 +8,7 @@ Release: Sun 8 Nov 2026, 6:00 PM IST. Format (v2, owner 7 Nov: "time is OK, but 
 | `02-master-script.md` | Two-column script with layout tags (`[FACE]`, `[SPLIT]`, `[CORNER]`) |
 | `02b-voiceover-text.md` | Generated recording file (`tools/make_voiceover.py`) |
 | `reel-recording-script.md`, `Weekly-Nov-1st-Week-Script-Decode-UPSC.pdf` | Plain reading script, with Telugu in Telugu script and numbers as digits |
-| `05-practice-mcq-mains.md`, `Practice-Set-Nov-1st-Week-Decode-UPSC.pdf` | 15 Prelims MCQs (UPSC formats, answers with reasons) and 6 Mains questions with answer outlines |
+| `05-practice-mcq-mains.md`, `Practice-Set-Nov-1st-Week-Decode-UPSC.pdf` | 15 Prelims MCQs (UPSC formats, answers with reasons) and 1 Mains question with an answer outline |
 | `upload-pack.md` | Titles, description with chapters, pinned quiz, reach checklist |
 
 Slides: `tools/masterclass-video/scenes/weekly45.js`.

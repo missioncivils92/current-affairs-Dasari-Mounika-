@@ -38,7 +38,7 @@ Agnipath scrapped? When does the 24-hour arrest clock really start? Green cracke
 12:57 Cancer Day and the 30% price cap on cancer medicines
 13:51 Andhra Pradesh teacher recruitment alert
 14:07 Quick-fire quiz
-14:37 Mains practice: write one answer
+14:37 This week's Mains question (Article 22)
 15:12 Wrap-up
 
 📌 Key facts
@@ -58,7 +58,7 @@ Agnipath scrapped? When does the 24-hour arrest clock really start? Green cracke
 • National Commission for Protection of Child Rights: statutory (2005 Act).
 • Cancer medicines: 30% trade-margin cap on 137 drugs from 9 Nov (National Pharmaceutical Pricing Authority, Department of Pharmaceuticals).
 
-📝 Practice sheet (15 Prelims MCQs + 6 Mains questions with answer outlines): [PDF link]
+📝 Practice sheet (15 Prelims MCQs with answers + 1 Mains question with outline): [PDF link]
 
 🎯 This week's Shorts: two-child rule · rural jobs law · green crackers · bullying day · UAPA bail
 
