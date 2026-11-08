@@ -13,19 +13,23 @@ function pcard(ctx, s, at, x, y, w, h, fill, lines) {      // a card that bounce
 
 SCENES.S1 = (ctx, s) => { vBase(ctx); camSpace(ctx, CAM_FACE); band(ctx, s, [['AGNIPATH SCRAPPED?', YEL, 84, -1], ['NO! BUT SOMETHING CHANGED', '#FFFFFF', 54, 2.6]]); };
 
-// The take does not follow the script word for word, so S2 and S3 show both questions together (order-free)
-function bigQs(ctx, s) {
-  vBase(ctx); camSpace(ctx, CAM_TOP); header(ctx, s, "THIS WEEK'S BIG QUESTIONS");
-  pcard(ctx, s, 0.2, 50, CAM_TOP + 160, W - 100, 330, '#FFFFFF', [['Arrest or detention?', 50, INK], ['When does your 24-hour clock start?', 56, '#7C3AED']]);
-  pcard(ctx, s, 0.9, 50, CAM_TOP + 530, W - 100, 330, GRN, [['Cancer medicines', 50, '#053B2C'], ['up to 70% cheaper?', 76, '#053B2C']]);
-  kt(ctx, 'Answers tonight · 6 PM', W / 2, 1860, { font: F.ui(44, 900), color: YEL, align: 'center', alpha: eia(s, 1.6) });
-}
-SCENES.S2 = bigQs; SCENES.S3 = (ctx, s) => bigQs(ctx, Object.assign({}, s, { t: s.t + 5 }));   // continues S2 without a second pop
+// Timed to the owner's own words (8 Nov take), found by pauses and keyword spotting:
+// arrest clock 7.2–19.5 s, "cancer medicines" at about 22 s, the "fifteen"s at about 29.5, 31.2 and 34.3 s.
+SCENES.S2 = (ctx, s) => {
+  vBase(ctx); camSpace(ctx, CAM_TOP); header(ctx, s, 'ARREST OR DETENTION?');
+  pcard(ctx, s, 0.4, 50, CAM_TOP + 170, W - 100, 330, '#FFFFFF', [['When does your', 52, INK], ['24-hour clock start?', 72, '#7C3AED']]);
+  pcard(ctx, s, 5.5, 50, CAM_TOP + 560, W - 100, 200, YEL, [['The Supreme Court answered', 46, INK], ['→ tonight, 6 PM', 46, INK]]);
+};
+SCENES.S3 = (ctx, s) => {
+  vBase(ctx); camSpace(ctx, CAM_TOP); header(ctx, s, 'CANCER MEDICINES');
+  pcard(ctx, s, 2.3, 50, CAM_TOP + 170, W - 100, 380, GRN, [['UP TO', 56, '#053B2C'], ['70% CHEAPER?', 110, '#053B2C']]);
+  pcard(ctx, s, 4.3, 50, CAM_TOP + 610, W - 100, 170, '#FFFFFF', [['How? Find out tonight', 54, INK]]);
+};
 
 SCENES.S4 = (ctx, s) => {
   vBase(ctx); camSpace(ctx, CAM_TOP); header(ctx, s, 'THIS ONE WEEK');
-  [['15 STORIES', 'stories', YEL], ['15 EXAM TRAPS', 'traps', PNK], ['15 PRACTICE MCQs', 'practice', SKY]].forEach(([t, cw, c], i) =>
-    pcard(ctx, s, 0.3 + i * 1.2, 70, CAM_TOP + 160 + i * 300, W - 140, 250, c, [[t, 80, INK]]));
+  [['15 TOPICS', 4.0, YEL], ['15 PRACTICE MCQs', 5.7, SKY], ['15 EXAM TRAPS', 8.8, PNK]].forEach(([t, at, c], i) =>
+    pcard(ctx, s, at, 70, CAM_TOP + 160 + i * 300, W - 140, 250, c, [[t, 80, INK]]));
 };
 
 SCENES.S5 = (ctx, s) => { vBase(ctx); camSpace(ctx, CAM_FACE); band(ctx, s, [['TONIGHT · 6 PM', YEL, 96, -1], ['FULL CLASS · ENGLISH + TELUGU', '#FFFFFF', 46, 0.8]]); };

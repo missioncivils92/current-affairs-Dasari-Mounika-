@@ -19,7 +19,8 @@
 ## Build log (8 Nov 2026)
 
 - **Recording:** one vertical take, 41.3 s, 532×1280 at about 24 fps (converted to 30 fps). No teleprompter watermark.
-- **Alignment:** the take departs from the script wording, and pocketsphinx anchored only 18% of the words. So the rows were set by hand from the pauses (silencedetect, −35 dB):
+- **v2 (owner: "I recorded it on my own; align as per my speech"):** rows re-timed from pocketsphinx keyword spotting ("scrapped" 2.5 s, "cancer medicines" 22.1 s, "fifteen" 29.7, 31.3, 33.0 and 34.4 s, "traps" 35.6 s) plus the pauses. S1 0–7.2 s Agnipath; S2 7.2–19.6 s arrest clock; S3 19.6–25.5 s cancer medicines; S4 25.5–36.2 s, three chips on the "fifteen"s; S5 tonight at 6 PM.
+- **Alignment (v1):** the take departs from the script wording, and pocketsphinx anchored only 18% of the words. So the rows were set by hand from the pauses (silencedetect, −35 dB):
   - S1, 0–7.2 s: the Agnipath hook;
   - S2–S3, 7.2–25.5 s: the two questions (arrest clock and cancer medicines), shown together on one order-free card;
   - S4, 25.5–36.2 s: 15 / 15 / 15 (the recogniser hears "fifteen" here);
