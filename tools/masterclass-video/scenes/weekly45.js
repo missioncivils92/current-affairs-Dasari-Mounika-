@@ -69,7 +69,16 @@ function wTrap(myth, truth, cueMyth, cueTruth, note) {
 }
 
 // ---------- open and board ----------
-SCENES.S000 = () => {};   // [FACE]: the camera fills the frame
+// voice-only week (owner, 8 Nov): the open, bridges and close are title cards
+function wBand(lines, sub) {
+  return (ctx, s) => {
+    exSlide(ctx, W45.nat, null, null);
+    lines.forEach(([t, col, size], i) => { const k = bounce(s.t, 0.2 + i * 0.35); if (k <= 0) return;
+      ctx.save(); ctx.translate(960, 380 + i * (size + 80)); ctx.scale(k, k); kt(ctx, t, 0, size * 0.35, { font: F.head(size, 900), color: col, align: 'center' }); ctx.restore(); });
+    if (sub) kt(ctx, sub, 960, 900, { font: F.ui(44, 800), color: '#E9D5FF', align: 'center', alpha: eia(s, 1.2) });
+  };
+}
+SCENES.S000 = wBand([['NOVEMBER 1st WEEK', YEL, 120], ['15 stories · 15 traps · 15 MCQs', '#FFFFFF', 70]], 'Decode UPSC with Mounika · English + Telugu');
 SCENES.S001 = (ctx, s) => {
   exSlide(ctx, W45.nat, null, null);
   kt(ctx, "TODAY'S 15 STORIES", 72, 120, { font: F.head(84, 900), color: '#FFFFFF', alpha: eia(s, 0.05) });
@@ -201,7 +210,7 @@ SCENES.S052 = (ctx, s) => {
     { t: "PRELIMS TRAP · centrally sponsored: the states share the cost · Centre's part from the Nirbhaya Fund", cue: 'centrally', fill: '#E63946', ink: '#FFFFFF', bar: '#FFFFFF', size: 44 },
   ], 470, 72, 1776);
 };
-SCENES.S900 = () => {};
+SCENES.S900 = wBand([['5 DONE · 10 TO GO', YEL, 120], ['Next: villages, power and money', '#FFFFFF', 64]]);
 
 // ---------- 5 · Rural jobs law ----------
 SCENES.S061 = wTitle(6, 'Rural jobs law: the 15-day complaint rule', 'nat', 'Grievance Redressal Rules, 2026');
@@ -298,7 +307,7 @@ SCENES.S123 = (ctx, s) => {
     kt(ctx, l, x + 280, 620, { font: F.ui(44, 900), color: '#4A0710', align: 'center', maxW: 480, lh: 52 }); ctx.restore();
   });
 };
-SCENES.S901 = () => {};
+SCENES.S901 = wBand([['10 DONE!', YEL, 130], ['Now defence and the world', '#FFFFFF', 64]]);
 
 // ---------- 9 · US midterms ----------
 SCENES.S131 = wTitle(13, "America's midterm elections", 'int', 'House, Senate, and why "midterm"?');
@@ -537,4 +546,4 @@ function mcqScene(m, answer) {
 }
 MCQS.forEach(m => { const id = 'S' + String(m.n).padStart(2, '0'); SCENES[id + '8'] = mcqScene(m, false); SCENES[id + '9'] = mcqScene(m, true); });
 
-SCENES.S999 = () => {};
+SCENES.S999 = wBand([['15 STORIES · 15 TRAPS', YEL, 110], ['Share with one friend · Subscribe', '#FFFFFF', 64]], 'Happy Deepavali · a new class every Sunday, 6 PM');

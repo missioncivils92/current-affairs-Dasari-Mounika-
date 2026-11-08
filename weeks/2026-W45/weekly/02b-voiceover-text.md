@@ -1,8 +1,8 @@
-# Voiceover Text — 2026-W45 Weekly: November 1st Week Current Affairs (Mon 2 – Sat 7 Nov 2026) · v5
+# Voiceover Text — 2026-W45 Weekly: November 1st Week Current Affairs (Mon 2 – Sat 7 Nov 2026) · v6
 
-**Release:** Sun 8 Nov 2026 (Deepavali), 6:00 PM IST · 16:9 · target about 20 min (a practice MCQ after every topic) · on camera (decision 41).
+**Release:** Sun 8 Nov 2026 (Deepavali), 6:00 PM IST · 16:9 · target about 20 min (a practice MCQ after every topic) · voice only (owner, 8 Nov: "this time I'll record without face"; decision 41 allows it).
 **Coverage:** Mon 2 – Sat 7 Nov 2026: Agnipath changes, green crackers, the two-child rule, the Article 22 ruling on arrest and detention, fast-track special courts, the rural jobs grievance rules, grid-scale storage, the critical-mineral processing scheme, VISTAR and the Economic Census, the Bharatiya Vayuyan Niyam, Pralay, Malabar 2026, the US midterms, the bullying day, and National Cancer Awareness Day with the cancer-drug price cap. Also an Andhra Pradesh teacher-recruitment alert.
-**Format:** on camera (decision 41): record the whole script in one camera take; the editor shows your face only on rows tagged [FACE], [SPLIT] or [CORNER] in `02-master-script.md`.
+**Format:** voice-only. Everything below is recorded on the microphone; there is no on-camera recording.
 **Total:** 2574 words · about 19.1 min at 135 wpm (18.4–19.8 min at 140–130 wpm)
 
 Visual directions for the editor are in `02-master-script.md`.

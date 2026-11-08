@@ -1,7 +1,7 @@
 <div class="cover">
 <div class="brand">DECODE UPSC <span>with Mounika</span></div>
 <h1>November 1st Week Current Affairs 2026</h1>
-<p class="sub">Reading script · English + తెలుగు · 15 topics · Sunday 8 November, 6 PM</p>
+<p class="sub">Reading script · voice only · English + తెలుగు · 15 topics · Sunday 8 November, 6 PM</p>
 </div>
 
 ## Script
@@ -95,7 +95,7 @@ The Cabinet extended the fast-track special courts scheme till March 2031, with 
 
 The answer is A, only one. The courts go up from 779 to 850, and they come from a centrally sponsored scheme, not a separate Act.
 
-### Bridge (on camera)
+### Bridge
 
 Five stories done, ten to go.
 
@@ -174,7 +174,7 @@ The Civil Aviation Ministry notified the Bharatiya Vayuyan Niyam, 2026, which re
 
 The answer is B, only two. The new rules actually let the government step in on fares in extraordinary situations.
 
-### Bridge (on camera)
+### Bridge
 
 Ten done!
 
@@ -263,7 +263,7 @@ And for Mains, here is this week's one writing question: is the protection of Ar
 
 All 15 practice MCQs, with answers, are in the practice sheet linked in the description.
 
-### Close (on camera)
+### Close
 
 That was November's first week: 15 stories, 15 traps. If this helped, share it with one friend who is preparing with you, and subscribe for every Sunday's class.
 
