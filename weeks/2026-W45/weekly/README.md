@@ -13,7 +13,7 @@ Release: Sun 8 Nov 2026, 6:00 PM IST. Format (v2, owner 7 Nov: "time is OK, but 
 
 Slides: `tools/masterclass-video/scenes/weekly45.js`.
 
-**Voice only this week (owner, 8 Nov):** every slide is full screen; the open, bridges and close are title cards. An overview reel is in `../short-weekly-overview/`.
+**Voice only this week (owner, 8 Nov):** every slide is full screen; the open, bridges and close are title cards. A 25-second promo reel (on camera) is in `../short-weekly-overview/`.
 
 **Recording:**
 - one landscape (16:9) take at 1080p;

@@ -1,50 +1,31 @@
 <div class="cover">
 <div class="brand">DECODE UPSC <span>with Mounika</span></div>
-<h1>Reel: November 1st week in one minute</h1>
-<p class="sub">Reading script · voice only · English + తెలుగు</p>
+<h1>Promo reel: November 1st week class</h1>
+<p class="sub">Reading script · on camera · about 25 seconds</p>
 </div>
 
 ## Script
 
-What changed in just one week?
+Was Agnipath scrapped? When does the 24-hour arrest clock really start? And why are cancer medicines getting cheaper?
 
-ఇవన్నీ ఈ ఒక్క వారంలో జరిగాయి,
+ఈ వారం 15 important stories జరిగాయి.
 
-so let us decode them in one minute.
+Today at 6 PM, I will decode all 15, with the exact trap and a practice question for each.
 
-One: Agnipath has not been scrapped; about three in four Agniveers now get two more years.
+English లో, important points తెలుగు లో.
 
-Two: the Supreme Court says the 24-hour clock to produce you before a magistrate starts at detention, not at the formal arrest.
-
-Three: the two-child rule for panchayat polls is not struck down; it is only referred to a larger bench.
-
-Four: green crackers are designed by a Nagpur institute, but licensed by the Petroleum and Explosives Safety Organisation.
-
-Five: India will build 92 gigawatt-hours of power storage, and the biggest share is pumped storage, not batteries.
-
-Six: a new scheme pays 30 per cent of the cost of lithium and nickel processing plants.
-
-Seven: new aviation rules replace the colonial rules of 1937 from January 2027.
-
-Eight: from November 9, trade margins on 137 cancer medicines are capped at 30 per cent.
-
-That is just eight. Pralay, Malabar, the American midterms and more, with 15 practice questions, are in today's full class at 6 in the evening.
-
-మిస్ అవ్వకండి, follow and subscribe!
+మిస్ అవ్వకండి, follow, and see you at 6!
 
 ## Upload pack
 
 **Title:**
 ```
-November 1st Week Current Affairs in 60 Seconds #UPSC #Shorts
+Agnipath Scrapped? Full Class Today 6 PM #UPSC #Shorts
 ```
 
 **Description:**
 ```
-8 biggest current affairs of November's first week in one minute, each with its exam trap: Agnipath, the Article 22 arrest ruling, the two-child rule, green crackers, energy storage, lithium processing, new aviation rules and cancer-medicine prices.
-
-🎥 Full class with 15 stories and 15 practice MCQs: today, 6 PM.
-Explained in English and Telugu.
+Was Agnipath scrapped? When does the 24-hour arrest clock start? Why are cancer medicines getting cheaper? November's first week: 15 stories, 15 exam traps, 15 practice MCQs. Full class today, 6 PM, in English with Telugu on the key points.
 
 #UPSC #UPSC2027 #CurrentAffairs #NovemberCurrentAffairs #APPSC #TGPSC #Group1 #Telugu #Shorts
 ```
