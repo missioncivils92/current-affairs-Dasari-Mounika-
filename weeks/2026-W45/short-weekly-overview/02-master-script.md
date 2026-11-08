@@ -15,3 +15,15 @@
 | R.5 | **S5** `[KINETIC TEXT]` `[FACE]` Band: "TONIGHT · 6 PM · FULL CLASS". *Voice: warm, big smile.* | Tonight at six, I will decode all of them, in English with Telugu on the key points. Mee seat book cheskondi, see you at six! |
 
 *Running count: about 75 words · about 0:30 at a lively 150 wpm.*
+
+## Build log (8 Nov 2026)
+
+- **Recording:** one vertical take, 41.3 s, 532×1280 at about 24 fps (converted to 30 fps). No teleprompter watermark.
+- **Alignment:** the take departs from the script wording, and pocketsphinx anchored only 18% of the words. So the rows were set by hand from the pauses (silencedetect, −35 dB):
+  - S1, 0–7.2 s: the Agnipath hook;
+  - S2–S3, 7.2–25.5 s: the two questions (arrest clock and cancer medicines), shown together on one order-free card;
+  - S4, 25.5–36.2 s: 15 / 15 / 15 (the recogniser hears "fifteen" here);
+  - S5, 36.2 s to the end: "Tonight · 6 PM".
+- **Compose:** `--vertical --polish --face-y 40 --top-y 120 --top-h 1000`; fade-out 0.6 s.
+- **Captions:** none, because no reliable transcript of the take was possible here.
+- **Next take:** record at 1080p (this one is 532 px wide).
