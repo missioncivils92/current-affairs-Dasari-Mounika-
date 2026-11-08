@@ -1,20 +1,26 @@
 <div class="cover">
 <div class="brand">DECODE UPSC <span>with Mounika</span></div>
 <h1>Promo reel: November 1st week class</h1>
-<p class="sub">Reading script · on camera · about 25 seconds</p>
+<p class="sub">Reading script · on camera · about 30 seconds</p>
 </div>
 
 ## Script
 
-Was Agnipath scrapped? When does the 24-hour arrest clock really start? And why are cancer medicines getting cheaper?
+Wait, was Agnipath scrapped?
 
-ఈ వారం 15 important stories జరిగాయి.
+కాదు!
 
-Today at 6 PM, I will decode all 15, with the exact trap and a practice question for each.
+But something big did change.
 
-English లో, important points తెలుగు లో.
+And what if the police hold you for hours, when does your 24-hour clock really start? The Supreme Court just answered.
 
-మిస్ అవ్వకండి, follow, and see you at 6!
+Cancer medicines could get up to 70 per cent cheaper. How?
+
+ఈ ఒక్క వారంలో 15 stories, 15 traps, 15 practice questions!
+
+Tonight at 6, I will decode all of them, in English with Telugu on the key points.
+
+మీ seat book చేసుకోండి, see you at 6!
 
 ## Upload pack
 
@@ -25,7 +31,7 @@ Agnipath Scrapped? Full Class Today 6 PM #UPSC #Shorts
 
 **Description:**
 ```
-Was Agnipath scrapped? When does the 24-hour arrest clock start? Why are cancer medicines getting cheaper? November's first week: 15 stories, 15 exam traps, 15 practice MCQs. Full class today, 6 PM, in English with Telugu on the key points.
+Was Agnipath scrapped? When does your 24-hour arrest clock really start? Can cancer medicines get 70% cheaper? November's first week: 15 stories, 15 exam traps, 15 practice MCQs. Full class today, 6 PM, in English with Telugu on the key points.
 
 #UPSC #UPSC2027 #CurrentAffairs #NovemberCurrentAffairs #APPSC #TGPSC #Group1 #Telugu #Shorts
 ```
