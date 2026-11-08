@@ -21,24 +21,24 @@ Agnipath scrapped? When does the 24-hour arrest clock really start? Green cracke
 
 ⏱️ Chapters
 00:00 What changed this week?
-00:44 Agnipath: scrapped or modified?
-02:12 Green crackers: Articles 25 and 21, and who licenses them
-03:38 Two-child rule: struck down? (Telugu states)
-05:15 Article 22: the 24-hour clock starts at detention
-06:45 Fast-track special courts till 2031
-08:06 Rural jobs law: the 15-day complaint rule
-09:32 92 gigawatt-hours of storage: pumped vs battery
-10:36 Critical minerals: lithium and nickel processing
-11:43 VISTAR and the Economic Census trap
-12:47 Bharatiya Vayuyan Niyam replaces the 1937 rules
-13:49 Pralay: ballistic or cruise?
-14:40 Malabar 2026: how the exercise grew
-15:36 US midterms, and the Rajya Sabha trap
-16:59 Day against bullying: statutory body trap
-17:56 Cancer Day and the 30% price cap on cancer medicines
-19:10 Andhra Pradesh teacher recruitment alert
-19:26 This week's Mains question (Article 22)
-19:51 Wrap-up
+00:41 Agnipath: scrapped or modified?
+02:15 Green crackers: Articles 25 and 21, and who licenses them
+03:53 Two-child rule: struck down? (Telugu states)
+05:38 Article 22: the 24-hour clock starts at detention
+07:10 Fast-track special courts till 2031
+08:22 Rural jobs law: the 15-day complaint rule
+09:47 92 gigawatt-hours of storage: pumped vs battery
+10:56 Critical minerals: lithium and nickel processing
+12:00 VISTAR and the Economic Census trap
+13:05 Bharatiya Vayuyan Niyam replaces the 1937 rules
+14:09 Pralay: ballistic or cruise?
+15:00 Malabar 2026: how the exercise grew
+15:54 US midterms, and the Rajya Sabha trap
+17:07 Day against bullying: statutory body trap
+18:02 Cancer Day and the 30% price cap on cancer medicines
+19:13 Andhra Pradesh teacher recruitment alert
+19:29 This week's Mains question (Article 22)
+19:54 Wrap-up
 
 📌 Key facts
 • Agnipath: about 3 in 4 Agniveers get 2 more years; modified, not scrapped.
@@ -68,7 +68,7 @@ Agnipath scrapped? When does the 24-hour arrest clock really start? Green cracke
 #UPSC #UPSC2027 #CurrentAffairs #NovemberCurrentAffairs #WeeklyCurrentAffairs #APPSC #TGPSC #Group1 #Telugu
 ```
 
-**The chapter times are estimates from the script.** After the recording, read the real times off the aligned timeline and paste them in before upload.
+**The chapter times are final:** they are taken from the aligned timeline of the 8 Nov voice recording.
 
 ## Pinned comment
 
