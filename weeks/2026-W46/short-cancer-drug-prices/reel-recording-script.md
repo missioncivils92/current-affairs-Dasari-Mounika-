@@ -6,9 +6,9 @@
 
 ## Script
 
-What if the same cancer medicine costs up to 70 per cent less, starting today?
+Good news for every family fighting cancer: some cancer medicines can now cost up to 70 per cent less.
 
-ఇది నిజం!
+అవును, ఈ రోజు నుంచే!
 
 Let's decode.
 
@@ -34,7 +34,7 @@ Mains angle: Article 47 asks the state to improve public health, so is price con
 
 **Title:**
 ```
-Cancer Medicines 70% Cheaper From Today? #UPSC #Shorts
+Cancer Medicines Up to 70% Cheaper From Today #UPSC #Shorts
 ```
 
 **Description:**
