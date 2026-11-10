@@ -16,3 +16,17 @@
 | R.6 | **S6** `[KINETIC TEXT]` `[FACE]` Band: "MAINS · DOES CROSSING A LINE END POVERTY?". *Voice: warm, thoughtful.* | Critics say part of this fall comes from new data and methods. Mains question: does crossing a poverty line really mean escaping poverty? Mee abhiprayam comments lo rayandi, and follow for one exam trap every day! |
 
 *Running count: about 223 words · about 1.5 min at 150 wpm.*
+
+## Build log (10 Nov 2026)
+
+- **Recording:** one vertical take, 1:51.9, 532×1280 at about 24 fps (converted to 30 fps).
+- **Alignment:** the recogniser anchored few words, so rows were set from the pauses (the S2→S3 pause at 33.2–33.7 s matches the script) plus topic hints from the recogniser ("extreme poverty… October", "measured", "sixteen point", "United Nations"):
+  - S1 0–13 s
+  - S2 13–33.5 s
+  - S3 33.5–56 s
+  - S4 56–76.5 s
+  - S5 76.5–96.5 s
+  - S6 96.5 s to the end
+- **Audio (owner: "remove that blurred sound"):** highpass at 85 Hz → two-stage afftdn noise reduction → −3 dB at 250 Hz (mud) → +3.5 dB at 3.2 kHz (clarity) → de-esser → gentle compressor → limiter at 0.89 (the source peaked at 0 dB). The speech-to-background gap went from 24.4 to 26.4 dB.
+- **Face:** `--vertical --polish --face-y 90 --top-y 150 --top-h 1000`; fade-out 0.6 s.
+- **Scenes:** `tools/masterclass-video/scenes/short_poverty46.js` (fixed-time builds).
