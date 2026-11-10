@@ -34,3 +34,16 @@
   - **Noise reduction:** `noisereduce` spectral noise reduction (stationary, 85%, with a noise profile taken from the quietest 20 ms windows).
   - **Tone:** highpass at 90 Hz → +1.5 dB at 190 Hz (warmth) → −3 dB at 450 Hz (boxiness) → +2.5 dB at 2.8 kHz (clarity) → +2 dB high shelf at 9 kHz (air) → stronger de-esser → soft-knee compressor → limiter.
   - **Result:** the speech-to-background gap went from 24.4 to 38.5 dB. Natural voice only; no AI voice processing.
+- **v3 audio (owner: "some voice echo and disturbance"):**
+  - **Cause found:** v2's compressor, and the dynamic loudnorm in build_audio and sound_bed, lifted the echo tails after each word.
+  - **Measurement:** level 100–300 ms after each word end, relative to the word: original −8.3 dB; v2 −6.6 dB (worse); v3 −9.5 dB.
+  - **New chain:**
+    1. WPE dereverberation (`nara_wpe`; STFT 2048/512, taps 25, delay 2, about 270 ms of echo modelled);
+    2. gentler noise reduction (`noisereduce`, 65%), which avoids the watery artefacts;
+    3. tone EQ and de-esser;
+    4. a soft downward expander between words (`agate` range 0.12, threshold 0.03, release 90 ms; soft syllables cut by more than 6 dB in only 0.7% of speech frames);
+    5. no compressor;
+    6. loudness set by a single fixed gain to −14 LUFS (no dynamic loudnorm);
+    7. no music bed.
+  - **Result:** the speech-to-background gap is far wider than the original 24 dB.
+- **Default for future reels:** use this v3 chain, not v2.
