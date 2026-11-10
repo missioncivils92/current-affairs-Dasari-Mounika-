@@ -30,3 +30,7 @@
 - **Audio (owner: "remove that blurred sound"):** highpass at 85 Hz → two-stage afftdn noise reduction → −3 dB at 250 Hz (mud) → +3.5 dB at 3.2 kHz (clarity) → de-esser → gentle compressor → limiter at 0.89 (the source peaked at 0 dB). The speech-to-background gap went from 24.4 to 26.4 dB.
 - **Face:** `--vertical --polish --face-y 90 --top-y 150 --top-h 1000`; fade-out 0.6 s.
 - **Scenes:** `tools/masterclass-video/scenes/short_poverty46.js` (fixed-time builds).
+- **v2 audio (owner: "make my voice clear and sweet"):**
+  - **Noise reduction:** `noisereduce` spectral noise reduction (stationary, 85%, with a noise profile taken from the quietest 20 ms windows).
+  - **Tone:** highpass at 90 Hz → +1.5 dB at 190 Hz (warmth) → −3 dB at 450 Hz (boxiness) → +2.5 dB at 2.8 kHz (clarity) → +2 dB high shelf at 9 kHz (air) → stronger de-esser → soft-knee compressor → limiter.
+  - **Result:** the speech-to-background gap went from 24.4 to 38.5 dB. Natural voice only; no AI voice processing.
