@@ -1,7 +1,7 @@
 <div class="cover">
 <div class="brand">DECODE UPSC <span>with Mounika</span></div>
 <h1>Reel: National Education Day: who built our IITs?</h1>
-<p class="sub">Reading script · on camera · English + తెలుగు · upload Wed 11 Nov</p>
+<p class="sub">Reading script · on camera · English + తెలుగు · upload Thu 12 Nov</p>
 </div>
 
 ## Script
@@ -10,7 +10,7 @@ Who gave India its first IIT, the University Grants Commission and three nationa
 
 ఒక్క మనిషే!
 
-And today, November 11, is his birthday, National Education Day. Let's decode.
+And yesterday, November 11, India celebrated his birthday as National Education Day. Let's decode.
 
 Maulana Abul Kalam Azad was independent India's first Education Minister, from 1947 to 1958, and since 2008 India marks his birthday as National Education Day.
 
@@ -35,7 +35,7 @@ Who Built India's IITs? National Education Day #UPSC #Shorts
 
 **Description:**
 ```
-11 November is National Education Day, the birthday of Maulana Abul Kalam Azad, independent India's first Education Minister. Here is everything exams can ask.
+11 November was National Education Day, the birthday of Maulana Abul Kalam Azad, independent India's first Education Minister. Here is everything exams can ask.
 
 📌 First Education Minister: 1947–1958 · National Education Day observed since 2008
 📌 Under him: IIT Kharagpur (1951), University Grants Commission (1953), the Sangeet Natak, Sahitya and Lalit Kala Akademis
