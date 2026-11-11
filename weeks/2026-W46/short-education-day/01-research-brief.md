@@ -1,5 +1,6 @@
 # Research Brief — 2026-W46 Short: National Education Day (11 Nov 2026)
 
+**Release moved to Thu 12 Nov (owner).** The opening now says "yesterday, November 11".
 **Why chosen:** the owner asked for a deep search for today's reel (11 Nov). Today is National Education Day; the static set is rich and the "which day" trap is classic. Fresh (not covered before).
 **EYS 6 (P3·M1·I2·D2·S0):**
 - **P:** the person; the institutions and years; the three days.
