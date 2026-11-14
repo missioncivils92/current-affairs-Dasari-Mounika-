@@ -44,6 +44,20 @@
 - **Sairang Express derailment and the Kulgam attack:** low static yield this week.
 - **Demonetisation at ten:** kept for a reel.
 
+## 2a. Persons, places and awards in news (added on the owner's request, 14 Nov)
+
+| Item | Fact | Source | Status |
+|---|---|---|---|
+| Anuj Shrivatri | India's 100th chess Grandmaster (8 Nov 2026), after winning the ASEAN+ Individual Open (Ozamiz City, Philippines); first GM from Madhya Pradesh; India's first GM Viswanathan Anand (1988) | Open; Deccan Chronicle; Manorama Yearbook | Verified |
+| M. John Harrison | Booker Prize 2026 for *The End of Everything* (9 Nov, London); reported oldest winner (Reuters); chair Mary Beard | Booker Prizes; The Week; The Star (Reuters) | Verified |
+| National Sports Awards 2025 | Presented 13 Nov 2026; 17 Arjuna Awards (incl. Tejaswin Shankar, Divya Deshmukh, Vidit Gujrathi); no Khel Ratna; Khel Ratna renamed Major Dhyan Chand Khel Ratna in 2021 | Bombay Samachar; Bankers Adda (13 Nov) | Verified as reported |
+| Antalya | COP31 host city, 9–20 Nov 2026; Türkiye hosts, Australia presides over the negotiations | newsonair; Down To Earth | Verified |
+| Manila | 49th ASEAN Summit and East Asia Summit, about 16–18 Nov (sources differ) | Wikipedia; PECC | Verified (dates "about") |
+| Shenzhen | APEC Economic Leaders' Meeting, 18–19 Nov 2026; India is not an APEC member | Wikipedia (APEC China 2026); standard | Verified |
+| Mekedatu | ₹16,745 cr balancing reservoir on the Cauvery; DPR before the Central Water Commission; inside the Cauvery Wildlife Sanctuary; Tamil Nadu opposes | DT Next; NewKerala; The Federal | Verified |
+
+**Left out (single source):** the IFFI festival director; the 55th DG of the Geological Survey of India.
+
 ## 3. Verification log
 
 | Fact | Source | Status |
