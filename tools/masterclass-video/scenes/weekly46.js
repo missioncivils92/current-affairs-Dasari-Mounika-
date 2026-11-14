@@ -101,7 +101,7 @@ function band(lines, sub) {
 // ---------- open ----------
 SCENES.S000 = band([['NOVEMBER 2nd WEEK', YEL, 116], ['13 stories · data · diagrams', '#FFFFFF', 70]], 'Decode UPSC with Mounika · English + Telugu');
 SCENES.S001 = (ctx, s) => {
-  exSlide(ctx, PAL.eco, null, null); kt(ctx, "TODAY'S 13 STORIES", 72, 120, { font: F.head(80, 900), color: '#FFFFFF', alpha: eia(s, 0.05) });
+  exSlide(ctx, PAL.eco, null, null); kt(ctx, "TODAY'S 13 STORIES + PERSONS & PLACES", 72, 120, { font: F.head(64, 900), color: '#FFFFFF', alpha: eia(s, 0.05) });
   const G = { eco: YEL, pol: PNK, env: GRN };
   const L = [['Inflation above 6%', 'eco'], ["Women's reservation", 'pol'], ['Delhi on Deepavali', 'env'], ['Global TB Report', 'env'], ['Record exports', 'eco'], ['World Bank poverty', 'eco'], ['Cabinet decisions', 'eco'],
     ['Battery black mass', 'eco'], ['Adaptation Gap', 'env'], ['Siang dam', 'env'], ['Ninth Schedule', 'pol'], ['IMNEX-26', 'pol'], ["Children's Day", 'pol']];
@@ -381,6 +381,7 @@ const MCQS = [
  { n: 10, kind: 'pairs', stem: 'How many of the following pairs (name of the river — region) are correctly matched?', items: ['Yarlung Tsangpo — Tibet', 'Siang — Arunachal Pradesh', 'Jamuna — Assam'], opts: '(a) Only one   (b) Only two   (c) All three   (d) None', ans: '(b) Only two', ok: [1, 1, 0], why: 'The Jamuna is the name in Bangladesh; in Assam it is the Brahmaputra.' },
  { n: 11, kind: 'howmany', stem: 'Consider the following statements about the Ninth Schedule:', items: ['It was added by the First Amendment in 1951.', 'Laws placed in it are fully immune from judicial review.', 'A state legislature can place its own law in it.'], opts: '(a) Only one   (b) Only two   (c) All three   (d) None', ans: '(a) Only one', ok: [1, 0, 0], why: 'I.R. Coelho (2007) allows basic-structure review; only Parliament can add laws.' },
  { n: 12, kind: 'pairs', stem: 'How many of the following pairs (exercise — partner) are correctly matched?', items: ['IMNEX — Myanmar', 'SLINEX — Sri Lanka', 'Mitra Shakti — Sri Lanka', 'Malabar — India, United States, Japan, Australia'], opts: '(a) Only one   (b) Only two   (c) Only three   (d) All four', ans: '(d) All four', ok: [1, 1, 1, 1], why: 'All four are correctly matched.' },
+ { n: 14, kind: 'pairs', stem: 'How many of the following pairs are correctly matched?', items: ["Anuj Shrivatri — India's 100th chess Grandmaster", 'M. John Harrison — Booker Prize 2026', 'Mekedatu — river Krishna', 'Shenzhen — APEC leaders 2026'], opts: '(a) Only one   (b) Only two   (c) Only three   (d) All four', ans: '(c) Only three', ok: [1, 1, 0, 1], why: 'Mekedatu is on the Cauvery, not the Krishna.' },
  { n: 13, kind: 'howmany', stem: 'Consider the following statements:', items: ["India celebrates Children's Day on Jawaharlal Nehru's birthday, 14 November.", "The United Nations' Universal Children's Day is on 20 November.", 'National Education Day marks the birthday of Dr Sarvepalli Radhakrishnan.'], opts: '(a) Only one   (b) Only two   (c) All three   (d) None', ans: '(b) Only two', ok: [1, 1, 0], why: 'National Education Day is for Maulana Abul Kalam Azad.' },
 ];
 function mcqItems(ctx, s, m, answer) {
@@ -417,6 +418,32 @@ function mcqScene(m, answer) {
 MCQS.forEach(m => { const id = 'S' + String(m.n).padStart(2, '0'); SCENES[id + '8'] = mcqScene(m, false); SCENES[id + '9'] = mcqScene(m, true); });
 
 // ---------- bridges, Mains, close ----------
+// ---------- 14 · Persons, places and awards in news (owner, 14 Nov) ----------
+SCENES.S141 = title(14, 'Persons, places & awards in news', 'world', 'The quick Prelims round');
+function pcards(ctx, s, c, label, cards, cols) {
+  exSlide(ctx, c, null, null); head(ctx, s, c, label);
+  const n = cards.length, rows = Math.ceil(n / cols), gw = 1776, w = (gw - (cols - 1) * 36) / cols, h = (840 - (rows - 1) * 30) / rows;
+  cards.forEach((cd, i) => { const x = 72 + (i % cols) * (w + 36), y = 190 + Math.floor(i / cols) * (h + 30);
+    zoom(ctx, bounce(s.t, T(s, cd.f)), x + w / 2, y + h / 2, () => {
+      exBox(ctx, x, y, w, h, { fill: '#FFFFFF', bar: cd.bar || YEL, r: 24 });
+      kt(ctx, cd.tag, x + 40, y + 62, { font: F.ui(28, 900), color: '#2563EB' });
+      kt(ctx, cd.name, x + 40, y + 122, { font: F.head(52, 900), color: INK, maxW: w - 80 });
+      let yy = y + 190; for (const l of cd.lines) yy += kt(ctx, l, x + 40, yy, { font: F.ui(36, 800), color: '#4C1D95', maxW: w - 80, lh: 44 }) + 12;
+      if (cd.trap) { ctx.save(); ctx.font = F.ui(30, 900); const tl = wrap(ctx, 'Trap: ' + cd.trap, w - 100).length; ctx.restore(); const th = 30 + tl * 38; exBox(ctx, x + 30, y + h - th - 24, w - 60, th, { fill: '#FFE4E6', r: 14 }); kt(ctx, 'Trap: ' + cd.trap, x + 50, y + h - th - 24 + 46, { font: F.ui(30, 900), color: RED, maxW: w - 100, lh: 38 }); }
+    }); });
+}
+SCENES.S142 = (ctx, s) => pcards(ctx, s, PAL.world, 'PERSONS IN NEWS', [
+  { f: 0.03, tag: "CHESS · 8 NOV", name: 'Anuj Shrivatri', lines: ["India's 100th Grandmaster", 'first from Madhya Pradesh'], trap: "India's first GM: Viswanathan Anand (1988)" },
+  { f: 0.36, tag: 'BOOKER PRIZE 2026', name: 'M. John Harrison', lines: ['"The End of Everything"', 'reported as the oldest winner'], trap: 'Booker ≠ International Booker (translated)', bar: PNK },
+  { f: 0.6, tag: 'NATIONAL SPORTS AWARDS · 13 NOV', name: '17 Arjuna Awards', lines: ['Tejaswin Shankar · Divya Deshmukh · Vidit Gujrathi', 'no Khel Ratna this year'], trap: 'Khel Ratna = Major Dhyan Chand Khel Ratna (since 2021)', bar: GRN },
+], 3);
+SCENES.S143 = (ctx, s) => pcards(ctx, s, PAL.world, 'PLACES IN NEWS', [
+  { f: 0.03, tag: 'TÜRKIYE · MEDITERRANEAN COAST', name: 'Antalya', lines: ['COP31 · 9–20 Nov', 'Türkiye hosts · Australia leads negotiations'] },
+  { f: 0.27, tag: 'PHILIPPINES', name: 'Manila', lines: ['ASEAN + East Asia Summits (≈16–18 Nov)'], trap: 'India: East Asia Summit yes · ASEAN no', bar: SKY },
+  { f: 0.48, tag: 'CHINA', name: 'Shenzhen', lines: ['APEC leaders · 18–19 Nov'], trap: 'India is NOT an APEC member', bar: PNK },
+  { f: 0.62, tag: 'KARNATAKA · CAUVERY', name: 'Mekedatu', lines: ['balancing reservoir · ₹16,745 crore plan', 'in the Cauvery Wildlife Sanctuary · Tamil Nadu opposes'], bar: GRN },
+], 2);
+
 SCENES.S900 = band([['3 DONE · 10 TO GO', YEL, 116], ['From the air we breathe to our health', '#FFFFFF', 60]]);
 SCENES.S901 = band([['9 DONE!', YEL, 130], ['Now rivers, rights and the world', '#FFFFFF', 60]]);
 SCENES.S992 = (ctx, s) => {
@@ -424,6 +451,6 @@ SCENES.S992 = (ctx, s) => {
   zoom(ctx, bounce(s.t, T(s, 0.05)), 960, 420, () => { exBox(ctx, 72, 180, 1776, 500, { fill: '#FFFFFF', bar: YEL, r: 26 }); kt(ctx, 'GS-2 · 15 marks · 250 words', 120, 260, { font: F.ui(42, 900), color: VIO });
     kt(ctx, 'Should Lok Sabha seat shares stay frozen to protect states that controlled population? Discuss with reference to women’s reservation and delimitation.', 120, 360, { font: F.ui(54, 900), color: INK, maxW: 1680, lh: 68 }); });
   kt(ctx, 'Write it · post it in the comments', 72, 800, { font: F.ui(48, 900), color: YEL, alpha: eia(s, T(s, 0.5)) });
-  kt(ctx, 'All 13 MCQs with answers: practice sheet in the description', 72, 900, { font: F.ui(40, 800), color: '#FFFFFF', maxW: 1776, alpha: eia(s, T(s, 0.75)) });
+  kt(ctx, 'All 14 MCQs with answers: practice sheet in the description', 72, 900, { font: F.ui(40, 800), color: '#FFFFFF', maxW: 1776, alpha: eia(s, T(s, 0.75)) });
 };
 SCENES.S999 = band([['13 STORIES · DATA · DIAGRAMS', YEL, 100], ['Share with one friend · Subscribe', '#FFFFFF', 64]], 'A new class every Sunday, 6 PM');

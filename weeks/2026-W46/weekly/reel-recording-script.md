@@ -1,7 +1,7 @@
 <div class="cover">
 <div class="brand">DECODE UPSC <span>with Mounika</span></div>
 <h1>November 2nd Week Current Affairs 2026</h1>
-<p class="sub">Reading script · voice only · English + తెలుగు · 13 topics · Sunday 15 November, 6 PM</p>
+<p class="sub">Reading script · voice only · English + తెలుగు · 13 topics + persons & places · Sunday 15 November, 6 PM</p>
 </div>
 
 ## Script
@@ -10,11 +10,11 @@ Inflation has crossed the Reserve Bank's red line, a fresh push for women's rese
 
 ఈ వారం చాలా important!
 
-I am Mounika, and today we decode the 13 strongest stories of November's second week, with real data, clear diagrams and one practice question after every topic. 
+I am Mounika, and today we decode the 13 strongest stories of November's second week, with real data, clear diagrams and one practice question after every topic, plus a quick round of persons and places in news. 
 
 మన ప్రయాణం start చేద్దాం.
 
-Here is our map: five stories on the economy, four on polity and society, and four on environment, health and the world.
+Here is our map: five stories on the economy, four on polity and society, four on environment, health and the world, and then persons and places in news.
 
 
 ### 1 · Inflation crosses the red line
@@ -252,13 +252,28 @@ India marks Children's Day on November 14th, Jawaharlal Nehru's birthday, while 
 The answer is B, only two. National Education Day is for Maulana Azad, not Doctor Radhakrishnan.
 
 
+### 14 · Persons, places and awards in news
+
+Before we finish, a quick Prelims round: persons, places and awards in news.
+
+First, persons. Anuj Shrivatri of Madhya Pradesh became India's 100th chess Grandmaster on November eighth, the first from his state; remember, India's first Grandmaster was Viswanathan Anand, in 1988. British writer M John Harrison won the Booker Prize 2026 for The End of Everything, and is reported to be its oldest winner. And at the National Sports Awards on November 13th, 17 athletes received the Arjuna Award, including Tejaswin Shankar, Divya Deshmukh and Vidit Gujrathi, but no one was selected for the Khel Ratna this year.
+
+Now places. Antalya, on Türkiye's Mediterranean coast, is hosting the climate summit COP 31, from November ninth to 20th, with Australia leading the negotiations. Manila in the Philippines hosts the ASEAN and East Asia Summits next week; India is a member of the East Asia Summit, but not of ASEAN. Shenzhen in China hosts the APEC leaders, and remember, India is not an APEC member. And Mekedatu in Karnataka is back in the news: Karnataka wants clearance for a 16,745 crore rupee balancing reservoir on the Cauvery, inside the Cauvery Wildlife Sanctuary, while Tamil Nadu opposes it.
+
+**MCQ (the question is on screen):** Four pairs from this round. How many are correctly matched?
+
+*(stay silent for 6 seconds)*
+
+The answer is C, only three. Mekedatu is on the Cauvery, not the Krishna.
+
+
 ### Mains question
 
 And for Mains, here is this week's one writing question: should Lok Sabha seat shares stay frozen to protect states that controlled their population? Discuss it with reference to women's reservation and delimitation. Write 250 words, and 
 
 మీ answer comments లో రాయండి.
 
-All 13 practice questions, with answers, are in the practice sheet linked in the description.
+All 14 practice questions, with answers, are in the practice sheet linked in the description.
 
 
 ### Close

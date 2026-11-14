@@ -1,10 +1,10 @@
 <div class="cover">
 <div class="brand">DECODE UPSC <span>with Mounika</span></div>
 <h1>November 2nd Week 2026: Practice Set</h1>
-<p class="sub">13 Prelims MCQs · 1 Mains question with answer outline · Mon 9 – Sat 14 Nov 2026</p>
+<p class="sub">14 Prelims MCQs · 1 Mains question with answer outline · Mon 9 – Sat 14 Nov 2026</p>
 </div>
 
-**How to use:** attempt all 13 in 13 minutes, then check the key. Then write the Mains answer: 250 words in 11 minutes.
+**How to use:** attempt all 14 in 14 minutes, then check the key. Then write the Mains answer: 250 words in 11 minutes.
 
 ## Part A · Prelims MCQs
 
@@ -123,6 +123,16 @@ Consider the following statements:
 
 (a) Only one (b) Only two (c) All three (d) None
 
+**14. Persons and places in news**
+
+How many of the following pairs are correctly matched?
+1. Anuj Shrivatri — India's 100th chess Grandmaster
+2. M. John Harrison — Booker Prize 2026
+3. Mekedatu — river Krishna
+4. Shenzhen — APEC leaders 2026
+
+(a) Only one (b) Only two (c) Only three (d) All four
+
 ## Answer key with reasons
 
 | Q | Answer | Why |
@@ -140,6 +150,7 @@ Consider the following statements:
 | 11 | (a) Only one | I.R. Coelho (2007) allows basic-structure review; only Parliament can add laws. |
 | 12 | (d) All four | All four are correctly matched. |
 | 13 | (b) Only two | National Education Day is for Maulana Abul Kalam Azad. |
+| 14 | (c) Only three | Mekedatu is on the Cauvery, not the Krishna. |
 
 ## Part B · Mains question with answer outline
 
