@@ -4,13 +4,17 @@ Follows the timeline's "audio_plan" from timeline.py --align: keeps only this cu
 holds (countdowns, recap hold, end-screen tail) inside their rows, joins spans with 10 ms fades, pads to the video
 length and loudness-normalises to about -14 LUFS (YouTube's reference).
 
-Usage: python3 -I build_audio.py <timeline.json> <source_audio (mp3/wav)> <out.wav>
+Usage: python3 -I build_audio.py <timeline.json> <source_audio (mp3/wav)> <out.wav> [--fixed]
+--fixed: the source is already cleaned and set to its final loudness (the v3 voice chain); skip the high-pass and
+the dynamic loudnorm, which lifts echo tails and room noise between words.
 Writes <out>_env.json (voice level at 30 fps) for the Decode Desk waveform.
 """
 import json, os, subprocess, sys
 import numpy as np
 
-tl, src, out = json.load(open(sys.argv[1])), sys.argv[2], sys.argv[3]
+FIXED = "--fixed" in sys.argv
+args = [a for a in sys.argv[1:] if a != "--fixed"]
+tl, src, out = json.load(open(args[0])), args[1], args[2]
 assert "audio_plan" in tl, "timeline has no audio_plan: build it with timeline.py --align"
 SR = 48000
 pcm = subprocess.run(["ffmpeg", "-loglevel", "error", "-i", src, "-ac", "1", "-ar", str(SR), "-f", "f32le", "-"],
@@ -32,8 +36,8 @@ assert abs(drift) < 0.5, f"audio plan and timeline disagree by {drift:.2f}s"
 y = np.concatenate([y, np.zeros(max(0, int(tl["duration"] * SR) - len(y)), np.float32)])
 tmp = out + ".raw.wav"
 subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "f32le", "-ar", str(SR), "-ac", "1", "-i", "-", tmp], input=y.tobytes(), check=True)
-subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", tmp, "-af", "highpass=f=70,loudnorm=I=-14:TP=-1.5:LRA=11",
-                "-ar", str(SR), "-ac", "2", out], check=True)
+af = "anull" if FIXED else "highpass=f=70,loudnorm=I=-14:TP=-1.5:LRA=11"
+subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", tmp, "-af", af, "-ar", str(SR), "-ac", "2", out], check=True)
 os.remove(tmp)
 holds = sum(1 for op in tl["audio_plan"] if op[0] == "sil")
 print(out, f"{len(y) / SR:.1f}s", f"{holds} silences inserted", f"cut {tl.get('cut')}")
