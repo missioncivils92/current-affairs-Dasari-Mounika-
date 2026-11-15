@@ -44,4 +44,9 @@ Slides: `tools/masterclass-video/scenes/weekly46.js`, which has the diagram help
   10. Fixed gain to −14 LUFS.
   11. AAC at 320 kbps.
 
-  Against the raw recording, presence is about +4 dB and air about +6 dB, and the noise floor stays at about −62 dB. This is the default for the owner's voice from now on.
+  Against the raw recording, presence is about +4 dB and air about +6 dB, and the noise floor stays at about −62 dB. The owner still heard this as blurred (see below).
+- **v4 (15 Nov): no cleaning filters.**
+  - **Why v1–v3 sounded blurred:** the phone recorder already cleans and levels the voice (the MP3 is about −14 LUFS with a quiet floor). The extra dereverberation and spectral noise reduction then smeared the consonants, and EQ cannot undo that.
+  - **Option A:** the raw recording, high-pass at 70 Hz and a limiter only.
+  - **Option B:** the raw recording plus a light clarity EQ: −1.5 dB at 350 Hz, +2 dB at 3 kHz, +1.5 dB shelf at 9 kHz.
+  - **Rule from now on:** no dereverberation or noise-reduction stage on the owner's recordings unless a recording actually has room echo or hiss.
