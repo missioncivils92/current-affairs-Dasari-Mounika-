@@ -50,3 +50,4 @@ Slides: `tools/masterclass-video/scenes/weekly46.js`, which has the diagram help
   - **Option A:** the raw recording, high-pass at 70 Hz and a limiter only.
   - **Option B:** the raw recording plus a light clarity EQ: −1.5 dB at 350 Hz, +2 dB at 3 kHz, +1.5 dB shelf at 9 kHz.
   - **Rule from now on:** no dereverberation or noise-reduction stage on the owner's recordings unless a recording actually has room echo or hiss.
+- **Owner's choice (15 Nov): option B** (`Weekly-Nov-2nd-Week-FINAL-B-original.mp4`) was uploaded. Option B, the raw recording with a light clarity EQ, is the default voice treatment from now on.
