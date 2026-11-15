@@ -14,3 +14,19 @@ Release: Sun 15 Nov 2026, 6 PM. Voice only. 13 topics, each with data or a diagr
 Slides: `tools/masterclass-video/scenes/weekly46.js`, which has the diagram helpers (flow, ladder, mind map, dilemma, bar charts, donut, balance, timeline, tables).
 
 **Audio:** clean with the v3 chain (see `weeks/2026-W46/short-world-bank-poverty/02-master-script.md`): dereverberation → gentle noise reduction → EQ → soft expander → fixed-gain loudness. No dynamic compression or loudnorm on the voice.
+
+## Final video build (14–15 Nov)
+
+- **Recording:** three MP3s (320 kbps, 23:38 in total), joined in order.
+- **Sync:** `align_lm.py`, with each row boundary snapped to the owner's pauses. Final runtime 24:04, including the MCQ holds.
+- **Captions:** `Weekly-Nov-2nd-Week-captions-EN.srt`, with the Telugu lines in English.
+- **v1 audio (v3 voice chain):** the owner found the voice "not clear, not sharp like I recorded". The cause was the de-esser and the heavy expander in that chain, which cut 6–8 dB at 4–16 kHz.
+- **v2 audio (final):** the chain is now light:
+  - dereverberation, then light noise reduction;
+  - EQ: high-pass at 80 Hz, −2 dB at 450 Hz, +2 dB at 3.2 kHz, +2 dB high shelf at 8 kHz;
+  - a soft expander;
+  - fixed gain to −14 LUFS;
+  - AAC at 320 kbps.
+
+  There is **no de-esser**. The treble ends up about 2–3 dB above the raw recording.
+- **Rule for the owner's recordings:** her recordings are already clean (noise floor about −60 dB), so keep the processing light.
