@@ -16,3 +16,28 @@
 | R.6 | **S6** `[KINETIC TEXT]` `[FACE]` Band: "MAINS · LAND, FOREST AND SELF-RULE TODAY". *Voice: warm, thoughtful.* | His fight for land and forest lives on in today's laws, like the panchayat extension law for Scheduled Areas and the Forest Rights Act. Mains question: do these laws give tribal communities real control over their land? Mee abhiprayam comments lo rayandi, and follow for one exam trap every day! |
 
 *Running count: about 252 words · about 1.7 min at 150 wpm.*
+
+## Build log (15 Nov 2026)
+
+- **Recording:** one vertical take, 534×1280. The first 0.95 s is trimmed (speech starts at 1.08 s). Runtime 1:59.6.
+- **Rows:** set from the owner's pauses plus the recogniser's hints:
+  - S1: 0–13.0 s
+  - S2: 13.0–36.85 s
+  - S3: 36.85–59.75 s
+  - S4: 59.75–86.6 s
+  - S5: 86.6–101.6 s
+  - S6: 101.6 s to the end
+
+  Builds are timed as fractions of each row: `scenes/short_birsa47.js`.
+- **Audio:** the take came in soft (−22.5 LUFS). The chain is light, with no dereverberation and no spectral noise reduction (W46 lesson):
+  1. High-pass at 80 Hz.
+  2. −1.5 dB at 350 Hz.
+  3. +2.5 dB at 3 kHz.
+  4. +1.5 dB shelf at 9 kHz.
+  5. Gentle 2.5:1 compressor.
+  6. +13 dB gain.
+  7. Soft expander.
+  8. Limiter.
+
+  Result: −13.1 LUFS.
+- **Face:** `--vertical --polish --face-y 90 --top-y 150 --top-h 1000`. Fade-out 0.6 s.
