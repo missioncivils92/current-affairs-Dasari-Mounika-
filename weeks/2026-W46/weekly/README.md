@@ -30,3 +30,18 @@ Slides: `tools/masterclass-video/scenes/weekly46.js`, which has the diagram help
 
   There is **no de-esser**. The treble ends up about 2–3 dB above the raw recording.
 - **Rule for the owner's recordings:** her recordings are already clean (noise floor about −60 dB), so keep the processing light.
+- **v3 "sharp and sweet" (owner request, 15 Nov):** these steps run after the dereverberation and light noise reduction:
+
+  1. High-pass at 85 Hz.
+  2. Warmth: +1.5 dB at 180 Hz.
+  3. Boxiness cut: −3 dB at 380 Hz, −1 dB at 900 Hz.
+  4. Presence: +3.5 dB at 3.5 kHz.
+  5. Harshness dip: −1.5 dB at 6.8 kHz.
+  6. Air: +2 dB shelf at 10 kHz.
+  7. Light exciter: `aexciter` amount 0.5, from 5 kHz.
+  8. Gentle compressor: 2:1, slow.
+  9. Soft expander.
+  10. Fixed gain to −14 LUFS.
+  11. AAC at 320 kbps.
+
+  Against the raw recording, presence is about +4 dB and air about +6 dB, and the noise floor stays at about −62 dB. This is the default for the owner's voice from now on.
