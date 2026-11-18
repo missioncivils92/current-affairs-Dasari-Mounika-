@@ -6,13 +6,13 @@
 
 ## Script
 
-This week, Prince William drove an electric auto-rickshaw in Mumbai, and the Indian company that makes it won 1 million pounds!
+Our own Indian company, Mahindra, has just won the Earthshot Prize, and Prince William himself drove its electric auto in Mumbai! So what is this prize?
 
 ఈ prize ఏంటి?
 
-And where does India fit in? Let's decode.
+Let's decode.
 
-What is it? The Earthshot Prize is a global award for solutions that repair the planet. When did it begin? In 2020, launched by Prince William and his Royal Foundation, and named after President Kennedy's Moonshot, the race to the Moon.
+First, what is it? The Earthshot Prize is a global award for solutions that repair the planet. When did it begin? In 2020, launched by Prince William and his Royal Foundation, and named after President Kennedy's Moonshot, the race to the Moon.
 
 How does it work? Every year, five winners get 1 million pounds each, one for each of five Earthshots: protect and restore nature, clean our air, revive our oceans, build a waste-free world, and fix our climate. The goal is 50 solutions by 2030.
 
@@ -40,7 +40,7 @@ and watch the next reel to see what this year's five winners actually did!
 
 **Title:**
 ```
-Earthshot Prize Comes to India! Mumbai 2026 Explained #UPSC #Shorts
+Indian Company Wins Earthshot Prize! What Is It? #UPSC #Shorts
 ```
 
 **Description:**
