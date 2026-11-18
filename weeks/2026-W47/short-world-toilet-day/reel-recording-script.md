@@ -6,35 +6,35 @@
 
 ## Script
 
-Today is World Toilet Day, and before you smile, here is a fact: about 3.4 billion people in the world still do not have a safely managed toilet.
+Today is World Toilet Day, and 3.4 billion people still lack a safe toilet.
 
 ఇది చిన్న విషయం కాదు!
 
-Let's decode.
+Six quick points to remember.
 
-First, what is it? World Toilet Day is a United Nations day on the global sanitation crisis. It is tied to Sustainable Development Goal 6.2: toilets and hygiene for everyone, and an end to open defecation, by 2030.
+One: it is a United Nations day, observed every November 19th.
 
-When did it begin, and who started it? A Singapore campaigner, Jack Sim, founded the World Toilet Organization on November 19th, 2001. And in 2013, the United Nations General Assembly made it an official UN day.
+Two: Jack Sim of Singapore started it in 2001, and the United Nations adopted it in 2013.
 
-How is it marked? Every year has a theme, and this year it is: safe toilets, equal futures. It is about women and girls, because without a safe toilet, girls drop out of school and women face danger when they go out at night.
+Three: this year's theme is safe toilets, equal futures, because safe toilets keep girls in school and women safe.
 
-Where does India stand? Our Swachh Bharat Mission began on October 2nd, 2014, built more than 10 crore household toilets in villages, and rural India declared itself open-defecation free in 2019. Now Phase Two goes further, to open-defecation free plus, which means managing the waste too.
+Four: it links to Sustainable Development Goal 6.2: toilets for all, and no open defecation, by 2030.
 
-Prelims trap: Swachh Bharat Gramin comes under the Ministry of Jal Shakti, but Swachh Bharat Urban comes under the Ministry of Housing and Urban Affairs. And do not mix the days: World Toilet Day is November 19th, World Water Day is March 22nd, and Global Handwashing Day is October 15th.
+Five: India's Swachh Bharat Mission, launched in 2014, built over 10 crore village toilets, and rural India became open-defecation free in 2019.
+
+Six, the Prelims trap: Swachh Bharat Gramin comes under Jal Shakti, but Swachh Bharat Urban comes under Housing and Urban Affairs.
 
 ఇది గుర్తుపెట్టుకోండి!
 
-Mains question: building toilets is done, but is getting people to use them, and managing the waste, the real challenge now?
+Mains question: the toilets are built, but are they really being used?
 
-మీ అభిప్రాయం comments లో రాయండి,
-
-and follow for one exam trap every day!
+మీ అభిప్రాయం comments లో రాయండి!
 
 ## Upload pack
 
 **Title:**
 ```
-World Toilet Day 2026: Why It Matters for UPSC #UPSC #Shorts
+World Toilet Day 2026 in 6 Points! #UPSC #Shorts
 ```
 
 **Description:**
