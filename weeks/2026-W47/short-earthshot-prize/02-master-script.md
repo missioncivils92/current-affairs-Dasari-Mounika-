@@ -1,0 +1,21 @@
+# Master Script — 2026-W47 Short: Earthshot Prize 2026: Mumbai and India
+
+**Week covered:** Mon 16 – Sat 21 Nov 2026.
+**Release:** Wed 18 / Thu 19 Nov · YouTube Short (vertical 9:16), on camera (decision 41).
+**Coverage:** facts as verified in this folder's `01-research-brief.md`.
+**Version:** v1. Lively, exam-first, no "What if" opening (owner, 9 Nov); no short forms in narration; Telugu on the key lines (decision 42).
+
+## SHORT — Earthshot Prize 2026: Mumbai and India
+
+| # | Visual cue | Narration (verbatim) |
+|---|---|---|
+| R.1 | **S1** `[KINETIC TEXT]` `[FACE]` Band from frame 1: "MUMBAI · EARTHSHOT PRIZE 2026". *Voice: bright, excited.* | This week in Mumbai, Prince William drove an electric auto-rickshaw, and the Indian company that makes it won one million pounds! Ee prize enti? Let's decode, in six points. |
+| R.2 | **S2** `[KINETIC TEXT]` `[TOP]` Point card "1 · WHAT": "Earthshot Prize · launched 2020 · Prince William + The Royal Foundation"; chip "name from Kennedy's Moonshot, 1962". | Point one: the Earthshot Prize was launched in twenty twenty by Prince William and his Royal Foundation. Its name comes from President Kennedy's Moonshot of nineteen sixty-two, the race to reach the Moon. Here, the shot is at repairing the Earth. |
+| R.3 | **S3** `[MIND MAP]` `[TOP]` Point card "2 · HOW": "5 winners a year · £1 million each · 50 solutions by 2030"; five chips building: "Protect and restore nature · Clean our air · Revive our oceans · Build a waste-free world · Fix our climate". | Point two: every year, five winners get one million pounds each, picked from fifteen finalists, and the target is fifty solutions by twenty thirty. Each winner fits one of five Earthshots: protect and restore nature, clean our air, revive our oceans, build a waste-free world, and fix our climate. |
+| R.4 | **S4** `[KINETIC TEXT]` `[TOP]` Point card "3 · WHERE": timeline "London 2021 → Boston 2022 → Singapore 2023 → Cape Town 2024 → Rio de Janeiro 2025 → Mumbai 2026 (first in India)". | Point three: this was the sixth edition, and the first ever held in India, in Mumbai on November seventeenth. The earlier ones went to London, Boston, Singapore, Cape Town and Rio de Janeiro. |
+| R.5 | **S5** `[KINETIC TEXT]` `[TOP]` Point card "4 · INDIA CONNECTION": "2026 · Mahindra Last Mile Mobility · Clean Our Air · electric autos · 4 lakh+ electric vehicles"; earlier winners row "Takachar 2021 · Kheyti 2022 · S4S Technologies 2023". | Point four, our Indian connection: Mahindra Last Mile Mobility won the Clean Our Air prize for affordable electric autos, with more than four lakh electric vehicles on Indian roads. And before this, Indian innovators won too: Takachar, which turns crop waste into fuel instead of burning it, Kheyti, with low-cost greenhouses for small farmers, and S4S Technologies, with solar food dryers. Chaala proud moment! |
+| R.6 | **S6** `[KINETIC TEXT]` `[TOP]` Point card "5 · THE OTHER FOUR": "Bhutan · restoring Himalayan forests" · "Niue Ocean Wide Trust · Pacific Ocean" · "PFAS-Free France · forever chemicals" · "Ørsted · Denmark · clean energy". | Point five, the other four winners this year: Bhutan, for restoring its Himalayan forests; the Niue Ocean Wide Trust, for protecting the Pacific; PFAS-Free France, against the forever chemicals in everyday products; and Ørsted, the Danish clean-energy company. |
+| R.7 | **S7** `[KINETIC TEXT]` `[TOP]` Red PRELIMS TRAP "6 · DO NOT MIX": "Earthshot Prize · Prince William · £1 million" · "Champions of the Earth · United Nations Environment Programme" · "The Earth Prize · for school students". *Voice: slower.* | Point six, the Prelims trap: do not mix up three green awards. The Earthshot Prize is Prince William's; Champions of the Earth is the highest environmental honour of the United Nations Environment Programme; and the Earth Prize is a separate contest for school students. Idi gurthupettukondi! |
+| R.8 | **S8** `[KINETIC TEXT]` `[FACE]` Band: "MAINS · CAN INNOVATION CLEAN INDIA'S AIR?". *Voice: warm, thoughtful.* | Mains question: can prizes and private innovation clean India's air faster than policy alone? Mee abhiprayam comments lo rayandi, and follow for one exam trap every day! |
+
+*Running count: about 327 words · about 2.3 min at 140 wpm.*
