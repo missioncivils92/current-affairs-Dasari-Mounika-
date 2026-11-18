@@ -42,3 +42,7 @@
 - **Face:** `--vertical --polish --face-y 90 --top-y 150 --top-h 1000`.
 - **Cover:** `Cover-Earthshot-Reel-2.png`.
 - **Captions:** `Reel-2-Earthshot-captions-EN.srt`, with the Telugu lines in English.
+- **v2 lighting (owner: "my face is dull and black, give good lighting"):**
+  - Before `--polish`, the camera gets a brightening grade: `eq=gamma=1.25:contrast=1.04:saturation=1.08`, then `curves=master='0/0 0.25/0.32 0.5/0.6 0.75/0.84 1/0.98'` (lifts shadows and midtones, holds highlights), then a warm `colorbalance`.
+  - Face brightness went from 140 to 181 (out of 255). There is no smoothing blur.
+  - The cover was redone with the same look.
