@@ -19,3 +19,26 @@
 | R.8 | **S8** `[KINETIC TEXT]` `[FACE]` Band: "MAINS · CAN INDIA'S POWER COMPANIES DO AN ØRSTED?". *Voice: warm, thoughtful.* | Mains question: can India's coal-heavy power companies make a shift like Ørsted? Mee abhiprayam comments lo rayandi, and follow for one exam trap every day! |
 
 *Running count: about 341 words · about 2.4 min at 140 wpm.*
+
+## Build log (18 Nov 2026)
+
+- **Recording:** one vertical take, 720×1280, 2:31, recorded in the Teleprompter app. The app's "Made with Teleprompter.com" badge hops corners every 10 s.
+  - **Removal:** `tools/masterclass-video/remove_watermark.py`. Each badge position is template-matched (16 segments, match ≥ 0.94) and replaced with a clean plate of the wall, blended with a feathered mask.
+  - **Cut:** at 149.5 s, after "Thank you".
+- **Rows:** from a Whisper transcript (`transcribe.py`) and the pauses. She followed this script closely.
+  - S1: 0
+  - S2 (Bhutan): 16.6
+  - S3 (Mahindra): 42.5
+  - S4 (Niue): 59.6
+  - S5 (PFAS-Free France): 76.6
+  - S6 (Ørsted): 100.3
+  - S7 (trap): 114.3
+  - S8 (Mains): 137.0 to 149.5
+- **Scenes:** `scenes/short_earth47c.js`. Each winner gets a WHO → WHAT THEY DID → HOW IT HELPS card.
+- **Audio:** the app recorded softly (−30.2 LUFS).
+  - Chain: voice B EQ, then a gentle 2:1 compressor, +17.9 dB fixed gain, a soft gate and a limiter.
+  - Result: −14.4 LUFS. Pauses sit about 35 dB below speech.
+  - No dereverberation or spectral noise reduction.
+- **Face:** `--vertical --polish --face-y 90 --top-y 150 --top-h 1000`.
+- **Cover:** `Cover-Earthshot-Reel-2.png`.
+- **Captions:** `Reel-2-Earthshot-captions-EN.srt`, with the Telugu lines in English.
