@@ -12,13 +12,13 @@ This week, Prince William drove an electric auto-rickshaw in Mumbai, and the Ind
 
 And where does India fit in? Let's decode.
 
-The Earthshot Prize was launched in 2020 by Prince William and his Royal Foundation. Its name comes from President Kennedy's Moonshot, the race to the Moon; here, the target is repairing the Earth.
+What is it? The Earthshot Prize is a global award for solutions that repair the planet. When did it begin? In 2020, launched by Prince William and his Royal Foundation, and named after President Kennedy's Moonshot, the race to the Moon.
 
-Every year, five winners get 1 million pounds each, one for each of five Earthshots: protect and restore nature, clean our air, revive our oceans, build a waste-free world, and fix our climate. The goal is 50 solutions by 2030.
+How does it work? Every year, five winners get 1 million pounds each, one for each of five Earthshots: protect and restore nature, clean our air, revive our oceans, build a waste-free world, and fix our climate. The goal is 50 solutions by 2030.
 
-This year's sixth edition came to India for the first time, in Mumbai on November 17th. The earlier ones were held in London, Boston, Singapore, Cape Town and Rio de Janeiro.
+Where was it held? This year's sixth edition came to India for the first time, in Mumbai on November 17th. The earlier ones were held in London, Boston, Singapore, Cape Town and Rio de Janeiro.
 
-And India keeps winning. In 2021, Takachar won for turning crop waste into fuel instead of burning it. In 2022, Kheyti won for low-cost greenhouses for small farmers, and Kheyti is from Hyderabad!
+Who from India has won? Quite a few! In 2021, Takachar won for turning crop waste into fuel instead of burning it. In 2022, Kheyti won for low-cost greenhouses for small farmers, and Kheyti is from Hyderabad!
 
 మన Hyderabad నుంచి!
 
