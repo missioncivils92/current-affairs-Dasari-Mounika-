@@ -12,19 +12,21 @@ This week in Mumbai, Prince William drove an electric auto-rickshaw, and the Ind
 
  Let's decode, in six points.
 
-Point one: the Earthshot Prize was launched in 2020 by Prince William and his Royal Foundation. Its name comes from President Kennedy's Moonshot of 1962, the race to reach the Moon. Here, the shot is at repairing the Earth.
+Point one: Prince William launched the Earthshot Prize in 2020. The name comes from President Kennedy's Moonshot, the race to the Moon; here, the shot is at repairing the Earth.
 
-Point two: every year, five winners get 1 million pounds each, picked from 15 finalists, and the target is 50 solutions by 2030. Each winner fits one of five Earthshots: protect and restore nature, clean our air, revive our oceans, build a waste-free world, and fix our climate.
+Point two: every year, five winners get 1 million pounds each, one for each of five Earthshots: nature, air, oceans, waste and climate. The target is 50 solutions by 2030.
 
-Point three: this was the sixth edition, and the first ever held in India, in Mumbai on November 17th. The earlier ones went to London, Boston, Singapore, Cape Town and Rio de Janeiro.
+Point three: this was the sixth edition, and the first ever in India, held in Mumbai on November 17th, after London, Boston, Singapore, Cape Town and Rio.
 
-Point four, our Indian connection: Mahindra Last Mile Mobility won the Clean Our Air prize for affordable electric autos, with more than 4 lakh electric vehicles on Indian roads. And before this, Indian innovators won too: Takachar, which turns crop waste into fuel instead of burning it, Kheyti, with low-cost greenhouses for small farmers, and S4S Technologies, with solar food dryers. 
+Point four, our Indian connection: Mahindra Last Mile Mobility won the Clean Our Air prize, because it made electric autos affordable to buy and run, and put more than 4 lakh of them on Indian roads. Earlier, Indian winners like Takachar turned crop waste into fuel instead of smoke. 
 
 చాలా proud moment!
 
-Point five, the other four winners this year: Bhutan, for restoring its Himalayan forests; the Niue Ocean Wide Trust, for protecting the Pacific; PFAS-Free France, against the forever chemicals in everyday products; and Ørsted, the Danish clean-energy company.
+Point five: the other winners, and why. Bhutan became the first country ever to win: its Restore Bhutan plan will revive 50,000 hectares of damaged Himalayan land, guarding water for about 1.6 billion people downstream, including us in India. Tiny Niue, a Pacific island of just 1,700 people, protects an ocean area larger than the United Kingdom.
 
-Point six, the Prelims trap: do not mix up three green awards. The Earthshot Prize is Prince William's; Champions of the Earth is the highest environmental honour of the United Nations Environment Programme; and the Earth Prize is a separate contest for school students. 
+PFAS-Free France's campaign pushed France to pass a 2025 law phasing out forever chemicals, which barely break down in nature. And Denmark's Ørsted won for proving that change is possible: it quit oil and gas and became an offshore-wind giant. Add our Mahindra, and that is all five.
+
+Point six, the Prelims trap: the Earthshot Prize is not a United Nations award; it is Prince William's. The United Nations' own top green honour is Champions of the Earth, given by the United Nations Environment Programme. 
 
 ఇది గుర్తుపెట్టుకోండి!
 
@@ -46,9 +48,9 @@ Earthshot Prize 2026 in Mumbai: India Wins! 6 Exam Points #UPSC #Shorts
 📌 Earthshot Prize: launched 2020 by Prince William & The Royal Foundation · name from Kennedy's Moonshot (1962)
 📌 5 winners a year · £1 million each · 50 solutions by 2030 · 5 Earthshots: nature, air, oceans, waste, climate
 📌 2026: sixth edition, first in India · Mumbai, 17 Nov · earlier: London, Boston, Singapore, Cape Town, Rio
-🇮🇳 Mahindra Last Mile Mobility won Clean Our Air (electric autos, 4 lakh+ EVs) · earlier Indian winners: Takachar 2021, Kheyti 2022, S4S Technologies 2023
-🌍 Other 2026 winners: Bhutan, Niue Ocean Wide Trust, PFAS-Free France, Ørsted
-⚠️ Prelims trap: Earthshot (Prince William) ≠ Champions of the Earth (UNEP) ≠ The Earth Prize (students)
+🇮🇳 Mahindra Last Mile Mobility won Clean Our Air (electric autos, 4 lakh+ EVs) · earlier Indian winners include Takachar (2021) and Kheyti (2022)
+🌍 Why the others won: Bhutan, first country ever to win (Restore Bhutan: 50,000 ha of Himalayan land, water for 1.6 bn people downstream) · Niue (1,700 people, protects an ocean area larger than the UK) · PFAS-Free France (2025 law to phase out forever chemicals) · Ørsted, Denmark (quit oil and gas for offshore wind)
+⚠️ Prelims trap: Earthshot is NOT a UN award (Prince William) · UN's top green honour = Champions of the Earth (UNEP)
 ✍️ Mains: can innovation clean India's air faster than policy alone? Comment!
 
 Explained in English and Telugu.
