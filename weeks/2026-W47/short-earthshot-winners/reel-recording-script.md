@@ -10,7 +10,7 @@ One country, one tiny island, one citizens' campaign, one energy giant and one I
 
 వాళ్ళు ఏం చేశారు?
 
-Let's decode.
+For each one: who, what they did, and how it helps. Let's decode.
 
 First, Bhutan won Protect and Restore Nature, and it is the first country ever to win this prize. Its Restore Bhutan plan will revive 50,000 hectares of damaged Himalayan land, saving nearly 2 million tonnes of carbon dioxide and protecting water for about 1.6 billion people downstream, including us in India.
 
