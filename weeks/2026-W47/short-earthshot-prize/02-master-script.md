@@ -18,3 +18,20 @@
 | R.7 | **S7** `[KINETIC TEXT]` `[FACE]` Band: "NEXT REEL · THE 5 WINNERS: WHAT THEY DID". *Voice: warm, inviting.* | Mains question: can prizes and private innovation clean India's air faster than policy alone? Mee abhiprayam comments lo rayandi, and watch the next reel to see what this year's five winners actually did! |
 
 *Running count: about 305 words · about 2.2 min at 140 wpm.*
+
+## Build log (18 Nov 2026)
+
+- **Recording:** one vertical take, 534×1280, 2:26. Trimmed 0.35 s at the start and cut at 143.9 s, before she reaches for the phone. Runtime 2:23.6.
+- **Rows:** set from the recogniser's anchors plus the pauses:
+  - S1: 0–13.0 s
+  - S2: 13.0–42.9 s
+  - S3: 42.9–70.5 s
+  - S4: 70.5–90.0 s
+  - S5: 90.0–121.1 s
+  - S6: 121.1–135.2 s
+  - S7: 135.2 s to the end
+
+  Times are on the source clock. Scenes: `scenes/short_earth47a.js` (question-word headers, builds timed as fractions of each row).
+- **Audio (voice B):** high-pass at 80 Hz, −1.5 dB at 350 Hz, +2.5 dB at 3 kHz, +1.5 dB shelf at 9 kHz, +1.2 dB fixed gain, limiter. Result: −14.7 LUFS. No dereverberation or noise reduction.
+- **Face:** `--vertical --polish --face-y 90 --top-y 150 --top-h 1000`.
+- **Cover:** `Cover-Earthshot-Reel-1.png`.
