@@ -65,7 +65,7 @@
 **Video 11 · COP31:**
 1. **Antalya**, 9–20 Nov. **Türkiye** hosts and presides; **Australia (Chris Bowen)** leads the negotiations; decisions by **consensus**.
 2. The fights: fossil fuels and finance. India's demand: **$300 bn a year by 2035** (the Baku promise) must be delivered.
-3. I'll send the final outcome before you record this one.
+3. **Last day:** the draft "**Antalya Declaration**" dropped all fossil-fuel language and a **$120 bn** adaptation target; **80+ countries** were disappointed.
 
 **Video 12 · SCO forum:**
 1. **Delhi, 20–22 Nov**: the first **Civilisational Dialogue Forum**, India's idea from Tianjin 2025.
