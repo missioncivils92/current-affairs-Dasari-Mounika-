@@ -230,7 +230,7 @@ Story 10: the climate summit in Türkiye reached its final day. Who was running 
 
 The 31st Conference of the Parties met in Antalya from November 9th to 20th, with an unusual split: Türkiye hosted and held the presidency, while Australia's Chris Bowen led the negotiations. Every decision needs the agreement of nearly 200 countries.
 
-The draft deal split countries on how strongly to call for moving away from coal, oil and gas, and on money for adaptation. India's position was clear: developed countries must deliver the finance they promised at Baku, at least 300 billion dollars a year by 2035.
+In the final hours, the latest draft, called the Antalya Declaration, dropped every mention of moving away from fossil fuels and a proposed target of 120 billion dollars for adaptation, which disappointed more than 80 countries that wanted a fossil-fuel roadmap. India's position stayed clear: developed countries must deliver the finance they promised at Baku, at least 300 billion dollars a year by 2035.
 
 Question 10: how many pairs are correctly matched?
 
