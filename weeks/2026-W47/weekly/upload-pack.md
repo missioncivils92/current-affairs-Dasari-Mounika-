@@ -1,6 +1,6 @@
 # Upload Pack — 2026-W47 Weekly: November 3rd Week Current Affairs (Mon 16 – Sat 21 Nov 2026)
 
-**Release:** Sun 22 Nov 2026, 6:00 PM IST · 16:9 · on camera · 21:09 · 12 topics, each with a chart or diagram and an MCQ, plus persons and places.
+**Release:** Sun 22 Nov 2026, 6:00 PM IST · 16:9 · on camera · 22:12 · 12 topics, each with a chart or diagram and an MCQ, plus persons and places.
 
 **Thumbnail:** `Thumbnail-Weekly-Nov-3rd-Week.png`, with the photo on the left and the "DECODE UPSC with Mounika" badge.
 
@@ -17,20 +17,20 @@ For the first time ever, the world court has found a country guilty of genocide.
 
 ⏱️ Chapters
 00:00 This week in 12 stories
-00:54 World court: Myanmar guilty of genocide
-03:04 Shenzhen: America, China, Russia at one table
-05:04 Quad in Manila: what India got
-06:21 India votes against a death-penalty pause
-08:08 Labour Codes turn one
-09:45 One week, four defence partners
-11:02 Cyclone Akvan & the Yanam trap
-12:19 Telugu States: Nagarjuna Sagar water row
-13:31 Earthshot Prize comes to Mumbai
-15:03 COP31: two captains, one deadlock
-16:26 SCO Civilisational Dialogue in Delhi
-17:34 This week's important days
-18:38 Persons, places & awards
-20:20 This week's Mains question
+00:57 World court: Myanmar guilty of genocide
+03:13 Shenzhen: America, China, Russia at one table
+05:19 Quad in Manila: what India got
+06:40 India votes against a death-penalty pause
+08:32 Labour Codes turn one
+10:14 One week, four defence partners
+11:35 Cyclone Akvan & the Yanam trap
+12:56 Telugu States: Nagarjuna Sagar water row
+14:12 Earthshot Prize comes to Mumbai
+15:48 COP31: two captains, one deadlock
+17:15 SCO Civilisational Dialogue in Delhi
+18:27 This week's important days
+19:34 Persons, places & awards
+21:21 This week's Mains question
 
 📌 Key facts
 • ICJ, 19 Nov: Myanmar committed genocide (vote 9–6) · first finding against a State · ICJ ≠ ICC

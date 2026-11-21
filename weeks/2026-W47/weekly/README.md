@@ -58,3 +58,12 @@ The owner said: "my voice is very broad and there is some disturbance also". The
 - the camera mic matched to the voice-over mic.
 
 Same timing, 21:08, −14 LUFS. Delivered as `Weekly-Nov-3rd-Week-FINAL-v2.mp4`, with a 40 s before/after sample.
+
+## Natural voice, normal speed, v3 (21 Nov 2026)
+
+The owner heard three samples and chose "3 is good dear, use normal speed" (decision 50). The final video is now `Weekly-Nov-3rd-Week-FINAL-v3.mp4`, with these changes:
+- the natural voice (a high-pass at 80 Hz and +1.5 dB at 3 kHz only);
+- normal speed, so the runtime is 22:12;
+- −14 LUFS.
+
+The captions `.srt` and the chapter times in `upload-pack.md` are moved back to normal-speed timing (×1.05).
