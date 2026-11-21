@@ -1,22 +1,12 @@
 <div class="cover">
 <div class="brand">DECODE UPSC <span>with Mounika</span></div>
 <h1>November 3rd Week: Voice-Over Script</h1>
-<p class="sub">Voice only · 13 parts · about 15 minutes · the camera lines are in the separate "Camera Lines" PDF</p>
+<p class="sub">Voice only · 13 parts · about 15 minutes</p>
 </div>
-
-**How to record:**
-- Use your phone's voice recorder, in a quiet room.
-- Record **one file per part** (Part 1 to Part 13). Say the part number at the start, for example "Part 1".
-- If you make a mistake, pause and say the sentence again. I'll cut it.
-- After each **question**, pause for **2 seconds**. I'll add the 6-second countdown.
-- The ⏭ line at the top of each part is said on camera, so **skip it here**.
 
 ## Script
 
-
 ### Part 1 · The world court finds genocide
-
-⏭ *On camera (skip): "Story one: why is the world court's judgment on Myanmar a first in history?…"*
 
 On November 19th, the International Court of Justice ruled, by nine votes to six, that Myanmar committed genocide against the Rohingya during its 2017 military campaign in Rakhine State, in which about 10,000 Rohingya were killed. It is the first time the court has found a state itself responsible for genocide, and it ordered Myanmar to begin a programme of restitution and compensation and to report back within two years.
 
@@ -37,10 +27,7 @@ Your first question: how many of these three statements are correct?
 
 The answer is B, only two. The world court has 15 judges with nine-year terms, and India is a party to the Genocide Convention; but the court cannot try individuals.
 
-
 ### Part 2 · America, China and Russia at one table
-
-⏭ *On camera (skip): "Story two: the leaders of the three biggest nuclear powers met together for the …"*
 
 On November 19th, Donald Trump, Xi Jinping and Vladimir Putin held their first-ever three-way summit in Shenzhen, on the sidelines of the Asia-Pacific Economic Cooperation leaders' meeting. Their joint declaration promised a dialogue on reducing nuclear risks and stopping the spread of nuclear weapons, but it set no deadline and no disarmament target.
 
@@ -59,10 +46,7 @@ Question two: how many of these countries are recognised as nuclear-weapon state
 
 The answer is B, only two: China and France. India and Israel are not recognised nuclear-weapon states under the treaty.
 
-
 ### Part 3 · The Quad meets in Manila
-
-⏭ *On camera (skip): "Story three: the Quad leaders met for the first time in more than two years. Wha…"*
 
 On November 17th in Manila, the Quad leaders backed an artificial intelligence accelerator with more than 85 million dollars, agreed to hold a Quad Business Leaders' Forum in Mumbai in early 2027, and stepped up cooperation on cyber security, maritime surveillance and critical minerals.
 
@@ -79,10 +63,7 @@ Question three: how many of these groupings is India a member of?
 
 The answer is B, only two: the Quad and the East Asia Summit.
 
-
 ### Part 4 · India says no to a death-penalty pause
-
-⏭ *On camera (skip): "Story four: why did India vote against a United Nations call to pause the death …"*
 
 On November 13th, the United Nations General Assembly adopted a resolution calling for a global moratorium on the death penalty, with 133 votes in favour, 33 against and 16 abstentions. India voted against it, as it has every time, saying there is no international consensus and that each country has the sovereign right to decide its own laws.
 
@@ -101,10 +82,7 @@ Question four: consider these two statements and choose the right option.
 
 The answer is A: both are correct, and Article 72 is exactly why the President can pardon a court-martial sentence.
 
-
 ### Part 5 · One year of the Labour Codes
-
-⏭ *On camera (skip): "Story five: India's new labour codes complete one year on November 21st. What ch…"*
 
 On November 21st, 2025, four labour codes came into force and replaced 29 central labour laws: the Code on Wages, the Industrial Relations Code, the Code on Social Security, and the Occupational Safety, Health and Working Conditions Code.
 
@@ -121,10 +99,7 @@ Question five: how many of these statements are correct?
 
 The answer is B, only two. Labour is in the Concurrent List, not the Union List.
 
-
 ### Part 6 · A week of defence diplomacy
-
-⏭ *On camera (skip): "Story six: in one week, India held defence talks or exercises with four partners…"*
 
 With Japan, the defence and foreign ministers held the fourth two-plus-two dialogue in Tokyo. With Malaysia, the armies began Harimau Shakti, focused on jungle warfare and counter-insurgency. With Sri Lanka, the 12th Mitra Shakti exercise is under way, focused on counter-terrorism. And with Israel, the Defence Ministry signed a contract of about 1,976 crore rupees to upgrade the Navy's Barak missile defence.
 
@@ -139,10 +114,7 @@ Question six: how many of these exercise pairs are correctly matched?
 
 The answer is C, only three. Garuda Shakti is with Indonesia, not Malaysia.
 
-
 ### Part 7 · Cyclone Akvan crosses our coast
-
-⏭ *On camera (skip): "Story seven: Cyclone Akvan crossed the north Andhra and south Odisha coast on No…"*
 
 It crossed close to Gopalpur in Odisha's Ganjam district, with a red alert for Srikakulam and Vizianagaram and more than 3 lakh people moved to safety.
 
@@ -159,10 +131,7 @@ Question seven: how many of these statements are correct?
 
 The answer is B, only two. Names are used in a fixed order, not by the country a storm hits.
 
-
 ### Part 8 · Telugu States: the Nagarjuna Sagar water row
-
-⏭ *On camera (skip): "ఇప్పుడు మన Telugu states story.…"*
 
 Nagarjuna Sagar sits on the Krishna, on the border of Telangana's Nalgonda and Andhra Pradesh's Palnadu district, and both states draw from it. This week, officials of the two states clashed over water releases, and with a dry year ahead, every drop for drinking water is being argued over.
 
@@ -177,10 +146,7 @@ Question eight, for Group-1 too: how many of these statements are correct?
 
 The answer is C, all three are correct.
 
-
 ### Part 9 · An Indian company wins the Earthshot Prize
-
-⏭ *On camera (skip): "Story nine: the Earthshot Prize came to India for the first time, and an Indian …"*
 
 The prize was launched in 2020 by Prince William and his Royal Foundation, and every year it gives 1 million pounds each to five winners. Its sixth edition was held in Mumbai on November 17th.
 
@@ -201,10 +167,7 @@ Question nine: match the winners. How many pairs are correct?
 
 The answer is B, only two. Niue won Revive Our Oceans; Ørsted won Fix Our Climate.
 
-
 ### Part 10 · COP31 ends in Antalya
-
-⏭ *On camera (skip): "Story 10: the climate summit in Türkiye reached its final day. Who was running i…"*
 
 The 31st Conference of the Parties met in Antalya from November 9th to 20th, with an unusual split: Türkiye hosted and held the presidency, while Australia's Chris Bowen led the negotiations. Every decision needs the agreement of nearly 200 countries.
 
@@ -219,10 +182,7 @@ Question 10: how many pairs are correctly matched?
 
 The answer is C, only three. COP31 was held in Antalya, Türkiye; Australia only led the negotiations.
 
-
 ### Part 11 · India hosts the SCO Civilisational Dialogue
-
-⏭ *On camera (skip): "Story 11: India is hosting something the Shanghai Cooperation Organisation has n…"*
 
 From November 20th to 22nd, New Delhi hosts the first SCO Civilisational Dialogue Forum, which the Prime Minister proposed at the Tianjin summit in 2025, with sessions on philosophy, art, languages and living traditions.
 
@@ -237,10 +197,7 @@ Question 11: how many of these are members of the Shanghai Cooperation Organisat
 
 The answer is B, only two: Belarus and Iran.
 
-
 ### Part 12 · The important days of the week
-
-⏭ *On camera (skip): "Story 12: this week was full of important days, and each one hides a static fact…"*
 
 November 16th was National Press Day, marking the start of the Press Council of India in 1966, a statutory body that covers only print media. November 19th was World Toilet Day, with the theme safe toilets, equal futures, and it was also the birth anniversary of Rani Lakshmibai of Jhansi, born in 46. And November 20th is World Children's Day, the day the UN Convention on the Rights of the Child was adopted in 1989.
 
@@ -253,10 +210,7 @@ Question 12: how many pairs are correctly matched?
 
 The answer is C, only three. March 22nd is World Water Day; Global Handwashing Day is October 15th.
 
-
 ### Part 13 · Persons, places and awards in news
-
-⏭ *On camera (skip): "Before we finish, a quick Prelims round: persons, places and awards in news.…"*
 
 First, persons. Yuji Iwasawa of Japan is the President of the International Court of Justice, who read out the Myanmar judgment. Bhavika Mangalanandan explained India's vote against the death-penalty pause at the United Nations. Chris Bowen of Australia led the climate negotiations at Antalya. And Jack Sim of Singapore founded the World Toilet Organization.
 
