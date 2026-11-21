@@ -27,3 +27,25 @@
 - The US–China–Russia nuclear-risk dialogue: first meeting.
 - Quad Business Leaders' Forum, Mumbai (2027).
 - Krishna water at Nagarjuna Sagar: KRMB decisions.
+
+## Build log (21 Nov 2026)
+
+- **Recording:**
+  - **18 camera clips** (landscape 1280×534, India map behind). Two takes of the opening (v01, v04): v04 was used, as it includes the Telugu line. v03 and v05 are the same take of story 1's title; v05 was used.
+  - **2 voice-over MP3s:** 001 covers Parts 1–3; 002 covers Parts 4–13.
+- **Transcription:** `transcribe.py` (Whisper small).
+  - Each voice-over row starts where its opening words are fuzzy-matched in the transcript, snapped to a pause (`w47_align.py`, in the scratchpad).
+  - Three boundaries were set by hand: the Quad trap, the Earthshot trap and Q9.
+  - She skipped the Q1 question line, so that row is a 0.35 s sliver plus the 6 s hold.
+- **Assembly:**
+  - The camera clips and voice-over spans are concatenated in programme order, with a 0.25 s gap after each.
+  - Every part gets the voice B EQ and its own fixed gain to −14 LUFS, then a limiter.
+  - The camera gets the lighting grade (decision 46).
+  - Video frame counts are rounded cumulatively, so the drift is under one frame.
+- **Layouts:** the camera rows are FACE or SPLIT. The voice-over rows have no camera and play over full-screen slides, so the master's CORNER tags were dropped.
+- **Output:**
+  - Scenes: `scenes/weekly47.js`.
+  - `compose_face.py --polish` (16:9).
+  - Runtime 22:12, with 13 MCQ holds of 6 s.
+- **Captions:** `Weekly-Nov-3rd-Week-captions-EN.srt`. The camera lines use her own words, cleaned up; the voice-over uses the script; the Telugu is in English.
+- **Slip to fix:** in story 10 she said "Developing countries … at least $300 million". It should be "developed" and "billion". The slide shows the correct figure. A one-sentence re-record has been requested.
