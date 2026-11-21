@@ -49,3 +49,12 @@
   - Runtime 22:12, with 13 MCQ holds of 6 s.
 - **Captions:** `Weekly-Nov-3rd-Week-captions-EN.srt`. The camera lines use her own words, cleaned up; the voice-over uses the script; the Telugu is in English.
 - **Slip to fix:** in story 10 she said "Developing countries … at least $300 million". It should be "developed" and "billion". The slide shows the correct figure. A one-sentence re-record has been requested.
+
+## Voice fix, v2 (21 Nov 2026)
+
+The owner said: "my voice is very broad and there is some disturbance also". The video is unchanged; only the audio was rebuilt, with **voice D** (decision 49):
+- less low boom and fan rumble;
+- pauses about 7 dB quieter (a gentle expander, not noise reduction);
+- the camera mic matched to the voice-over mic.
+
+Same timing, 21:08, −14 LUFS. Delivered as `Weekly-Nov-3rd-Week-FINAL-v2.mp4`, with a 40 s before/after sample.
