@@ -1,6 +1,6 @@
 # Upload Pack — 2026-W47 Weekly: November 3rd Week Current Affairs (Mon 16 – Sat 21 Nov 2026)
 
-**Release:** Sun 22 Nov 2026, 6:00 PM IST · 16:9 · on camera · about 21–24 min · 12 topics, each with a chart or diagram and an MCQ, plus persons and places.
+**Release:** Sun 22 Nov 2026, 6:00 PM IST · 16:9 · on camera · 22:12 · 12 topics, each with a chart or diagram and an MCQ, plus persons and places.
 
 **Thumbnail:** `Thumbnail-Weekly-Nov-3rd-Week.png`, with the photo on the left and the "DECODE UPSC with Mounika" badge.
 
@@ -15,22 +15,22 @@
 ```
 For the first time ever, the world court has found a country guilty of genocide. The leaders of America, China and Russia met at one table, Cyclone Akvan crossed our coast, and an Indian company won the Earthshot Prize. November's third week: 12 stories with data, diagrams and a practice MCQ after each. Explained in English, with Telugu on the key lines.
 
-⏱️ Chapters (times are added after the edit)
+⏱️ Chapters
 00:00 This week in 12 stories
-World court: Myanmar guilty of genocide
-Shenzhen: America, China, Russia at one table
-Quad in Manila: what India got
-India votes against a death-penalty pause
-Labour Codes turn one
-One week, four defence partners
-Cyclone Akvan & the Yanam trap
-Telugu States: Nagarjuna Sagar water row
-Earthshot Prize comes to Mumbai
-COP31: two captains, one deadlock
-SCO Civilisational Dialogue in Delhi
-This week's important days
-Persons, places & awards
-This week's Mains question
+00:57 World court: Myanmar guilty of genocide
+03:14 Shenzhen: America, China, Russia at one table
+05:20 Quad in Manila: what India got
+06:41 India votes against a death-penalty pause
+08:33 Labour Codes turn one
+10:15 One week, four defence partners
+11:36 Cyclone Akvan & the Yanam trap
+12:56 Telugu States: Nagarjuna Sagar water row
+14:12 Earthshot Prize comes to Mumbai
+15:49 COP31: two captains, one deadlock
+17:16 SCO Civilisational Dialogue in Delhi
+18:27 This week's important days
+19:34 Persons, places & awards
+21:22 This week's Mains question
 
 📌 Key facts
 • ICJ, 19 Nov: Myanmar committed genocide (vote 9–6) · first finding against a State · ICJ ≠ ICC
