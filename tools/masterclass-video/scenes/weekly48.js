@@ -430,3 +430,109 @@ const MCQS = [
  { id: 'S12', n: 12, kind: 'pairs', stem: 'How many of the following pairs are correctly matched?', items: ['Balendra Shah — Prime Minister of Nepal', 'Jamieson Greer — US Trade Representative', 'Musandam — part of Iran', 'Saraighat — Brahmaputra'], opts: '(a) Only one   (b) Only two   (c) Only three   (d) All four', ans: '(c) Only three', ok: [1, 1, 0, 1], why: 'Musandam belongs to Oman.' },
 ];
 MCQS.forEach(m => { SCENES[m.id + '8'] = mcqScene(m, false); SCENES[m.id + '9'] = mcqScene(m, true); });
+
+// ================= v2 (owner, 27 Nov: "real photos and maps") =================
+// Real Copernicus Sentinel-2 imagery (assets sat/<name>.png + .json) and India maps from the Survey of India outline (exMap).
+const SATC = 'Contains modified Copernicus Sentinel data 2026';
+function satProj(b, ctr, span, k) {            // Mercator fitted to box b, `span` degrees of longitude across, push-in k
+  const [x, y, w, h] = b; return d3.geoMercator().scale(k * w / (span * Math.PI / 180)).center(ctr).translate([x + w / 2, y + h / 2]);
+}
+function satView(ctx, s, b, name, ctr, span, o = {}) {
+  const k = 1 + 0.08 * clamp(s.t / Math.max(s.d, 1)), proj = satProj(b, ctr, span, k);
+  ctx.save(); rr(ctx, ...b, o.r ?? 0); ctx.clip(); ctx.fillStyle = '#0B1A2A'; ctx.fillRect(...b);
+  raster(ctx, proj, A[name], A[name + '_meta'], { filter: o.filter || 'brightness(1.05) saturate(1.1)' });
+  if (o.dim) { ctx.fillStyle = `rgba(10,8,30,${o.dim})`; ctx.fillRect(...b); }
+  for (const [t, ll, z, col, f] of o.labels || []) { const [px, py] = proj(ll); kt(ctx, t, px, py, { font: F.ui(z || 34, 900), color: col || '#FFFFFF', align: 'center', shadow: 8, alpha: eia(s, T(s, f || 0.05)) }); }
+  for (const [t, ll, off, f, bg] of o.pins || []) exTag(ctx, proj, ll, t, off, eia(s, T(s, f)), EP.purple, { bg: bg || '#FFFFFF', size: 28 });
+  if (o.draw) o.draw(ctx, proj);
+  ctx.restore();
+  if (o.r) { ctx.save(); rr(ctx, ...b, o.r); ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 4; ctx.stroke(); ctx.restore(); }
+  kt(ctx, SATC, b[0] + b[2] - 16, b[1] + b[3] - 16, { font: F.ui(22, 700), color: '#FFFFFF', align: 'right', shadow: 6, alpha: 0.9 });
+}
+function satTitle(n, t, grp, sub, name, ctr, span) {      // topic title over real satellite imagery
+  return (ctx, s) => {
+    const c = PAL[grp]; satView(ctx, s, [0, 0, W, H], name, ctr, span, { dim: 0.45 });
+    zoom(ctx, bounce(s.t, 0.05), 300, 470, () => { ctx.beginPath(); ctx.arc(300, 470, 190, 0, 7); ctx.fillStyle = YEL; ctx.fill(); kt(ctx, String(n), 300, 540, { font: F.head(200, 900), color: c.ink, align: 'center' }); });
+    exChip(ctx, { eco: 'ECONOMY', pol: 'POLITY & SOCIETY', env: 'ENVIRONMENT & HEALTH', world: 'WORLD & DEFENCE' }[grp], 560, 250, '#FFFFFF', c.ink, 40, eia(s, 0.2));
+    kt(ctx, t, 560, 450, { font: F.head(92, 900), color: '#FFFFFF', maxW: 1290, lh: 104, alpha: eia(s, 0.3), shadow: 10 });
+    if (sub) kt(ctx, sub, 560, 880, { font: F.ui(48, 800), color: YEL, maxW: 1290, lh: 58, alpha: eia(s, 0.6), shadow: 8 });
+  };
+}
+
+// titles over real imagery
+SCENES.S031 = satTitle(3, 'COP31 ends with no deal', 'env', 'Update · Antalya, Türkiye · 22 Nov 2026', 'antalya', [30.72, 36.885], 0.33);
+SCENES.S051 = satTitle(5, "Pakistan's first astronaut", 'world', 'Shenzhou-24 · 25 Nov 2026 · from Jiuquan', 'jiuquan', [100.2, 41.0], 0.55);
+SCENES.S061 = satTitle(6, 'The Strait of Hormuz', 'world', "India's oil route · and what is in Visakhapatnam", 'hormuz', [56.3, 26.5], 1.45);
+SCENES.S081 = satTitle(8, 'Nitish Setu', 'pol', "India's new longest river bridge · opened 21 Nov 2026", 'nitish', [85.32, 25.63], 0.25);
+SCENES.S101 = satTitle(10, 'Two heroes of November 24th', 'pol', 'Lachit Borphukan · Guru Tegh Bahadur', 'saraighat', [91.72, 26.175], 0.33);
+
+// 2 · Nepal: the real map (Survey of India outline) + the treaties
+SCENES.S023 = (ctx, s) => {
+  const c = PAL.world; exSlide(ctx, c, null, null); head(ctx, s, c, 'INDIA–NEPAL · THE STATIC BASE');
+  const F5 = { Uttarakhand: '#F5D300', 'Uttar Pradesh': '#F5D300', Bihar: '#F5D300', 'West Bengal': '#F5D300', Sikkim: '#F5D300' };
+  exMap(ctx, s, [72, 150, 1060, 880], c, { bounds: [78.5, 24.6, 89.2, 31.2], focus: F5, highlight: { NPL: '#FFD9DC' },
+    labels: [['NEPAL', [84.2, 28.3], 46, '#B91C1C'], ['Uttarakhand', [79.4, 30.3], 24], ['Uttar Pradesh', [80.9, 26.6], 26], ['Bihar', [85.6, 25.9], 26], ['West Bengal', [88.0, 25.2], 22], ['Sikkim', [88.45, 27.95], 22]],
+    pins: [['Kathmandu', [85.32, 27.72], [70, -60], 0.15], ['Kalapani–Lipulekh area', [80.8, 30.2], [190, -40], T(s, 0.7), { bg: '#FFD9DC' }]],
+    credit: 'Boundaries: Survey of India outline (DataMeet) · Natural Earth' });
+  pp(ctx, s, 0.05, 1170, 150, 680, 200, YEL, [['1950 · Treaty of Peace and Friendship', 34, INK], ['open border', 28, INK, 800]]);
+  pp(ctx, s, 0.3, 1170, 375, 680, 220, '#FFFFFF', [['RIVER TREATIES', 28, VIO], ['Kosi 1954 · Gandak 1959', 34, INK], ['Mahakali 1996 (Pancheshwar)', 32, INK]]);
+  pp(ctx, s, 0.55, 1170, 620, 680, 180, GRN, [['5 border states', 40, INK], ['shaded yellow on the map', 26, INK, 800]]);
+  pp(ctx, s, 0.75, 1170, 825, 680, 200, '#FFD9DC', [['Kalapani · Lipulekh · Limpiyadhura', 30, INK], ["shown on Nepal's 2020 map", 26, RED, 800]]);
+};
+
+// 5 · Shenzhou-24 with the real launch site
+SCENES.S052 = (ctx, s) => {
+  const c = PAL.world; exSlide(ctx, c, null, null); head(ctx, s, c, 'SHENZHOU-24 · 25 NOV 2026', 'Long March 2F · Jiuquan Satellite Launch Centre');
+  pp(ctx, s, 0.05, 72, 240, 760, 330, YEL, [['Muhammad Zeeshan Ali', 46, INK], ["Pakistan's first astronaut", 36, INK], ['payload specialist', 30, VIO, 800]]);
+  pp(ctx, s, 0.35, 72, 600, 760, 330, '#FFFFFF', [['FIRST foreign astronaut on', 34, RED], ['Tiangong', 60, INK], ["China's own space station", 30, VIO, 800]]);
+  satView(ctx, s, [880, 240, 968, 690], 'jiuquan', [100.2, 40.98], 0.5, { r: 24,
+    pins: [['Jiuquan Satellite Launch Centre', [100.29, 40.96], [-60, -150], 0.15, YEL]],
+    labels: [['GOBI DESERT · INNER MONGOLIA', [100.05, 41.12], 30, '#FFFFFF', 0.3]] });
+};
+
+// 6 · Hormuz: the real strait
+SCENES.S063 = (ctx, s) => {
+  satView(ctx, s, [0, 0, W, H], 'hormuz', [56.35, 26.45], 1.75, {
+    labels: [['IRAN', [57.0, 26.75], 64, '#FFFFFF', 0.03], ['PERSIAN GULF', [55.75, 26.4], 44, '#BFE3FF', 0.15], ['GULF OF OMAN', [56.88, 26.3], 44, '#BFE3FF', 0.25], ['OMAN · Musandam', [56.15, 26.25], 40, '#FFFFFF', 0.2]],
+    pins: [['Qeshm Island', [55.95, 26.85], [-80, -70], 0.12], ['the narrow strait', [56.42, 26.55], [190, -10], 0.35, YEL]],
+    draw: (g, proj) => { const p = span(s.t, T(s, 0.4), T(s, 0.75)); if (p > 0) arrow(g, [[55.6, 26.55], [56.15, 26.62], [56.55, 26.5], [56.8, 26.05]].map(q => proj(q)), p, { color: YEL, lw: 10, dash: [24, 14] }); } });
+  exChip(ctx, 'WHERE IS THE STRAIT?', 72, 44, '#FFFFFF', INK, 34, eia(s, 0.05));
+  exChip(ctx, "≈ 1/5 of the world's oil passes here", 72, 960, YEL, INK, 34, eia(s, T(s, 0.6)));
+  exChip(ctx, 'India imports ≈ 85% of its crude', 900, 960, '#FFFFFF', INK, 34, eia(s, T(s, 0.75)));
+};
+// 6 · Telugu States Lens with real Visakhapatnam imagery
+SCENES.S064 = (ctx, s) => {
+  const c = PAL.env; exSlide(ctx, c, null, null); exChip(ctx, 'TELUGU STATES LENS', 72, 44, '#2BB3A3', '#FFFFFF', 36, eia(s, 0.05));
+  kt(ctx, "India's emergency oil: underground rock caverns · ISPRL", 76, 168, { font: F.ui(36, 800), color: '#FFFFFF', alpha: eia(s, 0.2) });
+  satView(ctx, s, [72, 210, 820, 800], 'vizag', [83.27, 17.71], 0.22, { r: 24, labels: [['VISAKHAPATNAM', [83.24, 17.765], 40, '#FFFFFF', 0.05], ['BAY OF BENGAL', [83.33, 17.66], 32, '#BFE3FF', 0.1]] });
+  hbars(ctx, s, 960, 320, 300, 110, 90, [['Visakhapatnam, AP · the first', 1.33, '1.33 MMT', YEL], ['Mangaluru, Karnataka', 1.5, '1.5 MMT', '#FFFFFF'], ['Padur, Karnataka', 2.5, '2.5 MMT', '#FFFFFF']], 0.15, 0.15);
+  pp(ctx, s, 0.65, 960, 860, 880, 140, GRN, [['TOTAL 5.33 million tonnes', 40, INK]]);
+};
+
+// 8 · Nitish Setu: the real bridge
+SCENES.S082 = (ctx, s) => {
+  satView(ctx, s, [0, 0, W, H], 'nitish', [85.315, 25.645], 0.3, {
+    labels: [['GANGA', [85.3, 25.625], 40, '#BFE3FF', 0.05], ['PATNA', [85.215, 25.575], 40, '#FFFFFF', 0.08], ['VAISHALI district', [85.36, 25.70], 36, '#FFFFFF', 0.1]],
+    pins: [['Nitish Setu · 9.76 km · 6 lanes', [85.318, 25.607], [260, -60], 0.3, YEL], ['south end · Kachchi Dargah side', [85.272, 25.588], [200, 80], 0.45], ['north end · Bidupur side', [85.392, 25.708], [-260, -40], 0.55], ['Mahatma Gandhi Setu', [85.21, 25.64], [140, -90], 0.7]] });
+  exChip(ctx, 'NITISH SETU · OVER THE GANGA', 72, 44, '#FFFFFF', INK, 34, eia(s, 0.05));
+  exChip(ctx, 'corridor with approach roads ≈ 19.76 km', 72, 980, YEL, INK, 30, eia(s, T(s, 0.8)));
+};
+// 8 · bridge records with the real Atal Setu
+SCENES.S083 = (ctx, s) => {
+  const c = PAL.pol; exSlide(ctx, c, null, null); head(ctx, s, c, 'THE BRIDGE RECORDS', 'Look-alikes the examiner loves');
+  const B = [[0.05, YEL, 'Nitish Setu · Ganga', '9.76 km · longest river bridge (reported)'], [0.2, '#FFFFFF', 'Bhupen Hazarika Setu · Lohit', '≈ 9.15 km · record until now'],
+    [0.4, '#FFFFFF', 'Bogibeel · Brahmaputra', 'longest rail-cum-road bridge'], [0.6, SKY, 'Atal Setu · Mumbai', '≈ 21.8 km · longest SEA bridge'], [0.8, '#FFFFFF', 'Gandhi Setu · Patna–Hajipur', 'river record 1982–2017']];
+  B.forEach(([f, fill, a, b], i) => pp(ctx, s, f, 72, 220 + i * 160, 860, 140, fill, [[a, 36, INK], [b, 28, INK, 800]]));
+  satView(ctx, s, [980, 220, 868, 780], 'atalsetu', [72.93, 18.975], 0.2, { r: 24,
+    pins: [['Atal Setu (sea bridge)', [72.93, 19.0], [40, -120], 0.6, YEL], ['Sewri, Mumbai', [72.86, 19.005], [60, 110], 0.65], ['Elephanta Island', [72.932, 18.965], [120, 90], 0.7]] });
+};
+
+// 10 · Lachit: the real Brahmaputra at Guwahati
+SCENES.S102 = (ctx, s) => {
+  satView(ctx, s, [0, 0, W, H], 'saraighat', [91.72, 26.175], 0.33, {
+    labels: [['BRAHMAPUTRA', [91.62, 26.19], 44, '#BFE3FF', 0.05], ['GUWAHATI', [91.78, 26.155], 46, '#FFFFFF', 0.1]],
+    pins: [['Saraighat area · battle of 1671', [91.68, 26.185], [80, -150], 0.25, YEL]] });
+  exChip(ctx, 'LACHIT DIVAS · 24 NOV · 404th birth anniversary', 72, 44, '#FFFFFF', INK, 34, eia(s, 0.05));
+  pp(ctx, s, 0.45, 72, 780, 860, 220, YEL, [['Battle of Saraighat · 1671', 42, INK], ['Ahoms defeat a larger Mughal army', 30, INK, 800]]);
+  pp(ctx, s, 0.7, 990, 780, 860, 220, '#FFFFFF', [['National Defence Academy', 32, VIO], ['best cadet: Lachit Borphukan Gold Medal', 32, INK]]);
+};
