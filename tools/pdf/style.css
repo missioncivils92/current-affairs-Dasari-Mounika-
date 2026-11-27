@@ -1,5 +1,7 @@
+/* Telugu lines need a shaping font (Noto Sans Telugu, SIL OFL); without it Chromium falls back to Unifont and breaks conjuncts. */
+@font-face { font-family: "Noto Sans Telugu"; src: url("fonts/NotoSansTelugu.ttf"); }
 @page { size: A4; margin: 16mm 14mm 16mm 14mm; }
-body { font-family: "DejaVu Sans", Arial, sans-serif; font-size: 9.4pt; line-height: 1.36; color: #1E2228; }
+body { font-family: "DejaVu Sans", "Noto Sans Telugu", Arial, sans-serif; font-size: 9.4pt; line-height: 1.36; color: #1E2228; }
 h1,h2,h3 { color: #1E2228; }
 h2 { font-size: 15pt; margin: 14px 0 6px; padding: 5px 9px; background: #1E2228; color: #fff; border-left: 6px solid #F5D300; page-break-after: avoid; }
 h2 code { background: #F5D300; color: #1E2228; font-size: 8.5pt; padding: 2px 6px; border-radius: 3px; margin-left: 6px; font-family: inherit; font-weight: 700; }
