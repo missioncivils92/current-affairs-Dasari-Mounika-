@@ -42,3 +42,35 @@ The owner asked for "real photos and maps". The owner declined a network change 
 | hormuz | 55.5 25.6 57.4 27.2 | 2026-10-15 to 2026-11-25 | 2400 |
 
 **Pin placement:** pins were placed by reading a lat/lon grid over each image. The Nitish Setu pins mark the visible bridge line; the Visakhapatnam SPR cavern is not pinned (its exact site was not verified).
+
+## Magnificent views: camera flights (27 Nov)
+
+The owner asked for "more magnificent views please in video format". `scenes/flights48.js` makes seven 13.5 s flights:
+- Hormuz, Nitish Setu, Saraighat, Visakhapatnam, Atal Setu, Jiuquan and Antalya;
+- each starts over India and descends through a colour shaded relief onto real Sentinel-2 imagery, then lands with labels and one fact.
+
+**Relief:** the new `tools/masterclass-video/relief.py` builds it from AWS Terrain Tiles. Bounds used:
+
+| Name | Bounds (W S E N) | Zoom |
+|---|---|---|
+| asia_t | 15 −12 120 52 | 5 |
+| hormuz_t | 51 22 61 30.5 | 8 |
+| bihar_t | 82 23.5 89.5 29 | 8 |
+| assam_t | 88.5 24.5 96.5 28.5 | 8 |
+| gobi_t | 95 37.5 105 43.5 | 8 |
+| antalya_t | 27 34.5 35 39 | 8 |
+| mumbai_t | 71 17 75.5 21 | 8 |
+| vizag_t | 80.5 16 85.5 20 | 8 |
+
+**Mid-zoom Sentinel layers (`sentinel.py`):**
+
+| Name | Bounds (W S E N) |
+|---|---|
+| patna_m | 84.7 25.2 86.0 26.1 |
+| guwahati_m | 91.0 25.85 92.4 26.6 |
+| vizag_m | 82.7 17.3 83.8 18.1 |
+| mumbai_m | 72.6 18.6 73.4 19.3 |
+
+Mid-zoom layers use dates 2026-10-15 to 2026-11-25 and a width of 2400 px.
+
+**India outline:** the Survey of India outline (DataMeet) is drawn on top of the relief throughout. The timeline is a 7-row placeholder script (34 words a row, about 13.5 s each).
