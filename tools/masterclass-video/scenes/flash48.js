@@ -31,7 +31,7 @@ const FC = [
     a: ['Adopted 26 Nov 1949 · in force 26 Jan 1950', 'Since 2015 (2026 = 77th)', 'Dr B. R. Ambedkar · President: Dr Rajendra Prasad'], trap: 'Art 394: citizenship & election provisions began 26 Nov 1949' },
   { n: 10, t: 'TWO HEROES · 24 NOV', col: '#B91C1C', pic: ['sat', 'saraighat', [91.7, 26.18], 0.22],
     q: ['Which battle did Lachit Borphukan win, and when?', 'Which Sikh Guru was martyred in Delhi in 1675?', 'Who founded the Khalsa?'],
-    a: ['Saraighat, 1671 · Brahmaputra near Guwahati', 'Guru Tegh Bahadur, the 9th Guru', 'Guru Gobind Singh, the 10th Guru (1699)'], trap: 'NOT Guru Tegh Bahadur · NDA best cadet gets the Lachit Borphukan Gold Medal' },
+    a: ['Saraighat, 1671 · Brahmaputra near Guwahati', 'Guru Tegh Bahadur, the 9th Guru', 'Guru Gobind Singh, the 10th Guru (1699)'], trap: 'The Khalsa was NOT founded by Guru Tegh Bahadur · NDA best cadet gets the Lachit Borphukan Gold Medal' },
   { n: 11, t: 'CHILD MARRIAGE', col: '#DB2777', pic: null,
     q: ['Which law prohibits child marriage?', 'What are the minimum ages?', 'When was Bal Vivah Mukt Bharat launched?'],
     a: ['Prohibition of Child Marriage Act, 2006', 'Girls 18 · boys 21', '27 Nov 2024 · Ministry of Women and Child Development'], trap: 'The 2021 bill (girls to 21) lapsed in 2024' },
@@ -58,7 +58,7 @@ function front(c) {
   return (ctx, s) => {
     cardBg(ctx, c.col); header(ctx, c, 'QUESTIONS');
     let y = 420; const maxW = 800;
-    c.q.forEach((q, i) => { kt(ctx, 'Q' + (i + 1), 120, y, { font: F.hand(54, 700), color: c.col }); y += kt(ctx, q, 200, y, { font: F.hand(44, 700), color: '#1F2937', maxW, lh: 54 }) + 60; });
+    c.q.forEach((q, i) => { kt(ctx, 'Q' + (i + 1), 120, y, { font: F.ui(42, 800), color: c.col }); y += kt(ctx, q, 200, y, { font: F.ui(34, 800), color: '#1F2937', maxW, lh: 46 }) + 60; });
     if (c.pic) { const b = [320, 800, 440, 235]; ctx.save(); ctx.translate(b[0] + b[2] / 2, b[1] + b[3] / 2); ctx.rotate(-0.02); ctx.translate(-(b[0] + b[2] / 2), -(b[1] + b[3] / 2));
       ctx.fillStyle = '#FFF'; ctx.shadowColor = 'rgba(0,0,0,0.25)'; ctx.shadowBlur = 16; ctx.fillRect(b[0] - 12, b[1] - 12, b[2] + 24, b[3] + 24); ctx.shadowBlur = 0;
       const st = { ...s, t: s.d };
@@ -66,18 +66,18 @@ function front(c) {
       else exMap(ctx, st, b, PAL.world, { bounds: c.pic[1], focus: c.pic[2], highlight: c.pic[3], credit: 'Survey of India outline' });
       ctx.restore(); }
     rr(ctx, 120, H - 290, W - 240, 110, 24); ctx.fillStyle = '#FFF3C4'; ctx.fill();
-    kt(ctx, 'Answer in the comments, then swipe ➡', W / 2, H - 222, { font: F.hand(46, 700), color: '#7A2E0E', align: 'center' });
+    kt(ctx, 'Answer in the comments, then swipe ➡', W / 2, H - 222, { font: F.ui(35, 800), color: '#7A2E0E', align: 'center' });
   };
 }
 function back(c) {
   return (ctx, s) => {
     cardBg(ctx, c.col); header(ctx, c, 'ANSWERS');
     let y = 420;
-    c.a.forEach((a, i) => { kt(ctx, '✓', 120, y, { font: F.ui(48, 900), color: '#059669' }); kt(ctx, 'Q' + (i + 1), 170, y, { font: F.hand(40, 700), color: c.col });
-      y += kt(ctx, a, 240, y, { font: F.hand(46, 700), color: NV, maxW: 760, lh: 56 }) + 56; });
+    c.a.forEach((a, i) => { kt(ctx, '✓', 120, y, { font: F.ui(48, 900), color: '#059669' }); kt(ctx, 'Q' + (i + 1), 170, y, { font: F.ui(31, 800), color: c.col });
+      y += kt(ctx, a, 240, y, { font: F.ui(35, 800), color: NV, maxW: 760, lh: 46 }) + 56; });
     const h = 210; rr(ctx, 110, H - 130 - h - 40, W - 220, h, 22); ctx.fillStyle = '#FFE3EE'; ctx.fill();
-    kt(ctx, '⚠ Prelims Trap', 140, H - 130 - h + 20, { font: F.hand(48, 700), color: '#B91C1C' });
-    kt(ctx, c.trap, 140, H - 130 - h + 80, { font: F.hand(40, 700), color: '#1F2937', maxW: W - 300, lh: 46 });
+    kt(ctx, '⚠ Prelims Trap', 140, H - 130 - h + 20, { font: F.ui(37, 800), color: '#B91C1C' });
+    kt(ctx, c.trap, 140, H - 130 - h + 80, { font: F.ui(31, 800), color: '#1F2937', maxW: W - 300, lh: 46 });
   };
 }
 FC.forEach((c, i) => { SCENES['S' + (101 + 2 * i)] = front(c); SCENES['S' + (102 + 2 * i)] = back(c); });
