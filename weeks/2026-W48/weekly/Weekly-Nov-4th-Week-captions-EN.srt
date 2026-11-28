@@ -64,7 +64,7 @@ On 25th November, the Office of the United States Trade
 
 17
 00:01:05,040 --> 00:01:07,610
-representative proposed a tariff
+Representative proposed a tariff
 
 18
 00:01:07,660 --> 00:01:11,690
@@ -76,7 +76,7 @@ Under section 301 of America's
 
 20
 00:01:14,560 --> 00:01:17,150
-trade Act of 1974
+Trade Act of 1974
 
 21
 00:01:17,200 --> 00:01:20,280
@@ -444,7 +444,7 @@ The World Happiness Report comes from the United Nations
 
 112
 00:08:07,510 --> 00:08:11,250
-sustainable Development Solutions Network and Partners
+Sustainable Development Solutions Network and Partners
 
 113
 00:08:11,300 --> 00:08:16,860
@@ -1088,7 +1088,7 @@ The answer is
 
 273
 00:19:59,610 --> 00:20:02,890
-c: 18 for girls and 21 for boys.
+C: 18 for girls and 21 for boys.
 
 274
 00:20:02,940 --> 00:20:05,430
@@ -1160,7 +1160,7 @@ The answer is
 
 291
 00:21:21,770 --> 00:21:27,810
-c, only three. Musandam belongs to Oman, not Iran.
+C, only three. Musandam belongs to Oman, not Iran.
 
 292
 00:21:27,860 --> 00:21:32,670
